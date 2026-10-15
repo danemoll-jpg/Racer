@@ -23,9 +23,14 @@ namespace Racer
         public bool CarsRestricted => !CarAccess.CourseAllowsCars(string.IsNullOrEmpty(carRuleScene)?gameObject.scene.name:carRuleScene);
         // 0.88: a reward vehicle not yet earned (VehicleUnlocks) is not eligible for the player or the AI.
         // 0.106 Part C: the stunt vehicles only in Free Roam (FreeRoamWorld): never in a race, the campaign or for the AI
-        public VehicleProfile[] EligibleVehicles => VehicleProfile.All.Where(p=>(!CarsRestricted||p.Small)&&!VehicleUnlocks.Locked(p)&&(!p.Stunt||StuntHere)).ToArray();
-        public bool StuntHere=>gameObject.scene.name==RaceFlow.RoamScene;
-        public string EligibleVehicle(string id)=>VehicleUnlocks.Locked(id)||VehicleProfile.Find(id).Stunt&&!StuntHere?(CarsRestricted?"moto":"original"):CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
+        public VehicleProfile[] EligibleVehicles => stunts?StuntRace.Vehicles:VehicleProfile.All.Where(p=>(!CarsRestricted||p.Small)&&!VehicleUnlocks.Locked(p)&&(!p.Stunt||StuntHere)).ToArray();
+        public bool StuntHere=>gameObject.scene.name==RaceFlow.RoamScene||stunts;
+        public string EligibleVehicle(string id)=>stunts?StuntRace.Eligible(id):VehicleUnlocks.Locked(id)||VehicleProfile.Find(id).Stunt&&!StuntHere?(CarsRestricted?"moto":"original"):CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
+        // 0.119 Part B: a Stunt Race (StuntRace): stunt vehicles only for the player and every rival, air steering, the stunt park's landing rules,
+        // tricks scored (a trick bonus off the race time, or Split score); its own records (RecordCourse). Set by RaceFlow (Race > Stunt Race),
+        // CampaignRun (the Stunt chapter) or SplitScreen; false in every other race.
+        [System.NonSerialized] public bool stunts, splitScore;
+        public string RecordCourse=>stunts?StuntRace.RecordPrefix+courseId+(splitScore?"-split":""):courseId;
         // 0.89 campaign: the player may choose only the vehicles the campaign has given them (plus the earned mower); the AI
         // keeps every eligible vehicle. Testing ("Unlock everything") lifts the campaign lock.
         public VehicleProfile[] PlayerVehicles => EligibleVehicles.Where(p=>!Campaign.VehicleLocked(p)).ToArray();
@@ -56,7 +61,7 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"{courseId}-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}{(FreeRoam ? "" : WeatherGrip.RecordTag(WeatherGrip.ChosenFor(this)))}-laps{laps}";
+        public string Category => $"{RecordCourse}-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}{(FreeRoam ? "" : WeatherGrip.RecordTag(WeatherGrip.ChosenFor(this)))}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;
@@ -184,6 +189,7 @@ namespace Racer
             if (road)
                 CreateCars();
             if (SplitScreen.Active) SplitScreen.Race?.PlayerTwo(); // 0.90 Part D: the rival slot becomes player 2
+            StuntRaceScore.Prepare(this); // 0.119 Part B: a Stunt Race's tricks scored (removed in any other race)
             ShowGrid();
             foreach (var r in Racers)
             {
@@ -268,6 +274,7 @@ namespace Racer
                     }
 
                 if(!racing)clone.AddComponent<AmbientVehicle>().Initialize();
+                if(racing&&stunts)clone.AddComponent<RivalTricks>().Initialize(this,n); // 0.119 Part B: the rivals do tricks at the big jumps
                 car.enabled = false;
                 car.Body.isKinematic = false;
                 var driver = clone.AddComponent<RoadDriver>();
@@ -280,6 +287,7 @@ namespace Racer
                     var state = new RacerState(CampaignRun.RivalName(n)??(RacePlaylists.Active!=null?"Rival "+Racers.Count:clone.name), car, gates.Length - 1, laps, true);
                     Racers.Add(state);
                     driver.Racer = state;
+                    clone.GetComponent<RivalTricks>()?.Bind(state);
                 }
 
                 int h=n-localPopulation;

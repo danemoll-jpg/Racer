@@ -49,6 +49,9 @@ namespace Racer
         [System.NonSerialized] public float airControl;
         public const float AirTipRate = 5.5f, AirRollRate = 5.5f, AirSpinRate = 5f, AirResponse = 16f;
         public bool AirSteering { get; private set; }
+        // 0.119 Part B: a rival's air steering in a Stunt Race (RivalTricks): while AiAir holds, every axis is steered toward its stick value
+        // (x tip, y spin, z roll, -1..1; 0 stops the turn about it) at the player's rates; off, the AI flies as before
+        [System.NonSerialized] public bool AiAir; [System.NonSerialized] public Vector3 AiAirInput;
 
         void Awake()
         {
@@ -152,18 +155,19 @@ namespace Racer
             Vector3 tiltVelocity = Vector3.ProjectOnPlane(Body.angularVelocity, up);
             // 0.106 Part C: a stunt vehicle in the air with the stick held: no self-levelling, the stick sets the turn rates instead
             bool air = playerStep && airControl > 0 && GroundedWheels == 0 && !(configuration && configuration.WipedOut);
+            bool aiAir = !playerStep && AiAir && airControl > 0 && GroundedWheels == 0 && !(configuration && configuration.WipedOut);
             if (playerStep) input.AirActive = airControl > 0 && GroundedWheels == 0;
-            float tip = air ? input.AirPitch : 0, rollInput = air ? steering : 0, spin = air ? input.AirSpin : 0;
-            AirSteering = air && (Mathf.Abs(tip) > .1f || Mathf.Abs(rollInput) > .1f || Mathf.Abs(spin) > .1f);
+            float tip = air ? input.AirPitch : aiAir ? AiAirInput.x : 0, rollInput = air ? steering : aiAir ? AiAirInput.z : 0, spin = air ? input.AirSpin : aiAir ? AiAirInput.y : 0;
+            AirSteering = aiAir || air && (Mathf.Abs(tip) > .1f || Mathf.Abs(rollInput) > .1f || Mathf.Abs(spin) > .1f);
             float level = grounded ? 1 : AirSteering ? 0 : airStability;
             AlignmentTorque = ((tilt * uprightStrength - tiltVelocity * uprightDamping) * level).magnitude;
             Body.AddTorque((tilt * uprightStrength - tiltVelocity * uprightDamping) * level, ForceMode.Acceleration);
             if (AirSteering)
             {
                 var w = transform.InverseTransformDirection(Body.angularVelocity); float k = AirResponse * airControl * dt;
-                if (Mathf.Abs(tip) > .1f) w.x = Mathf.MoveTowards(w.x, tip * AirTipRate, k);            // stick forward: nose down
-                if (Mathf.Abs(rollInput) > .1f) w.z = Mathf.MoveTowards(w.z, -rollInput * AirRollRate, k); // stick right: roll right
-                if (Mathf.Abs(spin) > .1f) w.y = Mathf.MoveTowards(w.y, spin * AirSpinRate, k);            // right: spin clockwise from above
+                if (aiAir || Mathf.Abs(tip) > .1f) w.x = Mathf.MoveTowards(w.x, tip * AirTipRate, k);            // stick forward: nose down
+                if (aiAir || Mathf.Abs(rollInput) > .1f) w.z = Mathf.MoveTowards(w.z, -rollInput * AirRollRate, k); // stick right: roll right
+                if (aiAir || Mathf.Abs(spin) > .1f) w.y = Mathf.MoveTowards(w.y, spin * AirSpinRate, k);            // right: spin clockwise from above
                 Body.angularVelocity = transform.TransformDirection(w);
             }
         }

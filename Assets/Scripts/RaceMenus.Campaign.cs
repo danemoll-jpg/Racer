@@ -56,7 +56,8 @@ namespace Racer
             courseCaption.fontSize = 16;
             courseCaption.text = $"{c.Name}  ·  championship, {c.Rounds.Length} races\n{(progress != null ? $"Next: round {round + 1}, {RacePlaylists.Titles[c.Rounds[round].Course].Replace(" - ", " — ")}" : "Points 10 / 7 / 5 / 3 / 2 / 1 per race")}\nWins {Campaign.Money(c.Pay)} · first win +{Campaign.Money(c.Bonus)}\n{CupBest(c)}";
         }
-        static string ShortKind(CampaignEvent e) => e.Kind switch { CampaignEventKind.Race => $"Race, {e.Laps} laps", CampaignEventKind.TimeTrial => "Time trial", CampaignEventKind.Jump => "Jump", CampaignEventKind.Smash => "Smash", _ => "Speed trap" };
+        static string ShortKind(CampaignEvent e) => e.Kind switch { CampaignEventKind.Race => $"{(e.Stunt ? "Stunt race" : "Race")}, {e.Laps} lap{(e.Laps == 1 ? "" : "s")}", CampaignEventKind.TimeTrial => "Time trial", CampaignEventKind.Jump => "Jump", CampaignEventKind.Smash => "Smash",
+            CampaignEventKind.Trick => "Tricks", CampaignEventKind.Clean => "Land it clean", CampaignEventKind.Park => "Stunt event", _ => "Speed trap" };
         // the event row's best: place or medal only (the full best is in the caption beside the map)
         static string ShortBest(CampaignEvent e) { var r = Campaign.ResultOf(e.Id); if (r == null || r.runs == 0) return "not run yet"; return e.Kind == CampaignEventKind.Race ? (r.bestPlace > 0 ? "best " + Campaign.Ordinal(r.bestPlace) : "best: DNF") : "best"; } // 0.96 Part B: a timed event's best medal is drawn at the end of the row
         // The trophy mark: the best final position (★ = won).
@@ -155,7 +156,9 @@ namespace Racer
         void ForgetFreshNotices() { var st = flow.Save.Settings; st.unlocksSeen = (st.unlocksSeen ?? new string[0]).Where(id => !id.StartsWith(Campaign.FreshNotice)).ToArray(); st.unlocksPending = (st.unlocksPending ?? new string[0]).Where(id => !id.StartsWith(Campaign.FreshNotice)).ToArray(); flow.Save.SaveSettings(); }
         void OpenCampaignShop() { shopFromCampaign = true; flow.OpenGarage(); page = "shop"; pages.Clear(); Show(); }
         // The vehicles the player may enter: owned (all of them while Testing) that the event's class rule allows, never the mower.
-        VehicleProfile[] EventVehicles(CampaignEvent e) => VehicleProfile.All.Where(p => !p.Reward && (Campaign.Testing || Campaign.Owns(p.Id)) && e.Allows(p) && (CarAccess.CourseAllowsCars(RacePlaylists.Scenes[e.Course]) || p.Small)).ToArray();
+        // 0.119 Part C: a Stunt chapter event: the stunt vehicles the player has (the Clay Hopper given for the chapter, the Skywhip 250 once earned, the
+        // Clay Hopper Cup once won)
+        VehicleProfile[] EventVehicles(CampaignEvent e) => e.Stunt ? StuntRace.Vehicles : VehicleProfile.All.Where(p => !p.Reward && (Campaign.Testing || Campaign.Owns(p.Id)) && e.Allows(p) && (CarAccess.CourseAllowsCars(RacePlaylists.Scenes[e.Course]) || p.Small)).ToArray();
         // A championship: owned vehicles allowed on every one of its courses.
         VehicleProfile[] CupVehicles(CampaignCup c) => VehicleProfile.All.Where(p => !p.Reward && (Campaign.Testing || Campaign.Owns(p.Id)) && (c.Rounds.All(r => CarAccess.CourseAllowsCars(RacePlaylists.Scenes[r.Course])) || p.Small)).ToArray();
         // 0.110 Part D: the vehicle last driven (anywhere) that the event allows, else the newest allowed one driven, else the first allowed. The
@@ -192,7 +195,13 @@ namespace Racer
             if (e.Kind == CampaignEventKind.Jump) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump; jump as often as you like in {e.TimeLimit:0} s: your best counts. Reset takes you back to the run-up; Pause > End event keeps your best. Land it on your wheels to score.");
             if (e.Kind == CampaignEventKind.Smash) lines.Add($"Smash as many fence panels as you can in {e.TimeLimit:0} s: {e.Targets[0]:0} bronze, {e.Targets[1]:0} silver, {e.Targets[2]:0} gold. {e.Props} to smash, marked in orange; in the air counts; a reset keeps the count."); // 0.111 Part B
             if (e.Kind == CampaignEventKind.TimeTrial) lines.Add("Flying start: the lap clock starts at the START line.");
-            lines.Add(e.Kind == CampaignEventKind.Race ? "Pass: finish in the top three" : "Pass: win any medal");
+            // 0.119 Part C: the Stunt chapter's events
+            if (e.Stunt) lines.Add(StuntRace.Rules);
+            if (e.Kind == CampaignEventKind.Race && e.SplitScore) lines.Add(StuntRace.ScoringText(true));
+            if (e.Kind == CampaignEventKind.Trick) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump: {e.Tries} tries (reset takes you back to the run-up). Each try scores its combo (the jump and its tricks; a bail scores nothing): your best counts.");
+            if (e.Kind == CampaignEventKind.Clean) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump: land it on your wheels again and again in {e.TimeLimit:0} s (reset takes you back to the run-up). A bail or crash starts the count again; your best run in a row counts.");
+            if (e.Kind == CampaignEventKind.Park) lines.Add($"The Stunt event at {StuntPark.Title}: {StuntProgress.Minutes} minutes to score as many points as you can in the park (combos chained within {ArcadeActivities.ComboGap:0} s).");
+            lines.Add(e.Kind == CampaignEventKind.Race ? (e.SplitScore ? "Pass: top three by total points" : "Pass: finish in the top three") : "Pass: win any medal");
             // 0.92 Part D: every chapter final's prize is a vehicle, won by passing it (top three)
             if (e.Prize != null) lines.Add($"Prize: the {VehicleProfile.Find(e.Prize).Name} for passing it (top three)" + (e.Final && e.Chapter < CampaignData.Chapters.Length ? $"; it also opens chapter {e.Chapter + 1}" : ""));
             else if (e.Final && e.Chapter < CampaignData.Chapters.Length) lines.Add($"Top three opens chapter {e.Chapter + 1}");
@@ -266,7 +275,7 @@ namespace Racer
                     if (o.Bonus > 0) lines.Add($"First {(e.Kind == CampaignEventKind.Race ? "win" : "gold")} bonus: +{Campaign.Money(o.Bonus)}");
                     foreach (var u in o.Unlocked) lines.Add("Unlocked: " + u);
                     if (CampaignRun.OpenedCourse != null) lines.Add("Now open in Race: " + CampaignRun.OpenedCourse);
-                    lines.Add(o.Passed ? (e.Final ? "Chapter passed" : "Passed") : e.Kind == CampaignEventKind.Race ? "Not passed: finish in the top three to go on" : "Not passed: win any medal to go on");
+                    lines.Add(o.Passed ? (e.Final ? "Chapter passed" : "Passed") : e.Kind == CampaignEventKind.Race ? (e.SplitScore ? "Not passed: top three by total points to go on" : "Not passed: finish in the top three to go on") : "Not passed: win any medal to go on");
                     lines.Add(o.Testing ? "Testing mode: nothing was saved or paid." : "Money: " + Campaign.Money(Campaign.Current.money) + (o.Saved ? "" : "   (" + (Campaign.Error ?? "not saved") + ")"));
                 }
             }
@@ -286,7 +295,8 @@ namespace Racer
             Row(n++, "campaign-continue", "CONTINUE", flow.QuitRace);
             var colors = buttons[0].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[0].colors = colors;
             Row(n++, "campaign-retry", "Retry event", flow.RetryCampaignEvent);
-            if (e.Kind == CampaignEventKind.Race)
+            if (e.Kind == CampaignEventKind.Race && flow.Race.stunts) n = StuntStandings(n, false); // 0.119 Part C: the finish and stunt points, and the total
+            else if (e.Kind == CampaignEventKind.Race)
             {
                 TableRow(n++, "header", new[] { "Place", "Driver", "Time", "Status" }, new[] { .1f, .32f, .30f, .28f }, () => { }); int rank = 0;
                 foreach (var r in flow.Race.Ordered(true)) { int place = ++rank; TableRow(n++, "standing-" + place, new[] { place.ToString(), (r.IsAi ? r.Name : PlayerNames.Player) + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name, r.Dnf ? "—" : RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)), r.Dnf ? "DNF" : r.Estimated ? "Estimated" : "Measured" }, new[] { .1f, .32f, .30f, .28f }, () => { }, !r.IsAi); }

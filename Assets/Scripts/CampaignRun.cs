@@ -85,7 +85,8 @@ namespace Racer
             race.opponents = e.Kind == CampaignEventKind.Race && e.Rivals.Length > 0;
             race.opponentRoster = race.opponents ? (string[])e.Rivals.Clone() : new[] { "tourer", "moto", "atv" };
             // 0.91 Part C: a jump event has no laps (the player may go round and jump again until the time limit)
-            race.laps = e.Kind == CampaignEventKind.Jump ? 0 : e.Laps; race.difficulty = e.Difficulty; race.traffic = e.Traffic;
+            race.laps = e.Kind is CampaignEventKind.Jump or CampaignEventKind.Trick or CampaignEventKind.Clean ? 0 : e.Laps; race.difficulty = e.Difficulty; race.traffic = e.Traffic;
+            race.stunts = e.Stunt; race.splitScore = e.Stunt && e.SplitScore; // 0.119 Part C: the Stunt chapter (stunt vehicles, tricks scored)
             var configuration = race.vehicle.GetComponent<VehicleConfiguration>();
             configuration.Apply(Vehicle);
             Campaign.ApplyUpgrades(configuration); // 0.90: campaign runs only
@@ -94,7 +95,7 @@ namespace Racer
         public static bool StartStation(RaceDirector race, out float station)
         {
             station = 0; var e = Active; if (e == null || !race.road || e.Kind == CampaignEventKind.Race || e.RunUp <= 0) return false;
-            if (e.Kind == CampaignEventKind.SpeedTrap || e.Kind == CampaignEventKind.Jump || e.Kind == CampaignEventKind.Smash)
+            if (e.Kind is CampaignEventKind.SpeedTrap or CampaignEventKind.Jump or CampaignEventKind.Smash or CampaignEventKind.Trick or CampaignEventKind.Clean)
             {
                 var site = Site(race); if (!site) return false;
                 station = race.road.Project(site.transform.position, out _) - e.RunUp;
@@ -106,7 +107,7 @@ namespace Racer
         public static bool RunUpStart(RaceDirector race, out Vector3 position, out Quaternion rotation)
         {
             position = default; rotation = Quaternion.identity;
-            if (Active?.Kind != CampaignEventKind.Jump || Done || !StartStation(race, out float station)) return false;
+            if (!(Active?.Kind is CampaignEventKind.Jump or CampaignEventKind.Trick or CampaignEventKind.Clean) || Done || !StartStation(race, out float station)) return false;
             var at = race.road.At(station, out var heading); var car = race.vehicle;
             position = at + Vector3.up * Mathf.Max(.4f, car.suspensionLength - Physics.gravity.magnitude / car.springStrength);
             rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(heading, Vector3.up)); return true;
@@ -123,6 +124,8 @@ namespace Racer
             if (e.Kind == CampaignEventKind.Race)
             {
                 var order = race.Ordered(true); o.Field = order.Count; o.Place = order.IndexOf(me) + 1; o.Dnf = me.Dnf || !me.Classified;
+                // 0.119 Part C: split score: the place by the total of the finish and stunt-point places (ties: the better finish)
+                if (e.SplitScore && StuntRaceScore.Current) o.Place = StuntRaceScore.Current.SplitTable(true).FindIndex(l => l.racer == me) + 1;
                 o.Time = o.Dnf ? 0 : me.ClassifiedTime(race.Clock);
                 if (e.Cup != null) { o.Places = Places(race, order); Last = Campaign.CommitCupRace(o); return Last; }
             }
@@ -157,8 +160,13 @@ namespace Racer
     public sealed class CampaignTrapWatch : MonoBehaviour
     {
         RaceFlow flow; int awards, jumps, misses; float endAt = -1, score; bool smashStarted;
+        // 0.119 Part C: a Trick event's tries and the combo banked by the last one; a Clean event's landings in a row
+        int tries, streak, banked; ArcadeActivities hooked; void Banked(int points, bool _) => banked = Mathf.Max(banked, points);
+        public int Tries => tries; public int Streak => streak;
+        void OnDestroy() { if (hooked) hooked.ComboBanked -= Banked; }
         public float Best { get; private set; }
-        public void Initialize(RaceFlow owner) { flow = owner; awards = flow.Activities ? flow.Activities.Awards : 0; misses = flow.Activities ? flow.Activities.Misses : 0; endAt = -1; score = 0; smashStarted = false; Best = 0; jumps = 0; CampaignRun.NewRun(); }
+        public void Initialize(RaceFlow owner) { flow = owner; awards = flow.Activities ? flow.Activities.Awards : 0; misses = flow.Activities ? flow.Activities.Misses : 0; endAt = -1; score = 0; smashStarted = false; Best = 0; jumps = 0; tries = streak = banked = 0; CampaignRun.NewRun();
+            if (hooked) hooked.ComboBanked -= Banked; hooked = flow.Activities; if (hooked) hooked.ComboBanked += Banked; }
         // 0.96 Part A: the event panel (CampaignEventUi) replaces the HUD line this used to give
         public string Hud => null;
         // Pause menu > End event: the best scored jump counts (none: no result).
@@ -166,9 +174,10 @@ namespace Racer
         void Update()
         {
             var e = CampaignRun.Active;
-            if (!flow || e == null || (e.Kind != CampaignEventKind.SpeedTrap && e.Kind != CampaignEventKind.Jump && e.Kind != CampaignEventKind.Smash) || CampaignRun.Done) { Destroy(this); return; }
+            if (!flow || e == null || !(e.Kind is CampaignEventKind.SpeedTrap or CampaignEventKind.Jump or CampaignEventKind.Smash or CampaignEventKind.Trick or CampaignEventKind.Clean) || CampaignRun.Done) { Destroy(this); return; }
             if (flow.State != RaceFlow.Stage.Racing) return;
             var a = flow.Activities;
+            if (e.Kind is CampaignEventKind.Trick or CampaignEventKind.Clean) { StuntUpdate(e, a); return; }
             // 0.90: a smash event: the site's attempt runs from GO for the time limit; its count (or all of them) ends it. 0.111 Part B: every prop of
             // the area down ends it at once; gold does not (keep counting past it)
             if (e.Kind == CampaignEventKind.Smash)
@@ -198,6 +207,35 @@ namespace Racer
                 if (e.Kind == CampaignEventKind.SpeedTrap) CampaignRun.RecordAttempt(0, false, "time ran out before the trap");
                 flow.Notify(e.Kind == CampaignEventKind.Jump ? (Best > 0 ? "Time is up — your best jump counts: " + Campaign.Measure(e, Best) : "Time is up — no scored jump") : "Time is up — no trap speed recorded", 3);
             }
+            if (endAt >= 0 && Time.unscaledTime >= endAt) { CampaignRun.Finish(flow, score); flow.CompleteResults(); Destroy(this); }
+        }
+        // 0.119 Part C: a try is a flight from the event's jump (scored or not). Trick: the try's combo is banked at once (its tricks and the jump's
+        // points; a bail or crash: nothing), the best of Tries counts. Clean: a landing that scores adds one to the run in a row, a bail or crash
+        // starts it again; the best run counts, gold ends it. Both end at their time limit (or Pause > Finish event).
+        void StuntUpdate(CampaignEvent e, ArcadeActivities a)
+        {
+            if (endAt < 0 && a)
+            {
+                bool scored = a.Awards != awards && a.LastAwardSite && a.LastAwardSite.id == e.Site, missed = a.Misses != misses && a.LastMissSite && a.LastMissSite.id == e.Site;
+                awards = a.Awards; misses = a.Misses;
+                if (scored || missed)
+                {
+                    if (e.Kind == CampaignEventKind.Trick)
+                    {
+                        banked = 0; a.EndStuntCombo(); tries++; int points = scored ? banked : 0;
+                        Best = Mathf.Max(Best, points); CampaignRun.RecordAttempt(points, points > 0, points > 0 ? null : "bailed: " + (a.LastMiss ?? "no landing").ToLowerInvariant());
+                        if (tries >= e.Tries) { score = Best; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; }
+                        else flow.Notify($"Try {tries} of {e.Tries}" + (points > 0 ? $": {points:N0} pts" : ": no score") + "  ·  reset for the run-up", 4);
+                    }
+                    else
+                    {
+                        streak = scored ? streak + 1 : 0; Best = Mathf.Max(Best, streak);
+                        CampaignRun.RecordAttempt(streak, scored, scored ? null : "bail: " + (a.LastMiss ?? "no landing").ToLowerInvariant() + " — in a row again from 0");
+                        if (e.Targets != null && streak >= e.Targets[2]) { score = Best; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; }
+                    }
+                }
+            }
+            if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit) { score = Best; endAt = Time.unscaledTime + (score > 0 ? 1.6f : 0); flow.Notify("Time is up" + (Best > 0 ? " — your best counts: " + Campaign.Measure(e, Best) : " — no score"), 3); }
             if (endAt >= 0 && Time.unscaledTime >= endAt) { CampaignRun.Finish(flow, score); flow.CompleteResults(); Destroy(this); }
         }
     }

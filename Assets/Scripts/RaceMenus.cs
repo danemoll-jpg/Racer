@@ -258,7 +258,8 @@ namespace Racer
                     // list after the others; stepping onto one shows it locked and leaves the chosen vehicle as it was.
                     var eligible=flow.Race.PlayerVehicles;
                     // 0.106 Part C: the stunt vehicles are shown in a race's garage too, but drive only in Free Roam and the Stunt event
-                    var list=eligible.Concat(VehicleProfile.All.Where(v=>(VehicleUnlocks.Locked(v)||Campaign.VehicleLocked(v)||v.Stunt&&!flow.Race.StuntHere)&&(!flow.Race.CarsRestricted||v.Small))).ToArray();
+                    // 0.119 Part B: a Stunt Race's garage: the stunt vehicles (the locked ones after them), nothing else
+                    var list=eligible.Concat(VehicleProfile.All.Where(v=>flow.Race.stunts?v.Stunt&&VehicleUnlocks.Locked(v):(VehicleUnlocks.Locked(v)||Campaign.VehicleLocked(v)||v.Stunt&&!flow.Race.StuntHere)&&(!flow.Race.CarsRestricted||v.Small))).ToArray();
                     int at=System.Array.FindIndex(list,v=>v.Id==shownProfile.Id);
                     void StepVehicle(int d){if(list.Length==0)return;var next=list[((at<0?0:at)+d+list.Length)%list.Length];
                         if(VehicleUnlocks.Locked(next)||Campaign.VehicleLocked(next)||next.Stunt&&!flow.Race.StuntHere){garageLocked=next.Id;flow.Click();Show();Hints.LockedItem();}else{garageLocked=null;flow.SelectVehicle(next.Id);}}

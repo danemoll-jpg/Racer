@@ -91,7 +91,9 @@ namespace Racer
         public static bool LeftRight => Hints.Flow && Hints.Flow.Save != null && Hints.Flow.Save.Settings.splitLeftRight;
         // Every vehicle except the acorn reward, which joins once earned; every course.
         // 0.106 Part C: the stunt vehicles in Free Roam for two and the Stunt event only
-        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.LockedInSplit(p) && (!p.Stunt || Mode == Kind.FreeRoam || Mode == Kind.Stunt)).ToArray();
+        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.LockedInSplit(p) && (Mode == Kind.Race && StuntRace ? p.Stunt : !p.Stunt || Mode == Kind.FreeRoam || Mode == Kind.Stunt)).ToArray();
+        // 0.119 Part B: a split-screen Stunt Race (Race type on the setup screen): the stunt vehicles only, on the Stunt Race courses; SplitScore: its scoring
+        public static bool StuntRace, SplitScore;
         public static string DeviceName(InputDevice d) => d == null ? "—" : d is Keyboard ? "Keyboard" : d is Gamepad g ? "Controller " + (Gamepad.all.ToList().IndexOf(g) + 1) : d.displayName;
         public static bool Ready => P1Device != null && (P2Ai || P2Device != null);
         // One of the players' own devices (the mouse goes with the keyboard).
@@ -104,6 +106,7 @@ namespace Racer
             var race = flow.Race;
             if (Mode != Kind.Race)
             {
+                race.stunts = race.splitScore = false; // 0.119: Stunt Races are races only
                 // 0.94 Part B: Free Roam for two (player 2's vehicle is made by SplitRoam); Part C: Police Chase on top of it
                 race.opponents = false; race.traffic = Traffic;
                 var c1 = race.vehicle.GetComponent<VehicleConfiguration>(); c1.Apply(P1Vehicle); c1.SetBodyColor(P1Color);
@@ -113,7 +116,8 @@ namespace Racer
                 Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow); return;
             }
             // 0.92 Part F: player 2's vehicle is the first rival slot; the AI rivals follow it
-            race.opponents = true; race.opponentRoster = new[] { P2Vehicle }.Concat(RivalRoster(flow.gameObject.scene.name)).ToArray(); race.traffic = Traffic; race.difficulty = Mathf.Clamp(RivalDifficulty, 0, 2); race.laps = Mathf.Clamp(Laps, 1, 5);
+            race.stunts = StuntRace; race.splitScore = StuntRace && SplitScore; // 0.119 Part B
+            race.opponents = true; race.opponentRoster = new[] { P2Vehicle }.Concat(StuntRace ? Racer.StuntRace.Roster(Mathf.Clamp(Rivals, 0, 4)) : RivalRoster(flow.gameObject.scene.name)).ToArray(); race.traffic = Traffic; race.difficulty = Mathf.Clamp(RivalDifficulty, 0, 2); race.laps = Mathf.Clamp(Laps, 1, 5);
             var c = race.vehicle.GetComponent<VehicleConfiguration>(); c.Apply(P1Vehicle); c.SetBodyColor(P1Color);
             Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow);
         }
@@ -137,6 +141,7 @@ namespace Racer
         public ArcadeVehicle P2Car { get; private set; }
         public RacerState P2 { get; private set; }
         public WrongWayGuidance P2Guidance { get; private set; }
+        public ArcadeActivities P2Acts { get; private set; } // 0.119 Part B: a human player 2's tricks in a Stunt Race
         public int MissingPlayer { get; private set; } // 0 = both devices present
         public InputDevice PausedBy;
         SplitHud hud; bool p2Done; GameObject divider; CameraViews views2;
@@ -204,6 +209,8 @@ namespace Racer
                 var respawn = car.GetComponent<VehicleRespawn>(); respawn.enabled = true; respawn.SeedCoursePosition(car.Body.position);
             }
             else { P2 = state; P2.Name = PlayerNames.Ai; car.name = "PLAYER 2 (AI)"; }
+            // 0.119 Part B: a Stunt Race: a human player 2's flights are scored as player 1's (an AI player 2 keeps its RivalTricks)
+            if (race.stunts && !SplitScreen.P2Ai) { var rival = car.GetComponent<RivalTricks>(); if (rival) { rival.enabled = false; Destroy(rival); } P2Acts = gameObject.AddComponent<ArcadeActivities>(); P2Acts.Initialize(race, flow.Save.DirectoryPath, car); }
             if (!car.GetComponent<VehicleAudio>()) car.gameObject.AddComponent<VehicleAudio>();
             P2Guidance = gameObject.AddComponent<WrongWayGuidance>(); P2Guidance.Target = P2;
             p2Done = false; finished1 = finished2 = false; EndShot(1); EndShot(2); Cameras();
@@ -213,6 +220,7 @@ namespace Racer
         public void ClearPlayerTwo()
         {
             if (P2Guidance) { Destroy(P2Guidance); P2Guidance = null; }
+            if (P2Acts) { Destroy(P2Acts); P2Acts = null; }
             if (SplitRoam.Current) SplitRoam.Current.Clear();
             else if (P2Car && !SplitScreen.P2Ai) { P2Car.gameObject.SetActive(false); Destroy(P2Car.gameObject); }
             P2Car = null; P2 = null;
@@ -295,7 +303,7 @@ namespace Racer
         public string Category(int player)
         {
             var car = player == 1 ? race.vehicle : P2Car; var rivals = race.opponentRoster.Skip(1).ToArray();
-            return $"{race.courseId}-{car.GetComponent<VehicleConfiguration>().profileId}-{(rivals.Length > 0 ? "race4-d" + race.difficulty + "-" + string.Join("-", rivals) : "solo")}-{(race.traffic ? "traffic" : "clear")}{WeatherGrip.RecordTag(SplitScreen.Weather)}-laps{race.laps}";
+            return $"{race.RecordCourse}-{car.GetComponent<VehicleConfiguration>().profileId}-{(rivals.Length > 0 ? "race4-d" + race.difficulty + "-" + string.Join("-", rivals) : "solo")}-{(race.traffic ? "traffic" : "clear")}{WeatherGrip.RecordTag(SplitScreen.Weather)}-laps{race.laps}";
         }
         void Record(int player)
         {
@@ -311,6 +319,7 @@ namespace Racer
             }
             if (p.Finished && !raced)
             {
+                StuntRaceScore.Current?.Close(state); // 0.119 Part B: the open combo counts before the time is recorded
                 raced = true; int rank = flow.Boards.CompletedRace("split-" + attempt, category, vehicle, p, race.Clock, name);
                 if (rank > 0) TopTen.Add($"{name} race #{rank}");
                 if (flow.State == RaceFlow.Stage.Results) flow.RefreshMenu();

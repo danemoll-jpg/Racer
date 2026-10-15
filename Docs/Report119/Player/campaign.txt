@@ -1,0 +1,36 @@
+screen=1920x1080 kind=campaign119 version=0.119.0-review1 park=on
+== campaign (test save): chapter 5 of 5, owned [original, atv, moto, pebble, scrambler, fastback, roadstercup, driftercup, scramblercup, motochampion, stuntbuggy], load notice: Prize for winning the Street Cup: the Sundown Roadster Cup
+Prize for winning the Woodland Cup: the Drifter Twin Cup
+Prize for winning the Backyard Cup: the Ridge Scrambler Cup
+Prize for winning the Woodstock Grand Championship: the Needle 600 Champion
+Chapter 5: Stunt is open
+For the Stunt chapter: the Clay Hopper
+  chapter 5 open: True; Clay Hopper owned: True; events: Stunt Opener, Summit Tricks (locked), Red Clay Session (locked), Upside Down Under (locked), Land It Clean (locked), Leviathan Stunts (locked), Stunt Final (locked)
+-- Stunt Opener (Race, split score) on Mountain Loop — Forward: available True
+  stunts True, split True, player stuntbuggy, rivals stuntbuggy, stuntbike, stuntbuggy, laps 2
+  result: 1st of 4; passed True; pay 2600; medal 0; score 0; unlocked [Next event: Summit Tricks]; player stunt pts 9434; own tricks 4; flight 1: 5.9 s, DOUBLE BACKFLIP |   landed: DOUBLE BACKFLIP 3040 pts (186 m, 5.8 s) | flight 2: 0.4 s, no trick | flight 3: 7.3 s, DOUBLE BACKFLIP + 360 SPIN |   landed: DOUBLE BACKFLIP + 360 SPIN 3489 pts (204 m, 7.0 s) | flight 4: 0.5 s, no trick | flight 5: 7.3 s, 360 SPIN |   landed: 360 SPIN 2883 pts (204 m, 7.0 s) | 
+  split score: PLAYER finish 1 stunt 2 (9434 pts) total 17; Mia Torres stuntbike finish 2 stunt 1 (12196 pts) total 17; Rusty Vance stuntbuggy finish 3 stunt 3 (8501 pts) total 10; Big Ed Kowalski stuntbuggy finish 4 stunt 4 (8363 pts) total 6
+  after Continue: scene MountainLoop, page 'Ready/campaign', campaign event none, split False
+-- Summit Tricks (Trick) on Mountain Loop — Forward: available True
+  stunts True, split False, player stuntbuggy, rivals , laps 0
+  try 1: 2854 (scored); back to the run-up
+  try 2: 3035 (scored); back to the run-up
+  try 3: 3033 (scored); back to the run-up
+  result: NO MEDAL  ·  3,035 pts; passed False; pay 0; medal 0; score 3035; unlocked []; player stunt pts 8922; own tricks 4; flight 1: 7.1 s, ROLL |   landed: ROLL 2845 pts (192 m, 6.7 s) | flight 2: 2.6 s, chose none |   landed: no trick 708 pts (46 m, 2.5 s) | flight 3: 7.3 s, FRONTFLIP (will bail) |   landed: FRONTFLIP 3029 pts (203 m, 7.0 s) | flight 4: 2.6 s, ROLL |   landed: ROLL 962 pts (46 m, 2.5 s) | flight 5: 7.3 s, FRONTFLIP |   landed: FRONTFLIP 3026 pts (203 m, 7.0 s) | flight 6: 7.1 s, FRONTFLIP | flight 7: 2.7 s, chose none | 
+  after Continue: scene MountainLoop, page 'Ready/campaign', campaign event none, split False
+  (marked passed to go on: Summit Tricks)
+-- Red Clay Session (Park) on Street Loop — Forward: available True
+  the park event: scene FreeRoamWorld, split True Stunt solo True, stunt event Starting, vehicle stuntbuggy, tricks on True
+  stunts False, split False, player stuntbuggy, rivals , laps 2
+  result: No result; passed False; pay 0; medal 0; score 0; unlocked []; player stunt pts 0; own tricks 0; 
+  after Continue: scene StreetLoopGreybox, page 'Ready/campaign', campaign event none, split False
+  (marked passed to go on: Red Clay Session)
+  (marked passed first: Upside Down Under)
+  (marked passed first: Land It Clean)
+  (marked passed first: Leviathan Stunts)
+-- Stunt Final (Race, split score) on Leviathan — Forward: available True
+  stunts True, split True, player stuntbuggy, rivals stuntbike, stuntbuggy, stuntbike, stuntbuggy, stuntbike, laps 2
+  result: 1st of 6; passed True; pay 5000; medal 0; score 0; unlocked [Vehicle: Clay Hopper Cup]; player stunt pts 14863; own tricks 2; flight 1: 0.3 s, no trick | flight 2: 0.5 s, no trick | flight 3: 0.8 s, no trick |   landed: no trick 238 pts (17 m, 0.7 s) | flight 4: 0.5 s, no trick | flight 5: 0.5 s, no trick | flight 6: 0.8 s, no trick |   landed: no trick 331 pts (26 m, 0.7 s) | flight 7: 7.3 s, ROLL + 360 SPIN |   landed: ROLL + 360 SPIN 3136 pts (204 m, 7.0 s) | flight 8: 0.3 s, no trick | flight 9: 1.9 s, no trick |   landed: no trick 679 pts (49 m, 1.9 s) | flight 10: 0.8 s, no trick |   landed: no trick 234 pts (16 m, 0.8 s) | flight 11: 1.2 s, no trick |   landed: no trick 283 pts (18 m, 1.1 s) | flight 12: 0.7 s, no trick | flight 13: 0.9 s, no trick | flight 14: 0.8 s, no trick | flight 15: 0.5 s, no trick | flight 16: 0.3 s, no trick | flight 17: 0.5 s, no trick | flight 18: 0.5 s, no trick | flight 19: 0.8 s, no trick |   landed: no trick 237 pts (17 m, 0.7 s) | flight 20: 0.8 s, no trick | flight 21: 0.5 s, no trick | flight 22: 0.4 s, no trick | flight 23: 0.8 s, no trick |   landed: no trick 233 pts (16 m, 0.7 s) | flight 24: 7.3 s, chose none |   landed: no trick 2729 pts (203 m, 7.0 s) | flight 25: 0.3 s, no trick | flight 26: 1.8 s, no trick |   landed: no trick 634 pts (46 m, 1.7 s) | flight 27: 0.8 s, no trick |   landed: no trick 219 pts (14 m, 0.8 s) | flight 28: 1.1 s, no trick |   landed: no trick 300 pts (20 m, 1.0 s) | flight 29: 0.9 s, no trick | flight 30: 0.7 s, no trick | flight 31: 0.5 s, no trick | 
+  split score: PLAYER finish 4 stunt 1 (14863 pts) total 13; June Park stuntbuggy finish 1 stunt 5 (9226 pts) total 12; Rusty Vance stuntbike finish 2 stunt 4 (9498 pts) total 10; Big Ed Kowalski stuntbike finish 3 stunt 3 (10490 pts) total 10; Hollis Gray stuntbike finish 5 stunt 2 (12600 pts) total 9; Mia Torres stuntbuggy finish 6 stunt 6 (7407 pts) total 2
+  after Continue: scene MountainLoop, page 'Ready/campaign', campaign event none, split False
+  prize: owned True, unlock panel: CONGRATULATIONS! | You unlocked the Clay Hopper Cup / Passed the Stunt Final (campaign chapter 5)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.; Locked(hoppercup) False

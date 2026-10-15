@@ -25,8 +25,8 @@ namespace Racer
             if (SplitScreen.Active && SpeedPatrol.Current) return "speed-patrol";
             if (SplitScreen.Active && StuntEvent.Current) return "stunt-event";
             if (race.FreeRoam) return null; // Free Roam (alone or for two) is not an attempt
-            if (SplitScreen.Active) return "split-screen-race";
-            return RacePlaylists.Active != null ? "playlist-race" : "quick-race";
+            if (SplitScreen.Active) return race.stunts ? "split-screen-stunt-race" : "split-screen-race";
+            return RacePlaylists.Active != null ? "playlist-race" : race.stunts ? "stunt-race" : "quick-race"; // 0.119 Part B
         }
         static string KeyOf(RaceFlow flow, string mode)
         {
@@ -102,6 +102,15 @@ namespace Racer
             }
             catch (System.Exception e) { Debug.LogWarning("Results log line not made: " + e.Message); }
         }
+        // 0.119 Part B: a racer's stunt points, trick bonus, best combo and (split score) places
+        static ResultsLog.Json Stunt(RaceDirector race, RacerState r)
+        {
+            var p = r.Progress; var j = new ResultsLog.Json().Add("splitScore", race.splitScore).Add("points", p.StuntPoints).Add("combos", p.StuntCombos).Add("bestCombo", p.BestCombo).Add("bonusSeconds", (float)p.BonusSeconds);
+            var t = r.Car ? r.Car.GetComponent<RivalTricks>() : null; if (t) j.Add("tricks", t.Tricks).Add("bails", t.Bails).Add("flights", t.Flights);
+            var line = race.splitScore && StuntRaceScore.Current ? StuntRaceScore.Current.SplitTable(true).FirstOrDefault(l => l.racer == r) : null;
+            if (line != null) j.Add("finishPlace", line.finish).Add("stuntPlace", line.stunt).Add("total", line.total);
+            return j;
+        }
         static ResultsLog.Json Head(RaceFlow flow, int number, bool retry, bool finished, string how, int player, string name)
         {
             var race = flow.Race; var look = WorldLook.Current; bool split = SplitScreen.Active;
@@ -111,6 +120,8 @@ namespace Racer
              .Add("timeOfDay", split ? SplitScreen.Time.ToString() : look ? (look.Mode == "Free Roam" ? $"Free Roam {look.Hour:0.0} h" : look.RaceTime.ToString()) : null)
              .Add("weather", split ? SplitScreen.Weather.ToString() : look ? (look.Mode == "Free Roam" ? look.RoamWeather.ToString() : look.RaceWeather.ToString()) : null)
              .Add("debugMovementUsed", flow.DebugMovementUsed);
+            // 0.119 Parts B and C: Stunt Races and the Stunt chapter are tagged "stunt" (their balancing, as 0.112)
+            if (race.stunts || CampaignRun.Active?.Stunt == true) j.Add("tag", "stunt");
             return j;
         }
         static string VehicleOf(ArcadeVehicle car) => car ? car.GetComponent<VehicleConfiguration>()?.profileId : null;
@@ -147,6 +158,7 @@ namespace Racer
                     .Add("totalTime", me.Classified ? (float)me.ClassifiedTime(race.Clock) : float.NaN).Add("raceTime", (float)prog.RaceTime(race.Clock)).Add("penaltySeconds", (float)prog.PenaltySeconds).Add("missedGates", prog.MissedGates)
                     .Add("bestLap", prog.BestLap > 0 ? (float)prog.BestLap : float.NaN).Add("lapTimes", prog.LapTimes.Select(t => (float)t)).Add("completedLaps", prog.CompletedLaps).Add("targetLaps", prog.TargetLaps)
                     .Add("remainingMeters", prog.Finished ? 0 : race.RemainingDistance(me)));
+                if (race.stunts) j.Add("stunt", Stunt(race, me));
                 j.Add("rivals", race.Racers.Where((r, i) => r.IsAi && !(SplitScreen.Active && i == 1 && !SplitScreen.P2Ai)).Select(r => Rival(race, r, me, order)));
                 j.Add("aiCatchUp", "none: race AI has no catch-up or rubber band (RoadDriver); only the shortcut choice depends on its place and gap (ShortcutStrategy)");
                 if (e != null && e.Kind != CampaignEventKind.Race && e.Targets != null && o != null && !o.Dnf) Medal(j, o.Medal, e.Kind == CampaignEventKind.TimeTrial ? (float)o.Time : o.Score, e.Targets, e.Kind == CampaignEventKind.TimeTrial, e.Kind.ToString());
@@ -176,6 +188,7 @@ namespace Racer
                 .Add("finishTime", r.Classified ? (float)r.ClassifiedTime(race.Clock) : float.NaN);
             if (r.Classified && me.Classified) j.Add("behindPlayerSeconds", (float)(r.ClassifiedTime(race.Clock) - me.ClassifiedTime(race.Clock))); // negative: ahead of the player
             else j.Add("behindPlayerMeters", race.RemainingDistance(r) - (me.Progress.Finished ? 0 : race.RemainingDistance(me)));
+            if (race.stunts) j.Add("stunt", Stunt(race, r)); // 0.119 Part B: the rival's tricks, bails and points
             return j.Add("pace", driver ? driver.Pace : float.NaN).Add("skill", race.DifficultyName).Add("recoveries", r.Recoveries);
         }
 

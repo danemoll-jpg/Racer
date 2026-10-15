@@ -6,7 +6,9 @@ namespace Racer
     // running event in CampaignRun.cs). Ids are save identities: never rename one. Course numbers are RacePlaylists.Scenes.
     // 0.90 (round 2): chapters 2-4, the championships (one opens when each chapter's final is passed), jump events, class
     // entry rules and the upgrade tables.
-    public enum CampaignEventKind { Race, TimeTrial, SpeedTrap, Jump, Smash }
+    // 0.119 Part C (the Stunt chapter): Trick = the best combo at a jump in Tries tries; Clean = land a jump that many times in a row without a bail;
+    // Park = the 10-minute Stunt event at the stunt park, for a medal
+    public enum CampaignEventKind { Race, TimeTrial, SpeedTrap, Jump, Smash, Trick, Clean, Park }
     public sealed class CampaignEvent
     {
         public string Id, Name; public int Chapter; public CampaignEventKind Kind; public int Course, Laps = 1;
@@ -28,9 +30,13 @@ namespace Racer
         public float Pace = 1;
         // 0.90: a championship round run as an event (CampaignRun builds it; never in Events).
         public CampaignCup Cup; public int Round;
+        // 0.119 Part C: a Stunt chapter event (stunt vehicles only, tricks scored: RaceDirector.stunts); a race scored by Split score (finish and stunt
+        // points, CampaignData.CupPoints each, the total decides); Tries: a Trick event's tries
+        public bool Stunt, SplitScore; public int Tries = 3;
         public bool Timed => Kind != CampaignEventKind.Race;
         public bool Allows(VehicleProfile p) => Classes == null || Classes.Contains(p.Class);
-        public string KindLabel => Kind switch { CampaignEventKind.Race => $"Race · {Laps} lap{(Laps == 1 ? "" : "s")} · {Rivals.Length} rivals ({new[] { "Easy", "Normal", "Hard" }[Difficulty]})", CampaignEventKind.TimeTrial => "Time trial · 1 flying lap", CampaignEventKind.Jump => "Jump · run-up start", CampaignEventKind.Smash => "Smash · as many props as you can", _ => "Speed trap · standing start" };
+        public string KindLabel => Kind switch { CampaignEventKind.Race => $"{(Stunt ? "Stunt race" : "Race")} · {Laps} lap{(Laps == 1 ? "" : "s")} · {Rivals.Length} rivals ({new[] { "Easy", "Normal", "Hard" }[Difficulty]})" + (SplitScore ? " · split score" : ""), CampaignEventKind.TimeTrial => "Time trial · 1 flying lap", CampaignEventKind.Jump => "Jump · run-up start", CampaignEventKind.Smash => "Smash · as many props as you can",
+            CampaignEventKind.Trick => $"Tricks · best combo in {Tries} tries", CampaignEventKind.Clean => "Land it clean · in a row, no bail", CampaignEventKind.Park => $"Stunt event · {StuntProgress.Minutes} minutes at the stunt park", _ => "Speed trap · standing start" };
         public string Conditions => $"{Time} / {Weather}" + (Traffic ? " / traffic" : "");
         public string CourseTitle => RacePlaylists.Titles[Course].Replace(" - ", " — ");
     }
@@ -54,6 +60,7 @@ namespace Racer
             new() { Number = 2, Name = "Forest Loop", Courses = new[] { 2, 3 }, Opens = "Finish top three in the Street Loop Final" },
             new() { Number = 3, Name = "Dan's Backyard", Courses = new[] { 6, 7 }, Opens = "Pass the Forest Final (chapter 2)" },
             new() { Number = 4, Name = "Mountain Loop", Courses = new[] { 4, 5 }, Opens = "Pass the Backyard Final (chapter 3)" },
+            new() { Number = 5, Name = "Stunt", Courses = new[] { 4, 5 }, Opens = "Pass the Summit Final (chapter 4)" }, // 0.119 Part C
         };
         static readonly string[] TwoWheels = { "Motorcycle", "ATV" };
         // Each chapter in order; each event needs the one before it passed (top three in a race, bronze or better otherwise).
@@ -105,7 +112,20 @@ namespace Racer
             new() { Id = "c4-whiteout", Name = "Whiteout", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "pebble", "tourer", "skyfin" }, Difficulty = 0, Pace = .52f, Time = TimeOfDay.Night, Weather = Weather.Snow, Pay = 2600, Bonus = 1300 },
             new() { Id = "c4-summit-flight", Name = "Summit Homeward Flight", Chapter = 4, Kind = CampaignEventKind.Jump, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 150, Targets = new[] { 90f, 140f, 200f }, Pay = 2000, Bonus = 1000 },
             new() { Id = "c4-summit-final", Name = "Summit Final", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 3, Rivals = new[] { "moto", "scrambler", "drifter", "fastback", "atv" }, Difficulty = 0, Pace = .6f, Pay = 4200, Bonus = 2100, Prize = "fastback", Final = true },
+
+            // 0.119 Part C: Chapter 5, Stunt (open once the Summit Final is passed; the Clay Hopper is given at its start). Stunt vehicles only, rivals on
+            // stunt vehicles, tricks scored; the races by Split score (finish and stunt points, 10 / 7 / 5 / 3 / 2 / 1 each). First-pass targets (Dan to
+            // check, balanced through the results log tagged "stunt", as 0.112): the summit tricks from the Homeward Summit Flight's jump points (about
+            // 3,000 for a full flight, Report118) plus a trick or two; the park event from the Stunt event's own medals (StuntProgress.Targets).
+            new() { Id = "c5-stunt-opener", Name = "Stunt Opener", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 4, Laps = 2, Rivals = new[] { "stuntbuggy", "stuntbike", "stuntbuggy" }, Difficulty = 1, Entry = StuntEntry, Pay = 2600, Bonus = 1300 },
+            new() { Id = "c5-summit-tricks", Name = "Summit Tricks", Chapter = 5, Kind = CampaignEventKind.Trick, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 240, Tries = 3, Targets = new[] { 3100f, 3600f, 4100f }, Entry = StuntEntry, Pay = 2200, Bonus = 1100 },
+            new() { Id = "c5-park-session", Name = "Red Clay Session", Chapter = 5, Kind = CampaignEventKind.Park, Stunt = true, Course = 0, Targets = new[] { 20000f, 50000f, 90000f }, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
+            new() { Id = "c5-reverse-stunts", Name = "Upside Down Under", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 5, Laps = 2, Rivals = new[] { "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 1, Entry = StuntEntry, Pay = 2800, Bonus = 1400 },
+            new() { Id = "c5-land-it-clean", Name = "Land It Clean", Chapter = 5, Kind = CampaignEventKind.Clean, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 300, Targets = new[] { 3f, 4f, 5f }, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
+            new() { Id = "c5-leviathan-stunts", Name = "Leviathan Stunts", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 9, Laps = 1, Rivals = new[] { "stuntbuggy", "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 1, Entry = StuntEntry, Pay = 3400, Bonus = 1700 },
+            new() { Id = "c5-stunt-final", Name = "Stunt Final", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 8, Laps = 2, Rivals = new[] { "stuntbike", "stuntbuggy", "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 2, Entry = StuntEntry, Pay = 5000, Bonus = 2500, Prize = VehicleProfile.StuntCupId, Final = true },
         };
+        public const string StuntEntry = "Stunt vehicles only";
         // 0.96 Part C: the order the events had before the practice laps (0.89-0.95). A save that already had progress when
         // this order came in (Campaign.State.legacyOrder) keeps every event it could play: each event is also open when the
         // one before it in this old order is passed; a new practice event is open when the race after it is open that way.
@@ -115,6 +135,7 @@ namespace Racer
             new[] { "c2-into-woods", "c2-cave-run", "c2-opening-jump", "c2-rain-pines", "c2-long-way-back", "c2-forest-final" },
             new[] { "c3-backyard-dash", "c3-backyard-clock", "c3-two-wheels", "c3-snow-day", "c3-fence-smash", "c3-backyard-final" },
             new[] { "c4-first-ascent", "c4-summit-clock", "c4-downhill", "c4-whiteout", "c4-summit-flight", "c4-summit-final" },
+            new[] { "c5-stunt-opener", "c5-summit-tricks", "c5-park-session", "c5-reverse-stunts", "c5-land-it-clean", "c5-leviathan-stunts", "c5-stunt-final" }, // 0.119: as listed
         };
         // Share of Pay by finishing place (every finisher earns something) and by medal (none, bronze, silver, gold).
         public static readonly float[] PlaceShare = { 1f, .6f, .4f, .25f, .15f, .1f };

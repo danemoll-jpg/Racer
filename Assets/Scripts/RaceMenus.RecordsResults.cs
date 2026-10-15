@@ -9,6 +9,7 @@ namespace Racer
         static string TrackTitle(string category)
         {
             string c=category??"";bool reverse=c.Contains("reverse");
+            if(c.StartsWith(StuntRace.RecordPrefix))return "Stunt Race · "+TrackTitle(c.Substring(StuntRace.RecordPrefix.Length)); // 0.119 Part B: their own boards
             if(c.StartsWith("backyard"))return "Dan's Backyard Loop - "+(reverse?"Reverse":"Forward");
             if(c.StartsWith("leviathan"))return "Leviathan - "+(reverse?"Reverse":"Forward"); // 0.115
             if(c.StartsWith("mountain"))return "Mountain Loop - "+(reverse?"Reverse":"Forward");
@@ -23,11 +24,11 @@ namespace Racer
         // legacy entries stay in the list, marked. Speed traps and jumps: one site at a time, every configuration together.
         string recordsVehicle="All vehicles";
         int recordTrack=-1,recordSite;
-        bool OnRecordTrack(string category)=>recordTrack>=0&&TrackTitle(category)==RacePlaylists.Titles[recordTrack];
+        bool OnRecordTrack(string category)=>recordTrack>=0&&TrackTitle(category)==RecordTitle(recordTrack);
         bool TrackHasTimes(int track,bool race){int keep=recordTrack;recordTrack=track;bool any=flow.Boards.Top(OnRecordTrack,race).Count>0;recordTrack=keep;return any;}
         void ChooseRecordTrack()
         {
-            int last=Array.IndexOf(RacePlaylists.Titles,TrackTitle(flow.Race.Category));
+            int last=RecordIndex(TrackTitle(flow.Race.Category));
             if(flow.TrackBrowsingLocked&&last>=0){recordTrack=last;return;}
             if(last>=0&&TrackHasTimes(last,false)){recordTrack=last;return;}
             foreach(int i in RacePlaylists.DisplayOrder)if(TrackHasTimes(i,false)||TrackHasTimes(i,true)){recordTrack=i;return;}
@@ -36,13 +37,13 @@ namespace Racer
         static string RecordDate(string date)=>DateTime.TryParse(date,null,System.Globalization.DateTimeStyles.RoundtripKind,out var d)?d.ToLocalTime().ToString("d MMM yyyy"):"—";
         void StepRecordTrack(int d)
         {
-            if(flow.TrackBrowsingLocked)return;var order=RacePlaylists.DisplayOrder.ToList();int at=Mathf.Max(0,order.IndexOf(recordTrack));
+            if(flow.TrackBrowsingLocked)return;var order=RecordOrder;int at=Mathf.Max(0,order.IndexOf(recordTrack));
             recordTrack=order[(at+d+order.Count)%order.Count];recordsVehicle="All vehicles";Show();
         }
         void RenderRecords()
         {
             if(page!="")page="";
-            if(recordTrack<0||recordTrack>=RacePlaylists.Titles.Length||(flow.TrackBrowsingLocked&&RacePlaylists.Titles[recordTrack]!=TrackTitle(flow.Race.Category)))ChooseRecordTrack();
+            if(recordTrack<0||recordTrack>=RecordTracks||(flow.TrackBrowsingLocked&&RecordTitle(recordTrack)!=TrackTitle(flow.Race.Category)))ChooseRecordTrack();
             ClearCore("RECORDS","");var recordTabs=new[]{"LAP","RACE","SPEED TRAPS","JUMPS","GHOST","STUNTS","COMBOS"};TabRow(recordTabs,recordTab,i=>{recordTab=i;activityKey="";Show();});int row=recordTabs.Length;
             int backRow=row;Row(row++,"back","Back",flow.CloseExtras);
             if(recordTab==5){RenderStuntRecords(row,backRow);return;} // 0.106 Part D
@@ -50,7 +51,7 @@ namespace Racer
             if(recordTab==4){details.gameObject.SetActive(true);details.text="Race your best compatible clean lap.\n"+flow.Ghost.Status+"\nNo resets, teleports or missed gates. Legal shortcuts qualify.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=120;Toggle(row,"ghost","Ghost",flow.Ghost.Enabled,flow.ToggleGhost);return;}
             if(recordTab<2)
             {
-                bool race=recordTab==1;string track=RacePlaylists.Titles[recordTrack].Replace(" - "," — ");
+                bool race=recordTab==1;string track=RecordTitle(recordTrack).Replace(" - "," — ");
                 var vehicles=flow.Boards.TopVehicles(OnRecordTrack,race);
                 if(recordsVehicle!="All vehicles"&&!vehicles.Contains(recordsVehicle))recordsVehicle="All vehicles";
                 var board=flow.Boards.Top(OnRecordTrack,race,recordsVehicle=="All vehicles"?null:recordsVehicle);
@@ -68,7 +69,8 @@ namespace Racer
                 string vehicleName=recordsVehicle=="All vehicles"?"":" with the "+VehicleProfile.Find(recordsVehicle).Name;
                 details.text=flow.Boards.Error??(board.Count==0
                     ?$"No {(race?"race":"lap")} times on {track}{vehicleName} yet. Finish a {(race?"race":"lap")} there to set one."
-                    :(race?"BEST RACES · full-race totals, every race length":"BEST LAPS · every race length")+(recordsVehicle=="All vehicles"?" · all vehicles":" · "+VehicleProfile.Find(recordsVehicle).Name)+" · ‹ › changes track");
+                    :(race?"BEST RACES · full-race totals, every race length":"BEST LAPS · every race length")+(recordsVehicle=="All vehicles"?" · all vehicles":" · "+VehicleProfile.Find(recordsVehicle).Name)+" · ‹ › changes track")+(StuntTrack(recordTrack)?StuntRecordLine(recordTrack):"");
+                if(StuntTrack(recordTrack))details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54; // 0.119 Part B
                 // 0.94 Part A: who set each time; the player's own entries highlighted
                 var widths=race?new[]{.08f,.21f,.17f,.08f,.24f,.22f}:new[]{.09f,.23f,.19f,.27f,.22f};
                 int firstRow=row;if(board.Count>0)TableRow(row++,"header",race?new[]{"Rank","Time","Name","Laps","Vehicle","Date"}:new[]{"Rank","Time","Name","Vehicle","Date"},widths,()=>{});
@@ -127,7 +129,8 @@ namespace Racer
                 var lap=Label("Best lap",cards,21,150);lap.text="BEST LAP\n"+flow.FinishCards.Lap.Text;lap.color=new(.3f,.95f,.81f);
                 var race=Label("Total race",cards,21,150);race.text="TOTAL RACE\n"+flow.FinishCards.Race.Text;race.color=new(.3f,.95f,.81f);
             }
-            if(resultTab==0)
+            if(resultTab==0&&flow.Race.stunts)n=StuntStandings(n,false); // 0.119 Part B
+            else if(resultTab==0)
             {
                 TableRow(n++,"header",new[]{"Place","Driver","Time","Status"},new[]{.1f,.32f,.30f,.28f},()=>{});int rank=0;
                 foreach(var r in flow.Race.Ordered(true)){int place=++rank;TableRow(n++,"standing-"+place,new[]{place.ToString(),CampaignRun.Active!=null?r.Name+" · "+VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name:r.IsAi?"Rival "+flow.Race.Racers.IndexOf(r):"You",r.Dnf?"—":RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)),r.Dnf?"DNF":r.Estimated?"Estimated":"Measured"},new[]{.1f,.32f,.30f,.28f},()=>{},!r.IsAi);}

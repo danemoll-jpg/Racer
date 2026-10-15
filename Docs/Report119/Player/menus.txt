@@ -1,0 +1,23 @@
+screen=1920x1080 kind=menus119 version=0.119.0-review1 park=on
+start: scene StreetLoopGreybox, page 'Ready/', focus 'race'
+Race Setup: focus 'race-type': Race type:   Normal race
+a notice is up (CAMPAIGN UPDATED | Chapter 5: Stunt is open / For the Stunt chapter: the Clay Hopper / Every chapter final and every championship now awards a vehicle.): A
+after right on Race type: scene MountainLoop, page 'Ready/race', stunts True, focus 'race-type', vehicle stuntbuggy, rivals stuntbike, stuntbuggy, stuntbike
+focus 'stunt-scoring': Scoring:   Trick bonus   (time off for tricks)
+after right: Scoring:   Split score   (finish + stunt points), split True
+Tracks: Leviathan - Forward, Leviathan - Reverse, Mountain Loop - Forward, Mountain Loop - Reverse
+B: state Ready, page 'Ready/race'
+Garage: Clay Hopper / Buggy | Clay Hopper   ·   1 / 3
+  right: Skywhip 250 / Motorcycle | Skywhip 250   ·   2 / 3
+  right: Clay Hopper Cup / Buggy  (locked) | Clay Hopper Cup  (locked)   ·   3 / 3
+  right: Clay Hopper / Buggy | Clay Hopper   ·   1 / 3
+B: state Ready, page 'Ready/race', vehicle stuntbuggy, saved normal vehicle drifter, stunt vehicle stuntbuggy
+rivals row: Rivals:   on stunt vehicles (Clay Hopper, Skywhip 250)
+B: page 'Ready/'
+  No lap times on Stunt Race · Mountain Loop — Forward yet. Finish a lap there to set one. / Best combo: none yet
+Records tracks (right, from the first): Dan's Backyard Loop — Forward | Dan's Backyard Loop — Reverse | Forest Loop — Forward | Forest Loop — Reverse | Leviathan — Forward | Leviathan — Reverse | Mountain Loop — Forward | Mountain Loop — Reverse | Street Loop — Forward | Street Loop — Reverse | Stunt Race · Mountain Loop — Forward   (no times yet) | Stunt Race · Mountain Loop — Reverse   (no times yet) | Stunt Race · Leviathan — Forward   (no times yet) | Stunt Race · Leviathan — Reverse   (no times yet) | Dan's Backyard Loop — Forward | Dan's Backyard Loop — Reverse
+Split setup: focus 'split-race-type': Race type:   Normal race
+after right: Scoring:   Trick bonus   (time off for tricks) | Course:   Leviathan — Forward | Race type:   Stunt Race   (stunt vehicles only); P1 stuntbuggy, P2 stuntbuggy
+B: page 'Ready/'
+Race type back to normal: stunts False, vehicle drifter, rivals tourer, drifter, roadster, setting False
+B: page 'Ready/'

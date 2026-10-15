@@ -59,13 +59,14 @@ details.gameObject.SetActive(true);
                 else if(page=="split-garage")RenderSplitPick();
                 else if(page=="race")
                 {
-                    ClearCore("RACE SETUP",flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"  ·  "+flow.LapLabel+" laps\n"+(flow.Race.opponents?"3 AI · "+flow.Race.DifficultyName:"Solo / time trial")+"  ·  Traffic "+(flow.Race.traffic?"On":"Off"));
+                    ClearCore("RACE SETUP",(flow.Race.stunts?"STUNT RACE  ·  ":"")+flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"  ·  "+flow.LapLabel+" laps\n"+(flow.Race.opponents?"3 AI · "+flow.Race.DifficultyName:"Solo / time trial")+"  ·  Traffic "+(flow.Race.traffic?"On":"Off"));
                     Row(0,"start","START RACE",flow.StartRace);var startColors=buttons[0].colors;startColors.normalColor=new(.1f,.38f,.35f);buttons[0].colors=startColors;buttons[0].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;Row(1,"tracks","Tracks",flow.OpenCourses);Row(2,"garage","Garage",flow.OpenGarage);Row(3,"opponents","Opponents",flow.OpenRoster);
                     // 0.92 Part C: values change with left / right only
                     Step(4,"laps","Laps:   "+flow.LapLabel,d=>{flow.CycleLaps(d);Show();});Step(5,"mode",flow.Race.opponents?"Mode:   Race vs 3 AI":"Mode:   Solo / time trial",d=>{flow.ToggleOpponents();Show();});
                     Step(6,"difficulty","Difficulty:   "+flow.Race.DifficultyName,d=>{flow.CycleDifficulty(d);Show();});Toggle(7,"traffic","Traffic",flow.Race.traffic,()=>{flow.ToggleTraffic();Show();});
                     Step(8,"timeofday","Time of Day:   "+flow.TimeOfDayLabel,d=>flow.CycleTimeOfDay(d));Step(9,"weather","Weather:   "+flow.WeatherLabel,d=>flow.CycleWeather(d));
                     Row(10,"playlists","Playlists",flow.OpenPlaylists);Row(11,"back","Back",()=>BackPage());
+                    StuntSetupRows(); // 0.119 Part B
                     // 0.89: a course the campaign has not opened is not raced (Free Roam may still start there)
                     int here=RacePlaylists.CourseOf(flow.gameObject.scene);
                     if(here>=0&&!Campaign.CourseOpen(here)){details.text+="\nLOCKED: "+Campaign.CourseHowTo(here)+". Choose an open track in Tracks.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=150;buttons[0].interactable=false;}
@@ -153,7 +154,8 @@ details.gameObject.SetActive(true);
                 // Free Roam starts (from its page) offers the whole world.
                 bool roamPick=RoamTrackPick;
                 ClearCore("TRACKS","Select to use a track. Highlighting does not change Race Setup. Difficulty: TBD."+(roamPick||Campaign.Testing?"":"\nLocked tracks open as the campaign reaches them."));int i=0;
-                foreach(int course in RacePlaylists.DisplayOrder){int choice=course;bool open=roamPick||Campaign.CourseOpen(course);
+                if(!roamPick&&flow.Race.stunts)details.text="STUNT RACE TRACKS. Select to use a track (stunt vehicles only). Race Setup > Race type goes back to every track."; // 0.119 Part B
+                foreach(int course in RacePlaylists.DisplayOrder.Where(c=>roamPick||!flow.Race.stunts||StuntRace.Course(c))){int choice=course;bool open=roamPick||Campaign.CourseOpen(course);
                     Row(i++,"course-"+course,RacePlaylists.Titles[course]+(open?"":"   ·   LOCKED: "+Campaign.CourseHowTo(course).Replace("Campaign: ","")),()=>{if(open)flow.SelectCourseEntry(choice);else{flow.Notify("LOCKED: "+RacePlaylists.Titles[choice]+" — "+Campaign.CourseHowTo(choice),5);flow.Click();Hints.LockedItem();}});
                     if(!open){buttons[i-1].GetComponentInChildren<UnityEngine.UI.Text>(true).fontSize=18;var c=buttons[i-1].colors;c.normalColor=new(.07f,.11f,.14f);buttons[i-1].colors=c;LockRow(buttons[i-1]);}
                     if(!buttons[i-1].GetComponent<CourseRowHover>())buttons[i-1].gameObject.AddComponent<CourseRowHover>();}

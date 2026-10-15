@@ -70,7 +70,10 @@ namespace Racer
             MakeCup("roadster", "roadstercup", "Sundown Roadster Cup", "cup-street", new(.72f,.06f,.07f), "chrome", "cream"),
             MakeCup("drifter", "driftercup", "Drifter Twin Cup", "cup-woodland", new(.06f,.33f,.15f), "chrome", "cream"),
             MakeCup("scrambler", "scramblercup", "Ridge Scrambler Cup", "cup-backyard", new(.08f,.2f,.62f), "chrome", "cream"),
-            MakeCup("moto", "motochampion", "Needle 600 Champion", "cup-grand", new(.025f,.025f,.03f), "metal", "chrome")
+            MakeCup("moto", "motochampion", "Needle 600 Champion", "cup-grand", new(.025f,.025f,.03f), "metal", "chrome"),
+            // 0.119 Part C: the Stunt chapter's prize (passing the Stunt Final): the Clay Hopper's Cup edition, a stunt vehicle like it (air steering,
+            // Free Roam, the Stunt event and Stunt Races; never in normal races or an AI roster)
+            StuntCup(MakeCup("stuntbuggy", "hoppercup", "Clay Hopper Cup", "cup-stunt", new(.86f,.4f,.06f), "chrome", "cream"))
             }).ToArray();
         }
         // 0.111 Part D: a championship's prize: an existing vehicle's model and handling with its own livery (the cup's colour, gold trim and a gold
@@ -87,6 +90,8 @@ namespace Racer
                 Wheelbase=b.Wheelbase, Pitch=b.Pitch, Size=b.Size, Camera=b.Camera, Model=b.Model, Pose=b.Pose, Base=b.Base??b.Id, Seat=b.Seat, FrontPivot=b.FrontPivot, FrontAxis=b.FrontAxis, FrontGain=b.FrontGain,
                 Upright=b.Upright, Air=b.Air, Suspension=b.Suspension, Lean=b.Lean, SolidContact=b.SolidContact, Cup=cup, CupBase=baseId, Livery=livery, Gold=gold };
         }
+        static VehicleProfile StuntCup(VehicleProfile p) { p.Reward = true; p.Unlock = "stunt-cup"; p.AirControl = 1; return p; }
+        public const string StuntCupId = "hoppercup";
         // the base vehicles are built before the Cup editions in the same list
         static readonly System.Collections.Generic.Dictionary<string, VehicleProfile> built = new();
         static VehicleProfile All0(string id) => built[id];

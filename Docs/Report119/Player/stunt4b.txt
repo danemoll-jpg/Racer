@@ -1,0 +1,14 @@
+screen=1920x1080 kind=stunt119 version=0.119.0-review1 park=on
+== Stunt Race on Mountain Loop - Forward: Mountain Loop - Forward (stunt-mountain-forward-v5-supported), stunts True, split score False, laps 2, difficulty Normal; player stuntbuggy; rivals stuntbuggy, stuntbike, stuntbuggy; category stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear-laps2; flights Eastbound Gully Flight, Homeward Summit Flight
+  player: 159.8 s (race 165.9 − bonus 6.1); 6082 stunt pts in 2 combos, best 3331; own tricks turned: 2; recoveries 0
+  player flights: flight 1: 0.5 s, no trick | flight 2: 7.4 s, DOUBLE BACKFLIP |   landed: DOUBLE BACKFLIP 3325 pts (203 m, 7.0 s) | flight 3: 5.9 s, FRONTFLIP |   landed: FRONTFLIP 2744 pts (186 m, 5.8 s) | 
+  bonus lines shown: t 67 '−3.3 s TRICK BONUS' (bonus 3.3 s, 3331 pts); t 104 '−2.8 s TRICK BONUS' (bonus 6.1 s, 6082 pts)
+  rival stuntbuggy: 166.7 (bonus 6.1 s, 6147 pts) laps [98.4, 73.2] resets 0; flights 6, tricks 2, bails 0
+    flight 1: 5.9 s, chose none |   landed: no trick 2439 pts (186 m, 5.8 s) | flight 2: 0.6 s, no trick | flight 3: 0.4 s, no trick | flight 4: 0.5 s, no trick | flight 5: 0.8 s, no trick |   landed: no trick 234 pts (16 m, 0.7 s) | flight 6: 7.3 s, DOUBLE BACKFLIP + 360 SPIN |   landed: DOUBLE BACKFLIP + 360 SPIN 3474 pts (203 m, 7.0 s) | 
+  rival stuntbike: 174.1 (bonus 5.8 s, 5808 pts) laps [107.9, 70.4] resets 0; flights 6, tricks 0, bails 1
+    flight 1: 6.1 s, chose none |   landed: no trick 2624 pts (202 m, 6.0 s) | flight 2: 0.7 s, no trick | flight 3: 7.7 s, chose none |   landed: no trick 2980 pts (224 m, 7.4 s) | flight 4: 0.4 s, no trick | flight 5: 0.7 s, no trick |   landed: no trick 204 pts (14 m, 0.6 s) | flight 6: 7.7 s, ROLL (will bail) |   bail: bailed the roll | 
+  rival stuntbuggy: 180.8 (bonus 5.1 s, 5092 pts) laps [91.9, 91.8] resets 0; flights 2, tricks 1, bails 0
+    flight 1: 5.9 s, chose none |   landed: no trick 2406 pts (183 m, 5.7 s) | flight 2: 5.8 s, FRONTFLIP |   landed: FRONTFLIP 2686 pts (182 m, 5.7 s) | 
+  results: 4 | 2 | 3 | 1 | Place
+  Top 10 categories: before 168, after 170; new: stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear, stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear-laps2; the normal boards' entries unchanged
+  best combo record: 3331

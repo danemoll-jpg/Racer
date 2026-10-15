@@ -85,7 +85,8 @@ namespace Racer
         public static string Value(CampaignEventKind kind, float v) => kind switch
         {
             CampaignEventKind.TimeTrial => Time(v), CampaignEventKind.SpeedTrap => Mph(v), CampaignEventKind.Jump => Feet(v),
-            CampaignEventKind.Smash => Mathf.RoundToInt(v) + (Mathf.RoundToInt(v) == 1 ? " prop" : " props"), _ => Time(v)
+            CampaignEventKind.Smash => Mathf.RoundToInt(v) + (Mathf.RoundToInt(v) == 1 ? " prop" : " props"),
+            CampaignEventKind.Trick or CampaignEventKind.Park => Mathf.RoundToInt(v).ToString("N0") + " pts", CampaignEventKind.Clean => Mathf.RoundToInt(v) + " clean", _ => Time(v) // 0.119 Part C
         };
         // [gold, silver, bronze] strings for a campaign event
         public static string[] Targets(CampaignEvent e) => e.Targets == null || e.Targets.Length != 3 ? null : new[] { Value(e.Kind, e.Targets[2]), Value(e.Kind, e.Targets[1]), Value(e.Kind, e.Targets[0]) };

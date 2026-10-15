@@ -21,7 +21,9 @@ Shader "Racer/NightStars"
             CBUFFER_END
             struct A {float4 p:POSITION;float2 uv:TEXCOORD0;half4 c:COLOR;};
             struct V {float4 p:SV_POSITION;float2 uv:TEXCOORD0;half4 c:COLOR;};
-            V vert(A a){V v;v.p=TransformObjectToHClip(a.p.xyz);v.uv=a.uv;v.c=a.c;return v;}
+            // 0.119: the dome is 600 m out but the world-edge hills stand up to ~1.8 km out, so the stars were drawn over them. Each star's
+            // depth is pushed to the far plane: only open sky (cleared depth) shows it; terrain, hills, trees, buildings and clouds hide it.
+            V vert(A a){V v;v.p=TransformObjectToHClip(a.p.xyz);v.p.z=UNITY_RAW_FAR_CLIP_VALUE*v.p.w;v.uv=a.uv;v.c=a.c;return v;}
             half4 frag(V v):SV_Target {float2 d=v.uv-.5;float s=saturate(1-dot(d,d)*4);s*=s;return half4(v.c.rgb*s*_Visibility,0);}
             ENDHLSL
         }

@@ -33,7 +33,14 @@ namespace Racer
         public IReadOnlyList<PenaltyEntry> Ledger => ledger;
         double lapPenalty;
         public double CurrentLapPenalty => lapPenalty;
-        public double AdjustedTime(double now) => RaceTime(now) + PenaltySeconds;
+        // 0.119 Part B: a Stunt Race's trick bonus (seconds off the race time, capped; 0 in every other race and with Split score) and the stunt points
+        // banked (every landed trick and combo; StuntRaceScore)
+        public double BonusSeconds { get; private set; }
+        public int StuntPoints { get; private set; }
+        public int StuntCombos { get; private set; }
+        public int BestCombo { get; private set; }
+        public void AddStunt(int points, double bonus) { StuntPoints += points; StuntCombos++; BestCombo = Math.Max(BestCombo, points); BonusSeconds += bonus; }
+        public double AdjustedTime(double now) => RaceTime(now) + PenaltySeconds - BonusSeconds;
         public bool MissFinish(double now)
         {
             if (!LapActive || !LapValid || Finished || NextGate != 0 || now <= lapStart) return false;
@@ -70,6 +77,7 @@ namespace Racer
             CompletedLaps = NextGate = 0; Started = LapActive = LapValid = false;
             lapTimes.Clear();
             penalties.Clear(); ledger.Clear(); PenaltySeconds = lapPenalty = 0; MissedGates = 0;
+            BonusSeconds = 0; StuntPoints = StuntCombos = BestCombo = 0;
             LastLap = BestLap = raceStart = lapStart = finishTime = 0;
             Status = "Cross START in the arrow direction";
         }

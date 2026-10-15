@@ -13,7 +13,7 @@ namespace Racer
         public double EstimatedPhysicalTime { get; private set; }
         public bool Classified => Progress.Finished || Estimated;
         public readonly AiFinishEstimate Estimate = new();
-        public double ClassifiedTime(double now) => Estimated ? EstimatedPhysicalTime + Progress.PenaltySeconds : Progress.AdjustedTime(now);
+        public double ClassifiedTime(double now) => Estimated ? EstimatedPhysicalTime + Progress.PenaltySeconds - Progress.BonusSeconds : Progress.AdjustedTime(now);
         public bool FinalizeEstimate(double now,double duration)
         {
             if(!IsAi || Dnf || Classified || double.IsNaN(duration) || double.IsInfinity(duration)) return false;

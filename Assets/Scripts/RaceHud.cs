@@ -130,7 +130,13 @@ namespace Racer
             if(race.FreeRoam)return "";
             var p = race.Progress;
             return (race.reverseCourse?race.courseName.ToUpperInvariant()+"\n":race.Forest?race.courseName.ToUpperInvariant()+"\n":"")+(p.Unlimited?$"LAP {p.CompletedLaps+1} · {p.CompletedLaps} completed":$"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}")+$"    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO")}\n"
-                +$"Lap    {FormatTime(p.Finished?p.LastLap-p.CurrentLapPenalty:p.LapTime(race.Clock))}\nRace  {FormatTime(p.RaceTime(race.Clock))}";
+                +$"Lap    {FormatTime(p.Finished?p.LastLap-p.CurrentLapPenalty:p.LapTime(race.Clock))}\nRace  {FormatTime(p.RaceTime(race.Clock))}"+StuntLine(race.Racers[0]);
+        }
+        // 0.119 Part B: a Stunt Race: the trick bonus so far (or Split score: the stunt points and place), and for a moment what the last combo earned
+        string StuntLine(RacerState me)
+        {
+            var s=race.stunts?StuntRaceScore.Current:null;if(!s)return "";
+            string flash=s.Flash(me);return "\n"+(flash!=null?"<color=#FFD24D>"+flash+"</color>":s.HudLine(me));
         }
         void LateUpdate()
         {
@@ -141,7 +147,8 @@ namespace Racer
                 display.transform.parent.gameObject.SetActive(false);if(speedPanel)speedPanel.SetActive(false);if(wrongPanel)wrongPanel.SetActive(false);
                 if(cameraHint)cameraHint.gameObject.SetActive(false);if(activities)activities.text="";if(medalHolder)medalHolder.gameObject.SetActive(false);if(waypointPanel)waypointPanel.SetActive(false);if(clockPanel)clockPanel.SetActive(false);return;
             }
-            display.text=BuildText();
+            display.text=BuildText();display.supportRichText=true;
+            {var panel=(RectTransform)display.transform.parent;float h=(race.Forest||race.reverseCourse?132:108)+(race.stunts&&!race.FreeRoam?26:0);if(Mathf.Abs(panel.sizeDelta.y-h)>.5f)panel.sizeDelta=new(panel.sizeDelta.x,h);} // 0.119: the stunt line
             display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible&&!CampaignEventUi.ReplacesRacePanel);UpdateMedals();
             UpdateCameraHint();
             // 0.79 Part B: in Free Roam only what is relevant now: the activity you are at, the attempt, its result, an acorn
@@ -159,6 +166,8 @@ namespace Racer
                     }
                 }
                 if(race.FreeRoam)activities.rectTransform.sizeDelta=new(700,110);activities.text=string.Join("\n",lines);
+                // 0.119 Part B: in a race the trick lines are smaller than in the park, above the bottom row (the NEXT CP line) and clear of the race panel and minimap
+                bool small=race.stunts&&!race.FreeRoam;activities.fontSize=small?17:21;if(!race.FreeRoam)activities.rectTransform.sizeDelta=new(small?520:700,80);
             }
             if(clockPanel)
             {

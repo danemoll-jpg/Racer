@@ -1,0 +1,4 @@
+screen=1920x1080 kind=shots119 version=0.119.0-review1 park=on
+== spots on Leviathan - Reverse (Night): Leviathan - Reverse (leviathan-reverse-v4): line 7039 m, 45 gates, 2 shortcuts, flights South Face Summit Flight 5049-5554, Downhill Ridge Cut drop 5821-5929
+  A3-BUG-003-R: at -589.6,6.86,-531.8 heading 140, line s 2037, next CP 10 'Leviathan Reverse CP 10' at -521.2,8.26,-549.7 faces 89, 71 m at bearing 105 (heading 140: -35 off), gates drawn [0,10], HUD 'NEXT  CP 10  235 ft'; closures within 60 m: none
+  A4-BUG-004-R-night: at 459.8,28.11,-515.9 heading 135, line s 3418, next CP 19 'Leviathan Reverse CP 19' at 502.8,24.06,-536.4 faces 43, 48 m at bearing 116 (heading 135: -20 off), gates drawn [0,19], HUD 'NEXT  CP 19  195 ft'; closures within 60 m: none

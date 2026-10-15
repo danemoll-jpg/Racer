@@ -146,7 +146,7 @@ namespace Racer
             panel.anchorMin = panel.anchorMax = panel.pivot = tt ? new Vector2(.5f, 1) : new Vector2(0, 1); panel.anchoredPosition = tt ? new Vector2(0, -24) : new Vector2(24, -24);
             panel.sizeDelta = new Vector2(tt ? 560 : 560, 0);
             title.text = e.Name.ToUpperInvariant();
-            kind.text = e.Kind switch { CampaignEventKind.Jump => "JUMP  ·  go again as often as you like", CampaignEventKind.SpeedTrap => "SPEED TRAP  ·  hit the trap as fast as you can", CampaignEventKind.Smash => $"SMASH  ·  {Mathf.Max(SmashArea, 0)} marked props to smash", _ => "TIME TRIAL  ·  one flying lap" };
+            kind.text = e.Kind switch { CampaignEventKind.Trick => $"TRICKS  ·  your best combo in {e.Tries} tries ({TrapWatch?.Tries ?? 0} flown)", CampaignEventKind.Clean => $"LAND IT CLEAN  ·  {TrapWatch?.Streak ?? 0} in a row now", CampaignEventKind.Jump => "JUMP  ·  go again as often as you like", CampaignEventKind.SpeedTrap => "SPEED TRAP  ·  hit the trap as fast as you can", CampaignEventKind.Smash => $"SMASH  ·  {Mathf.Max(SmashArea, 0)} marked props to smash", _ => "TIME TRIAL  ·  one flying lap" };
             int shownMedal = CampaignRun.RunBestMedal; RebuildTargets(e, shownMedal);
             bool lapClock = tt; runHolder.gameObject.SetActive(!lapClock); if (!lapClock) RebuildRun(e);
             RebuildRecord(e);
@@ -159,13 +159,14 @@ namespace Racer
             if (popText.gameObject.activeSelf != pop) popText.gameObject.SetActive(pop);
             if (pop) { popText.text = $"+1  ({acts.SmashCount})"; float k = (Time.time - acts.SmashPop) / .9f; popText.color = new Color(1, .62f, .2f, 1 - k * k); popText.rectTransform.anchoredPosition = new Vector2(600, -150 - 40 * k); }
             // the hint line: how to go again (jump)
-            bool jump = e.Kind == CampaignEventKind.Jump; hint.gameObject.SetActive(jump);
+            bool jump = e.Kind is CampaignEventKind.Jump or CampaignEventKind.Trick or CampaignEventKind.Clean; hint.gameObject.SetActive(jump);
             if (jump) { var input = flow.Race.vehicle.GetComponent<VehicleInput>(); hint.text = input ? MenuGlyph.Label(MenuInput.Binding(input.CurrentBindings[3])) + ": back to the run-up" : ""; }
             bool done = CampaignRun.RunBestMedal >= 1 && !lapClock; complete.gameObject.SetActive(done);
             if (done) complete.text = $"COMPLETE — {MedalUi.Name(CampaignRun.RunBestMedal)}\n<size=21>Keep trying, or press {(MenuInput.Controller ? "START" : "Esc")} to finish</size>";
             complete.supportRichText = true;
             ((RectTransform)complete.transform).GetComponent<LayoutElement>().preferredHeight = done ? 62 : 0;
         }
+        CampaignTrapWatch TrapWatch => flow ? flow.GetComponent<CampaignTrapWatch>() : null; // 0.119 Part C
         // 0.111 Part B: a smash event's goal line: smashed of the area, the time left and the next medal (like the Stunt event's goal line)
         int SmashArea => flow && flow.Activities ? flow.Activities.SmashArea : 0;
         string SmashGoal(CampaignEvent e, float left)

@@ -1,0 +1,7 @@
+== Leviathan - Forward
+  closure removed (panels and sign): (573.37, -83.51) yaw 338 half 4.5: Forest race route, leaving Leviathan at s 2734
+  CP 18 moved: (510.8, -15.7) yaw 196 s 2870 -> (500.8, -22.9) yaw 275 s 2884 (0.1 m off the drawn point); from Dan's spot 26 m at 276 deg (his heading 296)
+  course id leviathan-forward-v4
+== Leviathan - Reverse
+  closure removed (panels and sign): (-588.74, -535.79) yaw 320 half 4.5: Existing Southwest Cut, leaving Leviathan at s 2052
+  gates between the Southwest Cut's two ends (s 1964-2052): none (CP 9 s 1844 before it, CP 10 s 2109 after): driving it skips no gate

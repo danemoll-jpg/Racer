@@ -88,7 +88,10 @@ namespace Racer
             Toggle(n++, "split-ai", "Player 2: AI driver", SplitScreen.P2Ai, () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
             if (SplitScreen.P2Device != null && !SplitScreen.P2Ai) Row(n++, "split-swap", "Swap the players' devices", () => { (SplitScreen.P1Device, SplitScreen.P2Device) = (SplitScreen.P2Device, SplitScreen.P1Device); flow.Click(); Show(); });
             // 0.94 Parts B and C: what the two players do
-            Step(n++, "split-mode", "Mode:   " + (race ? "Race" : "Free Roam") + "   ·   Police Chase has its own setup", d => { var next = (SplitScreen.Kind)(((int)SplitScreen.Mode + d + 3) % 3); flow.Click(); if (next == SplitScreen.Kind.Police) { SplitToPolice(); return; } SplitScreen.Mode = next; Show(); });
+            Step(n++, "split-mode", "Mode:   " + (race ? "Race" : "Free Roam") + "   ·   Police Chase has its own setup", d => { var next = (SplitScreen.Kind)(((int)SplitScreen.Mode + d + 3) % 3); flow.Click(); if (next == SplitScreen.Kind.Police) { SplitToPolice(); return; } SplitScreen.Mode = next; SplitStuntVehicles(); Show(); });
+            // 0.119 Part B: a split-screen Stunt Race (stunt vehicles only, on the Stunt Race courses) and its scoring
+            if (race && StuntRace.Offered) Step(n++, "split-race-type", "Race type:   " + (SplitScreen.StuntRace ? "Stunt Race   (stunt vehicles only)" : "Normal race"), d => { SplitScreen.StuntRace = !SplitScreen.StuntRace; SplitStuntVehicles(); flow.Click(); Show(); });
+            if (race && SplitScreen.StuntRace) Step(n++, "split-stunt-scoring", "Scoring:   " + (SplitScreen.SplitScore ? "Split score   (finish + stunt points)" : "Trick bonus   (time off for tricks)"), d => { SplitScreen.SplitScore = !SplitScreen.SplitScore; flow.Click(); Show(); });
             // 0.94 Part A: each player's name: ‹ › picks a name used before on this PC, A enters a new one (remembered); the AI
             // driver is "AI". Player 1 starts as the saved player name.
             if (string.IsNullOrEmpty(SplitScreen.P1Name)) SplitScreen.P1Name = PlayerNames.Player;
@@ -105,7 +108,7 @@ namespace Racer
             var strip = PreviewStrip("Players' vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1);
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, "Player 1: " + Vehicle(SplitScreen.P1Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P1Color), new Color(.3f, .95f, .81f), 300);
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P2Vehicle), SplitScreen.P2Color, false, (SplitScreen.P2Ai ? "Player 2 (AI): " : "Player 2: ") + Vehicle(SplitScreen.P2Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P2Color), new Color(1, .74f, .25f), 300);
-            var order = RacePlaylists.DisplayOrder.ToArray();
+            var order = RacePlaylists.DisplayOrder.Where(c => !race || !SplitScreen.StuntRace || StuntRace.Course(c)).ToArray(); if (System.Array.IndexOf(order, SplitScreen.Course) < 0) SplitScreen.Course = order[0];
             Step(n++, "split-course", (race ? "Course:   " : "Start at:   ") + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
             if (race) Step(n++, "split-laps", "Laps:   " + SplitScreen.Laps, d => { SplitScreen.Laps = Mathf.Clamp(SplitScreen.Laps + d, 1, 5); flow.Click(); Show(); });
             // 0.92 Part F (stage 2): AI rivals, conditions and traffic, as in Race Setup
@@ -126,6 +129,14 @@ namespace Racer
             DeviceGlyph(buttons[0], SplitScreen.P1Device); DeviceGlyph(buttons[1], SplitScreen.P2Ai ? null : SplitScreen.P2Device);
             buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.3f, .95f, .81f);
             buttons[1].GetComponentInChildren<UnityEngine.UI.Text>(true).color = SplitScreen.P2Ai || SplitScreen.P2Device != null ? new Color(1, .74f, .25f) : new Color(.75f, .75f, .72f);
+        }
+        // 0.119 Part B: each player's vehicle is one the race type allows (a stunt vehicle in a Stunt Race; the normal defaults back from one)
+        void SplitStuntVehicles()
+        {
+            var allowed = SplitScreen.Vehicles; if (allowed.Length == 0) return;
+            string Fix(string id, string fallback) => allowed.Any(p => p.Id == id) ? id : allowed.Any(p => p.Id == fallback) ? fallback : allowed[0].Id;
+            bool stunt = SplitScreen.Mode == SplitScreen.Kind.Race && SplitScreen.StuntRace;
+            SplitScreen.P1Vehicle = Fix(SplitScreen.P1Vehicle, stunt ? VehicleProfile.StuntBuggy.Id : "original"); SplitScreen.P2Vehicle = Fix(SplitScreen.P2Vehicle, stunt ? VehicleProfile.StuntBuggy.Id : "atv");
         }
         // The next name used before on this PC (not the other player's).
         static string NextKnownName(string current, int d, string other)
@@ -196,14 +207,15 @@ namespace Racer
             var race = flow.Race; var split = SplitScreen.Race;
             ClearCore("SPLIT SCREEN RESULTS", race.courseName + "  ·  " + race.laps + " lap" + (race.laps == 1 ? "" : "s") + "  ·  " + SplitScreen.Time + " / " + SplitScreen.Weather + (race.Racers.Count > 2 ? $"  ·  {race.Racers.Count - 2} AI rival{(race.Racers.Count == 3 ? "" : "s")}" : ""));
             int n = 0; var w = new[] { .1f, .4f, .26f, .24f };
-            TableRow(n++, "header", new[] { "Place", "Player", "Total time", "Best lap" }, w, () => { }); int rank = 0;
+            if (race.stunts) n = StuntStandings(n, true); else // 0.119 Part B
+            { TableRow(n++, "header", new[] { "Place", "Player", "Total time", "Best lap" }, w, () => { }); int rank = 0;
             foreach (var r in race.Ordered(true))
             {
                 // 0.92 Part F: every finisher, the AI rivals too; the two players highlighted with their best laps
                 int place = ++rank; bool p1 = r == race.Racers[0], p2 = split && r == split.P2; var laps = r.Progress.LapTimes;
                 string who = (p1 ? SplitScreen.NameOf(1) : p2 ? SplitScreen.P2Name : "AI rival") + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name;
                 TableRow(n++, "split-standing-" + place, new[] { place.ToString(), who, r.Dnf || !r.Classified ? "DNF" : RaceHud.FormatTime(r.ClassifiedTime(race.Clock)) + (r.Estimated ? " (est.)" : ""), (p1 || p2) && laps.Count > 0 ? RaceHud.FormatTime(laps.Min()) : "—" }, w, () => { }, p1 || p2);
-            }
+            } }
             // 0.94 Part A: the players' times count on the Top 10 (as single-player with these settings); the AI's never
             if (split && split.TopTen.Count > 0) { details.text += "\nTop 10: " + string.Join("   ·   ", split.TopTen); details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight += 30; }
             Row(n, "rematch", "REMATCH", flow.StartRace); var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; n++;

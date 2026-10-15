@@ -112,7 +112,7 @@ namespace Racer
         public void EndStuntCombo(){if(ComboLinks>0)EndCombo(null);StuntReset();}
         void ResetFlight(){flying=false;invalid=touchedDown=false;air=stable=0;jumpSite=null;rejected=null;}
         // The jump the player is going for: the campaign event's, or Free Roam's timed attempt.
-        ActivitySite TargetJump=>CampaignRun.Active?.Kind==CampaignEventKind.Jump?CampaignRun.Site(race):AttemptActive&&Selected&&Selected.kind==ActivitySite.Kind.Jump?Selected:null;
+        ActivitySite TargetJump=>CampaignRun.Active?.Kind is CampaignEventKind.Jump or CampaignEventKind.Trick or CampaignEventKind.Clean?CampaignRun.Site(race):AttemptActive&&Selected&&Selected.kind==ActivitySite.Kind.Jump?Selected:null;
         // 0.91 Part C: an ordinary jump counts if the vehicle survives it, so a hard or glancing contact no longer rejects it;
         // the two summit flights keep their own rules (a wall or steep bank in the flight rejects them).
         public void SolidContact(Vector3 normal,float relativeSpeed,Vector3? point=null){StuntContact(normal,point,relativeSpeed);if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f&&Summit(jumpSite))Reject("Hit a wall or a steep bank");}
@@ -208,19 +208,21 @@ namespace Racer
             // 0.89: a campaign event never writes activity records or personal bests; its result goes to the campaign save.
             if(CampaignRun.Active!=null){LastAwardSite=site;if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;if(site.kind==ActivitySite.Kind.Smash)LastSmashScore=value;Awards++;
                 var e=CampaignRun.Active;string award=e.Site==site.id&&e.Kind!=CampaignEventKind.Race&&e.Kind!=CampaignEventKind.TimeTrial?" / "+new[]{"NO MEDAL","BRONZE","SILVER","GOLD"}[Campaign.MedalFor(e,value)]:"";
-                Message(site.title+" / "+(site.kind==ActivitySite.Kind.Jump?"SCORED: ":"")+Measurement(site,value)+award,6);return;}
+                if(!StuntLines)Message(site.title+" / "+(site.kind==ActivitySite.Kind.Jump?"SCORED: ":"")+Measurement(site,value)+award,6);return;}
             // 0.90 Part D: split-screen results are not written to the activity records either.
-            if(SplitScreen.Active){Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
+            if(SplitScreen.Active){Awards++;if(!StuntLines)Message(site.title+" / "+Measurement(site,value),6);return;}
             if(BalanceLog.RoamActivity(race))BalanceLog.Activity(this,site,configuration.profileId,value,units,"scored",Selected==site,best?.value??0); // 0.109 Part C
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;
             var own=Results.results.FirstOrDefault(b=>b.key==Key(site));if(own==null){own=new Best{key=Key(site)};Results.results.Add(own);}own.value=Mathf.Max(own.value,value);own.medal=Mathf.Max(own.medal,medal);Awards++;
             string measurement=Measurement(site,value)+" / PB "+Measurement(site,Mathf.Max(own.value,best?.value??0));
-            Message(site.title+" / "+measurement+"\n"+(improved?"NEW BEST":"personal best retained")+(site.kind==ActivitySite.Kind.Jump?$" / {LastAirtime:0.00}s / {Mathf.RoundToInt(value*10+LastAirtime*100)} pts":""),6);LastMedal=medal;ResultValue=Measurement(site,value);
+            if(!StuntLines)Message(site.title+" / "+measurement+"\n"+(improved?"NEW BEST":"personal best retained")+(site.kind==ActivitySite.Kind.Jump?$" / {LastAirtime:0.00}s / {Mathf.RoundToInt(value*10+LastAirtime*100)} pts":""),6);LastMedal=medal;ResultValue=Measurement(site,value);
             try{AtomicSave.Write(path,JsonUtility.ToJson(Results,true));}catch(Exception e){Message("Activity result could not be saved: "+e.Message,6);}
         }
         void Message(string value,float seconds){Feedback=value;feedbackUntil=Time.time+seconds;LastMedal=-1;}
+        // 0.119 Part B: in a Stunt Race the trick lines are the jumps' lines (a jump site's own result line would cover them)
+        bool StuntLines=>race&&race.stunts&&!race.FreeRoam;
         void OnDestroy(){BreakableProp.BrokenByVehicle-=Smash;if(car&&car.TryGetComponent<VehicleRespawn>(out var respawn))respawn.Respawned-=Recovered;}
     }
     public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){if(!activities||activities.PlayerObject!=gameObject)return;foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)),contact.point);}}

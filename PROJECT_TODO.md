@@ -27,7 +27,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan: Dan's 4 reports on 0.118 (two more barricades out, CP 18 straight ahead, stars behind the mountain); Stunt Races (stunt vehicles only, own records) and the Stunt chapter in the campaign — target 0.119.0-review1 — NOT STARTED
+## Previous delivery — Leviathan: Dan's 4 reports on 0.118 (two more barricades out, CP 18 straight ahead, stars behind the mountain); Stunt Races (stunt vehicles only, own records) and the Stunt chapter in the campaign — target 0.119.0-review1 — DELIVERED as 0.119.0-review1 (build 119000, local build), awaiting Dan's review
 
 Dan (2026-10-15, 16:16): "please pull in my latest bug report and lets prepare it for the next round. Also, maybe we go ahead and implement the stunt vehicle only races along with the stunt campaign chapter." So this round is Part A (his report) **and** the former QUEUED NEXT (Parts B–C), in that order. The proposed defaults in Parts B–C are taken as decided unless marked "Dan to check".
 
@@ -96,6 +96,23 @@ Dan (2026-10-14, 19:24–19:26): "With all the air you get on the mountain jumps
 
 ### Release
 Version 0.119.0-review1, local build only (2026-10-15 rule; no GitHub release). Close everything started; leave no background task running. Short results (at most about 20 lines), with "For Dan to check".
+
+### Results (2026-10-15, Claude Code)
+- Checkpoint `c936eee4`. Evidence [Docs/Report119/](Docs/Report119/) ([Shots/](Docs/Report119/Shots/), [Player/](Docs/Report119/Player/)); course files by [partA.py](Tools/Report119/py/partA.py) ([partA.txt](Docs/Report119/partA.txt)); checks [Run-Checks.ps1](Tools/Report119/Run-Checks.ps1).
+- **A1** the closure at (573, −84) is out. Why rivals ran into it: it closed the Forest race route 14 m up its shallow fork off the lake's south shore, straight ahead as you come along the shore, its west end 10 m from the line where rivals swing wide. Closures within 7 m of the line, kept: Forward (718, −33), (740, −21), (488, −47); Reverse (718, −109), (149, −310), (−250, −567), (488, −47). Check: [shot](Docs/Report119/Shots/spot-A1-BUG-001-F.jpg); an AI race (3 rivals) through it and CP 18: none stuck or reset there ([aiF](Docs/Report119/Player/aiF.txt)).
+- **A2** CP 18 is on Kyle's drive (500.8, −22.9) facing west: from Dan's spot 26 m, 20° left of his heading, square on; CP 19 in view from it. The line is unchanged: straight ahead of his spot is the bank's unsmoothed side by the house (4 m down in 6 m), and the 0.118 bank stays. Course id `leviathan-forward-v4`. Check: [shot](Docs/Report119/Shots/spot-A2-BUG-002-F.jpg), the AI race above.
+- **A3** the fence at the Southwest Cut's other end is out. No gate lies between its two ends (CP 9 before, CP 10 after), so the in-order rule holds; it cuts the corner (about 1 s, as 0.116 measured). Check: [shot](Docs/Report119/Shots/spot-A3-BUG-003-R.jpg).
+- **A4** cause: the stars sit on a dome 600 m out, the world-edge hills about 1.8 km out, so the depth-tested stars drew over them. Each star is now drawn at the far plane ([NightStars.shader](Assets/Environment/NightStars.shader)): only open sky shows it, everywhere. Check: [race, night](Docs/Report119/Shots/spot-A4-BUG-004-R-night.jpg), [Free Roam](Docs/Report119/Shots/roam-A4-roam-night-dan-spot.jpg).
+- **B** Stunt Races ([StuntRace.cs](Assets/Scripts/StuntRace.cs)): Race Setup > Race type and Scoring (trick bonus / split score); Tracks shows the four courses; the garage the stunt vehicles; every rival on a Clay Hopper or Skywhip 250, turning tricks at the long flights with the player's air steering, bailing more on Easy; bonus 0.5 s per 500 pts, at most 8 s a lap; records, ghosts and best combo under `stunt-<course>`; split screen too. Check: a race on each course ([4](Docs/Report119/Player/stunt4.txt), [5](Docs/Report119/Player/stunt5.txt), [8](Docs/Report119/Player/stunt8.txt), [9](Docs/Report119/Player/stunt9.txt)): [bonus shown](Docs/Report119/Shots/stunt-hud-bonus-8.jpg), [rival trick](Docs/Report119/Shots/stunt-rival-trick-9.jpg), bails seen, [split score](Docs/Report119/Shots/stunt-results-9.jpg), normal boards unchanged.
+- **C** Stunt chapter (5): opens after the Summit Final and gives the Clay Hopper; 7 events (new kinds Trick, Clean, Park); split score in its races; prize the Clay Hopper Cup; results log tag `stunt`. Check ([campaign](Docs/Report119/Player/campaign.txt)): opens on a copy of Dan's save with its notice; Opener (split score) and Summit Tricks (3 tries); the park event starts and returns to the campaign; the Final pays the [prize panel](Docs/Report119/Shots/campaign-prize-message.jpg).
+- Controller only: every new row reachable, B back ([menus](Docs/Report119/Player/menus.txt)).
+- **Decisions:** CP 18 moved, not the line (no drivable ground straight down); the bonus counts every banked combo, jump points too (capped); rivals trick on any flight long enough for one; the stunt vehicle choice is saved apart from the normal one; Summit Tricks 3,100 / 3,600 / 4,100 pts and Land It Clean 3 / 4 / 5 in a row are first guesses.
+- **For Dan to check:**
+  - The bonus scale and the stunt targets (`stunt` in the results log).
+  - Mountain Loop Forward: two Skywhips tangled once at the summit run-up (1 race of 3; both reset once).
+  - Land It Clean, the park event to a medal, and a split-screen Stunt Race were not driven in the checks.
+  - The moon is drawn 900 m out and may show in front of the far hills when low (not changed).
+  - Your save shows "CAMPAIGN UPDATED: Chapter 5: Stunt is open" once.
 
 ## Previous delivery — Leviathan: remove the two ROAD CLOSED barricades Dan called out, smooth Kyle's hill, guide with more gates instead of arrow boards, the Reverse lake out-and-back; Chastain Rush's updated hands and hair styles — target 0.118.0-review1 — DELIVERED as 0.118.0-review1 (build 118000, local build), awaiting Dan's review — REVIEWED BY DAN (4 reports; follow-ups in 0.119)
 

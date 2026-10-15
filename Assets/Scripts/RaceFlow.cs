@@ -97,7 +97,7 @@ namespace Racer
             VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider; LeviathanCourse.ShortcutsOff = Save.Settings.leviathanShortcutsOff ?? new string[0]; /* 0.116 */
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
-            Playlists=new RacePlaylists(root);
+            Playlists=new RacePlaylists(root);StuntRaceRecords.Load(root); // 0.119 Part B
             Boards = new RecordBoards(root);
             // 0.94 Part A: a save from before names is Dan's (campaign, records or the welcome already seen): named "Dan", and
             // its Top 10 entries are his; a new player is asked with the welcome
@@ -108,6 +108,7 @@ namespace Racer
             Race.difficulty = Mathf.Clamp(Save.Settings.difficulty,0,2);
             var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
             if (!configuration) configuration = Race.vehicle.gameObject.AddComponent<VehicleConfiguration>();
+            ApplyStuntSetting();
             configuration.Apply(PlayerVehicleId);
             RestoreChoices();
             configuration.SetBodyColor(SelectedColor);
@@ -230,6 +231,7 @@ namespace Racer
                 {
                     LockVehicle(false); Race.ResetSampling(Race.vehicle.Body.position, Time.timeAsDouble);
                     foreach (var racer in Race.Racers) racer.Progress.BeginTiming(Time.timeAsDouble); SetStage(Stage.Racing); Notify(GoNotice, 3); Sound(go);
+                    if(Race.stunts)Hints.Show("stunt-race","Stunt vehicles steer in the air: left stick tips (flips), steering rolls, right stick or LB / RB spins. Land on your wheels: tricks "+(Race.splitScore?"score stunt points":"take time off your race")+".",9); // 0.119 Part B
                 }
             }
             if (Notice != null && Time.unscaledTime > noticeUntil) Notice = null;
@@ -277,7 +279,7 @@ namespace Racer
         public void CycleLaps(int d=1){Race.laps=(Race.laps+d+6)%6;if(Race.opponents&&Race.laps==0)Race.laps=d>0?1:5;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
         public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
-        string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.Jump?"GO!  Land the jump ahead as far as you can":CampaignRun.Active.Kind==CampaignEventKind.Smash?$"GO!  Smash the {(CampaignRun.Active.Props > 0 ? CampaignRun.Active.Props + " " : "")}marked fence props":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":"GO!  "+CampaignRun.Active.Name;
+        string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.Jump?"GO!  Land the jump ahead as far as you can":CampaignRun.Active.Kind==CampaignEventKind.Smash?$"GO!  Smash the {(CampaignRun.Active.Props > 0 ? CampaignRun.Active.Props + " " : "")}marked fence props":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":CampaignRun.Active.Kind==CampaignEventKind.Trick?$"GO!  Your best combo off the jump ahead in {CampaignRun.Active.Tries} tries":CampaignRun.Active.Kind==CampaignEventKind.Clean?"GO!  Land the jump ahead again and again, no bail":"GO!  "+CampaignRun.Active.Name;
         public string TimeOfDayLabel => ((TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)).ToString();
         public string WeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.weather,0,2)).ToString();
         public string RoamWeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.roamWeather,0,2)).ToString();
@@ -322,9 +324,22 @@ namespace Racer
         // 0.89: the colour of the vehicle being driven (the saved choice may be a vehicle the campaign has not given yet).
         public int SelectedColor => Save.Settings.bodyColors[Mathf.Max(0,VehicleProfile.IndexOf(Race.vehicle.GetComponent<VehicleConfiguration>().profileId))];
         // The player's vehicle: the saved choice when the campaign (or Testing) allows it, else the first one allowed.
-        public string PlayerVehicleId => Race.PlayerVehicle(Save.Settings.vehicleId);
+        public string PlayerVehicleId => Race.PlayerVehicle(Race.stunts?Save.Settings.stuntVehicleId:Save.Settings.vehicleId);
+        // 0.119 Part B: Race > Race type: a Stunt Race on the Stunt Race courses (Mountain Loop and Leviathan, both ways: stunt vehicles only, its own
+        // records); any other course (and Free Roam) races as before. The stunt vehicle chosen is kept apart from the normal one.
+        void ApplyStuntSetting(){Race.stunts=Save.Settings.stuntRace&&RacePlaylists.Active==null&&!RacePlaylists.PendingStart&&StuntRace.Offered&&StuntRace.Scene(gameObject.scene.name)&&!InRoamWorld;Race.splitScore=Race.stunts&&Save.Settings.stuntSplitScore;}
+        public void StepRaceType(int d=1)
+        {
+            if(State!=Stage.Ready&&State!=Stage.Results)return;
+            bool stunt=!Race.stunts;Save.Settings.stuntRace=stunt;Save.SaveSettings();Click();
+            if(stunt&&!StuntRace.Scene(gameObject.scene.name)){int to=StuntRace.Courses.FirstOrDefault(Campaign.CourseOpen);if(!Campaign.CourseOpen(to)){Save.Settings.stuntRace=false;Save.SaveSettings();Notify("Stunt Races are on the Mountain Loop and Leviathan: "+Campaign.CourseHowTo(4),6);menus.Show();return;}
+                menus.SaveSceneReturn();returnToSetup=true;Go(RacePlaylists.Scenes[to]);return;}
+            ApplyStuntSetting();RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);SelectRecords(Race.Category);
+        }
+        public void StepStuntScoring(int d=1){if(!Race.stunts||State!=Stage.Ready&&State!=Stage.Results)return;Save.Settings.stuntSplitScore=!Save.Settings.stuntSplitScore;Save.SaveSettings();ApplyStuntSetting();SelectRecords(Race.Category);Click();}
         void RestoreChoices()
         {
+            if(Race.stunts)Save.Settings.stuntVehicleId=StuntRace.Eligible(Save.Settings.stuntVehicleId);else
             Save.Settings.vehicleId=Race.EligibleVehicle(Save.Settings.vehicleId);
             // 0.81: one colour per vehicle; a save from before the new vehicles keeps its colours and gets defaults for the rest
             var colors=Save.Settings.bodyColors??new int[0];
@@ -333,6 +348,7 @@ namespace Racer
             if(Save.Settings.opponentRoster==null || Save.Settings.opponentRoster.Length!=3) Save.Settings.opponentRoster=new[]{"tourer","moto","atv"};
             Race.opponentRoster=(string[])Save.Settings.opponentRoster.Clone();
             for(int i=0;i<3;i++) Race.opponentRoster[i]=Race.EligibleVehicle(Race.opponentRoster[i]);
+            if(Race.stunts)Race.opponentRoster=StuntRace.Roster(3); // 0.119 Part B: the rivals on stunt vehicles (the saved roster is kept for normal races)
         }
         public void SetColor(int color)
         {
@@ -377,7 +393,7 @@ namespace Racer
             if(Campaign.VehicleLocked(VehicleProfile.Find(id))) return;
             id=Race.PlayerVehicle(id);
             Race.vehicle.GetComponent<VehicleConfiguration>().Apply(id);
-            Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
+            if(Race.stunts)Save.Settings.stuntVehicleId=VehicleProfile.Find(id).Id;else Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
             if(Race.FreeRoam&&!SplitScreen.Active)RecentVehicles.Drove(1,Save.Settings.vehicleId); // 0.110 Part D: in Free Roam the garage's choice is driven at once
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor); menus.Show();
         }
@@ -436,7 +452,7 @@ namespace Racer
             DebugMovementUsed=false; ttBannerShown=false; if(CampaignRun.Active!=null&&CampaignRun.Cup==null)CampaignRun.NewRun(); Save.BeginAttempt();
             attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();FinishCards.Begin(Boards,Race.Category,Save.Best);
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
-            if(CampaignRun.Active?.Kind==CampaignEventKind.SpeedTrap||CampaignRun.Active?.Kind==CampaignEventKind.Jump||CampaignRun.Active?.Kind==CampaignEventKind.Smash){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
+            if(CampaignRun.Active?.Kind is CampaignEventKind.SpeedTrap or CampaignEventKind.Jump or CampaignEventKind.Smash or CampaignEventKind.Trick or CampaignEventKind.Clean){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
         public void StartRace() { if(!CampaignAllows())return; BalanceLog.Abandon(this,"restarted"); /* 0.109 Part C */ if(CampaignRun.Active==null&&!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
@@ -478,10 +494,22 @@ namespace Racer
         public void StartCampaignEvent(CampaignEvent e,string vehicle)
         {
             if(e==null||!Campaign.Available(e)&&!Campaign.Testing)return;
+            if(e.Kind==CampaignEventKind.Park){StartCampaignPark(e,vehicle);return;}
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
             BalanceLog.Abandon(this,"left (campaign event started)");CampaignRun.Begin(e,vehicle);callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[e.Course]);
         }
-        public void RetryCampaignEvent(){if(CampaignRun.Active==null||CampaignRun.Cup!=null||State!=Stage.Results)return;CampaignRun.Retry();if(!RaceDirector.LiveCopies){CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);}StartRace();} // 0.113 Part B: set up as a fresh start does (StartWhenBuilt)
+        // 0.119 Part C: the Stunt chapter's park event: the Stunt event at the stunt park, one player on the full screen (its own machinery), the
+        // campaign event running alongside; its points are the result (CompleteResults), the campaign's results and Continue as for any event
+        void StartCampaignPark(CampaignEvent e,string vehicle)
+        {
+            if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
+            BalanceLog.Abandon(this,"left (campaign event started)");RacePlaylists.Quit();
+            SplitScreen.Mode=SplitScreen.Kind.Stunt;SplitScreen.Solo=true;SplitScreen.P2Ai=true;SplitScreen.FromRoam=false;SplitScreen.P1Vehicle=vehicle;SplitScreen.P1Color=SelectedColor;
+            SplitScreen.P1Device=MenuInput.Controller&&MenuInput.Pad!=null?MenuInput.Pad:(UnityEngine.InputSystem.InputDevice)Keyboard.current;SplitScreen.Time=e.Time;SplitScreen.Weather=e.Weather;
+            CampaignRun.Begin(e,vehicle);CampaignRun.PendingStart=false;SplitScreen.Begin();callers.Clear();menus.ResetPages();Click();RoamCourse=e.Course;Go(RoamScene,true);
+        }
+        public void RetryCampaignEvent(){if(CampaignRun.Active==null||CampaignRun.Cup!=null||State!=Stage.Results)return;
+            if(CampaignRun.Active.Kind==CampaignEventKind.Park){CampaignRun.Retry();StuntEvent.Current?.Rematch();return;}CampaignRun.Retry();if(!RaceDirector.LiveCopies){CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);}StartRace();} // 0.113 Part B: set up as a fresh start does (StartWhenBuilt)
         // 0.90: a championship: its next round (the first after Start / Restart), through the loading screen into its course.
         public void StartCupRound(CampaignCup cup)
         {
@@ -498,7 +526,7 @@ namespace Racer
             Race.opponents=Save.Settings.opponents;Race.traffic=Save.Settings.traffic;Race.difficulty=Mathf.Clamp(Save.Settings.difficulty,0,2);
             Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
             // 0.90: always re-applied, so the campaign's upgrades never stay on the vehicle outside the campaign
-            RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();
+            ApplyStuntSetting();RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();
             configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
             SelectRecords(Race.Category);menus.OpenCampaign(chapter);
         }
@@ -520,6 +548,7 @@ namespace Racer
         {
             if(!SplitScreen.Active)return;
             BalanceLog.Abandon(this,"quit"); // 0.109 Part C
+            if(InRoamWorld&&CampaignRun.Active!=null){callers.Clear();menus.ResetPages();EndSplit();CampaignRun.End();LeaveRoamWorld("campaign");return;} // 0.119 Part C: the park event, back to the campaign
             // 0.95 Part B: Change setup goes to the Police Chase setup for a chase; a chase started from inside Free Roam goes back to it
             if(InRoamWorld){callers.Clear();menus.ResetPages();bool police=SplitScreen.Mode==SplitScreen.Kind.Police,stunt=SplitScreen.Mode==SplitScreen.Kind.Stunt,roam=(police||stunt)&&SplitScreen.FromRoam&&!setup;EndSplit(); // 0.106: the Stunt event likewise
                 if(roam){SplitScreen.FromRoam=false;RoamCourse=SplitScreen.RoamReturn;LoadScene(RoamScene);return;}
@@ -531,7 +560,7 @@ namespace Racer
             SplitScreen.End();menus.RestrictMenuDevices(null);
             Race.opponents=Save.Settings.opponents;Race.traffic=Save.Settings.traffic;Race.difficulty=Mathf.Clamp(Save.Settings.difficulty,0,2);
             Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
-            RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
+            ApplyStuntSetting();RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
             SelectRecords(Race.Category);
         }
         public void QuitRace()
@@ -539,6 +568,7 @@ namespace Racer
             BalanceLog.Abandon(this,"quit"); // 0.109 Part C (before anything is reset)
             callers.Clear();menus.ResetPages();
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
+            if(InRoamWorld&&CampaignRun.Active!=null&&SplitScreen.Active){EndSplit();CampaignRun.End();LeaveRoamWorld("campaign");return;} // 0.119 Part C: the park event, back to the campaign
             if(InRoamWorld){if(SplitScreen.Active)EndSplit();LeaveRoamWorld("");return;}
             // 0.90: leaving a championship round before its result counts as did not finish (no retries in a championship)
             // (when that was the last round, its final standings and payout are still shown)
@@ -560,6 +590,7 @@ namespace Racer
             if (State != Stage.Racing || Race.FreeRoam) return;
             if(string.IsNullOrEmpty(attempt)||Race.Progress.CompletedLaps<=0)return;
             string profile=Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
+            if(Race.Progress.Finished)StuntRaceScore.Current?.Close(Race.Racers[0]); // 0.119 Part B: a Stunt Race's open combo counts (its bonus) before the time is recorded
             // 0.89: campaign events never write the Top 10 boards or personal bests (they keep their own in the campaign save)
             bool records=!DebugMovementUsed&&CampaignRun.Active==null&&!SplitScreen.Active; // 0.90: nor split-screen
             LapRank=records?Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress):0;
@@ -585,9 +616,9 @@ namespace Racer
         }
         public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;}
             // 0.96 Part A: a time trial's lap is its attempt: its result (the medal) shows for 3 s at the line before the results
-            if(CampaignRun.Active?.Kind==CampaignEventKind.TimeTrial&&!CampaignRun.Done&&!ttBannerShown&&!DebugMovementUsed&&Race.Progress.Finished&&Race.Progress.LapTimes.Count>0&&State==Stage.Racing){ttBannerShown=true;CampaignRun.RecordAttempt((float)Race.Progress.LapTimes[0],true);StartCoroutine(ResultsAfterBanner());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true);BalanceLog.Finished(this); /* 0.109 Part C */ SetStage(Stage.Results); }
+            if(CampaignRun.Active?.Kind==CampaignEventKind.TimeTrial&&!CampaignRun.Done&&!ttBannerShown&&!DebugMovementUsed&&Race.Progress.Finished&&Race.Progress.LapTimes.Count>0&&State==Stage.Racing){ttBannerShown=true;CampaignRun.RecordAttempt((float)Race.Progress.LapTimes[0],true);StartCoroutine(ResultsAfterBanner());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,CampaignRun.Active.Kind==CampaignEventKind.Park?StuntEvent.Current?.Of(1)?.points??0:GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true);BalanceLog.Finished(this); /* 0.109 Part C */ SetStage(Stage.Results); }
         // 0.91 Part C: pause menu > End event in a campaign jump event (its best scored jump counts).
-        public CampaignTrapWatch JumpEvent=>CampaignRun.Active?.Kind==CampaignEventKind.Jump&&!CampaignRun.Done?GetComponent<CampaignTrapWatch>():null;
+        public CampaignTrapWatch JumpEvent=>CampaignRun.Active?.Kind is CampaignEventKind.Jump or CampaignEventKind.Trick or CampaignEventKind.Clean&&!CampaignRun.Done?GetComponent<CampaignTrapWatch>():null;
         public void EndJumpEvent(){var watch=JumpEvent;if(watch)watch.EndNow();}
         bool ttBannerShown;System.Collections.IEnumerator ResultsAfterBanner(){float until=Time.unscaledTime+CampaignEventUi.BannerSeconds;while(Time.unscaledTime<until&&State==Stage.Racing)yield return null;if(State==Stage.Racing||State==Stage.Paused)CompleteResults();}
         System.Collections.IEnumerator ResultsAfterWinnerShot(){while(WinnerShot.Active)yield return null;CompleteResults();}

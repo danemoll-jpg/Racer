@@ -157,6 +157,11 @@ namespace Racer
                 case "shots118": yield return Shots118(); break; // 0.118 (Report106PlayerCheck.Round118.cs)
                 case "seg118": yield return Seg118(); break;
                 case "rider118": yield return Rider118(); break;
+                case "shots119": yield return Shots119(); break; // 0.119 (Report106PlayerCheck.Round119.cs)
+                case "roam119": yield return Roam119(); break;
+                case "stunt119": yield return Stunt119(); break;
+                case "campaign119": yield return Campaign119(); break;
+                case "menus119": yield return Menus119(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

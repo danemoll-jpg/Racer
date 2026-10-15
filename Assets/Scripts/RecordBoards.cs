@@ -43,7 +43,8 @@ namespace Racer
         public static string LapCategory(string category)=>Regex.Replace(category,@"-laps\d+$","");
         public static string Describe(string category)
         {
-            var match=Regex.Match(category,@"^(.*?)-(original|tourer|moto|atv)-(.*)$");if(!match.Success)return category;
+            if(category.StartsWith(StuntRace.RecordPrefix))return "Stunt Race / "+Describe(category.Substring(StuntRace.RecordPrefix.Length)); // 0.119 Part B
+            var match=Regex.Match(category,@"^(.*?)-(original|tourer|moto|atv|stuntbuggy|stuntbike|hoppercup)-(.*)$");if(!match.Success)return category;
             var bits=match.Groups[3].Value.Split('-');string course=match.Groups[1].Value;
             string track=course=="street-v11-arcade"?"Street Loop / v11":course=="lake-v4-arcade"?"Forest Loop / v4":course=="street-reverse-v2-arcade"?"Street Loop Reverse / v2":course=="forest-reverse-v2-arcade"?"Forest Loop Reverse / v2":course=="street-reverse-v1"?"Street Loop Reverse / v1":course=="forest-reverse-v1"?"Forest Loop Reverse / v1":course=="street-v10-hairpin"?"Street Loop / v10":course=="lake-v3-shallows"?"Forest Loop / v3 shallows":course=="street-v9-life"?"Street Loop / v9":course=="lake-v2-forest"?"Forest Loop / historical v2":course=="lake-v1"?"Forest Loop / historical v1":course=="street-v8-landings"?"Street Loop / historical v8 landings":course;
             if(course=="backyard-forward-v2-terrain")track="Dan's Backyard - Forward";

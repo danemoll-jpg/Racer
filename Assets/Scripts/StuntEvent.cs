@@ -124,7 +124,7 @@ namespace Racer
             foreach (var r in Riders)
             {
                 r.medal = StuntProgress.MedalFor(r.points);
-                bool human = r.player == 1 || !SplitScreen.P2Ai;
+                bool human = (r.player == 1 || !SplitScreen.P2Ai) && CampaignRun.Active == null; // 0.119 Part C: the campaign's park event writes no Stunt event records
                 r.entry = human ? StuntProgress.Finish(r.player, SplitScreen.NameOf(r.player), r.vehicle, r.points, r.best) : null;
             }
             // 0.110 Part A: each place read from the list after every player's entry is in (two players next to each other: #5 and #6, not both #5)

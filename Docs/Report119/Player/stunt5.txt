@@ -1,0 +1,15 @@
+screen=1920x1080 kind=stunt119 version=0.119.0-review1 park=on
+== Stunt Race on Mountain Loop - Reverse: Mountain Loop - Reverse (stunt-mountain-reverse-v4-natural-summit-merge-split), stunts True, split score True, laps 1, difficulty Normal; player stuntbuggy; rivals stuntbuggy, stuntbike, stuntbuggy; category stunt-mountain-reverse-v4-natural-summit-merge-split-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear-laps1; flights Westbound Gully Flight, South Face Summit Flight
+  player: 106.1 s (race 106.1 − bonus 0.0); 2623 stunt pts in 1 combos, best 2623; own tricks turned: 1; recoveries 0
+  player flights: flight 1: 0.3 s, no trick | flight 2: 0.5 s, no trick | flight 3: 5.8 s, ROLL |   landed: ROLL 2616 pts (180 m, 5.6 s) | 
+  bonus lines shown: t 92 '+2,623 STUNT PTS' (bonus 0.0 s, 2623 pts)
+  rival stuntbuggy: 107.0 (bonus 0.0 s, 2519 pts) laps [105.1] resets 0; flights 2, tricks 1, bails 0
+    flight 1: 0.5 s, no trick | flight 2: 5.8 s, 360 SPIN |   landed: 360 SPIN 2519 pts (180 m, 5.6 s) | 
+  rival stuntbike: 118.8 (bonus 0.0 s, 5661 pts) laps [117.3] resets 0; flights 5, tricks 1, bails 0
+    flight 1: 0.3 s, no trick | flight 2: 0.4 s, no trick | flight 3: 7.5 s, ROLL |   landed: ROLL 3137 pts (217 m, 7.2 s) | flight 4: 6.0 s, chose none |   landed: no trick 2524 pts (194 m, 5.9 s) | flight 5: 0.3 s, no trick | 
+  rival stuntbuggy: 120.6 (bonus 0.0 s, 2909 pts) laps [119.5] resets 0; flights 2, tricks 1, bails 1
+    flight 1: 7.2 s, ROLL |   landed: ROLL 2909 pts (198 m, 6.8 s) | flight 2: 5.8 s, FRONTFLIP (will bail) |   bail: bailed the frontflip | 
+  split score: PLAYER finish 1 stunt 3 total 15; stuntbike finish 3 stunt 1 total 15; stuntbuggy finish 2 stunt 4 total 10; stuntbuggy finish 4 stunt 2 total 10
+  results: 3rd  01:58.801  +5 | 1 | 4th  02:00.608  +3 | 10 | 10 | 1st  01:46.058  +10 | 3 | Place | 2,909  (2nd)  +7 | 4 | 2,623  (3rd)  +5 | 2,519  (4th)  +3 | 15 | 15 | 2nd  01:46.971  +7 | 2
+  Top 10 categories: before 168, after 170; new: stunt-mountain-reverse-v4-natural-summit-merge-split-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear, stunt-mountain-reverse-v4-natural-summit-merge-split-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear-laps1; the normal boards' entries unchanged
+  best combo record: 2623

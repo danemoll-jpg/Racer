@@ -23,7 +23,8 @@ namespace Racer
     {
         public const float ComboGap = 5f, MinStuntAir = .6f, MinStuntDistance = 4f, RecoverWindow = 1.5f, RoofUp = -.17f, RoofHit = 3f;
         public const int FlipPoints = 300, RollPoints = 250, SpinPoints = 150, LoopPoints = 500, BarrelPoints = 300, MaxLinks = 9;
-        public bool StuntsOn => race && race.FreeRoam && CampaignRun.Active == null && !(SplitScreen.Active && SplitScreen.Mode == SplitScreen.Kind.Police);
+        // 0.119 Part B: also in a Stunt Race (RaceDirector.stunts: quick, split-screen and the campaign's Stunt chapter) and the Stunt chapter's park event
+        public bool StuntsOn => race && (race.FreeRoam ? CampaignRun.Active == null || CampaignRun.Active.Kind == CampaignEventKind.Park : race.stunts) && !(SplitScreen.Active && SplitScreen.Mode == SplitScreen.Kind.Police);
         // a combo banked: its points (after the multiplier) and whether every link of it was in the stunt park
         public event Action<int, bool> ComboBanked;
         public int ComboLinks { get; private set; }
@@ -142,7 +143,7 @@ namespace Racer
             LastComboLinks = links; LastComboTricks = string.Join(" · ", comboTricks); comboTricks.Clear();
             // 0.108 Part D: the Top 10 Best Combos (in the park; in the Stunt event only while the player's round still counts; human players only)
             int player = car == race.vehicle ? 1 : 2; LastComboPlace = 0;
-            if (park && !DeveloperLocationHud.Inspecting && StuntEvent.Counts(car) && (player == 1 || SplitScreen.Active && !SplitScreen.P2Ai))
+            if (park && race.FreeRoam && CampaignRun.Active == null && !DeveloperLocationHud.Inspecting && StuntEvent.Counts(car) && (player == 1 || SplitScreen.Active && !SplitScreen.P2Ai))
                 LastComboPlace = StuntProgress.RecordComboTop(SplitScreen.Active ? SplitScreen.NameOf(player) : PlayerNames.Player, configuration.profileId, total, links, LastComboTricks);
             string top = LastComboPlace > 0 ? $"\nNEW TOP 10 COMBO — #{LastComboPlace}" : "";
             if (bail != null) Message($"BAILED / {bail}\nCOMBO ENDED · x{links} · {total:N0} pts" + top, 4);
@@ -150,7 +151,7 @@ namespace Racer
             else if (top != "") Message($"{LastStunt} / {total:N0} pts" + top, 3.5f);
             ComboBanked?.Invoke(total, park);
             // the best single combo in Free Roam (player 1, alone; not the Stunt event)
-            if (!SplitScreen.Active && car == race.vehicle && !DeveloperLocationHud.Inspecting) StuntProgress.RecordCombo(total, configuration.profileId);
+            if (!SplitScreen.Active && car == race.vehicle && race.FreeRoam && CampaignRun.Active == null && !DeveloperLocationHud.Inspecting) StuntProgress.RecordCombo(total, configuration.profileId);
         }
         void Bail(string why)
         {

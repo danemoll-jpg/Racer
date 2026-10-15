@@ -118,6 +118,9 @@ namespace Racer
                 foreach (var c in CampaignData.Cups) if (c.Prize != null && data.cups.Any(x => x.id == c.Id && x.won) && !data.owned.Contains(c.Prize)) { data.owned.Add(c.Prize); notes.Add($"Prize for winning the {c.Name}: the {VehicleProfile.Find(c.Prize).Name}"); }
                 data.version = Version;
                 if (data.orderVersion == 0) { data.legacyOrder = data.results.Count > 0; data.orderVersion = 96; }
+                // 0.119 Part C: a chapter added after its opening final was passed (the Stunt chapter after the Summit Final) opens now, with its vehicle
+                while (data.chapter < CampaignData.Chapters.Length && CampaignData.InChapter(data.chapter).Any(e => e.Final && data.results.Any(r => r.id == e.Id && r.passed))) { data.chapter++; notes.Add($"Chapter {data.chapter}: {CampaignData.Chapters[data.chapter - 1].Name} is open"); }
+                if (StuntVehicleFor(data)) notes.Add($"For the Stunt chapter: the {VehicleProfile.StuntBuggy.Name}");
                 if (notes.Count > 0) LoadNotice = string.Join("\n", notes);
             }
             catch (Exception e) { readFailed = true; Exists = true; Error = "Campaign save could not be read (" + e.Message + "); it is left as it is. New Campaign replaces it."; }
@@ -230,8 +233,11 @@ namespace Racer
                 ? (Dnf ? "Did not finish" : $"{Ordinal(Place)} of {Field}")
                 : (Dnf ? "No result" : MedalUi.Name(Medal) + "  ·  " + MedalUi.Value(Event.Kind, Event.Kind == CampaignEventKind.TimeTrial ? (float)Time : Score));
         }
+        // 0.119 Part C: the Stunt chapter gives the Clay Hopper at its start (true when it is given now)
+        public const int StuntChapter = 5;
+        static bool StuntVehicleFor(State s) { if (s.chapter < StuntChapter || s.owned.Contains(VehicleProfile.StuntBuggy.Id)) return false; s.owned.Add(VehicleProfile.StuntBuggy.Id); return true; }
         public static string Ordinal(int n) => n + (n % 100 is >= 11 and <= 13 ? "th" : (n % 10) switch { 1 => "st", 2 => "nd", 3 => "rd", _ => "th" });
-        public static string Measure(CampaignEvent e, float value) => e.Kind == CampaignEventKind.TimeTrial ? RaceHud.FormatTime(value) : e.Kind == CampaignEventKind.SpeedTrap ? DisplayUnits.Speed(value) : e.Kind == CampaignEventKind.Jump ? DisplayUnits.Jump(value) : e.Kind == CampaignEventKind.Smash ? value.ToString("0") + " props" : RaceHud.FormatTime(value);
+        public static string Measure(CampaignEvent e, float value) => e.Kind == CampaignEventKind.TimeTrial ? RaceHud.FormatTime(value) : e.Kind == CampaignEventKind.SpeedTrap ? DisplayUnits.Speed(value) : e.Kind == CampaignEventKind.Jump ? DisplayUnits.Jump(value) : e.Kind == CampaignEventKind.Smash ? value.ToString("0") + " props" : e.Kind is CampaignEventKind.Trick or CampaignEventKind.Park or CampaignEventKind.Clean ? MedalUi.Value(e.Kind, value) : RaceHud.FormatTime(value);
         public static int MedalFor(CampaignEvent e, float value)
         {
             if (e.Targets == null || e.Targets.Length != 3 || value <= 0) return 0;
@@ -282,7 +288,7 @@ namespace Racer
             if (o.Passed && e.Final) foreach (var cup in CampaignData.CupsAfter(e.Chapter)) if (CupResult(cup.Id) == null && !o.Unlocked.Contains("Championship: " + cup.Name)) o.Unlocked.Add("Championship: " + cup.Name);
             if (o.Passed && e.Prize != null && !Owns(e.Prize)) { Current.owned.Add(e.Prize); o.Unlocked.Add("Vehicle: " + VehicleProfile.Find(e.Prize).Name); o.PrizeWon = e.Prize; }
             if (o.Passed && e.Final && Current.chapter == e.Chapter && e.Chapter < CampaignData.Chapters.Length) Current.chapter = e.Chapter + 1;
-            if (Current.chapter > chapterBefore) { var c = CampaignData.Chapters[Current.chapter - 1]; o.Unlocked.Add($"Chapter {c.Number}: {c.Name}"); }
+            if (Current.chapter > chapterBefore) { var c = CampaignData.Chapters[Current.chapter - 1]; o.Unlocked.Add($"Chapter {c.Number}: {c.Name}"); if (StuntVehicleFor(Current)) o.Unlocked.Add($"Vehicle for the Stunt chapter: the {VehicleProfile.StuntBuggy.Name}"); }
             if (CampaignData.Events.Count(Available) > nextBefore) { var n = CampaignData.Events.FirstOrDefault(x => Available(x) && ResultOf(x.Id) == null); if (n != null) o.Unlocked.Add("Next event: " + n.Name); }
             if (Testing) { Current = JsonUtility.FromJson<State>(keep); return o; }
             o.Saved = Save();

@@ -15,7 +15,7 @@ namespace Racer
         Transform visual;Material material; double start; int misses,cursor; bool active,invalid,sampled;Vector3 previous;Quaternion previousRotation;float nextSample;
         public bool Enabled {get;private set;}
         public string Status {get;private set;}="No compatible ghost. Complete a clean lap.";
-        public string Key=>race.courseId+"/"+(race.reverseCourse?"reverse":"forward")+"/"+race.vehicle.GetComponent<VehicleConfiguration>().profileId+"/"+Rules;
+        public string Key=>race.RecordCourse+"/"+(race.reverseCourse?"reverse":"forward")+"/"+race.vehicle.GetComponent<VehicleConfiguration>().profileId+"/"+Rules;
         public Quaternion CrossingRotation(float fraction,Quaternion current)=>sampled?Quaternion.Slerp(previousRotation,current,fraction):current;
         public void Initialize(RaceDirector owner,string saveRoot)
         {race=owner;root=Path.Combine(saveRoot,"CleanLapGhosts");try{Enabled=File.Exists(Path.Combine(root,"preference.txt"))&&File.ReadAllText(Path.Combine(root,"preference.txt"))=="on";}catch{Enabled=false;}race.vehicle.GetComponent<VehicleRespawn>().Respawned+=Invalidate;}

@@ -1,0 +1,14 @@
+screen=1920x1080 kind=stunt119 version=0.119.0-review1 park=on
+== Stunt Race on Mountain Loop - Forward: Mountain Loop - Forward (stunt-mountain-forward-v5-supported), stunts True, split score False, laps 2, difficulty Normal; player stuntbuggy; rivals stuntbuggy, stuntbike, stuntbuggy; category stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear-laps2; flights Eastbound Gully Flight, Homeward Summit Flight
+  player: 196.1 s (race 204.7 − bonus 8.6); 8684 stunt pts in 3 combos, best 3333; own tricks turned: 3; recoveries 0
+  player flights: flight 1: 5.9 s, chose none |   landed: no trick 2444 pts (186 m, 5.8 s) | flight 2: 0.5 s, no trick | flight 3: 7.4 s, DOUBLE BACKFLIP |   landed: DOUBLE BACKFLIP 3326 pts (203 m, 7.0 s) | flight 4: 5.9 s, BACKFLIP + 360 SPIN (will bail) |   landed: BACKFLIP + 360 SPIN 2894 pts (186 m, 5.8 s) | 
+  bonus lines shown: t 34 '−2.4 s TRICK BONUS' (bonus 2.4 s, 2450 pts); t 106 '−3.3 s TRICK BONUS' (bonus 5.7 s, 5783 pts); t 143 '−2.9 s TRICK BONUS' (bonus 8.6 s, 8684 pts)
+  rival stuntbuggy: 177.4 (bonus 9.1 s, 9229 pts) laps [112.5, 72.8] resets 0; flights 5, tricks 2, bails 0
+    flight 1: 5.9 s, FRONTFLIP |   landed: FRONTFLIP 2741 pts (186 m, 5.8 s) | flight 2: 0.8 s, no trick |   landed: no trick 210 pts (15 m, 0.6 s) | flight 3: 7.3 s, chose none |   landed: no trick 2722 pts (202 m, 7.0 s) | flight 4: 0.8 s, no trick |   landed: no trick 230 pts (16 m, 0.7 s) | flight 5: 7.3 s, DOUBLE BACKFLIP |   landed: DOUBLE BACKFLIP 3326 pts (203 m, 7.0 s) | 
+  rival stuntbike: 196.0 (bonus 8.8 s, 8761 pts) laps [92.9, 110.3] resets 0; flights 5, tricks 5, bails 0
+    flight 1: 6.1 s, 360 SPIN |   landed: 360 SPIN 2774 pts (202 m, 6.0 s) | flight 2: 0.5 s, no trick | flight 3: 6.1 s, ROLL + 360 SPIN |   landed: ROLL + 360 SPIN 3024 pts (202 m, 6.0 s) | flight 4: 0.7 s, no trick | flight 5: 7.1 s, ROLL + 360 SPIN |   landed: ROLL + 360 SPIN 2963 pts (190 m, 6.7 s) | 
+  rival stuntbuggy: 196.3 (bonus 8.1 s, 8168 pts) laps [92.3, 109.9] resets 0; flights 4, tricks 3, bails 0
+    flight 1: 5.8 s, BACKFLIP + 360 SPIN |   landed: BACKFLIP + 360 SPIN 2843 pts (182 m, 5.7 s) | flight 2: 5.9 s, chose none |   landed: no trick 2404 pts (183 m, 5.7 s) | flight 3: 0.6 s, no trick | flight 4: 7.2 s, ROLL |   landed: ROLL 2921 pts (198 m, 6.9 s) | 
+  results: 3 | 1 | 2 | Place | 4
+  Top 10 categories: before 168, after 170; new: stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear, stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear-laps2; the normal boards' entries unchanged
+  best combo record: 3333
