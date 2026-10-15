@@ -20,7 +20,50 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan: show where to turn (both directions); Leviathan Reverse: new shortcuts of its own (up to three, Dan keeps the ones he likes) — target 0.116.0-review1 — DELIVERED as 0.116.0-review1 (build 116000), awaiting Dan's review
+## CURRENT — Leviathan cleanup: every turn clear, wrong roads blocked, gates right, resets onto Leviathan, shortcuts with something on them (Dan's 14 reports) — target 0.117.0-review1 — NOT STARTED
+
+Dan's report `2026-10-14_20-53-07-878_2d1da6` (0.116, Leviathan Forward lap 3 of 4 and Reverse lap 1, Drifter Twin; ZIP in `DebugReports`). Dan (21:17): "A lot to clean up here. It's a little less confusing but there are places that aren't clear whatsoever." **Read all 14 screenshots first.** Everything here applies to the Leviathan races only (0.115 rule: "only change for race, do not change Free Roam or any other races"), world rules as always: no terrain reshaping, nothing floating, signs one-sided and depth-tested.
+
+### Part A — The rule this round enforces
+A first-time player must always know where to go, using only what's on screen. So at **every** place where Leviathan's line meets another drivable way (road, trail, driveway, lot, the Mountain Loop's or Street Loop's own routes): **either it's the course (marked: arrow sign before, chevrons on the outside, the next gate visible) or it's blocked** for the race (barricades like Street Loop Reverse's, visible, solid, one-sided signs "ROAD CLOSED"). No third case. Make a **decision-point audit**: a table of every such junction in both directions (position, what's there, marked or blocked, before/after shot). Shortcuts are the only open alternatives and are marked as shortcuts.
+
+### Part B — Dan's reports, Forward (lap 3)
+1. **BUG-001** X=467.16 Z=44.87 heading 195°: "this sign is too early." Move the turn sign to just before the turn (about 40–60 m ahead of it at racing speed), not where it suggests turning onto the wrong way.
+2. **BUG-002** X=480.28 Z=−21.22 heading 93°: "really not sure which is the intended entrance. Maybe we just make it Kyle's driveway?" **Do it Dan's way:** route Leviathan through **Kyle's driveway** as the entrance here (Kyle's house, garage and yard otherwise unchanged; the route uses the drive surface, race-only markings and gate), and block the other candidate ways in. Same in Reverse where the course passes here (BUG-011 and BUG-014 are the same area: X≈480–499, Z≈−17).
+3. **BUG-003** X=603.37 Z=−110.75 heading 103°: "the gate that is here is far too low." Every Leviathan gate at normal height and width on the ground of its spot (check all gates, both directions; list any other that was wrong).
+4. **BUG-004** X=740.26 Z=−119.49 heading 96°: "The main route from the forward race isn't intended to be used here, so there should be a barricade." Barricade the Mountain Loop route that Leviathan doesn't use at this junction (the screenshot shows the "Optional shortcut / Climbing Ridge Cut" sign: Climbing Ridge Cut is Leviathan's **main road**, so its sign must not say "optional shortcut" on Leviathan either).
+5. **BUG-005** X=716.48 Z=−78.51 heading 194°: "this part is confusing. There should be a better indicator that you need to return as opposed to going around again. Since people would be used to the Mountain Forward track, they may not realize it." After the summit: the way back to the lake marked like a main turn (big arrow sign, chevrons, the next gate in view), and the Mountain Loop's own continuation **blocked**.
+6. **BUG-006** X=727.53 Z=−118.56: "I had reset because I fell down the cliff and it took me back here to do the mountain loop again." **Resets on Leviathan put you back on Leviathan's line**, at the last point you legally passed (after the last gate passed, facing the way of the course), never on the Mountain Loop's or Street Loop's own route and never behind a gate you already passed. Test: fall off at three places on the mountain and reset.
+
+### Part C — Dan's reports, Reverse (lap 1)
+7. **BUG-007** X=−640.22 Z=114.81 heading 164°: "What gate did I miss? Didn't see one." Find the gate he was charged for: it must be visible on the road where the course goes (not hidden by 0.116's "only the next gate" rule, not off the road, not under ground). When a gate is missed, say which and where ("Missed gate 5: back 120 m, left at the lake path").
+8. **BUG-008** X=−622.64 Z=−242.10 heading 132°: "this should be blocked off as it is in Street Loop Reverse." Use the same barricade as Street Loop Reverse there.
+9. **BUG-009** X=508.56 Z=−481.04 heading 74° (one of 0.116's new Reverse shortcuts): "is there nothing to this shortcut? Not even a jump?" Give it something: a jump that fits the place (bank, ditch, driveway kicker) on the existing ground; if the ground allows nothing, say so and replace the shortcut with a better one.
+10. **BUG-010** X=531.88 Z=−44.53 heading 39°: "that shortcut behind me should be a jump." Make it a jump (same rules: fits the place, lands on a down-slope, AI can fly it).
+11. **BUG-011** X=499.33 Z=−16.80 heading 355°: "just like the other way, I have no idea where to go. The lines keep changing." Also seen in his shots: the on-screen guide stuck at **"NEXT CP 14 0 ft"** with the arrow pointing down at several different places (BUG-010, 011, 012), and "NEXT CP 20 26 ft" pointing the wrong way. Fix the next-checkpoint guide and the minimap "ahead" line on twice-driven roads (they must follow the course pass you're on, not jump between passes), and the Kyle's-driveway entrance (item 2) here.
+12. **BUG-012** X=577.34 Z=55.12 heading 52°: "telling me wrong way but this was where the trail is supposed to go." No wrong-way warning on the course in either direction; test both lanes of every twice-driven stretch.
+13. **BUG-013** X=820.24 Z=−190.06 heading 297°: "the road to the right should be blocked, otherwise someone will take it." Block it.
+14. **BUG-014** X=480.71 Z=−17.80 heading 293°: "this path is meant to go through trees?" No course line through trees: clear trunks within the drivable width + 1 m on the course line (race only, like 0.115) or move the line onto the open path; with item 2 this becomes Kyle's driveway.
+
+### Part D — Also seen in the screenshots
+15. BUG-009's screenshot: the radio's "Artist / Song" caption draws on top of the "NEXT CP" guide. Move it so nothing overlaps the guide or other HUD (all modes).
+16. Rivals: after all changes, AI-only races both directions (3 × 2 laps, mixed vehicles): all finish, ≤ 2 resets each; rivals use Kyle's driveway and the new jumps.
+
+### Part D2 — Skipping the mountain must never pay
+Dan (21:20): "Also concerned that you could just skip going up the mountain at all and not sure if that will punish you enough. Need to make sure that if someone attempts this, they will suffer a huge time penalty."
+0.115 added "Leviathan's lake and mountain gates must be passed in order" (crossing a later gate or the finish doesn't count until they're passed). Prove it and make it unmistakable:
+1. Try every way to skip the mountain (and the summit jump) in both directions: turning back early at J, cutting along the lake, any trail, driving over the hill, using a reset. Report each attempt.
+2. Skipping must **always cost more than doing it**: the lap doesn't count until the skipped gates are passed (you must drive back), and the screen says so at once, big and clear: **"MOUNTAIN MISSED — GO BACK"**, with the guide pointing to the missed gate. If a lap could somehow end without them, it costs **+60 s per missed mountain gate** (far more than the mountain takes) and the time shows as penalized in the results and is never a record.
+3. A reset never moves you past a mountain gate you haven't passed (Part B item 6).
+4. Rivals unaffected.
+- **Check:** each skip attempt from item 1 driven with the controller, with the time it cost compared to a normal lap's mountain section.
+
+### Part E — Checks and release
+- Drive both directions as a first-time player with the controller, following only what's on screen, and record a **full-lap screen recording** of each (Dan reviews them); the decision-point audit table; before/after shots at all 14 spots.
+- Free Roam and every other course unchanged (compare as in 0.115).
+- Version 0.117.0-review1; usual build and release; close everything started; no background task left running.
+
+## Previous delivery — Leviathan: show where to turn (both directions); Leviathan Reverse: new shortcuts of its own (up to three, Dan keeps the ones he likes) — target 0.116.0-review1 — DELIVERED as 0.116.0-review1 (build 116000), awaiting Dan's review — REVIEWED BY DAN (14 reports; cleanup in 0.117)
 
 ### Part A — Leviathan is hard to follow: show where to turn (both directions)
 Dan (2026-10-14, 16:46): "These tracks are very messy, there needs to be indicators where to turn. For example on the Forward race you see the checkpoint for where you go after the mountain before you see the CP for the mountain path. And when I tried Reverse, I didn't see where to turn to get off the mountain way."
@@ -304,6 +347,26 @@ Version 0.113.0-review1; usual build and release; close everything started.
   - Downhill is still about 45 s easier than its window (knobs at their limit).
   - The meeting hall sits about 25 m from its real spot (the real spot is the Pine Ridge trail in the game).
   - Other vehicles' engine level (0.7 of yours) and the 140 m range are a first setting; easy to change.
+
+## QUEUED NEXT — Stunt Races (stunt vehicles only, Mountain courses, own records) and a Stunt chapter in the campaign — target 0.118.0-review1 — NOT STARTED (do not start until Claude (chat) promotes this to CURRENT, after 0.117)
+
+Dan (2026-10-14, 19:24–19:26): "With all the air you get on the mountain jumps, it would be a fun place to do stunts" … "or we can have special stunt-only mountain races with their own separate records and it would mix well with a stunt campaign." Stunt vehicles stay out of normal races, the existing campaign chapters and their records (fairness, balancing).
+
+### Part A — Stunt Races
+1. A race type **Stunt Race**: stunt vehicles only (stunt buggy, stunt motorcycle, and any later stunt vehicle) for the player and every rival; air steering on; the stunt park's landing rules (0.107: 1.5 s recovery window, bail only on a real roof/side landing).
+2. Courses: **Mountain Loop Forward / Reverse and Leviathan Forward / Reverse** (proposed; Dan to confirm). Same routes, gates, shortcuts and in-order rules as the normal races.
+3. **Scoring (proposed default): position by finish time, with a trick bonus**: each landed trick or combo knocks time off your race time (e.g. 0.5 s per 500 trick points, capped so a race can't be won by tricks alone), shown live ("−2.5 s TRICK BONUS"). **Rivals do tricks too** (Dan, 19:28: "the rivals can't do stunts?"): at the big jumps whose flights are known (the summit flights, Downhill Ridge Cut's flight, the Street Loop jumps on Leviathan; the authored flight data gives airtime and landing), a rival picks a trick its airtime allows (flip, roll, 360, or a combo on long flights) by its skill and difficulty, rotates through it with the same air steering the player has, and lands it, with an occasional bail (more on Easy, rare on Hard) that costs it the bonus and a little time, never a stuck reset. Rivals earn the same trick bonus. Their tricks show briefly over them ("BACKFLIP") when near the player. Tune so you have to trick to win.
+4. **Own records**: separate Records / Top 10 boards for Stunt Races (race time with bonus, best lap, best combo per course); never mixed with the normal boards. Ghosts per Stunt Race course.
+5. Race > Tracks: a "Stunt Race" option (or mode toggle) that only appears once a stunt vehicle is owned. Split-screen supported.
+6. Trick pop-ups smaller in races than in the park, never covering the position/lap HUD.
+
+### Part B — Stunt chapter in the campaign
+1. A separate **Stunt chapter** (after Chapter 4 or opened by winning the first stunt vehicle; proposed: opens with the Stunt Buggy), its own events, rivals on stunt vehicles, its own prize at the end (proposed: a stunt-vehicle Cup edition, like 0.111's).
+2. Events (proposed, 6–7): a Stunt Race on Mountain Loop Forward; a trick-score challenge at the summit jump (best combo in 3 tries); the 10-minute Stunt event at the park (a medal target); a Stunt Race on Mountain Loop Reverse; a "land it clean" event (fly the summit jump N times without a bail); a Leviathan Stunt Race; the final, a 2-lap Stunt Race on Leviathan Forward.
+3. **Split score for Stunt chapter races** (Dan, 19:32: "you get 10 points for finishing first place and 10 points for scoring the most stunt points"): each race ranks everyone twice, by **finish** (race time, no trick time bonus here) and by **stunt points** (all landed tricks and combos in the race). Each ranking pays 10 / 7 / 5 / 3 / 2 / 1 points by place (the championship scale). The event result is the **total** (max 20); ties go to the better finish. Passing = top 3 by total, winning = 1st, as other campaign races. The results screen shows both columns and the total; the HUD shows your live finish place and stunt-point place.
+   Quick Stunt Races (Part A) keep the trick time bonus by default, with **Split score** offered as a setting there too.
+4. Its own balancing via the results log (tagged `stunt`), same method as 0.112.
+- **Check (built player, controller):** one Stunt Race each course; a trick bonus applied; records on their own boards; the chapter's first two events and the final from a test save; normal races, records and campaign unchanged.
 
 ## QUEUED — The trailer, filmed and cut by Code — target: no game version (tools and output only) — NOT STARTED (run last: after 0.113 and 0.114 are delivered and Dan says the game looks right; Claude (chat) promotes it)
 
