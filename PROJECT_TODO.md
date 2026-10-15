@@ -27,7 +27,57 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## Previous delivery — Leviathan: Dan's 4 reports on 0.118 (two more barricades out, CP 18 straight ahead, stars behind the mountain); Stunt Races (stunt vehicles only, own records) and the Stunt chapter in the campaign — target 0.119.0-review1 — DELIVERED as 0.119.0-review1 (build 119000, local build), awaiting Dan's review
+## CURRENT — Stunt Races and the Stunt park after Dan's first drive of 0.119: points on screen, a multiplier for every trick in one flight, bumps to trick off, tricks out of the park count again, the garage shows stunt vehicles — target 0.120.0-review1 — NOT STARTED
+
+Dan (2026-10-15, 18:58), after playing 0.119 (no debug report this time; his words are the spec):
+> 1) It was supposed to show your total points during the race but it is not there
+> 2) On the ramps you really have only a couple of times to get a score, the multiplier should go up for every stunt type you do during a jump
+> 3) perhaps we can add some bumps on the stunt tracks in order to be able to get some extra point
+> 4) The stunt course itself: we had a rule that stunts completed out of the arena still counted but I think it has reverted here. There is no counter for your current stunt and multiplier
+> 5) You can select the garage but it is pointless because it only shows all the other vehicles you can't use, the stunt course vehicles aren't there...at least I didn't see them
+
+Standing rules apply (controller first, verification budget, signs, American spelling). Normal races, their records and the normal campaign chapters stay unchanged.
+
+### Part A — One trick HUD everywhere tricks score
+Items 1 and 4 (second half). The Stunt Race, the Stunt chapter's events and the Stunt park event (solo and split screen, each player their own) show:
+1. **Total stunt points** for the race or event, always on screen, updating as tricks land. In Stunt Races, the trick time bonus earned so far next to it ("−4.5 s"). In split-score races, also your live stunt-point place (as the 0.119 spec asked; it was missing).
+2. **The current trick and multiplier**, live: the trick names as they happen in the air ("BACKFLIP + ROLL"), the multiplier ("x2"), the points on the line, and the chain countdown on the ground. Then "LANDED +1,240" or "BAILED".
+3. Placed clear of the position / lap panel, the NEXT CP line, the minimap and the speedometer; smaller in races than in the park (0.119 item 6). Both split-screen views.
+- First find out why the total and the counter don't show (missing, hidden, or behind another panel) and say which in one line.
+- **Check:** one shot each: Stunt Race mid-trick, Stunt Race after a landing, the park mid-combo, a split-screen view.
+
+### Part B — The multiplier goes up for every trick type in one flight
+Item 2. Dan: "the multiplier should go up for every stunt type you do during a jump."
+1. Within one flight, each **different** trick type added (flip, roll, 360 spin, and any other type the game has) raises the multiplier by 1: backflip alone x1, backflip + roll x2, backflip + roll + 360 x3. Repeating the same type adds its points, not multiplier.
+2. Chaining on the ground (the 5 s chain) keeps working as now on top of it.
+3. **One scoring system:** the same rule for the player and the rivals, in Stunt Races, the Stunt chapter and the Stunt park.
+4. Because scores go up, re-tune the trick time bonus cap in Stunt Races (still "can't win by tricks alone") and the Stunt chapter targets (Summit Tricks, the park medals if they change). Old park records stay on the boards as they are. Say the new numbers.
+5. Rivals use it on long flights (a two-type combo sometimes, more on Hard).
+- **Check:** one flight with three types landed: x3 shown and scored; one with the same type twice: x1.
+
+### Part C — Bumps to trick off on the stunt courses
+Item 3. Dan: "perhaps we can add some bumps on the stunt tracks in order to be able to get some extra points."
+1. On each Stunt Race course (Mountain Loop Forward / Reverse, Leviathan Forward / Reverse), add **kickers and bumps that exist in Stunt Races only** (never in normal races or Free Roam), so there are more chances for air between the big jumps.
+2. About 4–6 per course, on the course or just beside it, so you choose to hit one or not. Each fits its place (a dirt mound, a driveway lip, a bank), stands on its own ground, lands on a down-slope, nothing floating, and doesn't block the line or a gate. Not on or right before the existing big jumps.
+3. Big enough for one trick type with a stunt vehicle at racing speed; one or two bigger ones per course for two types.
+4. Rivals can take them and trick off them; none gets stuck or reset on one.
+5. List every bump with its position, so Dan can say which to remove or move.
+- **Check:** a top-down of each course with the bumps marked; one clip over one bump with a trick landed; one AI Stunt Race on one course with no rival reset at a bump.
+
+### Part D — Tricks that leave the park count again (regression)
+Item 4 (first half). 0.107 Part B, accepted: "If a trick takes you out of the park, I feel like it should still count." A flight that **takes off inside the park counts wherever it lands** (Stunt park event solo and split screen, the Stunt chapter's park event, Free Roam best combo). A flight that takes off outside the park still doesn't count in the event.
+- Find which round reverted it and say so in one line; put it back without undoing anything else that round did.
+- **Check:** in the park event, a backflip that lands outside the fence on the Hwy 92 side is added; reset puts you back in the park.
+
+### Part E — The garage shows stunt vehicles for stunt events
+Item 5. When the garage is opened from a Stunt Race setup (Quick Race and split screen), a Stunt chapter event or the Stunt park event, it shows **only the stunt vehicles**: the Clay Hopper, the Skywhip 250, the Clay Hopper Cup and any later one, with their stats and paint. Owned ones selectable; not-yet-unlocked ones as silhouettes (standing rule). The choice saves as the stunt vehicle (0.119 keeps it apart from the normal one) and is the default next time.
+- The normal garage (normal races, normal chapters) never shows stunt vehicles, as now.
+- **Check:** controller only: Stunt Race setup > garage shows the stunt vehicles, pick the Skywhip, start, it's the Skywhip; the same from a Stunt chapter event; B back.
+
+### Release
+Version 0.120.0-review1, local build only (2026-10-15 rule). Close everything started; no background task left running. Short results (at most about 20 lines) with "For Dan to check".
+
+## Previous delivery — Leviathan: Dan's 4 reports on 0.118 (two more barricades out, CP 18 straight ahead, stars behind the mountain); Stunt Races (stunt vehicles only, own records) and the Stunt chapter in the campaign — target 0.119.0-review1 — DELIVERED as 0.119.0-review1 (build 119000, local build), awaiting Dan's review — REVIEWED BY DAN (5 notes from play; follow-ups in 0.120)
 
 Dan (2026-10-15, 16:16): "please pull in my latest bug report and lets prepare it for the next round. Also, maybe we go ahead and implement the stunt vehicle only races along with the stunt campaign chapter." So this round is Part A (his report) **and** the former QUEUED NEXT (Parts B–C), in that order. The proposed defaults in Parts B–C are taken as decided unless marked "Dan to check".
 
@@ -283,72 +333,6 @@ Dan (21:20): "Also concerned that you could just skip going up the mountain at a
   - Commits: `653ff5af` checkpoint, `64866a34` the round (released source); this record follows.
 - **For Dan to look at:** the driveway entrance (the bank behind the garage is steep for 4 m: rivals slow there, and one of 18 rivals got stuck on it); the barricades (26 / 33) and whether any should stay open; Rocky Way Cut (player only now: keep, or switch off); the two Hwy 92 corners left open for traffic.
 
-## Previous delivery — Leviathan: show where to turn (both directions); Leviathan Reverse: new shortcuts of its own (up to three, Dan keeps the ones he likes) — target 0.116.0-review1 — DELIVERED as 0.116.0-review1 (build 116000), awaiting Dan's review — REVIEWED BY DAN (14 reports; cleanup in 0.117)
-
-### Part A — Leviathan is hard to follow: show where to turn (both directions)
-Dan (2026-10-14, 16:46): "These tracks are very messy, there needs to be indicators where to turn. For example on the Forward race you see the checkpoint for where you go after the mountain before you see the CP for the mountain path. And when I tried Reverse, I didn't see where to turn to get off the mountain way."
-Leviathan drives some roads twice (the lake shore and stem both ways, the Street Loop around the J), so gates for a later part of the lap are in view before the one you need.
-1. **Only the next checkpoint is shown as a gate** (the one after it, faintly, at most). Gates for later parts of the lap are hidden until they're next, so you never see the "after the mountain" gate before the mountain one. Leviathan only.
-2. **Turn indicators at every decision point** where the course leaves the road you're on or where two of its own passes meet (the J and the stem, where it leaves the lake for the mountain, where it comes off the mountain in Reverse, Climbing Ridge Cut's entry, the lake joins): chevron boards on the outside of the turn and a big arrow sign before it, visible at racing speed, one-sided and depth-tested (signs rule), grounded, no colliders that catch a car. In the race only.
-3. **On-screen help:** the existing waypoint beacon / wrong-way guidance points to the next checkpoint, and the minimap draws the course line ahead (the next ~400 m highlighted) so the next turn shows on the map. Check the existing wrong-way warning fires correctly on Leviathan's twice-driven roads (it must not say "wrong way" on the second pass).
-4. **The maps must match the course** (Dan, 16:49: "the map screen didn't match, I don't think, because the Reverse shortcuts on the loop were still marked"). On Leviathan (both directions), the minimap and the big map show **only Leviathan's own route and its own shortcuts**: not the Street Loop Reverse shortcuts (Granite Creek Cut, Laurel Switchbacks), not the scene's Mountain Loop shortcuts or Summit Traverse, not Mountain Loop gates/routes that aren't on Leviathan. Same check for the Tracks preview map and the pause-menu map. Every other course's maps unchanged.
-5. Rivals unaffected.
-- **Check (built player, controller):** drive both directions with no prior knowledge (follow only what's on screen): driver's-view shots before/after at each decision point, especially Forward's lake/mountain split and Reverse's exit off the mountain; a short clip of each.
-
-### Part B — Leviathan Reverse: new shortcuts
-
-**First, check 0.115's claim (Dan, 16:50: "the shortcuts were still there though").** 0.115 said Granite Creek Cut and Laurel Switchbacks can't be on Leviathan Reverse because their ground exists only in `StreetLoopReverse.unity`, but Dan saw them still there in the Leviathan Reverse race. Find out exactly what is in `MountainLoopReverse.unity` at both shortcuts (ground, route objects, signs, entry markings) with driver's-view shots and a ground probe compared to `StreetLoopReverse.unity`.
-- If either shortcut **is drivable** there as it is (no reshaping): put it back on Leviathan Reverse as a proper shortcut (AI line validated, on the maps, timed, never skipping a jump), counted among the "up to three" below.
-- If it **isn't drivable** there: nothing of it may look like an open shortcut in the race (hide its entry signs/markings and map line for Leviathan Reverse only, or mark the entry clearly closed, one-sided and depth-tested), so nothing misleads Dan.
-- Say which it was, with the evidence.
-
-Dan (2026-10-14, 16:17–16:19), on 0.115's note that Leviathan Reverse has no street shortcuts (Granite Creek Cut and Laurel Switchbacks run on ground reshaped only in `StreetLoopReverse.unity`; in `MountainLoopReverse.unity` that ground differs by up to 19 m): "Why did it remove the shortcuts?" … "Can't there be an option for creating different shortcuts?" So: **new shortcuts made for Leviathan Reverse**, not copies of the old ones.
-
-Rules (Dan's, standing):
-- Only on ground and paths that already exist in `MountainLoopReverse.unity` (trails, driveways, lots, the lake shore, open grass, existing roads); **no terrain reshaping, no raised roads, no new roads**. Any world adjustment exists **in the Leviathan Reverse race only** (Dan, 0.115: "only change for race, do not change free roam or any other races"), like 0.115's gully fill: at most small things (a cleared trunk, a fill of a ditch under 1 m).
-- Each saves **a few seconds** (about 2–6 s a lap), is riskier, narrower or rougher than the road it cuts, and **never skips a jump** (the summit flight, Downhill Ridge Cut's flights) or the in-order lake and mountain gates (0.115 rule).
-- **Something to do on it** where the place allows: a jump that fits the real place (a driveway kicker, a ditch hop, a bank), not a floating ramp.
-- **The AI can drive it** (validated line; rivals use it by `ShortcutStrategy` like other shortcuts; no rival resets more than twice in a race).
-
-1. Find candidates along Leviathan Reverse's street part (the Street Loop Reverse stretch in this scene) and, if there is a good one, the lake part. **Build up to three**, each with its entry/exit markings like the other shortcuts, its name (invented, fitting the place), and on the minimap / big map like the others.
-2. **Each can be switched on or off** by Dan without a new build (a list in a settings file or a debug menu entry, say which), so he can drive them and keep the ones he likes; all on by default.
-3. Leviathan Forward and every other course unchanged.
-- **Check (built player, controller):** for each shortcut: a top-down shot, a driver's-view clip through it, the time it saves (player and AI); AI-only Leviathan Reverse races (3 × 2 laps, mixed vehicles): all finish, ≤ 2 resets each; one race driven with the controller.
-
-### Release
-Version 0.116.0-review1; usual build and release; close everything started; no background task left running at the end (0.115 left one waiting for an hour after delivery). Delivery notes: the shortcuts side by side and how to switch each off.
-
-### Results (2026-10-14, Claude Code)
-
-- **Safety checkpoint** `03d26fcc` (this section; the untracked `Assets/_Recovery/` scenes and old `Assets/Editor/Report097Temp` / `Report098Temp` left as they were). Evidence: [Docs/Report116/](Docs/Report116/). Built-player checks are new kinds on the 0.106 evidence component (`Report106PlayerCheck.Round116.cs`: `-p106kind turns116` / `short116` / `debug116`; `lev115` gained `-p116forced` / `-p116off` and per-shortcut segment times), on copies of Dan's save, windowed and minimized. Editor probes in `Tools/Report116/` (read-only), planners in `Tools/Report116/py/`. Version **0.116.0-review1, build 116000**. No scene file changed.
-- **Part A, item 1 — only the next gate.** `LeviathanGuide` (Leviathan only, both directions) draws each player's next gate and the start / finish; every other gate is hidden until it is next. Shots log the gates drawn at each decision point: always `[0, next]` (before: all 23 / 25).
-- **Item 2 — turn signs.** At each decision point ([decisions.py](Tools/Report116/py/decisions.py), [signs.py](Tools/Report116/py/signs.py)): a 3.2 m arrow board on the right 50 m before the turn, and 2–4 chevron boards on the outside of the turn, facing the traffic that turns there. Forward 6 points (J onto the stem, leaving the lake shore for CR110, Climbing Ridge Cut, onto CR117, off the mountain onto the lake's east side, the J hairpin back), 22 boards; Reverse 8 points (the J hairpin, onto the shore strip, leaving the lake for CR117, Downhill Ridge Cut, off the mountain in two steps, back onto the north shore, J out), 28 boards. Black faces with yellow arrows / chevrons, plain grey backs (one-sided), standard depth-tested materials, posts seated on the ground nearest the road's height (other side of the road or 15 m along when that side is a bank or the lake), no colliders. Built in the race only.
-- **Item 3 — on-screen help.** The waypoint line at the bottom of the HUD shows "NEXT CP n" (or FINISH) and its distance along the course; its arrow points where the course goes 60 m ahead. The minimap draws the next 400 m of the course in white over the main line (key: MAIN AHEAD SHORTCUT). **Wrong way on the twice-driven roads:** both directions driven a full lap by the pad: 0 wrong-way warnings.
-- **Item 4 — the maps.** The minimap and the race's map already drew only Leviathan's line and its own shortcuts. What Dan saw is the **world map picture** (Free Roam's, used by the Tracks preview, the loading screen and the race's map): Free Roam has Granite Creek Cut and Laurel Switchbacks as trails, so they showed as brown lines off the course. On Leviathan's maps (both directions) they are now painted over in the picture's own colour beside them ([mapcover.py](Tools/Report116/py/mapcover.py), `Resources/Leviathan/MapCover.json`): [before / after](Docs/Report116/Shots/tracks-preview-9-before-after.png). Every other course's maps unchanged (the cover only runs for a Leviathan course).
-- **Item 5 — rivals unaffected** (gates are hidden by renderer only; signs have no colliders): Leviathan Forward, 3 rivals × 2 laps with traffic: all finished, 0 missed gates, resets 0–2 ([final-levF](Docs/Report116/Player/final-levF.txt)), as in 0.115.
-- **Part A check (built player):** each direction driven by the pad bot on the course line, before (`-p116before`: the 0.115 way) and after: driver's-view shots 70 m and 25 m before every decision point (`Shots/turn-<course>-<station>-<70m|25m>-<before|after>.jpg`), clips of Forward's lake / mountain split and the return to the lake, Reverse's lake → mountain turn and the exit off the mountain ([Clips/](Docs/Report116/Clips/)), the pause menu, the race's map and the Tracks preview ([after-F](Docs/Report116/Player/after-F.txt), [after-R](Docs/Report116/Player/after-R.txt)). A bot cannot "follow only what's on screen"; the shots show what a first-time driver sees.
-- **Part B, first: 0.115's claim checked** ([ground probe](Docs/Report116/Probe/granite-laurel-ground.txt), top-downs `Probe/top-{SLR,MLR}-{Granite,Laurel}.jpg`, in-race shots `Shots/short-{granite,laurel}-mouth-*.jpg`). **Neither is drivable in `MountainLoopReverse.unity`**, and nothing of either is there: no trail, no route object, no sign or marking. Granite Creek Cut's line runs through standing forest (47 of 74 samples 1–7 m off StreetLoopReverse's ground, tree trunks across it); Laurel Switchbacks' runs into a 14–16 m mound and the House 3 property (up to 18.7 m different). The "shortcuts still there" were the world map picture's trails (item 4), now covered. (At Laurel's mouth the dirt seen beside the road is the end of Fox Gully's trail, a Street Loop Forward shortcut with no sign in this race.)
-- **Part B — new shortcuts.** Built: two (the third and others tried failed Dan's 2–6 s rule). Both on existing ground and open grass, Leviathan Reverse race only, aiValidated, chosen by `ShortcutStrategy` like the others, gold on the minimap, the race's map and the Tracks preview, a name board before the entry and a REJOIN ROAD board 25 m before the end (one-sided depth-tested lettering, no colliders). Lines planned on height grids of the scene ([plan.py](Tools/Report116/py/plan.py), [shortcuts.py](Tools/Report116/py/shortcuts.py)); entry planes set where the shortcut has left the road, so driving on along the road never counts as taking it.
-  - **Hollow Creek Hop** — across the bottom of the U by CP 12 (s 3379 → 3540), 90 m instead of 161 m of road and its hairpin, over open grass and a shallow creek channel (a 1.8 m dip: the hop). Bypasses CP 12. Rivals 3.8–4.0 s vs 5.7–6.7 s on the road: **saves 1.8–2.7 s**; the pad 5.0 vs 6.8 s. [top-down](Docs/Report116/Shots/top-Hollow-Creek-Hop.jpg), [clip](Docs/Report116/Clips/clip-via-Hollow-Creek-Hop.mp4).
-  - **Rocky Way Cut** — across the inside of the J hairpin, below Rocky Way Acres (s 3900 → 4060), 78 m instead of 160 m of road and the hairpin, up the open slope (8 m climb) and off a 5 m bank onto the stem. No gate bypassed; CP 14 (lake, mandatory) is after it. Two trunks cleared on its line (race only). Rivals 4.6–5.4 s vs 9.7–10.2 s: **saves 4.7–5.1 s**; the pad 4.1 vs 9.8 s. [top-down](Docs/Report116/Shots/top-Rocky-Way-Cut.jpg), [clip](Docs/Report116/Clips/clip-via-Rocky-Way-Cut.mp4).
-  - Both taken by every rival (forced): laps 4.5–6.7 s faster than with both off, 0 resets ([forced](Docs/Report116/Player/levRf4.txt), [off](Docs/Report116/Player/levRn3.txt)).
-  - **Rejected (measured):** *Ridgeback Climb* (Pine Ridge's trail driven uphill, round its lip): 7–9 s **slower** than the road for every rival ([levRf2](Docs/Report116/Player/levRf2.txt)); *Creekbed Scramble* (Creek Leap's trail the other way, crossing the creek beside the leap's 8 m bank): at best 1 s faster, rivals stalled at the creek crossing; *Woodcutter's Corner* (the Southwest Cut's trail the other way): rivals as quick round the corner (0 s), the pad 1.2 s; Fox Gully the other way meets the house ramp's wrong end; the Forest Loop's trail from the north shore to the street would save ~15 s (over the rule). Planner pictures in [Probe/](Docs/Report116/Probe/).
-  - **Switching each off (no new build):** F3 (Debug Mode), then F6 / Start: the debug menu has a row "Lev. Reverse: Hollow Creek Hop ON" / "Lev. Reverse: Rocky Way Cut ON"; A switches it (ON / OFF), saved in settings.json as `"leviathanShortcutsOff"` (the titles; also editable by hand). It takes effect the next time Leviathan Reverse is loaded (Race > Tracks). Controller-only check ([debug](Docs/Report116/Player/debug.txt), [shot](Docs/Report116/Shots/debug-menu-switched-off.jpg)): Start opens it, D-pad to the row, A off (saved), A on, B closes. A race loaded with both off has 0 shortcuts ([levRn3](Docs/Report116/Player/levRn3.txt)).
-  - Course id now `leviathan-reverse-v2` (its records and ghosts start again; the course changed). Leviathan Forward unchanged apart from Part A.
-- **Part B checks (built player):** AI-only Leviathan Reverse, 3 races × 2 laps, mixed vehicles, traffic on ([final-levR](Docs/Report116/Player/final-levR.txt)): all 9 finished, 0 missed gates, resets 0–1 each; the shortcuts taken by chance (both, one or neither). The controller race (menus by the pad > Tracks > Leviathan - Reverse > 2 laps > START, then the pad bot) ([final-drive9](Docs/Report116/Player/final-drive9.txt)): lap 1 270.8 s; on lap 2 the bot fell off Downhill Ridge Cut's deck at CP 18, pressed reset and was put back past CP 18, which it could then not pass (DNF). The rivals: 8:21–8:54, 0 missed gates, resets 0–2.
-- **For Dan to look at:**
-  - The two shortcuts (keep / switch off), and whether Hollow Creek Hop's ~2 s is enough.
-  - The turn boards' look and placement (one stands at the lake's edge before the CR117 turn on Reverse).
-  - **Seen, not changed (from 0.115):** after a reset at Downhill Ridge Cut's drop on Reverse the car can be put back past CP 18 (mandatory), and the lap can then not be completed (the 0.115 pad run did the same). The pad bot also needs the reset at the Forward summit lip and passes Reverse CP 14 outside its span after a reset at the J. The "Radio Off" notice shows behind the HUD's NEXT CP line when it appears.
-- **Release.** 0.116.0-review1, build 116000:
-  - Source `f05957ef` (pushed); a fresh Windows build from it (0 errors, [build-release.txt](Docs/Report116/build-release.txt)).
-  - Published [game-116000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-116000) (the known draft-lookup miss, completed with `--resume-draft`): Latest, 3 assets, earlier releases kept.
-  - Public download, pinned signature and startup check all pass, and every one of the 236 files matches Builds/Latest ([hosted/result.json](Docs/Report116/hosted/result.json)).
-  - The production updater is at 116000 with nothing newer pending ([launcher-catalog-check.json](Docs/Report116/launcher-catalog-check.json)). `Play-Racer.cmd` (unchanged) launched `Builds/Latest/versions/116000/Racer.exe` ([play-racer-launch.json](Docs/Report116/play-racer-launch.json)), and Dan's settings.json was restored byte for byte ([settings-preserved.json](Docs/Report116/settings-preserved.json)).
-  - Cleanup: Builds 12.45 GB -> 8.33 GB (4.12 GB: the build output, the zip, the check build, the public-download install); C: free 207.2 -> 213.1 GB. Kept managed 116000 and 115000 ([cleanup.json](Docs/Report116/cleanup.json)).
-  - The round's temporary editor tools were removed from Assets/Editor (copies in Tools/Report116), the scratch folders deleted, every editor and player started closed, no background task left running.
-  - Commits: `03d26fcc` checkpoint, `f05957ef` the round (released source), `d42ef49e` the release evidence; this record follows.
-
 ## QUEUED — The trailer, filmed and cut by Code — target: no game version (tools and output only) — NOT STARTED (run last: after 0.113 and 0.114 are delivered and Dan says the game looks right; Claude (chat) promotes it)
 
 Dan (2026-10-13, 19:57): "I think I am going to add the video making back to the list. It is difficult for me to make it look good, especially with some of the camera angles suggested." This reverses 0.98's "stop filming until Dan confirms"; Dan confirms by asking. Lessons from 0.97 Part C (clips discarded): footage showed broken things (the storm drain); filming must never change the game or the world.
@@ -361,6 +345,7 @@ Dan (2026-10-13, 19:57): "I think I am going to add the video making back to the
 
 ## History archive
 
+- 2026-10-15 (tenth move): 0.119 reviewed, so the 0.116 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-15 (ninth move): 0.118 reviewed, so the 0.115 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-15 (eighth move, Dan's instruction to save tokens): the 0.61–0.114 "Previous delivery" sections (41) were moved verbatim to the end of the archive. From now on keep only the last three "Previous delivery" sections here; when a round is marked reviewed, move the oldest one to the end of the archive in the same commit.
 - 2026-10-04 (seventh move): the 0.73 and 0.74 "Previous delivery" sections were moved verbatim to the end of the archive.
