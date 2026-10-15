@@ -1,0 +1,25 @@
+ 0 Leviathan START FINISH                       pos (319.7,16.8,512.8) hw 6 hh 3 up 0 | top hits: 15.31 Ground_480_560
+ 1 Leviathan CP 1                               pos (322.0,75.6,288.7) hw 6 hh 3 up 0 | top hits: 74.10 Ground_560_480
+ 2 Leviathan CP 2                               pos (449.8,87.1,112.7) hw 6 hh 3 up 0 | top hits: 85.62 Ground_560_400
+ 3 Leviathan CP 3 (lake south shore)            pos (611.6,77.7,-112.9) hw 7 hh 5 up 30 | top hits: 79.00 Ground_fill (probe); 76.17 Ground_640_240
+ 4 Leviathan CP 4 (Climbing Ridge Cut)          pos (873.9,118.4,-43.7) hw 7 hh 5 up 30 | top hits: 116.86 Ground_CR133 mountain driving surface
+ 5 Leviathan CP 5 (CR117 CP 3)                  pos (1043.9,146.3,-29.2) hw 7 hh 5 up 30 | top hits: 144.71 Ground_CR133 mountain driving surface reused: transform (1043.9,146.3,-29.2) renderers y 144.8..148.9 width 15.3x6.6
+ 6 Leviathan CP 6 (CR117 CP 4)                  pos (1014.7,162.7,89.6) hw 7 hh 5 up 30 | top hits: 161.10 Ground_CR133 mountain driving surface; 159.90 Ground_ReportCleanup MountainLoop continuous solid 2 reused: transform (1014.7,162.7,89.6) renderers y 161.2..165.3 width 12.8x10.8
+ 7 Leviathan CP 7 (CR117 CP 5)                  pos (1191.7,153.5,169.7) hw 7 hh 5 up 30 | top hits: 151.98 Ground_CR133 mountain driving surface reused: transform (1191.7,153.5,169.7) renderers y 152.0..156.2 width 8.2x14.6
+ 8 Leviathan CP 8 (CR117 CP 6)                  pos (702.6,83.4,-9.5) hw 7 hh 5 up 30 | top hits: 81.83 Ground_CR133 mountain driving surface reused: transform (702.6,83.4,-9.5) renderers y 81.9..86.0 width 1.9x16.4
+ 9 Leviathan CP 9 (lake east side)              pos (724.8,80.7,-51.8) hw 7 hh 5 up 30 | top hits: 79.17 Ground_CR133 mountain driving surface
+10 Leviathan CP 10                              pos (502.4,88.5,-106.6) hw 6 hh 3 up 0 | top hits: 87.04 Ground_640_320
+11 Leviathan CP 11                              pos (556.3,26.6,-315.5) hw 6 hh 3 up 0 | top hits: 25.07 Ground_640_160
+12 Leviathan CP 12                              pos (502.7,24.1,-536.4) hw 6 hh 3 up 0 | top hits: 22.55 Ground_640_80
+13 Leviathan CP 13                              pos (130.1,38.6,-294.0) hw 6 hh 3 up 24 | top hits: 37.01 Ground_400_160
+14 Leviathan CP 14                              pos (1.3,39.0,-398.9) hw 6 hh 3 up 0 | top hits: 37.52 Ground_400_160
+15 Leviathan CP 15                              pos (-288.5,20.5,-572.5) hw 6 hh 3 up 24 | top hits: 18.90 Ground_240_80
+16 Leviathan CP 16                              pos (-501.2,8.5,-549.8) hw 6 hh 3 up 24 | top hits: 6.95 Ground_80_80
+17 Leviathan CP 17                              pos (-621.7,8.4,-374.5) hw 6 hh 3 up 24 | top hits: 6.79 Ground_80_160
+18 Leviathan CP 18                              pos (-626.0,9.4,-124.6) hw 6 hh 3 up 24 | top hits: 7.75 Ground_80_240
+19 Leviathan CP 19                              pos (-629.3,10.0,70.8) hw 6 hh 3 up 24 | top hits: 8.52 Ground_80_400
+20 Leviathan CP 20                              pos (-632.9,10.6,302.8) hw 6 hh 3 up 0 | top hits: 9.12 Ground_80_480
+21 Leviathan CP 21                              pos (-604.7,9.5,530.5) hw 7.135346 hh 3 up 0 | top hits: 7.91 Ground_80_640
+22 Leviathan CP 22                              pos (-376.2,10.1,533.4) hw 10.2 hh 3 up 0 | top hits: 8.58 Ground_160_640
+23 Leviathan CP 23                              pos (-145.9,9.8,529.1) hw 10.2 hh 3 up 0 | top hits: 8.34 Ground_320_560
+24 Leviathan CP 24                              pos (84.0,10.5,542.9) hw 10.2 hh 3 up 0 | top hits: 9.03 Ground_400_640

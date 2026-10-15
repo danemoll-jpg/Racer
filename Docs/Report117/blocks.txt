@@ -1,0 +1,79 @@
+== LeviathanForward: 26 blocks
+  barricade  (308, 266) yaw 301  half 4.5  Forest race route, leaving Leviathan at s 298
+  barricade  (347, 243) yaw 118  half 4.5  Forest race route, joining Leviathan at s 312
+  barricade  (530, 10) yaw  23  half 9.0  Lake shore connection, joining Leviathan at s 697
+  barricade  (518, -72) yaw 294  half 5.0  Lake shore connection, joining Leviathan at s 765
+  barricade  (608, -132) yaw 176  half 4.5  Forest race route, joining Leviathan at s 845
+  barricade  (749, -140) yaw 176  half 7.0  CR117 mandatory two-flight racing line, leaving Leviathan at s 995
+  barricade  (770, -125) yaw 100  half 7.0   exploration only, leaving Leviathan at s 1001
+  barricade  (999, -68) yaw 254  half 7.0   exploration only, joining Leviathan at s 1293
+  barricade  (1008, -75) yaw 222  half 7.0  CR117 mandatory two-flight racing line, joining Leviathan at s 1299
+  barricade  (1000, 105) yaw 315  half 5.0   exploration only, leaving Leviathan at s 1479
+  barricade  (995, 110) yaw 315  half 7.0  Mountain racing line, leaving Leviathan at s 1483
+  barricade  (993, 102) yaw 256  half 6.5   technical shortcut, leaving Leviathan at s 1485
+  barricade  (996, 117) yaw 250  half 6.0  Summit approach and safe return, joining Leviathan at s 1501
+  barricade  (1190, 186) yaw  15  half 6.0  Summit approach and safe return, leaving Leviathan at s 1685 / Summit approach and safe return (both ways)
+  barricade  (704, 31) yaw  92  half 6.5   technical shortcut, joining Leviathan at s 2450
+  barricade  (718, 7) yaw   0  half 7.0   exploration only, joining Leviathan at s 2516
+  barricade  (718, -33) yaw 180  half 5.0   exploration only, leaving Leviathan at s 2520
+  barricade  (727, 3) yaw 354  half 5.0  Lake shore connection, leaving Leviathan at s 2524
+  barricade  (740, -21) yaw 147  half 7.0  CR117 mandatory two-flight racing line, leaving Leviathan at s 2526 / CR117 mandatory two-flight racing line (both ways)
+  barricade  (717, -92) yaw 176  half 7.0  CR117 mandatory two-flight racing line, leaving Leviathan at s 2588 / CR117 mandatory two-flight racing line (both ways)
+  barricade  (690, -71) yaw   0  half 5.0   exploration only, joining Leviathan at s 2614
+  barricade  (573, -84) yaw 338  half 4.5  Forest race route, leaving Leviathan at s 2734
+  barricade  (488, -47) yaw 146  half 5.0  Lake shore connection, leaving Leviathan at s 2925
+  barricade  (502, -136) yaw 255  half 4.0  House 3 valley driveway, leaving Leviathan at s 3031
+  barricade  (567, -219) yaw  41  half 4.5  Forest race route, leaving Leviathan at s 3145
+  barricade  (538, -245) yaw 236  half 4.5  Forest race route, joining Leviathan at s 3151
+  not closed:
+  s    765 Lake shore connection                                        the same way as Lake shore connection, joining Leviathan at s 765
+  s   2925 Lake shore connection                                        the same way as Lake shore connection, leaving Leviathan at s 2925
+  s   2548 CR117 mandatory two-flight racing line                       closed from its other end by CR117 mandatory two-flight racing line, leaving Leviathan at s 2526 / CR117 mandatory two-flight racing line (both ways)
+  s    963 CR117 mandatory two-flight racing line                       closed from its other end by CR117 mandatory two-flight racing line, leaving Leviathan at s 2588 / CR117 mandatory two-flight racing line (both ways)
+  s   1871 Summit approach and safe return                              closed from its other end by Summit approach and safe return, leaving Leviathan at s 1685 / Summit approach and safe return (both ways)
+  s   2388 Summit approach and safe return                              no road there (a line over the grass)
+  s   2354 Summit approach and safe return                              no road there (a line over the grass)
+  s   2352 Summit approach and safe return                              no road there (a line over the grass)
+  s   1001 Mountain racing line                                         the same way as  exploration only, leaving Leviathan at s 1001
+  s   1293 Mountain racing line                                         the same way as  exploration only, joining Leviathan at s 1293
+  s   2520 Mountain racing line                                         the same way as  exploration only, joining Leviathan at s 2516
+== LeviathanReverse: 33 blocks
+  noentry    (-608, -242) yaw 130  half 0.0  Pine Ridge's end (Street Loop Reverse's NO ENTRY block)
+  barricade  (-607, -253) yaw 127  half 4.5  Pine Ridge, joining Leviathan at s 1714
+  barricade  (-607, -506) yaw 157  half 4.5  Existing Southwest Cut, joining Leviathan at s 1964
+  barricade  (-589, -536) yaw 320  half 4.5  Existing Southwest Cut, leaving Leviathan at s 2052
+  barricade  (-250, -567) yaw 296  half 4.5  Pine Ridge, leaving Leviathan at s 2396
+  barricade  (-64, -561) yaw  32  half 4.5  Fox Gully, joining Leviathan at s 2562
+  barricade  (-20, -510) yaw 226  half 4.5  Fox Gully, leaving Leviathan at s 2682
+  barricade  (12, -479) yaw  44  half 4.5  Fox Gully, joining Leviathan at s 2694
+  barricade  (149, -310) yaw 268  half 4.5  Fox Gully, leaving Leviathan at s 3030
+  barricade  (341, -382) yaw  61  half 4.5  Creek Leap, joining Leviathan at s 3222
+  barricade  (534, -340) yaw 235  half 4.5  Creek Leap, leaving Leviathan at s 3692
+  barricade  (538, -245) yaw 236  half 4.5  Forest race route, joining Leviathan at s 3792
+  barricade  (567, -219) yaw  41  half 4.5  Forest race route, leaving Leviathan at s 3798
+  barricade  (502, -136) yaw 255  half 4.0  House 3 valley driveway, leaving Leviathan at s 3912
+  barricade  (488, -47) yaw 146  half 5.0  Lake shore connection, leaving Leviathan at s 4018
+  barricade  (518, -72) yaw 294  half 5.0  Lake shore connection (the stem), off Rocky Way Cut
+  barricade  (567, 30) yaw 178  half 4.5  Forest race route, joining Leviathan at s 4159
+  barricade  (706, 31) yaw 297  half 5.0   exploration only, joining Leviathan at s 4377
+  barricade  (708, 38) yaw 297  half 5.0  Lake shore connection, leaving Leviathan at s 4383
+  barricade  (721, 64) yaw 268  half 5.0   exploration only, leaving Leviathan at s 4419
+  barricade  (795, 75) yaw 288  half 6.0  Summit approach and safe return, joining Leviathan at s 4501
+  barricade  (996, 109) yaw 135  half 7.0  Mountain racing line, leaving Leviathan at s 4735
+  barricade  (808, -167) yaw 350  half 7.0  CR117 mandatory two-flight racing line, leaving Leviathan at s 5789
+  barricade  (716, -151) yaw 213  half 7.0  CR117 mandatory two-flight racing line, joining Leviathan at s 5899
+  barricade  (744, -123) yaw  56  half 7.0  CR117 mandatory two-flight racing line, leaving Leviathan at s 5899
+  barricade  (718, -109) yaw 116  half 7.0  Mountain racing line, joining Leviathan at s 5937
+  barricade  (675, -105) yaw 244  half 5.0  Lake shore connection, joining Leviathan at s 5951
+  barricade  (690, -68) yaw 358  half 5.0   exploration only, joining Leviathan at s 5963
+  barricade  (724, -81) yaw 143  half 7.0  CR117 mandatory two-flight racing line, joining Leviathan at s 5989
+  barricade  (672, 62) yaw 122  half 5.0  Lake shore connection, joining Leviathan at s 6159
+  barricade  (565, 76) yaw 356  half 4.5  Forest race route, leaving Leviathan at s 6251
+  barricade  (347, 243) yaw 118  half 4.5  Forest race route, joining Leviathan at s 6727
+  barricade  (308, 266) yaw 301  half 4.5  Forest race route, leaving Leviathan at s 6741
+  not closed:
+  s   4091 Lake shore connection                                        Leviathan's own shortcut
+  s   4018 Lake shore connection                                        the same way as Lake shore connection, leaving Leviathan at s 4018
+  s   5937  exploration only                                            the same way as Mountain racing line, joining Leviathan at s 5937
+  s   4735  exploration only                                            the same way as Mountain racing line, leaving Leviathan at s 4735
+  s   6049  exploration only                                            Leviathan drives it (another pass)

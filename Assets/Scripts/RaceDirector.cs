@@ -194,7 +194,7 @@ namespace Racer
                 r.Branch.Clear();
             }
 
-            firstFinish = -1; winnerCelebrated = false;
+            firstFinish = -1; winnerCelebrated = false; MountainMissedGate = -1;
             debugTimeoutOffset=debugGraceOffset=0;
             ClassificationFinal = false;
             startedAt = Time.timeAsDouble + 3;
@@ -484,7 +484,7 @@ namespace Racer
                 {
                     // 0.115 Leviathan: the lake and mountain gates are not skipped by crossing a later one (turning past J would skip the
                     // mountain and its jump): the later gate does not count until they are passed
-                    if (SkipsMandatory(p.NextGate, i == 0 ? gates.Length : i)) { if (player) Flow?.Notify("Leviathan: CP " + p.NextGate + " is still to come — round the lake and over the mountain", 4); continue; }
+                    if (SkipsMandatory(p.NextGate, i == 0 ? gates.Length : i)) { if (player) { MountainMissedGate = p.NextGate; Trace(r, "mandatory gate skipped: later gate " + i + " not counted", position, now); } continue; }
                     ResolveMisses(r, i == 0 ? gates.Length : i, i==0?"finish reconciliation":"later gate crossed");
                 }
                 int expected = p.NextGate;
@@ -522,6 +522,7 @@ namespace Racer
 
             r.Previous = position;
             r.PreviousTime = now;
+            if (player && MountainMissedGate >= 0 && p.NextGate != MountainMissedGate) MountainMissedGate = -1; // 0.117: passed at last
             if (player)
             {
                 Clock = now;
@@ -544,9 +545,39 @@ namespace Racer
             var respawn = r.Car ? r.Car.GetComponent<VehicleRespawn>() : null;
             float hint = respawn && respawn.Tracking ? respawn.TrackingStation : r.TrackedStation;
             float s = float.IsNaN(hint) ? road.Project(position, out lateral) : road.ProjectNear(position, hint, 60, out lateral);
-            if (lateral > 30) s = road.Project(position, out lateral);
+            // 0.117 (BUG-010-012): the racer is on the pass of the lap between its last gate and its next one. A station outside that stretch is
+            // the other pass of a twice-driven road (Rocky Way Cut lands on one; the nearest point after a fall or a shortcut may be one): the
+            // nearest point inside the stretch instead, so the next-CP guide, the course ahead and the wrong-way warning follow this pass
+            if (CourseWindow(r, out float lo, out float hi) && (lateral > 30 || road.Relative(s, lo) > hi - lo))
+                s = road.ProjectNear(position, lo + (hi - lo) * .5f, (hi - lo) * .5f, out lateral);
+            else if (lateral > 30) s = road.Project(position, out lateral);
             r.TrackedStation = s; return s;
         }
+        // 0.117: on a line that passes the same ground twice (Leviathan), the stretch of it a racer can be on: from 40 m before the last gate it
+        // passed to 60 m past its next one (absolute stations; false before the lap starts or on any other course)
+        public bool CourseWindow(RacerState r, out float lo, out float hi)
+        {
+            lo = hi = 0; if (!road || !road.tracked || gateS == null || r == null || !r.Progress.LapActive || r.Branch.Route) return false; // on a shortcut its bypassed gates are already credited: its own line rules
+            int next = r.Progress.NextGate, last = next == 0 ? gates.Length - 1 : next - 1;
+            lo = origin + gateS[last] - 40; hi = origin + (next == 0 ? road.Length + 30 : gateS[next] + 60); return true;
+        }
+        // 0.117 (BUG-006, Part D2 item 3): where a reset may put a racer on a tracked line: after the last gate it passed, never past its next one,
+        // and not past the furthest point it has driven (absolute stations)
+        public bool ResetSpan(RacerState r, out float lo, out float hi)
+        {
+            lo = hi = 0; if (!road || !road.tracked || gateS == null || r == null || !r.Progress.LapActive) return false;
+            int next = r.Progress.NextGate, last = next == 0 ? gates.Length - 1 : next - 1;
+            float a = last == 0 ? 0 : gateS[last], b = next == 0 ? road.Length : gateS[next], reached = r.VerifiedRoad + 5;
+            // a jump taken (the furthest point driven is on its run-up or in its flight): up to its landing's end, so a crash on landing is not
+            // put back before the jump (the ground under a flight is never driven, so the furthest point stops at its take-off)
+            var flights = GetComponent<MountainFlights>();
+            if (flights && flights.flights != null) foreach (var f in flights.flights) { float fa = road.Relative(f.approachStation, origin), fe = road.Relative(f.endStation, origin); if (r.VerifiedRoad >= fa && r.VerifiedRoad <= fe) reached = Mathf.Max(reached, fe); }
+            lo = origin + a + 2; hi = origin + Mathf.Min(b - 3, Mathf.Max(a + 12, reached)); if (hi < lo + 1) hi = lo + 1; return true;
+        }
+        // 0.117 Part D2: the player crossed a later gate (or the finish) with Leviathan's lake / mountain gates still to pass: until they are, the
+        // HUD says MOUNTAIN MISSED — GO BACK and points at the gate (its number: MountainMissedGate)
+        public int MountainMissedGate { get; private set; } = -1;
+        public Vector3 GatePosition(int i) => gates[i].transform.position;
         void Trace(RacerState r,string reason,Vector3 position,double now)
         {
             if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-raceTrace")>=0)
@@ -564,6 +595,8 @@ namespace Racer
                     break;
                 if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-raceTrace")>=0)
                     Debug.Log($"RACE_PENALTY racer={r.Name} source=ordinary-missed-gate gate={gate} seconds=5 road={r.RoadPosition:F3} branch={r.Branch.Route?.title??"none"} earned={r.Branch.Earned:F3}");
+                // 0.117 (BUG-007): on Leviathan the player is told which gate and where ("CP 4 (Hwy 92 corner): 120 m back")
+                if(Leviathan&&r==Racers[0]&&Flow){var n=gates[gate].name;int k=n.IndexOf('(');Flow.MissedDetail=$"CP {gate}{(k>=0?" "+n.Substring(k):"")}: {DisplayUnits.Distance(Mathf.Max(0,r.RoadPosition-gateS[gate]))} back";}
                 r.Travel = Mathf.Max(0, r.Travel - sector);
             }
         }

@@ -1,0 +1,2 @@
+screen=1920x1080 kind=song117 version=0.117.0-review1 park=on
+song caption 'Radio Off' at (x:576.00, y:858.60, width:768.00, height:75.60), guide line at (x:712.50, y:27.00, width:495.00, height:81.00) (active True): overlap False; HUD 'NEXT  CP 1  0.17 mi'

@@ -1,0 +1,5 @@
+screen=1920x1080 kind=lev115 version=0.117.0-review1 park=on
+== AI-only quick races on Mountain Loop - Forward: NOT LEVIATHAN: Mountain Loop - Forward (mountain-forward-v5-supported); laps 1, difficulty 1, traffic 1
+  run 1 [tourer+moto+atv] moto       70.0 laps [68.4] missed gates 0 (+0 s) resets 0 shortcuts [Climbing Ridge Cut lap 1]
+  run 1 [tourer+moto+atv] tourer     84.3 laps [82.0] missed gates 0 (+0 s) resets 0 shortcuts [Climbing Ridge Cut lap 1]
+  run 1 [tourer+moto+atv] atv        116.2 laps [115.1] missed gates 0 (+0 s) resets 0 shortcuts []

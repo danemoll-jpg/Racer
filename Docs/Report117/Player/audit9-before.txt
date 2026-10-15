@@ -1,0 +1,55 @@
+screen=1920x1080 kind=audit117 version=0.117.0-review1 park=on
+== audit Leviathan - Reverse (before): Leviathan - Reverse (leviathan-reverse-v2): line 7164 m, 23 gates, 2 shortcuts, flights South Face Summit Flight 5080-5584, Downhill Ridge Cut drop 5852-5960; 85 spots; blocks built 0
+  00 turn    left off Hwy 92: at -530.6,8.64,540.0 heading 274, line s 858, next CP 4, gates drawn [0,4], HUD 'NEXT  CP 4  253 ft' -> audit-R-00-turn-before.png
+  01 report  BUG-007: at -640.2,9.23,114.8 heading 164, line s 1354, next CP 6, gates drawn [0,6], HUD 'NEXT  CP 6  0.21 mi' -> audit-R-01-report-before.png
+  02 closed  Pine Ridge, joining Leviathan at s 1714: at -624.8,8.16,-209.5 heading 179, line s 1679, next CP 6, gates drawn [0,6], HUD 'NEXT  CP 6  36 ft' -> audit-R-02-closed-before.png
+  03 closed  Pine Ridge's end (Street Loop Reverse's NO ENTRY block): at -622.6,8.04,-242.1 heading 132, line s 1712, next CP 7, gates drawn [0,7], HUD 'NEXT  CP 7  434 ft' -> audit-R-03-closed-before.png
+  04 report  BUG-008: at -622.6,8.04,-242.1 heading 132, line s 1712, next CP 7, gates drawn [0,7], HUD 'NEXT  CP 7  434 ft' -> audit-R-04-report-before.png
+  06 closed  Existing Southwest Cut, joining Leviathan at s 1964: at -619.7,7.03,-459.4 heading 178, line s 1929, next CP 8, gates drawn [0,8], HUD 'NEXT  CP 8  0.12 mi' -> audit-R-06-closed-before.png
+  08 closed  Existing Southwest Cut, leaving Leviathan at s 2052: at -612.3,6.79,-546.9 heading 140, line s 2017, next CP 8, gates drawn [0,8], HUD 'NEXT  CP 8  368 ft' -> audit-R-08-closed-before.png
+  10 closed  Pine Ridge, leaving Leviathan at s 2396: at -272.0,22.75,-575.2 heading 99, line s 2361, next CP 10, gates drawn [0,10], HUD 'NEXT  CP 10  0.26 mi' -> audit-R-10-closed-before.png
+  12 closed  Fox Gully, joining Leviathan at s 2562: at -107.0,30.72,-580.6 heading 88, line s 2527, next CP 10, gates drawn [0,10], HUD 'NEXT  CP 10  0.16 mi' -> audit-R-12-closed-before.png
+  14 closed  Fox Gully, leaving Leviathan at s 2682: at -8.7,36.43,-535.4 heading 17, line s 2647, next CP 10, gates drawn [0,10], HUD 'NEXT  CP 10  454 ft' -> audit-R-14-closed-before.png
+  15 closed  Fox Gully, joining Leviathan at s 2694: at -5.7,36.65,-523.8 heading 11, line s 2659, next CP 10, gates drawn [0,10], HUD 'NEXT  CP 10  414 ft' -> audit-R-15-closed-before.png
+  18 closed  Fox Gully, leaving Leviathan at s 3030: at 131.0,37.70,-294.2 heading 106, line s 2995, next CP 12, gates drawn [0,12], HUD 'NEXT  CP 12  0.30 mi' -> audit-R-18-closed-before.png
+  20 closed  Creek Leap, joining Leviathan at s 3222: at 297.0,38.27,-384.6 heading 116, line s 3187, next CP 12, gates drawn [0,12], HUD 'NEXT  CP 12  0.18 mi' -> audit-R-20-closed-before.png
+  22 report  BUG-009: at 508.6,29.25,-481.0 heading 74, line s 3534, next CP 13, gates drawn [0,13], HUD 'NEXT  CP 13  0.11 mi' -> audit-R-22-report-before.png
+  23 closed  Creek Leap, leaving Leviathan at s 3692: at 545.1,25.89,-367.1 heading 7, line s 3657, next CP 13, gates drawn [0,13], HUD 'NEXT  CP 13  174 ft' -> audit-R-23-closed-before.png
+  25 closed  Forest race route, joining Leviathan at s 3792: at 560.6,29.07,-268.9 heading 356, line s 3757, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.30 mi' -> audit-R-25-closed-before.png
+  26 closed  Forest race route, leaving Leviathan at s 3798: at 560.1,29.58,-262.9 heading 353, line s 3763, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.30 mi' -> audit-R-26-closed-before.png
+  29 closed  House 3 valley driveway, leaving Leviathan at s 3912: at 528.0,69.32,-162.6 heading 337, line s 3877, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.23 mi' -> audit-R-29-closed-before.png
+  31 closed  Lake shore connection, leaving Leviathan at s 4018: at 483.5,89.32,-69.2 heading 336, line s 3984, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.16 mi' -> audit-R-31-closed-before.png
+  32 turn    J: right into Kyle's driveway: at 480.0,89.14,-60.8 heading 338, line s 3992, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.16 mi' -> audit-R-32-turn-before.png
+  34 turn off the driveway link: left onto the lake path: no station on this line
+  35 closed Lake shore connection (the stem), off Rocky Way Cut: no station on this line
+  36 report  BUG-010: at 531.9,83.04,-44.5 heading 39, line s 4087, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  509 ft' -> audit-R-36-report-before.png
+  37 report BUG-011: no station on this line
+  39 closed  Forest race route, joining Leviathan at s 4160: at 538.8,83.19,21.6 heading 37, line s 4156, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  283 ft' -> audit-R-39-closed-before.png
+  41 report  BUG-012: at 577.3,82.34,55.1 heading 52, line s 4208, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  113 ft' -> audit-R-41-report-before.png
+  42 turn    onto the shore strip: at 577.4,82.16,61.2 heading 54, line s 4212, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  101 ft' -> audit-R-42-turn-before.png
+  43 turn    leaving the lake for CR117 (the mountain): at 672.9,78.91,38.5 heading 131, line s 4329, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.25 mi' -> audit-R-43-turn-before.png
+  44 closed   exploration only, joining Leviathan at s 4376: at 702.7,78.92,7.6 heading 136, line s 4372, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.23 mi' -> audit-R-44-closed-before.png
+  45 closed  Lake shore connection, leaving Leviathan at s 4384: at 709.2,79.22,3.2 heading 102, line s 4380, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.22 mi' -> audit-R-45-closed-before.png
+  47 closed   exploration only, leaving Leviathan at s 4417: at 724.8,80.28,28.6 heading 8, line s 4414, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.20 mi' -> audit-R-47-closed-before.png
+  50 closed  Summit approach and safe return, joining Leviathan at s 4499: at 779.1,104.83,63.3 heading 99, line s 4496, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.15 mi' -> audit-R-50-closed-before.png
+  52 closed  Mountain racing line, leaving Leviathan at s 4735: at 956.6,166.29,140.0 heading 119, line s 4732, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  21 ft' -> audit-R-52-closed-before.png
+  54 turn    Downhill Ridge Cut: at 878.3,93.44,-224.4 heading 297, line s 5745, next CP 17, gates drawn [0,17], HUD 'NEXT  CP 17  137 ft' -> audit-R-54-turn-before.png
+  55 closed  CR117 mandatory two-flight racing line, leaving Leviathan at s 5789: at 842.9,95.19,-204.1 heading 303, line s 5786, next CP 17, gates drawn [0,17], HUD 'NEXT  CP 17  2 ft' -> audit-R-55-closed-before.png
+  56 report  BUG-013: at 820.2,96.51,-190.1 heading 297, line s 5812, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  237 ft' -> audit-R-56-report-before.png
+  58 closed  CR117 mandatory two-flight racing line, joining Leviathan at s 5897: at 753.2,89.45,-158.8 heading 314, line s 5894, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  0.16 mi' -> audit-R-58-closed-before.png
+  59 closed  CR117 mandatory two-flight racing line, leaving Leviathan at s 5897: at 753.2,89.45,-158.8 heading 314, line s 5894, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  0.16 mi' -> audit-R-59-closed-before.png
+  62 closed  Mountain racing line, joining Leviathan at s 5937: at 725.2,87.23,-131.5 heading 314, line s 5934, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  0.13 mi' -> audit-R-62-closed-before.png
+  63 closed  Lake shore connection, joining Leviathan at s 5951: at 715.5,85.71,-122.0 heading 314, line s 5948, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  0.12 mi' -> audit-R-63-closed-before.png
+  64 closed   exploration only, joining Leviathan at s 5963: at 707.0,83.69,-113.8 heading 314, line s 5960, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  0.12 mi' -> audit-R-64-closed-before.png
+  66 turn    off the mountain: the start stretch: at 700.3,82.87,-107.2 heading 314, line s 5970, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  0.11 mi' -> audit-R-66-turn-before.png
+  68 closed  CR117 mandatory two-flight racing line, joining Leviathan at s 5989: at 692.8,82.36,-93.4 heading 7, line s 5986, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  525 ft' -> audit-R-68-closed-before.png
+  71 turn    off the mountain: onto the strip: at 716.2,79.74,-59.9 heading 37, line s 6028, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  389 ft' -> audit-R-71-turn-before.png
+  72 turn    back onto the north shore: at 698.3,79.38,18.3 heading 320, line s 6120, next CP 19, gates drawn [0,19], HUD 'NEXT  CP 19  86 ft' -> audit-R-72-turn-before.png
+  73 closed  Lake shore connection, joining Leviathan at s 6159: at 672.2,78.91,43.1 heading 308, line s 6156, next CP 20, gates drawn [0,20], HUD 'NEXT  CP 20  0.23 mi' -> audit-R-73-closed-before.png
+  75 closed  Forest race route, leaving Leviathan at s 6250: at 598.5,80.57,74.8 heading 257, line s 6248, next CP 20, gates drawn [0,20], HUD 'NEXT  CP 20  0.18 mi' -> audit-R-75-closed-before.png
+  77 turn    off the lake path: right to the driveway: at 545.4,82.77,34.3 heading 221, line s 6316, next CP 20, gates drawn [0,20], HUD 'NEXT  CP 20  0.13 mi' -> audit-R-77-turn-before.png
+  78 turn    out of Kyle's driveway: right onto the street: at 507.6,79.40,-21.2 heading 226, line s 6375, next CP 20, gates drawn [0,20], HUD 'NEXT  CP 20  520 ft' -> audit-R-78-turn-before.png
+  79 report  BUG-014: at 480.7,84.93,-17.8 heading 293, line s 6525, next CP 20, gates drawn [0,20], HUD 'NEXT  CP 20  26 ft' -> audit-R-79-report-before.png
+  80 closed  Forest race route, joining Leviathan at s 6724: at 341.4,82.91,215.1 heading 332, line s 6816, next CP 22, gates drawn [0,22], HUD 'NEXT  CP 22  251 ft' -> audit-R-80-closed-before.png
+  81 closed  Forest race route, leaving Leviathan at s 6738: at 335.5,82.81,227.8 heading 339, line s 6830, next CP 22, gates drawn [0,22], HUD 'NEXT  CP 22  205 ft' -> audit-R-81-closed-before.png
+  84 turn    left onto Hwy 92: at 319.3,18.25,502.7 heading 2, line s 7115, next CP 0, gates drawn [0], HUD 'NEXT  FINISH  32 ft' -> audit-R-84-turn-before.png

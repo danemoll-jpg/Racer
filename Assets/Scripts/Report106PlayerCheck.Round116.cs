@@ -49,7 +49,7 @@ namespace Racer
             ScreenCapture.CaptureScreenshot(Path.Combine(outDir, dir, $"f{times.Count:0000}.png")); times.Add(Time.realtimeSinceStartup);
         }
         string GatesDrawn() => string.Join(",", Enumerable.Range(0, race.gates.Length).Where(i => race.gates[i].GetComponentsInChildren<Renderer>(true).Any(r => r.enabled)));
-        string HudLine() { var t = FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None).FirstOrDefault(x => x.isActiveAndEnabled && x.text.StartsWith("NEXT  ")); return t ? t.text : "(no next-CP line)"; }
+        string HudLine() { var t = FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None).FirstOrDefault(x => x.isActiveAndEnabled && (x.text.StartsWith("NEXT  ") || x.name == "Waypoint distance")); return t ? t.text : "(no next-CP line)"; } // 0.117: also BACK TO / TO CP
 
         IEnumerator Turns116()
         {

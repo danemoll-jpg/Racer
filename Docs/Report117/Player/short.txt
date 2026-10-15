@@ -1,0 +1,6 @@
+screen=1920x1080 kind=short116 version=0.117.0-review1 park=on
+== shortcuts on Leviathan - Reverse (leviathan-reverse-v3): line 7039 m, 24 gates, 2 shortcuts, flights South Face Summit Flight 5049-5554, Downhill Ridge Cut drop 5821-5929: Hollow Creek Hop (entry s 3379, exit s 3540, 89 m, bypasses [12]), Rocky Way Cut (entry s 3900, exit s 4116, 162 m, bypasses [14])
+  Hollow Creek Hop on the main road: entry to exit 6.8 s, resets 0, top speed 34 m/s, longest in the air 0.0 s, frames 0, contacts []
+  Hollow Creek Hop via the shortcut: entry to exit 4.3 s, resets 0, top speed 34 m/s, longest in the air 0.0 s, frames 52, contacts []
+  Rocky Way Cut on the main road: entry to exit 11.8 s, resets 0, top speed 32 m/s, longest in the air 1.5 s, frames 0, contacts []
+  Rocky Way Cut via the shortcut: entry to exit 7.6 s, resets 0, top speed 28 m/s, longest in the air 0.2 s, frames 85, contacts []

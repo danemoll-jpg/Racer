@@ -1,0 +1,69 @@
+link: 16 points, 29.9 m, 79.1 -> 83.0 m high, steepest 34 % over 4 m
+Forward: splices [(612, (474, 80, 7)), (738, (542, 80, -83)), (2740, (542, 80, -83)), (2849, (488, 89, -78))]
+  Forward: 3482 points, lap 6943.0 m (0.116: 6823.6 m)
+  shifts after the splices: [(612, 37.1), (2740, 120.3)]
+    gate  0 Leviathan START FINISH                         s    38.5
+    gate  1 Leviathan CP 1                                 s   270.4
+    gate  2 Leviathan CP 2                                 s   501.5
+    gate  3 Leviathan CP 3 (Kyle's driveway)               s   656.1
+    gate  4 Leviathan CP 4 (lake south shore)              s   852.2 mandatory
+    gate  5 Leviathan CP 5 (Climbing Ridge Cut)            s  1151.6 mandatory
+    gate  6 Leviathan CP 6 (CR117 CP 3)                    s  1344.0 mandatory
+    gate  7 Leviathan CP 7 (CR117 CP 4)                    s  1475.3 mandatory
+    gate  8 Leviathan CP 8 (CR117 CP 5)                    s  1694.3 mandatory
+    gate  9 Leviathan CP 9 (CR117 CP 6)                    s  2505.6 mandatory
+    gate 10 Leviathan CP 10 (lake east side)               s  2566.4 mandatory
+    gate 11 Leviathan CP 11                                s  3009.3
+    gate 12 Leviathan CP 12                                s  3241.2
+    gate 13 Leviathan CP 13                                s  3473.5
+    gate 14 Leviathan CP 14                                s  3957.1
+    gate 15 Leviathan CP 15                                s  4166.1
+    gate 16 Leviathan CP 16                                s  4606.8
+    gate 17 Leviathan CP 17                                s  4822.0
+    gate 18 Leviathan CP 18                                s  5107.0
+    gate 19 Leviathan CP 19                                s  5357.0
+    gate 20 Leviathan CP 20                                s  5552.4
+    gate 21 Leviathan CP 21                                s  5784.4
+    gate 22 Leviathan CP 22                                s  6015.4
+    gate 23 Leviathan CP 23                                s  6247.1
+    gate 24 Leviathan CP 24                                s  6477.4
+    gate 25 Leviathan CP 25                                s  6709.0
+    shortcut Creek Leap               entry  3176.9 exit  3776.9 bypasses [12, 13]
+    shortcut Existing Southwest Cut   entry  4880.8 exit  5032.1 bypasses []
+    shortcut Fox Gully                entry  3856.9 exit  4426.9 bypasses [14, 15]
+    shortcut Pine Ridge               entry  4496.9 exit  5276.9 bypasses [16, 17, 18]
+    flight Homeward Summit Flight        1804.5- 2384.1
+    narrow (driveway and link): [614.4, 711.8, 2837.5, 2931.7]  mountain: [845, 2537]  bypass: [5277, 5552]
+Reverse: splices [(3952, (498, 88, -98)), (4133, (529, 83, 2)), (6354, (526, 83, 2)), (6542, (473, 81, -1))]
+  Reverse: 3526 points, lap 7039.0 m (0.116: 7163.5 m)
+  shifts after the splices: [(3952, -29.9), (6354, -123.6)]
+    gate  0 Leviathan Reverse START FINISH                 s  6999.6
+    gate  1 Leviathan Reverse CP 1                         s   241.9
+    gate  2 Leviathan Reverse CP 2                         s   473.6
+    gate  3 Leviathan Reverse CP 3                         s   703.9
+    gate  4 Leviathan Reverse CP 4                         s   935.5
+    gate  5 Leviathan Reverse CP 5                         s  1166.5
+    gate  6 Leviathan Reverse CP 6                         s  1689.8
+    gate  7 Leviathan Reverse CP 7                         s  1843.9
+    gate  8 Leviathan Reverse CP 8                         s  2128.9
+    gate  9 Leviathan Reverse CP 9                         s  2344.5
+    gate 10 Leviathan Reverse CP 10                        s  2785.1
+    gate 11 Leviathan Reverse CP 11                        s  2993.8
+    gate 12 Leviathan Reverse CP 12                        s  3477.5
+    gate 13 Leviathan Reverse CP 13                        s  3709.8
+    gate 14 Leviathan Reverse CP 14 (Kyle's driveway)      s  4048.7
+    gate 15 Leviathan Reverse CP 15 (lake north shore)     s  4211.6 mandatory
+    gate 16 Leviathan Reverse CP 16 (CR117 CP 1)           s  4707.6 mandatory
+    gate 17 Leviathan Reverse CP 17 (CR117 CP 2)           s  5018.8 mandatory
+    gate 18 Leviathan Reverse CP 18 (CR117 CP 3)           s  5755.4 mandatory
+    gate 19 Leviathan Reverse CP 19 (Downhill Ridge Cut)   s  5853.3 mandatory
+    gate 20 Leviathan Reverse CP 20 (lake north-east strip) s  6114.7 mandatory
+    gate 21 Leviathan Reverse CP 21                        s  6407.9
+    gate 22 Leviathan Reverse CP 22                        s  6536.9
+    gate 23 Leviathan Reverse CP 23                        s  6767.7
+    Rocky Way Cut now 164 m (0.116: 78 m), on along the west side to s 4116
+    shortcut Hollow Creek Hop         entry  3379.4 exit  3540.0 bypasses [12]
+    shortcut Rocky Way Cut            entry  3899.9 exit  4115.5 bypasses [14]
+    flight South Face Summit Flight      5048.9- 5553.6
+    flight Downhill Ridge Cut drop       5820.8- 5929.3
+    narrow (driveway and link): [4007.5, 4104.4, 6321.5, 6412.8]  mountain: [4373, 6070]  bypass: [0, 0]

@@ -1,0 +1,23 @@
+ 0 Leviathan Reverse START FINISH               pos (319.7,17.0,512.5) hw 6 hh 3 up 0 | top hits: 15.38 Ground_480_560
+ 1 Leviathan Reverse CP 1                       pos (84.0,10.6,542.9) hw 10.2 hh 3 up 0 | top hits: 9.03 Ground_400_640
+ 2 Leviathan Reverse CP 2                       pos (-146.0,9.9,529.1) hw 10.2 hh 3 up 0 | top hits: 8.34 Ground_320_560
+ 3 Leviathan Reverse CP 3                       pos (-376.2,10.2,533.4) hw 10.2 hh 3 up 0 | top hits: 8.58 Ground_160_640
+ 4 Leviathan Reverse CP 4                       pos (-604.6,9.6,530.5) hw 7.135346 hh 3 up 0 | top hits: 7.91 Ground_80_640
+ 5 Leviathan Reverse CP 5                       pos (-632.9,10.7,302.8) hw 6 hh 3 up 0 | top hits: 9.12 Ground_80_480
+ 6 Leviathan Reverse CP 6                       pos (-624.6,9.0,-220.4) hw 6 hh 3 up 24 | top hits: 7.42 Ground_80_240
+ 7 Leviathan Reverse CP 7                       pos (-621.7,8.4,-374.5) hw 6 hh 3 up 24 | top hits: 6.79 Ground_80_160
+ 8 Leviathan Reverse CP 8                       pos (-501.2,8.5,-549.8) hw 6 hh 3 up 24 | top hits: 6.95 Ground_80_80
+ 9 Leviathan Reverse CP 9                       pos (-288.2,20.6,-572.6) hw 6 hh 3 up 24 | top hits: 18.96 Ground_240_80
+10 Leviathan Reverse CP 10                      pos (1.3,39.1,-398.7) hw 6 hh 3 up 0 | top hits: 37.55 Ground_400_160
+11 Leviathan Reverse CP 11                      pos (130.1,38.6,-294.0) hw 6 hh 3 up 24 | top hits: 37.01 Ground_400_160
+12 Leviathan Reverse CP 12                      pos (502.8,24.2,-536.4) hw 6 hh 3 up 0 | top hits: 22.56 Ground_640_80
+13 Leviathan Reverse CP 13                      pos (556.3,26.7,-315.4) hw 6 hh 3 up 0 | top hits: 25.08 Ground_640_160
+14 Leviathan Reverse CP 14 (lake north shore)   pos (605.3,81.2,72.9) hw 7 hh 5 up 30 | top hits: 79.73 Ground_640_400
+15 Leviathan Reverse CP 15 (CR117 CP 1)         pos (962.2,164.7,136.6) hw 7 hh 5 up 30 | top hits: 165.28 Ground_CR133 mountain driving surface; 164.08 Ground_ReportCleanup MountainLoopReverse continuous solid 0; 161.62 Ground_MountainCut portal outcrops reused: transform (962.2,164.7,136.6) renderers y 163.2..170.8 width 8.9x14.2
+16 Leviathan Reverse CP 16 (CR117 CP 2)         pos (992.8,153.6,314.8) hw 7 hh 5 up 30 | top hits: 152.04 Ground_CR133 mountain driving surface; 150.84 Ground_ReportCleanup MountainLoopReverse continuous solid 0 reused: transform (992.8,153.6,314.8) renderers y 152.1..156.2 width 15.8x5.2
+17 Leviathan Reverse CP 17 (CR117 CP 3)         pos (842.3,96.1,-203.7) hw 7 hh 5 up 30 | top hits: 94.53 Ground_CR133 mountain driving surface reused: transform (842.3,96.1,-203.7) renderers y 94.6..98.7 width 9.2x14.0
+18 Leviathan Reverse CP 18 (Downhill Ridge Cut) pos (760.0,88.7,-165.5) hw 7 hh 5 up 30 | top hits: 87.24 Ground_CR133 mountain driving surface
+19 Leviathan Reverse CP 19 (lake north-east strip) pos (679.4,80.0,36.7) hw 7 hh 5 up 30 | top hits: 78.48 Ground_720_320
+20 Leviathan Reverse CP 20                      pos (472.5,84.9,-10.9) hw 6 hh 3 up 0 | top hits: 83.33 Ground_560_320
+21 Leviathan Reverse CP 21                      pos (449.9,87.2,112.6) hw 6 hh 3 up 0 | top hits: 85.62 Ground_560_400
+22 Leviathan Reverse CP 22                      pos (322.0,75.8,288.3) hw 6 hh 3 up 0 | top hits: 74.18 Ground_560_480

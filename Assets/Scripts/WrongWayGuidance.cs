@@ -32,7 +32,8 @@ namespace Racer
             {correctSeconds=0;uncertainSeconds+=dt;if(uncertainSeconds>=.75f){Visible=false;WrongSeconds=0;}}
         }
         // 0.115: on a tracked line (Leviathan passes its stem and lake shore twice) from the vehicle's recovery tracking, else the nearest point
-        float MainStation(Vector3 p,VehicleRespawn respawn)=>race.road.tracked&&respawn&&respawn.Tracking?race.road.ProjectNear(p,respawn.TrackingStation,40,out _):race.road.Project(p,out _);
+        // 0.117: from the racer's own station (RaceDirector keeps it on the pass of the lap it is on, between its last and next gate)
+        float MainStation(Vector3 p,VehicleRespawn respawn,RacerState who)=>race.road.tracked&&!float.IsNaN(who.TrackedStation)?race.road.ProjectNear(p,who.TrackedStation,40,out _):race.road.tracked&&respawn&&respawn.Tracking?race.road.ProjectNear(p,respawn.TrackingStation,40,out _):race.road.Project(p,out _);
         void FixedUpdate()
         {
             if(!race||!race.Flow||!race.road)return;
@@ -44,7 +45,7 @@ namespace Racer
             var p=car.Body.position;var active=who.Branch.Route;
             if(!sampled||Vector3.Distance(p,previous)>12)
             {
-                Clear();branch=active;station=branch?branch.Project(p,out _):MainStation(p,respawn);
+                Clear();branch=active;station=branch?branch.Project(p,out _):MainStation(p,respawn,who);
                 lastRouteSupport=branch?branch.At(station,out lastRouteForward):race.road.At(station,out lastRouteForward);
                 previous=p;sampled=true;return;
             }
@@ -52,7 +53,7 @@ namespace Racer
             {
                 // A legal branch transition changes the coordinate system, not the
                 // accumulated movement evidence. Skip one derivative at the join.
-                branch=active;station=branch?branch.Project(p,out _):MainStation(p,respawn);
+                branch=active;station=branch?branch.Project(p,out _):MainStation(p,respawn,who);
                 previous=p;return;
             }
             float lateral;float current=branch?branch.Project(p,out lateral):race.road.ProjectNear(p,station,16,out lateral);
@@ -78,7 +79,7 @@ namespace Racer
                     // Reacquire spatially after a bounded search failure. Do not derive
                     // speed from the potentially large station jump on this frame.
                     float local=race.road.ProjectNear(p,station,240,out float localLateral);
-                    float nearest=race.road.Project(p,out float nearestLateral);
+                    float nearestLateral;float nearest=race.road.tracked&&!float.IsNaN(who.TrackedStation)?race.road.ProjectNear(p,who.TrackedStation,60,out nearestLateral):race.road.Project(p,out nearestLateral); // 0.117: not the other pass
                     current=localLateral<=nearestLateral+25?local:nearest;
                     lateral=Mathf.Min(localLateral,nearestLateral+25);
                 }

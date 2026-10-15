@@ -32,6 +32,8 @@ namespace Racer
         BackyardForwardCourse backyard;
         MountainFlights mountainFlights;
         LeviathanSwap leviathan; float trackS = float.NaN; // 0.115
+        // 0.117: how a rival's station on Leviathan's line is kept to its pass: 0 not at all (0.116), 1 between its gates, 2 not past its next gate
+        public static int WindowMode = 2;
         WoodlandRoute plannedBranch, progressBranch;
         float branchBest, branchStuck;
         float routeStuck, progressStation;
@@ -298,6 +300,8 @@ namespace Racer
                     continue;
                 // 0.99: the summit flight's own run-up and lip are not obstacles: a car's wider sensor read the rising lip face as a wall 20 m ahead and braked from 40 to 26 m/s, landing short
                 if(committedMountain&&!hit.rigidbody&&hit.collider.name.StartsWith("Ground_")&&mountainFlights.At(DriveRoad,s)?.aiEntrySpeed>0)continue;
+                // 0.117: Leviathan's way from Kyle's driveway up the grass bank to the lake path: the bank's steep ground faces are not a wall
+                if(racing&&leviathan&&leviathan.Narrow(s)&&!hit.rigidbody&&hit.collider.name.StartsWith("Ground_"))continue;
                 // The ATV's wide sensor can start overlapping its own curved runway.
                 // Confirm a walkable surface beneath us before ignoring that zero-
                 // distance hit; cars, trees and genuine walls remain obstacles.
@@ -357,6 +361,14 @@ namespace Racer
             float hint=!float.IsNaN(trackS)?trackS:recovery&&recovery.Tracking?recovery.TrackingStation:float.NaN;
             float s=float.IsNaN(hint)?DriveRoad.Project(p,out lateral):DriveRoad.ProjectNear(p,hint,40,out lateral);
             if(lateral>30)s=DriveRoad.Project(p,out lateral);
+            // 0.117: a station past the rival's next gate, or far behind its last, is the other pass of a twice-driven road (Rocky Way Cut lands
+            // on one): the nearest point between its gates instead. Just behind its last gate is a rejoin after a shortcut: left as it is.
+            if(WindowMode>0&&Racer!=null&&DriveRoad==Race.road&&Race.CourseWindow(Racer,out float lo,out float hi))
+            {
+                float rel=DriveRoad.Relative(s,lo),ahead=rel-(hi-lo);
+                bool outside=WindowMode==1?rel>hi-lo:ahead>0&&ahead<DriveRoad.Length*.5f;
+                if(outside)s=DriveRoad.ProjectNear(p,lo+(hi-lo)*.5f,(hi-lo)*.5f,out lateral);
+            }
             trackS=s;return s;
         }
         void DecideShortcut(float s)

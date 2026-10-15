@@ -64,7 +64,9 @@ namespace Racer
         AudioSource feedback;
         AudioClip tick, go, finish, record, click, ding, buzz;
         float nextBuzz;
-        public string PenaltyNotice => Time.unscaledTime<penaltyUntil && pendingMisses>0 ? $"Missed {pendingMisses} gate{(pendingMisses==1?"":"s")}  +{pendingMisses*5}s (5s each)" : null;
+        public string PenaltyNotice => Time.unscaledTime<penaltyUntil && pendingMisses>0 ? (pendingMisses==1&&MissedDetail!=null?$"Missed {MissedDetail}  +5s":$"Missed {pendingMisses} gate{(pendingMisses==1?"":"s")}  +{pendingMisses*5}s (5s each)")+(MissedDetail!=null&&pendingMisses>1?"\nlast: "+MissedDetail:"") : null;
+        // 0.117 (BUG-007, Leviathan): which gate was missed and how far back (RaceDirector)
+        [System.NonSerialized] public string MissedDetail;
         int pendingMisses;
         float penaltyUntil;
         float finishAt;
@@ -264,7 +266,7 @@ namespace Racer
             var runoff=Race.vehicle.GetComponent<RoadDriver>();
             if(runoff) { runoff.enabled=false; Destroy(runoff); }
             LockVehicle(false); Race.vehicle.enabled=true;
-            Notice = null; nextBuzz = finishAt = penaltyUntil = 0; pendingMisses=0; CheckpointDings = CheckpointBuzzes = 0; feedback.Stop();
+            Notice = null; nextBuzz = finishAt = penaltyUntil = 0; pendingMisses=0; MissedDetail=null; CheckpointDings = CheckpointBuzzes = 0; feedback.Stop();
         }
         public void SelectRecords(string category)
         {

@@ -151,7 +151,9 @@ namespace Racer
             shown = RaceFlow.Stage.Ready;
             songBanner=Label("Current song",canvas.transform,18,0);
             songBanner.alignment=TextAnchor.MiddleCenter;
-            songBanner.rectTransform.anchorMin=new Vector2(.12f,.035f);songBanner.rectTransform.anchorMax=new Vector2(.80f,.10f);
+            // 0.117 (item 15): under the top-centre notices, clear of the bottom-centre guide line (NEXT CP / waypoint), the speedometer,
+            // the race panel, the minimap and the debug panel; it used to draw over the NEXT CP line
+            songBanner.rectTransform.anchorMin=new Vector2(.30f,.795f);songBanner.rectTransform.anchorMax=new Vector2(.70f,.865f);
             songBanner.horizontalOverflow=HorizontalWrapMode.Overflow;
             songBanner.resizeTextForBestFit=true; songBanner.resizeTextMinSize=14; songBanner.resizeTextMaxSize=18;
             songBanner.rectTransform.offsetMin=songBanner.rectTransform.offsetMax=Vector2.zero;

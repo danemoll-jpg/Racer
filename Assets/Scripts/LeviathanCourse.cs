@@ -36,6 +36,15 @@ namespace Racer
         // 0.116 Part A: a turn indicator: "arrow" (a big arrow board before the turn) or "chevron" (a board on the outside of the turn);
         // dir -1 left, +1 right; pos x, z, the road height there (seated on the ground nearest it in the race); yaw: the heading of the traffic it faces
         [Serializable] public sealed class Sign { public string kind, text; public int dir; public float[] pos, alt; public float yaw; public string at; } // alt: other spots (x, z, road height triples); text: a "board" (a shortcut's entry / rejoin)
+        // 0.117 Part A: a way off the course closed for the race: "barricade" (timber rails across it, half: its half width, with a one-sided ROAD
+        // CLOSED sign facing the traffic that would turn into it; yaw: that traffic's heading) or "noentry" (Street Loop Reverse's own block at
+        // Pine Ridge's end: its concrete lip, mesh, and its NO ENTRY sign). pos: x, z, the road's height there.
+        [Serializable] public sealed class Block { public string kind, at, mesh; public float[] pos; public float yaw, half, station; public bool both; } // both: closed from each end (a sign facing each way, side by side)
+        // 0.117 Part C: a kicker on a shortcut (race only, on the existing ground): an earth wedge rising height m over length m to its lip at pos
+        // (x, z), width m wide, facing yaw (the way it is driven)
+        [Serializable] public sealed class Kicker { public string at; public float[] pos; public float yaw, width, length, height; }
+        // 0.117 Part B item 4: a scene sign's words changed for this race (a TextMesh whose words contain find)
+        [Serializable] public sealed class Relabel { public string find, text; }
         [Serializable] public sealed class Data
         {
             public int version; public string id, title, scene; public bool reverse; public float[] pts, geometryStations, bypass, mountain, narrow, spawn; public float geometryLength, spawnYaw, length; public int highwayTraffic;
@@ -43,6 +52,7 @@ namespace Racer
             public string[] fills; // ground patches added for this course only (Resources/Leviathan): Forward's creek gully under the lake path
             public Sign[] signs; // 0.116 Part A: turn indicators at the course's decision points (Tools/Report116/py/signs.py)
             public float[] clear; // 0.116 Part B: x, z, radius: tree trunks cleared for this race only (on its shortcut lines)
+            public Block[] blocks; public Kicker[] kickers; public Relabel[] relabel; // 0.117 (Tools/Report117/py)
             public Vector3[] Points => V(pts);
             public bool In(float[] spans, float s) { if (spans == null) return false; for (int i = 0; i + 1 < spans.Length; i += 2) if (s >= spans[i] && s <= spans[i + 1]) return true; return false; }
         }
@@ -50,7 +60,14 @@ namespace Racer
         // 0.116 Part B: Leviathan Reverse's shortcuts Dan switched off (settings.json "leviathanShortcutsOff", the F6 debug menu); set by RaceFlow
         public static string[] ShortcutsOff = Array.Empty<string>();
         public static bool ShortcutOn(string title) => Array.IndexOf(ShortcutsOff ?? Array.Empty<string>(), title) < 0;
-        public static Data Load(string key) { var a = Resources.Load<TextAsset>("Leviathan/" + (key == Reverse ? "LeviathanReverse" : "LeviathanForward")); return a ? JsonUtility.FromJson<Data>(a.text) : null; }
+        public static Data Load(string key)
+        {
+            string name = key == Reverse ? "LeviathanReverse" : "LeviathanForward";
+            // checks only (Report106PlayerCheck -p117data <dir>: the 0.116 course files, for the before shots); never set in play
+            if (!string.IsNullOrEmpty(DataOverride) && System.IO.File.Exists(System.IO.Path.Combine(DataOverride, name + ".json"))) return JsonUtility.FromJson<Data>(System.IO.File.ReadAllText(System.IO.Path.Combine(DataOverride, name + ".json")));
+            var a = Resources.Load<TextAsset>("Leviathan/" + name); return a ? JsonUtility.FromJson<Data>(a.text) : null;
+        }
+        public static string DataOverride; public static bool Before117; // checks only: the 0.116 way (no gate seating, no relabelled signs)
 
         // RaceDirector.Awake, before it reads its road and gates
         public static void Apply(RaceDirector race)
@@ -67,6 +84,8 @@ namespace Racer
                 var fill = new GameObject("Ground_" + mesh.name); fill.transform.SetParent(root, false);
                 fill.AddComponent<MeshFilter>().sharedMesh = mesh; var mr = fill.AddComponent<MeshRenderer>(); if (groundMaterial) mr.sharedMaterial = groundMaterial; fill.AddComponent<MeshCollider>().sharedMesh = mesh;
             }
+            Physics.SyncTransforms(); // the patches' colliders, for the gates, blocks and kickers seated on the ground below
+            BuildKickers(data, root, groundMaterial); BuildBlocks(data, root); RelabelSigns(data, race.gameObject.scene); // 0.117
             // the line
             var road = new GameObject(data.title + " line").AddComponent<RaceRoad>(); road.transform.SetParent(root, false);
             road.points = data.Points; road.forestTrail = false; road.geometryStations = data.geometryStations; road.geometryLength = data.geometryLength;
@@ -78,7 +97,11 @@ namespace Racer
             {
                 RaceGate gate = !string.IsNullOrEmpty(g.reuse) ? own.FirstOrDefault(o => Path(o.transform).EndsWith(g.reuse)) : null;
                 if (!gate) gate = gates.Count == 0 && oldStart && Mathf.Abs(g.halfWidth - 6) < .01f ? Clone(oldStart, root) : Build(g, marking, root);
-                gate.name = g.name; gate.transform.SetPositionAndRotation(new Vector3(g.pos[0], g.pos[1], g.pos[2]), Quaternion.Euler(g.rot[0], g.rot[1], g.rot[2]));
+                var at = new Vector3(g.pos[0], g.pos[1], g.pos[2]);
+                // 0.117 (BUG-003): a gate built here stands on the ground of its spot (its posts reach 1.5 m below its origin, like the Mountain
+                // Loop's): the ground nearest its height, the course's own ground patches included (Forward's lake-shore gate stood 1.3 m into the fill)
+                if (string.IsNullOrEmpty(g.reuse) && gates.Count > 0 && !Before117 && GroundTop(at, g.pos[1] - 6, g.pos[1] + 3, out float gy)) { if (Mathf.Abs(gy + 1.5f - at.y) > .05f) Debug.Log($"Leviathan: {g.name} seated on its ground: {at.y:F2} -> {gy + 1.5f:F2}"); at.y = gy + 1.5f; }
+                gate.name = g.name; gate.transform.SetPositionAndRotation(at, Quaternion.Euler(g.rot[0], g.rot[1], g.rot[2]));
                 gate.halfWidth = g.halfWidth; gate.halfHeight = g.halfHeight; gate.upperHeight = g.upperHeight; gate.gameObject.SetActive(true); gates.Add(gate);
             }
             foreach (var g in own) if (!gates.Contains(g)) g.gameObject.SetActive(false); // the Mountain Loop's gates not on this course
@@ -183,10 +206,125 @@ namespace Racer
             }
             Debug.Log($"Leviathan: {built} sign(s) built ({data.signs.Count(x => x.kind == "arrow")} arrows, {data.signs.Count(x => x.kind == "chevron")} chevrons, {data.signs.Count(x => x.kind == "board")} shortcut boards)");
         }
+        // ---------------------------------------------------------------- 0.117 Part A: closed ways
+        // A barricade like the Mountain Loop's own (Climbing Ridge Cut's "Road closed barrier 4"): timber posts and two rails, solid, in panels
+        // of up to 3 m each seated on its own ground (a panel over a bank or a hole is left out), and a one-sided ROAD CLOSED sign in the middle
+        // facing the traffic that would turn in (red face with lettering, plain grey back). Built only in a Leviathan race.
+        static Material timber, closedRed, concrete, amber;
+        static Material Lit(Color c) { var m = new Material(Shader.Find("Universal Render Pipeline/Lit")) { color = c }; m.SetColor("_BaseColor", c); return m; }
+        static void BuildBlocks(Data data, Transform root)
+        {
+            if (data.blocks == null || data.blocks.Length == 0) return;
+            if (!timber) timber = Lit(new Color(.42f, .29f, .17f)); if (!closedRed) closedRed = Unlit(new Color(.55f, .08f, .06f)); if (!signGrey) signGrey = Lit(new Color(.42f, .43f, .44f));
+            var holder = new GameObject("Leviathan closed ways (0.117)").transform; holder.SetParent(root, false); int built = 0, panels = 0;
+            foreach (var b in data.blocks)
+            {
+                var rot = Quaternion.Euler(0, b.yaw, 0); var right = rot * Vector3.right; var at = new Vector3(b.pos[0], 0, b.pos[1]);
+                if (b.kind == "noentry") { NoEntry(b, holder); built++; continue; }
+                if (!Ground(at, b.pos[2], out float y0)) { Debug.LogWarning($"Leviathan: no ground under the block at {at} ({b.at})"); continue; }
+                var block = new GameObject($"Leviathan road closed ({b.at})").transform; block.SetParent(holder, false); block.SetPositionAndRotation(new Vector3(at.x, y0, at.z), rot);
+                int n = Mathf.Max(1, Mathf.CeilToInt(2 * b.half / 3f)); float w = 2 * b.half / n;
+                for (int k = 0; k < n; k++)
+                {
+                    float c = -b.half + w * (k + .5f); var p = at + right * c;
+                    if (!Ground(p, y0, out float py) || Mathf.Abs(py - y0) > 2.5f) continue;
+                    var panel = new GameObject("Barricade panel").transform; panel.SetParent(block, false); panel.position = new Vector3(p.x, py, p.z); panel.rotation = rot;
+                    Box(panel, "Post", new Vector3(-w * .5f + .15f, .45f, 0), new Vector3(.25f, 1.6f, .25f), timber); Box(panel, "Post", new Vector3(w * .5f - .15f, .45f, 0), new Vector3(.25f, 1.6f, .25f), timber);
+                    Box(panel, "Rail low", new Vector3(0, .5f, 0), new Vector3(w, .2f, .1f), timber); Box(panel, "Rail high", new Vector3(0, 1.0f, 0), new Vector3(w, .2f, .1f), timber);
+                    var hit = new GameObject("Barricade collision"); hit.transform.SetParent(panel, false); hit.transform.localPosition = new Vector3(0, .6f, 0);
+                    hit.AddComponent<BoxCollider>().size = new Vector3(w, 2.0f, .35f); panels++;
+                }
+                // the sign: one-sided, its face (-z) toward the traffic, in front of the middle panel; closed from both ends: one each way, side by side
+                float apart = b.both ? Mathf.Min(1.4f, b.half * .5f) : 0;
+                foreach (int way in b.both ? new[] { 1, -1 } : new[] { 1 })
+                {
+                    var sign = new GameObject("Road closed sign").transform; sign.SetParent(block, false); sign.localPosition = new Vector3(-apart * way, 0, -.35f * way); sign.localRotation = Quaternion.Euler(0, way > 0 ? 0 : 180, 0); sign.gameObject.AddComponent<PhysicalSign>();
+                    Box(sign, "Sign post", new Vector3(-.8f, 1.1f, .05f), new Vector3(.1f, 2.2f, .1f), timber); Box(sign, "Sign post", new Vector3(.8f, 1.1f, .05f), new Vector3(.1f, 2.2f, .1f), timber);
+                    Box(sign, "Sign back", new Vector3(0, 2.0f, .06f), new Vector3(1.9f, 1.2f, .06f), signGrey);
+                    Face(sign, new Vector3(0, 2.0f, .02f), 1.86f, 1.16f, closedRed); Lettering(sign, "ROAD\nCLOSED", new Vector3(0, 2.0f, 0f), 1.6f, .95f, Color.white);
+                }
+                built++; Debug.Log($"Leviathan: road closed at {block.position} facing {b.yaw:F0}: {block.GetComponentsInChildren<BoxCollider>().Length} panels{(b.both ? ", signs both ways" : "")} ({b.at})");
+            }
+            Debug.Log($"Leviathan: {built} closed way(s) built ({panels} barricade panels)");
+        }
+        // Street Loop Reverse's block at Pine Ridge's end, as it is there: its concrete exit lip (the same mesh) and its NO ENTRY board
+        static void NoEntry(Block b, Transform holder)
+        {
+            if (!concrete) concrete = Lit(new Color(.48f, .44f, .34f)); if (!amber) amber = Lit(new Color(.32f, .23f, .15f));
+            var mesh = string.IsNullOrEmpty(b.mesh) ? null : Resources.Load<Mesh>("Leviathan/" + b.mesh);
+            if (mesh) { var lip = new GameObject("Ground_" + b.mesh); lip.transform.SetParent(holder, false); lip.AddComponent<MeshFilter>().sharedMesh = mesh; lip.AddComponent<MeshRenderer>().sharedMaterial = concrete; lip.AddComponent<MeshCollider>().sharedMesh = mesh; }
+            var sign = new GameObject($"NO ENTRY ({b.at})").transform; sign.SetParent(holder, false); sign.SetPositionAndRotation(new Vector3(b.pos[0], b.pos[2], b.pos[1]), Quaternion.Euler(0, b.yaw, 0)); sign.localScale = Vector3.one * .7f; sign.gameObject.AddComponent<PhysicalSign>();
+            Box(sign, "Board", new Vector3(0, 2.5f, .02f), new Vector3(6f, 2f, .16f), amber); Box(sign, "Post", new Vector3(-2f, 1.3f, .1f), new Vector3(.2f, 2.6f, .2f), amber); Box(sign, "Post", new Vector3(2f, 1.3f, .1f), new Vector3(.2f, 2.6f, .2f), amber);
+            Lettering(sign, "NO ENTRY", new Vector3(0, 2.5f, -.08f), 5.4f, 1.5f, new Color(1f, .86f, .3f));
+        }
+        static void Face(Transform parent, Vector3 at, float w, float h, Material m)
+        {
+            var mesh = new Mesh { name = "Sign face" }; float x = w * .5f, y = h * .5f;
+            mesh.vertices = new[] { new Vector3(-x, -y, 0), new Vector3(-x, y, 0), new Vector3(x, y, 0), new Vector3(x, -y, 0) }; mesh.triangles = new[] { 0, 1, 2, 0, 2, 3 }; mesh.RecalculateNormals(); mesh.RecalculateBounds(); // faces -z only
+            var f = new GameObject("Sign face (one-sided)"); f.transform.SetParent(parent, false); f.transform.localPosition = at;
+            f.AddComponent<MeshFilter>().sharedMesh = mesh; var r = f.AddComponent<MeshRenderer>(); r.sharedMaterial = m; r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
+        // lettering on a sign's face only (depth-tested, back-face culled: the signs rule), fitted inside width x height
+        static void Lettering(Transform parent, string text, Vector3 at, float width, float height, Color colour)
+        {
+            if (!letteringFont) letteringFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            if (!lettering) { lettering = Resources.Load<Material>("Scenery/SignLettering"); if (lettering && letteringFont && letteringFont.material && letteringFont.material.mainTexture) lettering.mainTexture = letteringFont.material.mainTexture; }
+            if (!lettering || !letteringFont) return;
+            var tm = new GameObject("Sign lettering").AddComponent<TextMesh>(); tm.transform.SetParent(parent, false); tm.transform.localPosition = at - new Vector3(0, 0, .02f);
+            tm.font = letteringFont; tm.text = text; tm.anchor = TextAnchor.MiddleCenter; tm.alignment = TextAlignment.Center; tm.fontSize = 96; tm.characterSize = .1f; tm.color = colour;
+            var tr = tm.GetComponent<MeshRenderer>(); tr.sharedMaterial = lettering; tr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            var fit = tm.gameObject.AddComponent<LeviathanLettering>(); fit.width = width; fit.height = height; fit.Fit();
+        }
+        // ---------------------------------------------------------------- 0.117 Part C: kickers on the shortcuts
+        // An earth wedge on the existing ground (drawn with the scene's ground material, solid), rising to its lip; the ground beyond is unchanged.
+        static void BuildKickers(Data data, Transform root, Material ground)
+        {
+            if (data.kickers == null) return;
+            foreach (var k in data.kickers)
+            {
+                var rot = Quaternion.Euler(0, k.yaw, 0); var f = rot * Vector3.forward; var r = rot * Vector3.right; var lip = new Vector3(k.pos[0], 0, k.pos[1]); var start = lip - f * k.length;
+                float hint = k.pos.Length > 2 ? k.pos[2] : float.NaN;
+                if (!Ground(lip, hint, out float yl) || !Ground(start, hint, out float ys)) { Debug.LogWarning($"Leviathan: no ground under the kicker {k.at}"); continue; }
+                float hw = k.width * .5f, top = yl + k.height, bottom = Mathf.Min(yl, ys) - .6f;
+                Vector3 V(Vector3 p, float side, float y) { var q = p + r * side; return new Vector3(q.x, y, q.z); }
+                var v = new List<Vector3> {
+                    V(start, -hw, ys - .05f), V(start, hw, ys - .05f), V(lip, hw, top), V(lip, -hw, top), // the ramp
+                    V(lip, -hw, top), V(lip, hw, top), V(lip, hw, bottom), V(lip, -hw, bottom),          // the lip's face
+                    V(start, -hw, ys - .05f), V(lip, -hw, top), V(lip, -hw, bottom), V(start, -hw, bottom), // left side
+                    V(start, hw, ys - .05f), V(start, hw, bottom), V(lip, hw, bottom), V(lip, hw, top) };  // right side
+                var tris = new List<int>(); for (int q = 0; q < 4; q++) { int i = q * 4; tris.AddRange(new[] { i, i + 3, i + 2, i, i + 2, i + 1 }); }
+                var mesh = new Mesh { name = "Leviathan kicker " + k.at }; mesh.SetVertices(v); mesh.SetTriangles(tris, 0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
+                // every face outward (the winding above is checked against the face's centre; flipped where it points in)
+                var t = mesh.triangles; var c = mesh.bounds.center; var vv = mesh.vertices;
+                for (int i = 0; i < t.Length; i += 3) { var n = Vector3.Cross(vv[t[i + 1]] - vv[t[i]], vv[t[i + 2]] - vv[t[i]]); var m = (vv[t[i]] + vv[t[i + 1]] + vv[t[i + 2]]) / 3; if (Vector3.Dot(n, m - c) < 0) { (t[i + 1], t[i + 2]) = (t[i + 2], t[i + 1]); } }
+                mesh.triangles = t; mesh.RecalculateNormals();
+                var go = new GameObject("Ground_Leviathan kicker (" + k.at + ")"); go.transform.SetParent(root, false);
+                go.AddComponent<MeshFilter>().sharedMesh = mesh; var mr = go.AddComponent<MeshRenderer>(); if (ground) mr.sharedMaterial = ground; go.AddComponent<MeshCollider>().sharedMesh = mesh;
+                Debug.Log($"Leviathan: kicker {k.at}: lip {top - yl:F2} m above its ground at ({lip.x:F1}, {lip.z:F1}), {k.length:F1} m long, {k.width:F1} m wide");
+            }
+            Physics.SyncTransforms();
+        }
+        // 0.117 Part B item 4: Climbing Ridge Cut (Forward) / Downhill Ridge Cut (Reverse) are Leviathan's main road: their scene signs lose
+        // "optional shortcut" / "follow gold" in this race only
+        static void RelabelSigns(Data data, Scene scene)
+        {
+            if (data.relabel == null || Before117) return;
+            foreach (var tm in scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<TextMesh>(true)))
+                foreach (var r in data.relabel)
+                    if (tm.text != null && tm.text.IndexOf(r.find, StringComparison.OrdinalIgnoreCase) >= 0) { Debug.Log($"Leviathan: sign '{tm.text.Replace('\n', '/')}' reads '{r.text.Replace('\n', '/')}' in this race"); tm.text = r.text; var fit = tm.GetComponent<LeviathanLettering>(); if (fit) fit.Fit(); }
+        }
         static void Box(Transform parent, string name, Vector3 at, Vector3 size, Material m)
         {
             var g = GameObject.CreatePrimitive(PrimitiveType.Cube); g.name = name; UnityEngine.Object.Destroy(g.GetComponent<Collider>());
             g.transform.SetParent(parent, false); g.transform.localPosition = at; g.transform.localScale = size; g.GetComponent<Renderer>().sharedMaterial = m;
+        }
+        // 0.117: the top ground surface under a point between heights lo and hi (a gate on the course's own ground patch stands on the patch)
+        static bool GroundTop(Vector3 p, float lo, float hi, out float y)
+        {
+            y = float.MinValue;
+            foreach (var h in Physics.RaycastAll(new Vector3(p.x, hi + 1, p.z), Vector3.down, hi - lo + 1, ~0, QueryTriggerInteraction.Ignore))
+                if (!h.collider.attachedRigidbody && !h.collider.isTrigger && h.normal.y >= .5f && h.collider.name.IndexOf("trunk", StringComparison.OrdinalIgnoreCase) < 0) y = Mathf.Max(y, h.point.y);
+            return y > float.MinValue;
         }
         // the ground under a point (not trunks, vehicles or triggers) nearest the road's height there (yRef; NaN: the top surface), within 8 m
         static bool Ground(Vector3 p, float yRef, out float y)

@@ -1,0 +1,1450 @@
+{
+ "LeviathanForward": [
+  {
+   "kind": "closed",
+   "label": "Forest race route, leaving Leviathan at s 298",
+   "x": 321.41,
+   "z": 295.39,
+   "yaw": 175.7,
+   "sNew": 263.1,
+   "sOld": 263.1
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, joining Leviathan at s 312",
+   "x": 322.7,
+   "z": 281.79,
+   "yaw": 173.2,
+   "sNew": 277.1,
+   "sOld": 277.1
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, leaving Leviathan at s 298",
+   "x": 317.83,
+   "z": 260.32,
+   "yaw": 301.0,
+   "sNew": 298.1,
+   "sOld": -1,
+   "y": 76.97
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, joining Leviathan at s 312",
+   "x": 336.65,
+   "z": 249.07,
+   "yaw": 118.3,
+   "sNew": 312.1,
+   "sOld": -1,
+   "y": 76.8
+  },
+  {
+   "kind": "report",
+   "label": "BUG-001",
+   "x": 467.16,
+   "z": 44.87,
+   "yaw": 195.1,
+   "sNew": 573.1,
+   "sOld": 573.1
+  },
+  {
+   "kind": "turn",
+   "label": "J: left into Kyle's driveway",
+   "x": 473.89,
+   "z": 20.09,
+   "yaw": 179.3,
+   "sNew": 598.7,
+   "sOld": 598.7
+  },
+  {
+   "kind": "report",
+   "label": "BUG-002",
+   "x": 480.28,
+   "z": -21.22,
+   "yaw": 93.5,
+   "sNew": 643.5,
+   "sOld": 647.9
+  },
+  {
+   "kind": "turn",
+   "label": "off the driveway link: right onto the lake path",
+   "x": 493.63,
+   "z": -22.32,
+   "yaw": 94.6,
+   "sNew": 657.1,
+   "sOld": 652.3
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, joining Leviathan at s 697",
+   "x": 498.23,
+   "z": -22.67,
+   "yaw": 94.5,
+   "sNew": 661.8,
+   "sOld": 655.0
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, joining Leviathan at s 697",
+   "x": 525.19,
+   "z": -1.12,
+   "yaw": 23.2,
+   "sNew": 696.8,
+   "sOld": -1,
+   "y": 82.83
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, joining Leviathan at s 765",
+   "x": 531.74,
+   "z": -40.8,
+   "yaw": 163.3,
+   "sNew": 730.5,
+   "sOld": -1
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, joining Leviathan at s 765",
+   "x": 529.46,
+   "z": -76.48,
+   "yaw": 294.0,
+   "sNew": 765.5,
+   "sOld": -1,
+   "y": 81.83
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, joining Leviathan at s 845",
+   "x": 571.88,
+   "z": -101.07,
+   "yaw": 115.2,
+   "sNew": 810.1,
+   "sOld": 772.9
+  },
+  {
+   "kind": "report",
+   "label": "BUG-003",
+   "x": 603.37,
+   "z": -110.75,
+   "yaw": 103.1,
+   "sNew": 843.3,
+   "sOld": 806.1
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, joining Leviathan at s 845",
+   "x": 607.63,
+   "z": -119.54,
+   "yaw": 176.2,
+   "sNew": 845.1,
+   "sOld": -1,
+   "y": 77.7
+  },
+  {
+   "kind": "turn",
+   "label": "leaving the lake shore for CR110 (the mountain)",
+   "x": 626.63,
+   "z": -114.22,
+   "yaw": 92.6,
+   "sNew": 866.9,
+   "sOld": 829.8
+  },
+  {
+   "kind": "turn",
+   "label": "Climbing Ridge Cut",
+   "x": 684.49,
+   "z": -101.31,
+   "yaw": 64.0,
+   "sNew": 927.2,
+   "sOld": 890.0
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 995",
+   "x": 714.74,
+   "z": -107.58,
+   "yaw": 116.1,
+   "sNew": 960.1,
+   "sOld": 923.0
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, leaving Leviathan at s 1001",
+   "x": 720.13,
+   "z": -110.15,
+   "yaw": 114.9,
+   "sNew": 966.1,
+   "sOld": 929.0
+  },
+  {
+   "kind": "report",
+   "label": "BUG-006",
+   "x": 727.53,
+   "z": -118.56,
+   "yaw": 110.1,
+   "sNew": 976.2,
+   "sOld": 939.1
+  },
+  {
+   "kind": "report",
+   "label": "BUG-004",
+   "x": 740.26,
+   "z": -119.49,
+   "yaw": 96.2,
+   "sNew": 988.3,
+   "sOld": 951.2
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 995",
+   "x": 748.03,
+   "z": -128.22,
+   "yaw": 176.2,
+   "sNew": 995.1,
+   "sOld": -1,
+   "y": 88.1
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, leaving Leviathan at s 1001",
+   "x": 757.66,
+   "z": -122.65,
+   "yaw": 99.5,
+   "sNew": 1001.1,
+   "sOld": -1,
+   "y": 89.33
+  },
+  {
+   "kind": "turn",
+   "label": "onto CR117",
+   "x": 955.01,
+   "z": -39.65,
+   "yaw": 98.7,
+   "sNew": 1230.2,
+   "sOld": 1193.1
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, joining Leviathan at s 1293",
+   "x": 981.71,
+   "z": -46.35,
+   "yaw": 107.8,
+   "sNew": 1258.0,
+   "sOld": 1220.9
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, joining Leviathan at s 1299",
+   "x": 987.32,
+   "z": -48.2,
+   "yaw": 108.8,
+   "sNew": 1264.0,
+   "sOld": 1226.9
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, joining Leviathan at s 1293",
+   "x": 1011.03,
+   "z": -65.16,
+   "yaw": 254.1,
+   "sNew": 1293.0,
+   "sOld": -1,
+   "y": 134.86
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, joining Leviathan at s 1299",
+   "x": 1015.7,
+   "z": -66.13,
+   "yaw": 222.3,
+   "sNew": 1299.0,
+   "sOld": -1,
+   "y": 136.48
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, leaving Leviathan at s 1479",
+   "x": 1031.68,
+   "z": 68.42,
+   "yaw": 324.7,
+   "sNew": 1443.8,
+   "sOld": 1407.4
+  },
+  {
+   "kind": "closed",
+   "label": "Mountain racing line, leaving Leviathan at s 1483",
+   "x": 1029.36,
+   "z": 71.63,
+   "yaw": 323.6,
+   "sNew": 1447.8,
+   "sOld": 1411.4
+  },
+  {
+   "kind": "closed",
+   "label": " technical shortcut, leaving Leviathan at s 1485",
+   "x": 1028.18,
+   "z": 73.21,
+   "yaw": 323.0,
+   "sNew": 1449.8,
+   "sOld": 1413.4
+  },
+  {
+   "kind": "closed",
+   "label": "Summit approach and safe return, joining Leviathan at s 1501",
+   "x": 1018.23,
+   "z": 85.56,
+   "yaw": 319.7,
+   "sNew": 1465.8,
+   "sOld": 1429.4
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, leaving Leviathan at s 1479",
+   "x": 1008.44,
+   "z": 96.76,
+   "yaw": 315.0,
+   "sNew": 1478.8,
+   "sOld": -1,
+   "y": 163.39
+  },
+  {
+   "kind": "closeup",
+   "label": "Mountain racing line, leaving Leviathan at s 1483",
+   "x": 1003.87,
+   "z": 101.33,
+   "yaw": 315.0,
+   "sNew": 1482.8,
+   "sOld": -1,
+   "y": 163.64
+  },
+  {
+   "kind": "closeup",
+   "label": " technical shortcut, leaving Leviathan at s 1485",
+   "x": 1004.32,
+   "z": 104.55,
+   "yaw": 256.4,
+   "sNew": 1484.8,
+   "sOld": -1,
+   "y": 160.73
+  },
+  {
+   "kind": "closeup",
+   "label": "Summit approach and safe return, joining Leviathan at s 1501",
+   "x": 1007.73,
+   "z": 121.18,
+   "yaw": 250.3,
+   "sNew": 1500.8,
+   "sOld": -1,
+   "y": 162.37
+  },
+  {
+   "kind": "closed",
+   "label": "Summit approach and safe return, leaving Leviathan at s 1685 / Summit approach and safe return (both ways)",
+   "x": 1155.55,
+   "z": 151.38,
+   "yaw": 65.7,
+   "sNew": 1649.8,
+   "sOld": 1613.5
+  },
+  {
+   "kind": "closeup",
+   "label": "Summit approach and safe return, leaving Leviathan at s 1685 / Summit approach and safe return (both ways)",
+   "x": 1186.34,
+   "z": 174.66,
+   "yaw": 15.4,
+   "sNew": 1684.8,
+   "sOld": -1,
+   "y": 152.0
+  },
+  {
+   "kind": "closed",
+   "label": " technical shortcut, joining Leviathan at s 2450",
+   "x": 701.06,
+   "z": 60.81,
+   "yaw": 221.4,
+   "sNew": 2415.5,
+   "sOld": 2379.8
+  },
+  {
+   "kind": "closeup",
+   "label": " technical shortcut, joining Leviathan at s 2450",
+   "x": 692.03,
+   "z": 31.75,
+   "yaw": 92.0,
+   "sNew": 2450.5,
+   "sOld": -1,
+   "y": 87.5
+  },
+  {
+   "kind": "turn",
+   "label": "off the mountain onto the lake east side",
+   "x": 683.08,
+   "z": 18.69,
+   "yaw": 179.2,
+   "sNew": 2462.8,
+   "sOld": 2427.1
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, joining Leviathan at s 2516",
+   "x": 686.46,
+   "z": 0.61,
+   "yaw": 155.5,
+   "sNew": 2481.4,
+   "sOld": 2445.7
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, leaving Leviathan at s 2520",
+   "x": 688.38,
+   "z": -2.86,
+   "yaw": 144.4,
+   "sNew": 2485.4,
+   "sOld": 2449.7
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, leaving Leviathan at s 2524",
+   "x": 691.05,
+   "z": -5.79,
+   "yaw": 128.4,
+   "sNew": 2489.4,
+   "sOld": 2453.7
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 2526 / CR117 mandatory two-flight racing line (both ways)",
+   "x": 692.7,
+   "z": -6.88,
+   "yaw": 119.9,
+   "sNew": 2491.4,
+   "sOld": 2455.7
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, joining Leviathan at s 2516",
+   "x": 718.0,
+   "z": -5.1,
+   "yaw": 0.0,
+   "sNew": 2516.4,
+   "sOld": -1,
+   "y": 78.2
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, leaving Leviathan at s 2520",
+   "x": 718.0,
+   "z": -21.1,
+   "yaw": 180.0,
+   "sNew": 2520.4,
+   "sOld": -1,
+   "y": 78.4
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, leaving Leviathan at s 2524",
+   "x": 728.09,
+   "z": -8.88,
+   "yaw": 354.3,
+   "sNew": 2524.4,
+   "sOld": -1,
+   "y": 78.9
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 2526 / CR117 mandatory two-flight racing line (both ways)",
+   "x": 733.19,
+   "z": -10.64,
+   "yaw": 147.4,
+   "sNew": 2526.4,
+   "sOld": -1,
+   "y": 79.33
+  },
+  {
+   "kind": "turn",
+   "label": "off the mountain road: right onto the lake shore",
+   "x": 727.79,
+   "z": -26.59,
+   "yaw": 181.5,
+   "sNew": 2537.0,
+   "sOld": 2501.4
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 2588 / CR117 mandatory two-flight racing line (both ways)",
+   "x": 726.44,
+   "z": -42.89,
+   "yaw": 187.8,
+   "sNew": 2553.4,
+   "sOld": 2517.8
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, joining Leviathan at s 2614",
+   "x": 718.4,
+   "z": -67.38,
+   "yaw": 211.7,
+   "sNew": 2579.4,
+   "sOld": 2543.8
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 2588 / CR117 mandatory two-flight racing line (both ways)",
+   "x": 716.43,
+   "z": -79.97,
+   "yaw": 176.2,
+   "sNew": 2588.4,
+   "sOld": -1,
+   "y": 80.53
+  },
+  {
+   "kind": "report",
+   "label": "BUG-005",
+   "x": 716.48,
+   "z": -78.51,
+   "yaw": 194.2,
+   "sNew": 2589.1,
+   "sOld": 2553.5
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, joining Leviathan at s 2614",
+   "x": 689.9,
+   "z": -83.3,
+   "yaw": 0.0,
+   "sNew": 2614.4,
+   "sOld": -1,
+   "y": 78.8
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, leaving Leviathan at s 2734",
+   "x": 613.15,
+   "z": -110.03,
+   "yaw": 277.4,
+   "sNew": 2699.4,
+   "sOld": 2663.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, leaving Leviathan at s 2734",
+   "x": 577.9,
+   "z": -94.62,
+   "yaw": 337.8,
+   "sNew": 2734.4,
+   "sOld": -1,
+   "y": 82.07
+  },
+  {
+   "kind": "turn",
+   "label": "off the lake path: left to the driveway",
+   "x": 538.1,
+   "z": -53.8,
+   "yaw": 351.6,
+   "sNew": 2804.8,
+   "sOld": 2756.8
+  },
+  {
+   "kind": "turn",
+   "label": "out of Kyle's driveway: left onto the street",
+   "x": 507.87,
+   "z": -20.59,
+   "yaw": 219.9,
+   "sNew": 2875.9,
+   "sOld": -1
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, leaving Leviathan at s 2925",
+   "x": 496.15,
+   "z": -22.52,
+   "yaw": 274.5,
+   "sNew": 2889.6,
+   "sOld": -1
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, leaving Leviathan at s 2925",
+   "x": 480.79,
+   "z": -37.35,
+   "yaw": 145.8,
+   "sNew": 2924.6,
+   "sOld": -1,
+   "y": 87.9
+  },
+  {
+   "kind": "closed",
+   "label": "House 3 valley driveway, leaving Leviathan at s 3031",
+   "x": 499.99,
+   "z": -101.95,
+   "yaw": 152.2,
+   "sNew": 2996.3,
+   "sOld": 2876.9
+  },
+  {
+   "kind": "closeup",
+   "label": "House 3 valley driveway, leaving Leviathan at s 3031",
+   "x": 513.28,
+   "z": -133.03,
+   "yaw": 254.6,
+   "sNew": 3031.3,
+   "sOld": -1,
+   "y": 81.01
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, leaving Leviathan at s 3145",
+   "x": 542.68,
+   "z": -198.64,
+   "yaw": 159.4,
+   "sNew": 3110.3,
+   "sOld": 2990.9
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, joining Leviathan at s 3151",
+   "x": 544.54,
+   "z": -203.67,
+   "yaw": 160.1,
+   "sNew": 3116.3,
+   "sOld": 2996.9
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, leaving Leviathan at s 3145",
+   "x": 558.92,
+   "z": -227.72,
+   "yaw": 40.8,
+   "sNew": 3145.3,
+   "sOld": -1,
+   "y": 36.9
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, joining Leviathan at s 3151",
+   "x": 547.54,
+   "z": -238.59,
+   "yaw": 235.8,
+   "sNew": 3151.3,
+   "sOld": -1,
+   "y": 32.3
+  },
+  {
+   "kind": "turn",
+   "label": "right onto Hwy 92",
+   "x": -622.77,
+   "z": 456.64,
+   "yaw": 14.2,
+   "sNew": 5931.1,
+   "sOld": 5811.7
+  },
+  {
+   "kind": "turn",
+   "label": "right off Hwy 92 to the start",
+   "x": 218.23,
+   "z": 556.29,
+   "yaw": 81.5,
+   "sNew": 6836.1,
+   "sOld": 6716.7
+  }
+ ],
+ "LeviathanReverse": [
+  {
+   "kind": "turn",
+   "label": "left off Hwy 92",
+   "x": -530.58,
+   "z": 539.95,
+   "yaw": 273.7,
+   "sNew": 858.4,
+   "sOld": 858.4
+  },
+  {
+   "kind": "report",
+   "label": "BUG-007",
+   "x": -640.22,
+   "z": 114.81,
+   "yaw": 164.4,
+   "sNew": 1354.4,
+   "sOld": 1354.4
+  },
+  {
+   "kind": "closed",
+   "label": "Pine Ridge, joining Leviathan at s 1714",
+   "x": -624.76,
+   "z": -209.49,
+   "yaw": 179.2,
+   "sNew": 1678.9,
+   "sOld": 1678.9
+  },
+  {
+   "kind": "closed",
+   "label": "Pine Ridge's end (Street Loop Reverse's NO ENTRY block)",
+   "x": -622.64,
+   "z": -242.1,
+   "yaw": 132.1,
+   "sNew": 1711.5,
+   "sOld": 1711.5
+  },
+  {
+   "kind": "report",
+   "label": "BUG-008",
+   "x": -622.64,
+   "z": -242.1,
+   "yaw": 132.1,
+   "sNew": 1711.5,
+   "sOld": 1711.5
+  },
+  {
+   "kind": "closeup",
+   "label": "Pine Ridge, joining Leviathan at s 1714",
+   "x": -616.63,
+   "z": -245.52,
+   "yaw": 126.9,
+   "sNew": 1713.9,
+   "sOld": -1,
+   "y": 7.66
+  },
+  {
+   "kind": "closed",
+   "label": "Existing Southwest Cut, joining Leviathan at s 1964",
+   "x": -619.73,
+   "z": -459.44,
+   "yaw": 178.1,
+   "sNew": 1928.9,
+   "sOld": 1928.9
+  },
+  {
+   "kind": "closeup",
+   "label": "Existing Southwest Cut, joining Leviathan at s 1964",
+   "x": -611.33,
+   "z": -495.28,
+   "yaw": 156.6,
+   "sNew": 1963.9,
+   "sOld": -1,
+   "y": 6.18
+  },
+  {
+   "kind": "closed",
+   "label": "Existing Southwest Cut, leaving Leviathan at s 2052",
+   "x": -612.34,
+   "z": -546.94,
+   "yaw": 140.0,
+   "sNew": 2016.9,
+   "sOld": 2016.9
+  },
+  {
+   "kind": "closeup",
+   "label": "Existing Southwest Cut, leaving Leviathan at s 2052",
+   "x": -580.95,
+   "z": -544.91,
+   "yaw": 319.5,
+   "sNew": 2051.9,
+   "sOld": -1,
+   "y": 6.17
+  },
+  {
+   "kind": "closed",
+   "label": "Pine Ridge, leaving Leviathan at s 2396",
+   "x": -271.99,
+   "z": -575.15,
+   "yaw": 98.7,
+   "sNew": 2360.9,
+   "sOld": 2360.9
+  },
+  {
+   "kind": "closeup",
+   "label": "Pine Ridge, leaving Leviathan at s 2396",
+   "x": -239.32,
+   "z": -572.62,
+   "yaw": 296.5,
+   "sNew": 2395.9,
+   "sOld": -1,
+   "y": 25.7
+  },
+  {
+   "kind": "closed",
+   "label": "Fox Gully, joining Leviathan at s 2562",
+   "x": -107.01,
+   "z": -580.58,
+   "yaw": 87.8,
+   "sNew": 2526.9,
+   "sOld": 2526.9
+  },
+  {
+   "kind": "closeup",
+   "label": "Fox Gully, joining Leviathan at s 2562",
+   "x": -70.12,
+   "z": -571.62,
+   "yaw": 31.9,
+   "sNew": 2561.9,
+   "sOld": -1,
+   "y": 29.51
+  },
+  {
+   "kind": "closed",
+   "label": "Fox Gully, leaving Leviathan at s 2682",
+   "x": -8.66,
+   "z": -535.4,
+   "yaw": 16.6,
+   "sNew": 2646.8,
+   "sOld": 2646.8
+  },
+  {
+   "kind": "closed",
+   "label": "Fox Gully, joining Leviathan at s 2694",
+   "x": -5.66,
+   "z": -523.8,
+   "yaw": 11.0,
+   "sNew": 2658.8,
+   "sOld": 2658.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Fox Gully, leaving Leviathan at s 2682",
+   "x": -11.09,
+   "z": -501.5,
+   "yaw": 226.4,
+   "sNew": 2681.8,
+   "sOld": -1,
+   "y": 33.96
+  },
+  {
+   "kind": "closeup",
+   "label": "Fox Gully, joining Leviathan at s 2694",
+   "x": 3.67,
+   "z": -487.34,
+   "yaw": 43.7,
+   "sNew": 2693.8,
+   "sOld": -1,
+   "y": 30.95
+  },
+  {
+   "kind": "closed",
+   "label": "Fox Gully, leaving Leviathan at s 3030",
+   "x": 131.02,
+   "z": -294.22,
+   "yaw": 105.6,
+   "sNew": 2994.8,
+   "sOld": 2994.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Fox Gully, leaving Leviathan at s 3030",
+   "x": 160.75,
+   "z": -309.82,
+   "yaw": 267.5,
+   "sNew": 3029.8,
+   "sOld": -1,
+   "y": 38.92
+  },
+  {
+   "kind": "closed",
+   "label": "Creek Leap, joining Leviathan at s 3222",
+   "x": 296.96,
+   "z": -384.63,
+   "yaw": 116.4,
+   "sNew": 3186.8,
+   "sOld": 3186.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Creek Leap, joining Leviathan at s 3222",
+   "x": 330.54,
+   "z": -387.69,
+   "yaw": 60.6,
+   "sNew": 3221.8,
+   "sOld": -1,
+   "y": 37.35
+  },
+  {
+   "kind": "report",
+   "label": "BUG-009",
+   "x": 508.56,
+   "z": -481.04,
+   "yaw": 74.2,
+   "sNew": 3533.6,
+   "sOld": 3533.6
+  },
+  {
+   "kind": "closed",
+   "label": "Creek Leap, leaving Leviathan at s 3692",
+   "x": 545.11,
+   "z": -367.05,
+   "yaw": 6.5,
+   "sNew": 3656.8,
+   "sOld": 3656.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Creek Leap, leaving Leviathan at s 3692",
+   "x": 544.03,
+   "z": -332.69,
+   "yaw": 234.9,
+   "sNew": 3691.8,
+   "sOld": -1,
+   "y": 24.78
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, joining Leviathan at s 3792",
+   "x": 560.64,
+   "z": -268.88,
+   "yaw": 355.6,
+   "sNew": 3756.8,
+   "sOld": 3756.8
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, leaving Leviathan at s 3798",
+   "x": 560.06,
+   "z": -262.93,
+   "yaw": 353.2,
+   "sNew": 3762.8,
+   "sOld": 3762.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, joining Leviathan at s 3792",
+   "x": 547.54,
+   "z": -238.59,
+   "yaw": 235.8,
+   "sNew": 3791.8,
+   "sOld": -1,
+   "y": 32.3
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, leaving Leviathan at s 3798",
+   "x": 558.92,
+   "z": -227.72,
+   "yaw": 40.8,
+   "sNew": 3797.8,
+   "sOld": -1,
+   "y": 36.9
+  },
+  {
+   "kind": "closed",
+   "label": "House 3 valley driveway, leaving Leviathan at s 3912",
+   "x": 528.0,
+   "z": -162.55,
+   "yaw": 336.9,
+   "sNew": 3876.8,
+   "sOld": 3876.8
+  },
+  {
+   "kind": "closeup",
+   "label": "House 3 valley driveway, leaving Leviathan at s 3912",
+   "x": 513.28,
+   "z": -133.03,
+   "yaw": 254.6,
+   "sNew": 3911.8,
+   "sOld": -1,
+   "y": 81.01
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, leaving Leviathan at s 4018",
+   "x": 483.5,
+   "z": -69.15,
+   "yaw": 336.1,
+   "sNew": 3983.5,
+   "sOld": 3983.5
+  },
+  {
+   "kind": "turn",
+   "label": "J: right into Kyle's driveway",
+   "x": 479.95,
+   "z": -60.77,
+   "yaw": 338.4,
+   "sNew": 3992.6,
+   "sOld": 3992.1
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, leaving Leviathan at s 4018",
+   "x": 480.79,
+   "z": -37.35,
+   "yaw": 145.8,
+   "sNew": 4018.5,
+   "sOld": -1,
+   "y": 87.9
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection (the stem), off Rocky Way Cut",
+   "x": 499.77,
+   "z": -22.78,
+   "yaw": 94.6,
+   "sNew": 4056.0,
+   "sOld": -1
+  },
+  {
+   "kind": "turn",
+   "label": "off the driveway link: left onto the lake path",
+   "x": 501.25,
+   "z": -22.91,
+   "yaw": 94.5,
+   "sNew": 4057.5,
+   "sOld": -1
+  },
+  {
+   "kind": "report",
+   "label": "BUG-010",
+   "x": 531.88,
+   "z": -44.53,
+   "yaw": 39.2,
+   "sNew": 4062.9,
+   "sOld": 4087.1
+  },
+  {
+   "kind": "report",
+   "label": "BUG-011",
+   "x": 499.33,
+   "z": -16.8,
+   "yaw": 354.9,
+   "sNew": 4065.9,
+   "sOld": -1
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection (the stem), off Rocky Way Cut",
+   "x": 529.46,
+   "z": -76.48,
+   "yaw": 294.0,
+   "sNew": 4091.0,
+   "sOld": -1,
+   "y": 82.2
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, joining Leviathan at s 4159",
+   "x": 538.2,
+   "z": 20.85,
+   "yaw": 36.1,
+   "sNew": 4124.5,
+   "sOld": 4155.0
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, joining Leviathan at s 4159",
+   "x": 566.27,
+   "z": 41.93,
+   "yaw": 178.1,
+   "sNew": 4159.5,
+   "sOld": -1,
+   "y": 82.07
+  },
+  {
+   "kind": "report",
+   "label": "BUG-012",
+   "x": 577.34,
+   "z": 55.12,
+   "yaw": 51.5,
+   "sNew": 4177.2,
+   "sOld": 4207.6
+  },
+  {
+   "kind": "turn",
+   "label": "onto the shore strip",
+   "x": 577.47,
+   "z": 61.29,
+   "yaw": 53.7,
+   "sNew": 4181.2,
+   "sOld": 4211.6
+  },
+  {
+   "kind": "turn",
+   "label": "leaving the lake for CR117 (the mountain)",
+   "x": 672.88,
+   "z": 38.54,
+   "yaw": 130.7,
+   "sNew": 4298.3,
+   "sOld": 4328.8
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, joining Leviathan at s 4377",
+   "x": 703.33,
+   "z": 6.86,
+   "yaw": 134.1,
+   "sNew": 4342.4,
+   "sOld": 4373.0
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, leaving Leviathan at s 4383",
+   "x": 708.22,
+   "z": 3.48,
+   "yaw": 108.6,
+   "sNew": 4348.4,
+   "sOld": 4379.0
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, joining Leviathan at s 4377",
+   "x": 717.07,
+   "z": 25.25,
+   "yaw": 297.4,
+   "sNew": 4377.4,
+   "sOld": -1,
+   "y": 78.4
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, leaving Leviathan at s 4383",
+   "x": 718.66,
+   "z": 32.31,
+   "yaw": 297.4,
+   "sNew": 4383.4,
+   "sOld": -1,
+   "y": 78.67
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, leaving Leviathan at s 4419",
+   "x": 724.97,
+   "z": 29.55,
+   "yaw": 8.4,
+   "sNew": 4384.4,
+   "sOld": 4415.1
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, leaving Leviathan at s 4419",
+   "x": 732.57,
+   "z": 64.45,
+   "yaw": 268.0,
+   "sNew": 4419.4,
+   "sOld": -1,
+   "y": 83.7
+  },
+  {
+   "kind": "closed",
+   "label": "Summit approach and safe return, joining Leviathan at s 4501",
+   "x": 779.96,
+   "z": 63.13,
+   "yaw": 98.5,
+   "sNew": 4466.4,
+   "sOld": 4497.1
+  },
+  {
+   "kind": "closeup",
+   "label": "Summit approach and safe return, joining Leviathan at s 4501",
+   "x": 806.43,
+   "z": 71.34,
+   "yaw": 287.8,
+   "sNew": 4501.4,
+   "sOld": -1,
+   "y": 112.99
+  },
+  {
+   "kind": "closed",
+   "label": "Mountain racing line, leaving Leviathan at s 4735",
+   "x": 955.61,
+   "z": 140.5,
+   "yaw": 118.8,
+   "sNew": 4700.3,
+   "sOld": 4731.0
+  },
+  {
+   "kind": "closeup",
+   "label": "Mountain racing line, leaving Leviathan at s 4735",
+   "x": 987.94,
+   "z": 117.26,
+   "yaw": 135.0,
+   "sNew": 4735.3,
+   "sOld": -1,
+   "y": 163.56
+  },
+  {
+   "kind": "turn",
+   "label": "Downhill Ridge Cut",
+   "x": 878.29,
+   "z": -224.38,
+   "yaw": 297.4,
+   "sNew": 5714.1,
+   "sOld": 5745.1
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 5789",
+   "x": 843.64,
+   "z": -204.57,
+   "yaw": 302.9,
+   "sNew": 5754.1,
+   "sOld": 5785.0
+  },
+  {
+   "kind": "report",
+   "label": "BUG-013",
+   "x": 820.24,
+   "z": -190.06,
+   "yaw": 296.5,
+   "sNew": 5781.5,
+   "sOld": 5812.3
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 5789",
+   "x": 810.01,
+   "z": -179.18,
+   "yaw": 350.2,
+   "sNew": 5789.1,
+   "sOld": -1,
+   "y": 94.53
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, joining Leviathan at s 5899",
+   "x": 752.45,
+   "z": -158.08,
+   "yaw": 314.3,
+   "sNew": 5864.0,
+   "sOld": 5895.0
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 5899",
+   "x": 752.45,
+   "z": -158.08,
+   "yaw": 314.3,
+   "sNew": 5864.0,
+   "sOld": 5895.0
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, joining Leviathan at s 5899",
+   "x": 722.72,
+   "z": -140.93,
+   "yaw": 212.6,
+   "sNew": 5899.0,
+   "sOld": -1,
+   "y": 87.27
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, leaving Leviathan at s 5899",
+   "x": 733.67,
+   "z": -129.3,
+   "yaw": 55.8,
+   "sNew": 5899.0,
+   "sOld": -1,
+   "y": 86.1
+  },
+  {
+   "kind": "closed",
+   "label": "Mountain racing line, joining Leviathan at s 5937",
+   "x": 725.92,
+   "z": -132.2,
+   "yaw": 314.3,
+   "sNew": 5902.0,
+   "sOld": 5933.1
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, joining Leviathan at s 5951",
+   "x": 716.16,
+   "z": -122.69,
+   "yaw": 314.3,
+   "sNew": 5916.0,
+   "sOld": 5947.1
+  },
+  {
+   "kind": "closed",
+   "label": " exploration only, joining Leviathan at s 5963",
+   "x": 707.71,
+   "z": -114.45,
+   "yaw": 314.3,
+   "sNew": 5928.0,
+   "sOld": 5959.1
+  },
+  {
+   "kind": "closeup",
+   "label": "Mountain racing line, joining Leviathan at s 5937",
+   "x": 707.14,
+   "z": -103.94,
+   "yaw": 115.7,
+   "sNew": 5937.0,
+   "sOld": -1,
+   "y": 82.19
+  },
+  {
+   "kind": "turn",
+   "label": "off the mountain: the start stretch",
+   "x": 700.11,
+   "z": -107.04,
+   "yaw": 314.3,
+   "sNew": 5938.7,
+   "sOld": 5969.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, joining Leviathan at s 5951",
+   "x": 685.63,
+   "z": -99.56,
+   "yaw": 244.3,
+   "sNew": 5951.0,
+   "sOld": -1,
+   "y": 79.0
+  },
+  {
+   "kind": "closed",
+   "label": "CR117 mandatory two-flight racing line, joining Leviathan at s 5989",
+   "x": 692.63,
+   "z": -94.39,
+   "yaw": 2.8,
+   "sNew": 5954.0,
+   "sOld": 5985.1
+  },
+  {
+   "kind": "closeup",
+   "label": " exploration only, joining Leviathan at s 5963",
+   "x": 690.23,
+   "z": -80.3,
+   "yaw": 358.1,
+   "sNew": 5963.0,
+   "sOld": -1,
+   "y": 78.73
+  },
+  {
+   "kind": "closeup",
+   "label": "CR117 mandatory two-flight racing line, joining Leviathan at s 5989",
+   "x": 716.4,
+   "z": -71.61,
+   "yaw": 143.1,
+   "sNew": 5989.0,
+   "sOld": -1,
+   "y": 79.33
+  },
+  {
+   "kind": "turn",
+   "label": "off the mountain: onto the strip",
+   "x": 716.13,
+   "z": -59.98,
+   "yaw": 36.7,
+   "sNew": 5996.3,
+   "sOld": 6027.4
+  },
+  {
+   "kind": "turn",
+   "label": "back onto the north shore",
+   "x": 698.31,
+   "z": 18.32,
+   "yaw": 319.8,
+   "sNew": 6088.8,
+   "sOld": 6119.9
+  },
+  {
+   "kind": "closed",
+   "label": "Lake shore connection, joining Leviathan at s 6159",
+   "x": 672.89,
+   "z": 42.48,
+   "yaw": 308.7,
+   "sNew": 6124.0,
+   "sOld": 6155.2
+  },
+  {
+   "kind": "closeup",
+   "label": "Lake shore connection, joining Leviathan at s 6159",
+   "x": 661.28,
+   "z": 68.44,
+   "yaw": 121.6,
+   "sNew": 6159.0,
+   "sOld": -1,
+   "y": 78.9
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, leaving Leviathan at s 6251",
+   "x": 599.56,
+   "z": 75.0,
+   "yaw": 258.1,
+   "sNew": 6215.9,
+   "sOld": 6247.2
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, leaving Leviathan at s 6251",
+   "x": 565.37,
+   "z": 63.91,
+   "yaw": 356.2,
+   "sNew": 6250.9,
+   "sOld": -1,
+   "y": 81.8
+  },
+  {
+   "kind": "turn",
+   "label": "off the lake path: right to the driveway",
+   "x": 544.78,
+   "z": 33.63,
+   "yaw": 221.3,
+   "sNew": 6286.0,
+   "sOld": 6317.2
+  },
+  {
+   "kind": "turn",
+   "label": "out of Kyle's driveway: right onto the street",
+   "x": 507.64,
+   "z": -21.22,
+   "yaw": 225.5,
+   "sNew": 6360.6,
+   "sOld": 6374.5
+  },
+  {
+   "kind": "report",
+   "label": "BUG-014",
+   "x": 480.71,
+   "z": -17.8,
+   "yaw": 293.2,
+   "sNew": 6388.8,
+   "sOld": 6525.2
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, joining Leviathan at s 6727",
+   "x": 341.41,
+   "z": 215.14,
+   "yaw": 331.5,
+   "sNew": 6691.8,
+   "sOld": 6816.4
+  },
+  {
+   "kind": "closed",
+   "label": "Forest race route, leaving Leviathan at s 6741",
+   "x": 335.54,
+   "z": 227.84,
+   "yaw": 338.5,
+   "sNew": 6705.8,
+   "sOld": 6830.4
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, joining Leviathan at s 6727",
+   "x": 336.65,
+   "z": 249.07,
+   "yaw": 118.3,
+   "sNew": 6726.8,
+   "sOld": -1,
+   "y": 76.8
+  },
+  {
+   "kind": "closeup",
+   "label": "Forest race route, leaving Leviathan at s 6741",
+   "x": 317.83,
+   "z": 260.32,
+   "yaw": 301.0,
+   "sNew": 6740.8,
+   "sOld": -1,
+   "y": 76.97
+  },
+  {
+   "kind": "turn",
+   "label": "left onto Hwy 92",
+   "x": 319.32,
+   "z": 502.68,
+   "yaw": 1.7,
+   "sNew": 6990.4,
+   "sOld": 7114.9
+  }
+ ]
+}

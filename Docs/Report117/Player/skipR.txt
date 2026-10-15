@@ -1,0 +1,5 @@
+screen=1920x1080 kind=skip117 version=0.117.0-review1 park=on
+== skipping the mountain on Leviathan - Reverse: Leviathan - Reverse (leviathan-reverse-v3): line 7036 m, 24 gates, 2 shortcuts, flights South Face Summit Flight 5048-5552, Downhill Ridge Cut drop 5820-5928
+  turnback: from s 4230 (next CP 16) across -> 598.5,80.22,43.3 in 14 s, 73 m; gates counted on the way [], next CP now 16, finished laps 0; missed 0 (+0 s); banner: none; HUD now 'NEXT  CP 16  0.32 mi'; stopped at 598.5,80.22,43.3 after 14 s
+  reset: from s 4300 (next CP 16, at 4746), the reset button: put at 681.7,79.57,30.3, racer station 11346; next CP 16: not past the gate
+  acrosshill: from s 4300 (next CP 16) across -> 702.4,79.95,25.4 in 10 s, 31 m; gates counted on the way [], next CP now 16, finished laps 0; missed 0 (+0 s); banner: none; HUD now 'NEXT  CP 16  0.24 mi'; stopped at 702.4,79.95,25.4 after 10 s

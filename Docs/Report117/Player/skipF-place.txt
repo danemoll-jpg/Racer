@@ -1,0 +1,3 @@
+screen=1920x1080 kind=skip117 version=0.117.0-review1 park=on
+== skipping the mountain on Leviathan - Forward: Leviathan - Forward (leviathan-forward-v2): line 6941 m, 26 gates, 4 shortcuts, flights Homeward Summit Flight 1804-2383
+  turnback: progress as after s 870 (next CP 5), put on the way back at (480.5, -40) and driven on along the course to s 3100: gates counted [], next CP still 5, laps 0, missed 0; banner at 501.2,87.71,-108.4 3.2 s in: MOUNTAIN MISSED (CP 5), HUD 'TO  CP 5  0.24 mi'; the lap cannot end until CP 5 is passed

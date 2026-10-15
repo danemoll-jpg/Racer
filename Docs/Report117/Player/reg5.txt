@@ -1,0 +1,5 @@
+screen=1920x1080 kind=lev115 version=0.117.0-review1 park=on
+== AI-only quick races on Mountain Loop - Reverse: NOT LEVIATHAN: Mountain Loop - Reverse (mountain-reverse-v4-natural-summit-merge); laps 1, difficulty 1, traffic 1
+  run 1 [tourer+moto+atv] moto       117.1 laps [115.6] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 1 [tourer+moto+atv] atv        119.5 laps [118.3] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 1 [tourer+moto+atv] tourer     131.4 laps [129.3] missed gates 0 (+0 s) resets 1 shortcuts [] | resets at [stalled 4.9 route 5.0 branch 0.0 rejoin 0.0 tracking False target (816, 97, -134) best 7 planned - on - speed -0.1] 936.9,125.41,-99.5 road 1621 lap 1 next CP 5 t 75

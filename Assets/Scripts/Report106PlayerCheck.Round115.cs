@@ -37,6 +37,7 @@ namespace Racer
             ShortcutStrategy.Forced = Arg("-p116forced", "").Replace('_', ' ').Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
             // 0.116: -p116off "title,title": Leviathan Reverse shortcuts switched off (as Dan would in the F6 menu; saved in the test save's settings)
             if (Arg("-p116off", "") != "") { var off = Arg("-p116off", "").Replace('_', ' ').Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); flow.Save.Settings.leviathanShortcutsOff = off; flow.Save.SaveSettings(); LeviathanCourse.ShortcutsOff = off; }
+            RoadDriver.WindowMode = int.Parse(Arg("-p117window", RoadDriver.WindowMode.ToString())); // 0.117 checks
             int course = int.Parse(Arg("-p115course", "8")); int runs = int.Parse(Arg("-p115runs", "3")); int laps = int.Parse(Arg("-p115laps", "2")); int diff = int.Parse(Arg("-p115diff", "1"));
             var lineups = Arg("-p115rivals", "tourer+moto+atv|original+roadster+scrambler|fastback+drifter+pebble").Split('|');
             for (int run = 1; run <= runs; run++)

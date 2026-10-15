@@ -379,12 +379,23 @@ namespace Racer
                 if(branch&&!fell&&ShortcutUndergrowth.ResetPast(branch,from,out float past)){var bt=BranchTrack(branch);var edge=branch.At(past,out _);if(PlaceAt(bt,past,1,edge,state,past)){LastRecovery="Recovered past the brush";return true;}}
                 if(branch){bool ai=state.IsAi;var bt=new Track{branch=branch,loop=false,length=branch.LengthFor(ai),ai=ai};tracks.Add((bt,Nearest(bt,from,branch.ProjectFor(ai,from,out _),bt.length),0,bt.length,1));}
                 var main=MainTrack(race.road);
+                // 0.117 (BUG-006): on Leviathan's line (it passes the stem, the lake roads and the mountain's foot twice) the reset is onto this
+                // pass of the lap: between the last gate passed and the next, never past a gate not yet passed or the furthest point driven
+                if(state!=null&&state==race.Racers[0]&&race.ResetSpan(state,out float spanLo,out float spanHi)) // the player (rivals keep their own rule)
+                {
+                    float sn=Nearest(main,from,(spanLo+spanHi)*.5f,(spanHi-spanLo)*.5f);sn=spanLo+Mathf.Repeat(sn-spanLo,main.length); // the span's own (unwrapped) stations
+                    tracks.Add((main,Mathf.Clamp(sn,spanLo,spanHi),spanLo,spanHi,1));
+                    tracks.Add((main,Mathf.Clamp(sn,spanLo,spanHi),spanLo-150,spanHi,1)); // nowhere usable in it (a jump's run-up): further back, never forward
+                }
+                else
+                {
                 float window=tracking&&!trackingBranch?Mathf.Clamp(Mathf.Max(75,untrackedTravel*1.5f+15),75,main.length*.5f):main.length*.5f;
                 float centre=tracking&&!trackingBranch?trackingStation:race.road.Project(from,out _);
                 float s0=Nearest(main,from,centre,window);
                 // A reset never crosses START/FINISH: it must not award or undo a lap.
                 float rel=race.road.Relative(s0,race.Origin);
                 tracks.Add((main,s0,s0-rel+.5f,s0+(main.length-rel)-.5f,1));
+                }
             }
             foreach(var (t,s0,lo,hi,facing) in tracks)if(SearchTrack(t,s0,lo,hi,facing,from,state))return true;
             return PlaceStart(from,"no usable station on the current route");
@@ -424,6 +435,8 @@ namespace Racer
                 if(!Supported(candidate,forward,out var position,out var rotation))continue;
                 if(!Clear(position,rotation))continue;
                 if(Mathf.Abs(position.y-point.y)>5)continue;
+                // 0.117: on Leviathan the player is never put on ground well below the course (the pit under Downhill Ridge Cut's drop)
+                if(!race.FreeRoam&&race.road.tracked&&state!=null&&state==race.Racers[0]&&point.y-position.y>2.5f)continue;
                 if(race.FreeRoam&&Hollow(position))continue; // 0.95 Part E: never back into a pit it could not drive out of
                 Place(position,rotation);Pending=false;aiFailingSince=-1;lastRecoveryAt=Time.time;
                 history.Clear();awaitingLanding=false;stableSince=-1;untrackedTravel=0;
