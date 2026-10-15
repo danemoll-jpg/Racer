@@ -113,6 +113,7 @@ Version 0.119.0-review1, local build only (2026-10-15 rule; no GitHub release). 
   - Land It Clean, the park event to a medal, and a split-screen Stunt Race were not driven in the checks.
   - The moon is drawn 900 m out and may show in front of the far hills when low (not changed).
   - Your save shows "CAMPAIGN UPDATED: Chapter 5: Stunt is open" once.
+- **Release:** local build only (2026-10-15 rule; no GitHub release). Built fresh from `b461caca` (pushed), 0 errors ([build-release.txt](Docs/Report119/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/119000`, 118000 kept as the previous ([runtime-identity.json](Docs/Report119/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.119.0-review1; your settings restored byte for byte, campaign saves untouched ([play-racer-launch.json](Docs/Report119/play-racer-launch.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 214.1 GB.
 
 ## Previous delivery — Leviathan: remove the two ROAD CLOSED barricades Dan called out, smooth Kyle's hill, guide with more gates instead of arrow boards, the Reverse lake out-and-back; Chastain Rush's updated hands and hair styles — target 0.118.0-review1 — DELIVERED as 0.118.0-review1 (build 118000, local build), awaiting Dan's review — REVIEWED BY DAN (4 reports; follow-ups in 0.119)
 
