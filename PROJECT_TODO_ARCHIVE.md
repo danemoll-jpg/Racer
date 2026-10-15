@@ -7340,3 +7340,96 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 - Ghosts accepted; older human-test-pending wording is superseded.
 - Other later accepted/closed reconciliations remain authoritative.
 
+
+## Previous delivery — Leviathan: Proposal A (Street Loop + Summit Jump) as a race, Forward and Reverse, 2 laps; the Free Roam proposal markers removed — target 0.115.0-review1 — DELIVERED as 0.115.0-review1 (build 115000), awaiting Dan's review — REVIEW IN PROGRESS (Dan wants new shortcuts for Leviathan Reverse: 0.116)
+
+**0. Resuming (Claude, 2026-10-14):** this section was written in a Code chat with Dan and work started before Claude (chat) reviewed it; Dan stopped it. Reviewed now, with the additions below. Start by listing what the stopped attempt changed since the commit "Safety checkpoint before 0.115" (uncommitted files, scenes, new scripts). Keep what is consistent with this section; revert anything half-done or outside it. Say what you kept and what you reverted.
+
+Dan (2026-10-14, after testing 0.114): "everything seems fine." On the proposals: A, built on the Mountain Loop scene's own mountain roads (not Free Roam's trail ring). "It would be cool if the second jump actually landed you back on the trail down below but I am not sure that would be possible without rebuilding everything so lets just try it with A." So: **the summit jump stays as it is** (no reshaping, no new landing). Changing where the summit jump lands is **not in this round**; it stays an idea for later.
+Scope as proposed in 0.114 (details in the 0.114 results below):
+1. A new course in `MountainLoop.unity` only, on roads that scene already has, with no new roads, no terrain changes and no geometry changes. Route: the Street Loop Forward from its START FINISH; at J (474, −27), the lake shore's south side; the Mountain Loop line from its start / finish stretch; Climbing Ridge Cut as the main road; the race line to CP4; the summit approach and the summit jump (Homeward Summit Flight) with its landing; back down to the lake (the way down chosen on that scene's own surfaces, reported with a top-down shot); the lake's north side back to J; on round the Street Loop.
+2. Shortcuts: the Street Loop Forward's four (Creek Leap, Fox Gully, Pine Ridge, Southwest Cut) and Summit Traverse (skips the summit), re-anchored on the new course road.
+3. Gates (~20), start grid on the Street Loop start, AI lines and speed limits where nothing exists yet (the J turns and the 65 m two-way stem, the lake shore, the joins); everything else re-uses existing validated lines. Rivals must get through the J hairpin and the stem without resets.
+4. Proposed defaults (Dan to confirm or change): **2 laps**; in Quick Race / Tracks as **"Leviathan"** (Dan, 2026-10-14: "i like Leviathan"; Goliath and Colossus avoided, both Forza Horizon tracks); not in the campaign yet; the Free Roam markers stay until Dan says they can go.
+5. **Dan's go-ahead (2026-10-14): "2 laps, remove markers and create the race (Forward and Reverse)".** So: 2 laps; **Leviathan Forward** (the route above, in `MountainLoop.unity`) and **Leviathan Reverse** (the same roads the other way: Street Loop Reverse and the mountain in reverse; the summit jump flies one way only, so the reverse mountain part uses the Mountain Loop Reverse scene's own reverse line and flights, built in `MountainLoopReverse.unity`); in Quick Race / Tracks; not in the campaign; the 0.114 Free Roam proposal markers, their map lines and the "Show track proposals" setting removed.
+- **Check:** AI-only quick races (mixed vehicles): rivals finish, no rival resets more than twice in a race, no DNF; one race driven with the controller; nothing else in `MountainLoop.unity` changed (the Mountain Loop Forward course still runs as before: its colliders and routes compared and one lap).
+
+**Additions (Claude, 2026-10-14):**
+6. **Summit Traverse is NOT on Leviathan (Dan, 2026-10-14 10:15: "correct. The jumps must remain").** Every lap goes over the summit and the summit jump; no shortcut on Leviathan may bypass a jump. The Street Loop's four shortcuts and Climbing Ridge Cut stay only if none of them skips a jump (check each and report).
+7. Leviathan Forward and Reverse behave like the other courses: Quick Race / Tracks with previews (never squished), Records and Top 10 (lap / race), split-screen races, ghosts, the results log; not in the campaign; Free Roam unchanged apart from the markers' removal.
+8. Existing courses untouched: Mountain Loop Forward / Reverse and Street Loop Forward / Reverse run exactly as before (routes, gates, colliders compared, one AI lap each).
+9. **Release:** version 0.115.0-review1; usual build and release; close everything started. Delivery notes with the route top-down shots (both directions), lap times (player and AI), and anything left for Dan.
+
+### Results (2026-10-14, Claude Code)
+
+- **0. Resume.** Nothing had changed since the checkpoint `4878ac72` except Claude (chat)'s review of this section in PROJECT_TODO.md (kept). The stopped attempt left no files, scenes or scripts. Safety checkpoint `38b4f51c`. Evidence: [Docs/Report115/](Docs/Report115/). Version **0.115.0-review1, build 115000**.
+- **Dan's decisions during the round (2026-10-14):**
+  1. Forward: fill the creek gully under the lake path, unless a big jump was possible. No jump exists there, and Forward drives that stretch both ways, so it is a fill.
+  2. Reverse: use the shore strip, no world change.
+  3. **"Only change for race, do not change free roam or any other races."** Every world adjustment below exists in a Leviathan race only.
+- **Markers removed.** `TrackProposals.cs`, `TrackProposalsMapOverlay.cs`, `Resources/TrackProposals/` and their hooks are gone (Scenery, the minimap, the big map, `RacerSave.showTrackProposals`, Settings > Display "Show track proposals"), along with the 0.114 check kinds that used them (`drive114`, `shots114b`). The rest of 0.114 is unchanged.
+- **How Leviathan is built.** No scene file changed (`git diff` shows no `.unity` change).
+  - [LeviathanCourse.cs](Assets/Scripts/LeviathanCourse.cs): when a Leviathan course key is loaded (`Leviathan` / `LeviathanReverse` are course keys 8 and 9 in `RacePlaylists.Scenes`; `LoadingScreen.LoadScene` resolves them to `MountainLoop` / `MountainLoopReverse`), `RaceDirector.Awake` swaps in the course before anything reads it. It brings its line, its gates, the Street Loop's shortcuts, the summit flight at its stations, the Street Loop start/grid/spawn, 16 Hwy 92 traffic cars, and course id `leviathan-forward-v1` / `leviathan-reverse-v1`.
+  - Gates: the scene's own Mountain Loop gates are reused where the course passes them; the Mountain Loop gates not on Leviathan are hidden; the other gates are built like them. The checkered start is the scene's own inactive Street Loop START copied.
+  - The course lines live in `Resources/Leviathan/*.json`, composed by [leviathan.py](Tools/Report115/py/leviathan.py) from the scenes' own roads ([probe dumps](Docs/Report115/Probe/)). Blended and lane points are seated on the ground by `Report115Snap.cs`, which also surveys the line ([forward](Docs/Report115/survey-LeviathanForward.txt), [reverse](Docs/Report115/survey-LeviathanReverse.txt)).
+  - Loading the Mountain Loop scenes any other way gives the Mountain Loop exactly as before.
+- **Leviathan Forward** (MountainLoop.unity), lap **6.83 km**, 25 gates ([top-down](Docs/Report115/Shots/route-Forward.jpg), [lake and mountain](Docs/Report115/Shots/route-Forward-lake-mountain.jpg)). The route:
+  - Street Loop Forward from its START FINISH (CP 1–2) to J, then the stem.
+  - The lake path's south shore to where CR110 (the old Mountain racing line) leaves it, then CR110 to Climbing Ridge Cut (the main road here).
+  - CR117 through CP 3, CP 4, CP 5, the **Homeward summit flight** and its landing, to CP 6.
+  - Down the lake's east side, back along the south shore and the stem, the J hairpin, and the Street Loop CP 3–17 with its four shortcuts.
+  - What differs from item 1:
+    - **The lake's north side can't be used in this scene.** CR117's raised descent walls off the north-east corner.
+    - **A creek gully crosses the south shore** at x≈609–626 (Free Roam's ground is flat there): 6–7 m deep, impassable; every rival stalled in it. Per Dan, it is filled **for the Leviathan Forward race only**: `Resources/Leviathan/LeviathanForwardGullyFill.asset`, added with a collider by `LeviathanCourse` when that race loads, drawn with the scene's ground material. It bridges the gully at the height of its lower rim (≈79.0, the scene's own ground at both ends, no step), 6 m either side of the path, with 35° sides; [figures](Docs/Report115/gully-fill.txt).
+    - A grass route round the gully was tried first: it needed a 2 m scarp and a ridge between the creek channel and the water. One rival did not finish; Dan then chose the fill.
+    - So the south shore and the stem are driven both ways. Each direction has its own line 1.5 m right of the shore's centreline; the narrow stem keeps its centreline.
+- **Leviathan Reverse** (MountainLoopReverse.unity), lap **7.16 km**, 23 gates ([top-down](Docs/Report115/Shots/route-Reverse.jpg), [lake and mountain](Docs/Report115/Shots/route-Reverse-lake-mountain.jpg)). The route:
+  - Street Loop Reverse to J (its CP 1–13), the J hairpin, then the stem.
+  - The lake path's west side and north shore, then the **shore strip** between the water and the hill (10 m+ wide; [the path](Docs/Report115/corridor-ne-reverse.json)) to the CR117 start stretch.
+  - CR117 Reverse through CP 1, CP 2, the **South Face summit flight**, and CP 3.
+  - **Downhill Ridge Cut** (the main road here) to the start stretch, back along the strip, north shore, west side and stem, and the Street Loop Reverse CP 14–16.
+  - What differs from item 1:
+    - In this scene the lake's south-east corner is walled (Downhill Ridge Cut's jump barrier and deck edges), and the lake path's own north-east corner runs under a hill raised here. So the lake's west and north side are driven both ways, a lane each.
+    - **No shortcuts**: Granite Creek Cut and Laurel Switchbacks run on ground reshaped only in StreetLoopReverse.unity. In MountainLoopReverse.unity it is not there (up to 19 m different).
+- **Item 6, jumps.**
+  - Summit Traverse is not on Leviathan (either way), and every lap goes over the summit flight.
+  - The Street Loop's four shortcuts stay: none bypasses a jump. The trailer jump is at street s 3089–3170, after Pine Ridge rejoins. Creek Leap and Fox Gully carry jumps of their own.
+  - Climbing Ridge Cut (Forward) and Downhill Ridge Cut (Reverse) are Leviathan's main road (item 1), not shortcuts. The CR117 southern loop with its Gully flight is not part of Leviathan.
+  - A new gate rule: **Leviathan's lake and mountain gates must be passed in order.** Crossing a later gate (or the finish) does not skip them; it doesn't count until they are passed, so turning past J can't skip the mountain and the jump. An ordinary near-miss on the road is still +5 s. This lives in `RaceDirector`, Leviathan only.
+  - Downhill Ridge Cut's drop over a row of rocks has flight data (take-off 28 m/s), because its own line is drawn as that arc. The Mountain Loop's rivals never drove it, and without the data they stopped at the rocks.
+- **AI and race logic (Leviathan only; every other course takes the old path).**
+  - Racers on a line that passes the same ground twice are followed along it: `RaceRoad.tracked`; `RaceDirector`, `RoadDriver` and `WrongWayGuidance` project from where the racer was, and gates take their own pass.
+  - The Mountain Loop's AI rules (its 24 m/s approaches, mountain lanes, descent limit) apply on Leviathan's mountain part only, starting 80 m before the turn onto CR110.
+  - On the stem and at J, rivals keep to the middle at 12 m/s at most. Reverse's way in keeps 1.5 m to the stem's open south-west side.
+  - The tree trunks standing on Leviathan's lake trails are cleared at load, as Free Roam clears them from its drivable trails: 3.5 m either side of the line, 4.5 m at the stem. 9–11 trunks.
+- **Menus, records and campaign.**
+  - Race > Tracks lists "Leviathan - Forward" and "Leviathan - Reverse", with a map preview (lap 6.7 / 7.1 km on the preview; the map keeps its proportions) from `CoursePreviews.json`. Only the two Leviathan entries were added; the other eight are byte-for-byte as before.
+  - Records and Top 10 use the course ids; the Records title is "Leviathan - Forward / Reverse". Split-screen, playlists, ghosts (by course id) and the results log (`course` "Leviathan" / "LeviathanReverse") work.
+  - Not in the campaign. A Leviathan direction opens when the campaign has opened the Mountain Loop of that direction (its roads). Locked rows say so.
+  - Free Roam is unchanged apart from the markers.
+- **Checks (built player, Dan's save copied).** [Player logs](Docs/Report115/Player/).
+  - **AI-only quick races, 2 laps, 3 rivals per race, mixed vehicles, traffic on, 3 races each way:**
+    - **Forward** ([levF7](Docs/Report115/Player/levF7.txt)): all 9 finished, no missed gates, at most 2 resets each (0,0,0,0,1,1,2,2,2). Laps 3:48–4:23; races 7:49–8:32. Most resets are on lap 1 at the Street Loop's trailer-jump bypass lane, which Street Loop Forward itself also shows ([3 Street Loop races](Docs/Report115/Player/regStreet.txt): one reset there).
+    - **Reverse** ([levR8](Docs/Report115/Player/levR8.txt)): all 9 finished, no missed gates, 8 with 0 resets, one with 2. Laps 4:03–4:31; races 8:09–9:01.
+  - **Controller** ([drive8d](Docs/Report115/Player/drive8d.txt), the virtual pad only):
+    - Menus: main menu > RACE > Tracks > Leviathan - Forward (the [preview](Docs/Report115/Shots/tracks-preview-8.png)) > Laps 2 > START RACE.
+    - The race was driven by the pad (a bot on the course line): **8:46.7, laps 4:12.8 and 4:30.8**, no missed gates. It used the reset button twice at the same spot just after the summit lip (the bot's take-off line; rivals fly it every lap).
+    - Then the results, a Top 10 lap #2 / race #1 on the test save, and the results log line.
+    - The Reverse pad bot ([drive9b](Docs/Report115/Player/drive9b.txt)) didn't finish (it struggled with the J hairpin and Downhill Ridge Cut). The fixes above came after it.
+  - **Split-screen** Leviathan Reverse, player 2 the AI ([split9](Docs/Report115/Player/split9.txt), [shot](Docs/Report115/Shots/split-9.png)): to the results, all four finished.
+  - **Existing courses, one AI lap each** (rivals and traffic, unchanged scenes and code paths): Street Loop Reverse 0/0/1, Mountain Loop Forward 0/0/0, Mountain Loop Reverse 0/0/1 resets ([reg1](Docs/Report115/Player/reg1.txt), [reg4](Docs/Report115/Player/reg4.txt), [reg5](Docs/Report115/Player/reg5.txt)). Street Loop Forward: 3 races of 2 laps, 1 reset in 9 ([regStreet](Docs/Report115/Player/regStreet.txt)).
+- **For Dan to look at:**
+  - Both Leviathans drive part of the lake both ways (two lanes; a single centreline on the narrow stem). The north side (Forward) and the south side (Reverse) can't be reached in their scenes.
+  - The gully fill on Forward's south shore (a level crossing over the creek; race only).
+  - The new "lake and mountain gates in order" rule.
+  - Reverse has no shortcuts.
+  - Leviathan opens with the Mountain Loop in the campaign.
+  - The bot needed the reset twice just past the summit lip on Forward.
+- **Release.** 0.115.0-review1, build 115000:
+  - Source `f1ce5437` (pushed); a fresh Windows build from it (0 errors, [build-release.txt](Docs/Report115/build-release.txt)).
+  - Published [game-115000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-115000) (the known draft-lookup miss, completed with `--resume-draft`): Latest, 3 assets, earlier releases kept.
+  - Public download, pinned signature and startup check all pass, and every one of the 236 files matches Builds/Latest ([hosted/result.json](Docs/Report115/hosted/result.json)).
+  - The production updater is at 115000 with nothing newer pending ([launcher-catalog-check.json](Docs/Report115/launcher-catalog-check.json)). `Play-Racer.cmd` (unchanged) launched `Builds/Latest/versions/115000/Racer.exe` ([play-racer-launch.json](Docs/Report115/play-racer-launch.json)), and Dan's settings.json was restored byte for byte ([settings-preserved.json](Docs/Report115/settings-preserved.json)).
+  - Cleanup: Builds 12.45 GB -> 8.33 GB (4.12 GB: the build output, the zip, the check build, the public-download install); C: free 213.0 -> 219.0 GB. Kept managed 115000 and 114000 ([cleanup.json](Docs/Report115/cleanup.json)).
+  - The round's temporary editor tools were removed from Assets/Editor (copies in Tools/Report115), and every editor and player started was closed.
+  - Commits: `38b4f51c` checkpoint, `f1ce5437` the round (released source); this record follows.
