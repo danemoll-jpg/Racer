@@ -100,7 +100,7 @@ Version 0.118.0-review1. Run the usual build and release; close everything you s
   - Chastain's remodeled Short and Medium were not taken, because Dan's rider wears Medium and must look the same.
   - Random looks still draw from the old five styles, so player 2 and the rivals look as before, now with the new hands.
   - The bank keeps 0.117's S-shaped line; the heights of the drive pad and the lake path set the 25 %.
-- **Release:** local build only (2026-10-15 rule): RELEASE-LINE
+- **Release:** local build only (2026-10-15 rule; no GitHub release). Built fresh from `4409c8a5` (pushed), 0 errors ([build-release.txt](Docs/Report118/build-release.txt)). Signed locally and activated by the existing updater: `Builds/Latest` runs `versions/118000`, with 117000 kept as the previous build. The published catalog is still 117000, so the launcher keeps 118000. `Play-Racer.cmd` (unchanged) launched 0.118.0-review1, and Dan's settings were restored byte for byte ([play-racer-launch.json](Docs/Report118/play-racer-launch.json)). Cleanup: Builds 12.47 → 8.34 GB, C: free 217.0 GB.
 - **For Dan to check:**
   - The hill at speed, and the sharp turn onto the pad at its foot.
   - The 45 gates' placement.
