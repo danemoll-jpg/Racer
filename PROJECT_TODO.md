@@ -93,6 +93,7 @@ Version 0.120.0-review1, local build only (2026-10-15 rule). Close everything st
   - Seen, not changed: 0.117's Leviathan kickers (Rocky Way Cut, Hollow Creek Hop) draw pale gray-white (the ground material needs vertex colors they lack).
   - The split-screen vehicle pick still hides locked vehicles (no silhouettes), as before.
   - Each bump's far side is a steep face, as Leviathan's 0.117 kickers; none stands where the course comes back the other way.
+- **Release:** local build only (no GitHub release). Built fresh from `3414957b` (pushed), 0 errors ([build-release.txt](Docs/Report120/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/120000`, 119000 kept as the previous ([runtime-identity.json](Docs/Report120/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.120.0-review1 ([play-racer-launch.json](Docs/Report120/play-racer-launch.json)); the first try stopped on the launcher's menu because input arrived during its countdown. Your settings restored byte for byte ([settings-preserved.json](Docs/Report120/settings-preserved.json)). Cleanup: Builds 11.62 → 7.77 GB, C: free 188.8 GB.
 
 ## Previous delivery — Leviathan: Dan's 4 reports on 0.118 (two more barricades out, CP 18 straight ahead, stars behind the mountain); Stunt Races (stunt vehicles only, own records) and the Stunt chapter in the campaign — target 0.119.0-review1 — DELIVERED as 0.119.0-review1 (build 119000, local build), awaiting Dan's review — REVIEWED BY DAN (5 notes from play; follow-ups in 0.120)
 
