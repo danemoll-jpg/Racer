@@ -57,6 +57,7 @@ Version 0.121.0-review1, local build only (2026-10-15 rule). Close everything st
   - The new Kicker 6 spot on Hwy 92 west; and the other bumps with a gate soon after them ([bumps.md](Docs/Report121/bumps.md)).
   - Resets: Hollis Gray reset 3 times in the final check (Kyle's bank and the lake-shore → CR110 turn, the known 0.118 spots, also before the fix); one rival in one earlier run reset once at the new Kicker 6 landing.
   - Big kicker 5 (Leviathan Forward) flies over CP 30 at 15–18 m without a miss being charged; not looked into.
+- **Release:** local build only (no GitHub release). Built fresh from `4061b15f` (pushed), 0 errors ([build-release.txt](Docs/Report121/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/121000`, 120000 kept as the previous ([runtime-identity.json](Docs/Report121/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.121.0-review1 ([play-racer-launch.json](Docs/Report121/play-racer-launch.json)); your settings restored byte for byte ([settings-preserved.json](Docs/Report121/settings-preserved.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 204.1 GB.
 
 ## Previous delivery — Stunt Races and the Stunt park after Dan's first drive of 0.119: points on screen, a multiplier for every trick in one flight, bumps to trick off, tricks out of the park count again, the garage shows stunt vehicles — target 0.120.0-review1 — DELIVERED as 0.120.0-review1 (build 120000, local build), awaiting Dan's review — REVIEWED BY DAN (BUG-005 in 0.121)
 

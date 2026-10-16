@@ -8,7 +8,7 @@ if($state.game.manifest.build -ne 121000){throw 'Delivery gates missing'}
 if(($launch | ConvertTo-Json -Depth 20) -notmatch '121000'){throw 'Production launcher verification missing'}
 function Bytes([string]$p){$n=(Get-ChildItem -LiteralPath $p -File -Recurse | Measure-Object -Property Length -Sum).Sum;if($null -eq $n){return 0};return [long]$n}
 $before=Bytes $builds;$freeBefore=(Get-PSDrive C).Free
-$targets=@((Join-Path $builds 'Racer-0.121.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-121000/assets/game.zip'),(Join-Path $root 'Temp/report121-activation-saves'),(Join-Path $root 'Temp/report121-signature-check'),(Join-Path $root 'Temp/report121-signature-saves'),(Join-Path $builds 'Latest/versions/118000'),(Join-Path $builds 'Check120'),(Join-Path $builds 'Check120-build.txt'))
+$targets=@((Join-Path $builds 'Racer-0.121.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-121000/assets/game.zip'),(Join-Path $root 'Temp/report121-activation-saves'),(Join-Path $root 'Temp/report121-signature-check'),(Join-Path $root 'Temp/report121-signature-saves'),(Join-Path $builds 'Latest/versions/119000'),(Join-Path $builds 'Check121'),(Join-Path $builds 'Check121-build.txt'))
 $running=Get-CimInstance Win32_Process | Where-Object {$_.ExecutablePath -and $_.ExecutablePath.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)}
 $removed=@()
 foreach($candidate in $targets){
