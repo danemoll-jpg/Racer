@@ -168,6 +168,7 @@ namespace Racer
                 case "race120": yield return Race120(); break;
                 case "clip120": yield return Clip120(); break;
                 case "garage120": yield return Garage120(); break;
+                case "final121": yield return Final121(); break; // 0.121 (Report106PlayerCheck.Round121.cs)
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

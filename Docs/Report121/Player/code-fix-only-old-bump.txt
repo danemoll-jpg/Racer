@@ -1,0 +1,97 @@
+screen=1920x1080 kind=final121 version=0.121.0-review1 park=on
+== Stunt Final (campaign) on Leviathan - Forward (leviathan-forward-v4): stunts True, split True, laps 2, difficulty Hard, bumps built 6; player stuntbuggy; rivals Rusty Vance stuntbike, Mia Torres stuntbuggy, Big Ed Kowalski stuntbike, June Park stuntbuggy, Hollis Gray stuntbike
+  CP 44 'Leviathan CP 44' at 223.2,10.70,557.0 yaw 81.7, half width 6, half height 3; station 6802.6 (line 6942.9)
+  bumps: Big kicker 1 at 430.5, 135.8; Kicker 2 at 1086.8, 130.2; Kicker 3 at 554.4, -248.8; Kicker 4 at 405.5, -434.4; Big kicker 5 at 7.0, -353.9; Kicker 6 at 139.1, 543.6
+  shot at Dan's spot: Hollis Gray at 266.1,8.80,560.0, next gate 0
+  player stuntbuggy: finished 495.2 s; resets 1; misses 2 [L1 CP44 +5s / road gate passed outside span; L2 CP44 +5s / road gate passed outside span]; longest near CP 44 unpassed 4 s
+  Rusty Vance stuntbike: finished 469.3 s; resets 0; misses 1 [L2 CP44 +5s / road gate passed outside span]; longest near CP 44 unpassed 4 s
+  Mia Torres stuntbuggy: finished 482.7 s; resets 1; misses 1 [L2 CP44 +5s / road gate passed outside span]; longest near CP 44 unpassed 5 s
+  Big Ed Kowalski stuntbike: finished 483.8 s; resets 1; misses 3 [L1 CP17 +5s / road gate passed outside span; L1 CP44 +5s / road gate passed outside span; L2 CP44 +5s / road gate passed outside span]; longest near CP 44 unpassed 4 s
+  June Park stuntbuggy: finished 482.5 s; resets 0; misses 2 [L1 CP44 +5s / road gate passed outside span; L2 CP44 +5s / road gate passed outside span]; longest near CP 44 unpassed 4 s
+  Hollis Gray stuntbike: finished 480.4 s; resets 1; misses 1 [L2 CP44 +5s / road gate passed outside span]; longest near CP 44 unpassed 4 s
+  CP 44 plane crossings: 12
+    Hollis Gray L1 forward at x 2.0 y -0.9 (grounded 4), next gate now 44, road 6801.9 verified 6801.9 tracked 6840.4, misses 0
+    June Park L1 forward at x 8.6 y 5.5 (grounded 0), next gate now 44, road 6801.8 verified 6781.4 tracked 6840.4, misses 0
+    Rusty Vance L1 forward at x 5.9 y -0.9 (grounded 4), next gate now 44, road 6802.2 verified 6802.2 tracked 6840.7, misses 0
+    Big Ed Kowalski L1 forward at x 8.5 y 8.2 (grounded 0), next gate now 44, road 6802.1 verified 6780.7 tracked 6840.6, misses 1
+    player L1 forward at x 8.6 y 5.5 (grounded 0), next gate now 44, road 6801.8 verified 6781.4 tracked 6840.4, misses 0
+    Mia Torres L1 forward at x 4.9 y -0.8 (grounded 4), next gate now 44, road 6802.1 verified 6802.1 tracked 6840.7, misses 0
+    Rusty Vance L2 forward at x 8.8 y 8.9 (grounded 0), next gate now 44, road 6802.4 verified 6781.1 tracked 6840.9, misses 0
+    Big Ed Kowalski L2 forward at x 8.8 y 9.1 (grounded 0), next gate now 44, road 6802.0 verified 6780.8 tracked 6840.5, misses 2
+    June Park L2 forward at x 9.1 y 3.3 (grounded 0), next gate now 44, road 6802.1 verified 6802.1 tracked 6840.6, misses 1
+    Hollis Gray L2 forward at x 8.6 y 8.2 (grounded 0), next gate now 44, road 6801.9 verified 6780.6 tracked 6840.5, misses 0
+    Mia Torres L2 forward at x 22.8 y 3.6 (grounded 0), next gate now 44, road 6801.9 verified 6801.9 tracked 6840.5, misses 0
+    player L2 forward at x 8.8 y 3.4 (grounded 0), next gate now 44, road 6802.0 verified 6802.0 tracked 6840.5, misses 1
+  gate changes at CP 44 / finish: 30
+    Hollis Gray L1 next 43 -> 44 at 86.5,9.74,536.3 t 227.1
+    June Park L1 next 43 -> 44 at 85.9,9.82,541.1 t 227.2
+    Rusty Vance L1 next 43 -> 44 at 85.9,9.75,538.8 t 228.1
+      June Park L1 road ahead of verified: before [pos 204.9,19.63,547.7 grounded 0 step 0.74 road 6784.1 verified 6781.4 tracked 6822.6 respawn 6822.6 recovering False] now [pos 205.6,19.55,547.7 grounded 0 step 0.74 road 6784.4 verified 6781.4 tracked 6822.9 respawn 6822.6 recovering False]
+    Hollis Gray L1 next 44 -> 0 at 224.3,9.84,555.2 t 230.2
+    June Park L1 next 44 -> 0 at 246.1,9.13,549.4 t 231.2
+    Rusty Vance L1 next 44 -> 0 at 225.2,9.83,551.4 t 231.3
+    Big Ed Kowalski L1 next 43 -> 44 at 85.6,9.74,541.1 t 232.0
+      Big Ed Kowalski L1 road ahead of verified: before [pos 204.3,21.10,547.7 grounded 0 step 0.79 road 6783.7 verified 6780.7 tracked 6822.2 respawn 6818.4 recovering False] now [pos 205.1,21.06,547.7 grounded 0 step 0.79 road 6784.4 verified 6780.7 tracked 6822.9 respawn 6818.4 recovering False]
+    player L1 next 43 -> 44 at 85.9,9.82,541.1 t 235.4
+    Big Ed Kowalski L1 next 44 -> 0 at 260.7,8.78,550.2 t 236.1
+    Mia Torres L1 next 43 -> 44 at 86.6,9.82,536.0 t 236.2
+      player L1 road ahead of verified: before [pos 204.9,19.63,547.7 grounded 0 step 0.74 road 6784.1 verified 6781.4 tracked 6822.6 respawn 6819.2 recovering False] now [pos 205.6,19.56,547.7 grounded 0 step 0.74 road 6784.4 verified 6781.4 tracked 6822.9 respawn 6819.2 recovering False]
+    player L1 next 44 -> 0 at 246.1,9.14,549.4 t 239.5
+    Mia Torres L1 next 44 -> 0 at 224.8,9.91,552.4 t 239.5
+    Rusty Vance L2 next 43 -> 44 at 85.7,9.74,541.1 t 455.1
+      Rusty Vance L2 road ahead of verified: before [pos 204.0,21.74,547.5 grounded 0 step 0.79 road 6781.1 verified 6781.1 tracked 6819.6 respawn 6815.7 recovering False] now [pos 204.8,21.71,547.5 grounded 0 step 0.79 road 6784.2 verified 6781.1 tracked 6822.7 respawn 6822.7 recovering False]
+    Rusty Vance L2 next 44 -> 0 at 263.1,8.70,549.9 t 459.4
+    Big Ed Kowalski L2 next 43 -> 44 at 85.4,9.74,541.1 t 459.9
+    June Park L2 next 43 -> 44 at 85.6,9.82,541.1 t 462.7
+      Big Ed Kowalski L2 road ahead of verified: before [pos 203.6,21.92,547.5 grounded 0 step 0.79 road 6780.8 verified 6780.8 tracked 6819.3 respawn 6818.5 recovering False] now [pos 204.4,21.89,547.5 grounded 0 step 0.79 road 6783.9 verified 6780.8 tracked 6822.4 respawn 6818.5 recovering False]
+    Big Ed Kowalski L2 next 44 -> 0 at 264.2,8.67,549.9 t 464.2
+    Hollis Gray L2 next 43 -> 44 at 85.6,9.74,541.1 t 466.7
+    June Park L2 next 44 -> 0 at 243.1,9.28,548.4 t 466.8
+    Mia Torres L2 next 43 -> 44 at 85.3,9.82,540.2 t 467.4
+      Hollis Gray L2 road ahead of verified: before [pos 204.2,21.16,547.6 grounded 0 step 0.79 road 6783.6 verified 6780.6 tracked 6822.1 respawn 6819.1 recovering False] now [pos 205.0,21.12,547.7 grounded 0 step 0.79 road 6784.3 verified 6780.6 tracked 6822.8 respawn 6819.1 recovering False]
+    Hollis Gray L2 next 44 -> 0 at 261.3,8.75,550.1 t 470.9
+    Mia Torres L2 next 44 -> 0 at 269.0,8.96,544.2 t 472.6
+    player L2 next 43 -> 44 at 86.1,9.82,541.2 t 475.6
+    player L2 next 44 -> 0 at 243.5,9.24,549.1 t 479.7
+  resets: 4
+    Big Ed Kowalski L1 next 7 at 664.6,79.63,-112.3 (road 866)
+    Mia Torres L1 next 7 at 701.3,81.09,-102.6 (road 907)
+    Hollis Gray L2 next 7 at 660.7,79.63,-113.3 (road 854)
+    player L2 next 7 at 688.9,79.87,-101.2 (road 893)
+  flights off a bump: 36
+    June Park L1 off Kicker 2: 24 m
+    Hollis Gray L1 off Kicker 2: 38 m
+    Rusty Vance L1 off Kicker 2: 39 m
+    player L1 off Kicker 2: 33 m
+    June Park L1 off Kicker 3: 44 m
+    Rusty Vance L1 off Kicker 3: 54 m
+    player L1 off Kicker 3: 43 m
+    Hollis Gray L1 off Kicker 4: 59 m
+    Rusty Vance L1 off Kicker 4: 6 m
+    Big Ed Kowalski L1 off Kicker 4: 63 m
+    Mia Torres L1 off Kicker 4: 51 m
+    June Park L1 off Big kicker 5: 93 m, over CP 30 at x 4.0 y 15.4
+    Hollis Gray L1 off Big kicker 5: 109 m, over CP 30 at x 2.3 y 17.5
+    Rusty Vance L1 off Big kicker 5: 110 m, over CP 30 at x 0.3 y 17.7
+    player L1 off Big kicker 5: 93 m, over CP 30 at x 3.9 y 15.4
+    June Park L1 off Kicker 6: 105 m, over CP 44 at x 8.6 y 5.5
+    Big Ed Kowalski L1 off Kicker 6: 119 m, over CP 44 at x 8.5 y 8.2
+    player L1 off Kicker 6: 105 m, over CP 44 at x 8.6 y 5.5
+    player L2 off Big kicker 1: 41 m, over CP 3 at x -2.1 y 2.0
+    Rusty Vance L2 off Kicker 2: 38 m
+    June Park L2 off Kicker 2: 33 m
+    Rusty Vance L2 off Kicker 3: 54 m
+    June Park L2 off Kicker 3: 44 m
+    Rusty Vance L2 off Kicker 4: 7 m
+    Big Ed Kowalski L2 off Kicker 4: 63 m
+    Mia Torres L2 off Kicker 4: 51 m
+    Hollis Gray L2 off Kicker 4: 62 m
+    player L2 off Kicker 4: 51 m
+    Rusty Vance L2 off Big kicker 5: 109 m, over CP 30 at x 2.4 y 17.6
+    June Park L2 off Big kicker 5: 93 m, over CP 30 at x 4.0 y 15.4
+    Rusty Vance L2 off Kicker 6: 122 m, over CP 44 at x 8.8 y 8.9
+    Big Ed Kowalski L2 off Kicker 6: 123 m, over CP 44 at x 8.8 y 9.1
+    June Park L2 off Kicker 6: 97 m, over CP 44 at x 9.1 y 3.3
+    Hollis Gray L2 off Kicker 6: 120 m, over CP 44 at x 8.6 y 8.2
+    Mia Torres L2 off Kicker 6: 103 m, over CP 44 at x 22.8 y 3.6
+    player L2 off Kicker 6: 97 m, over CP 44 at x 8.8 y 3.4

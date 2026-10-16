@@ -1,0 +1,37 @@
+screen=1920x1080 kind=final121 version=0.121.0-review1 park=on
+== normal race on Leviathan - Forward (leviathan-forward-v4): stunts False, split False, laps 1, difficulty Hard, bumps built 0; player drifter; rivals EMBER fastback, GOLD moto, BLUE atv, JADE drifter, VIOLET scrambler
+  CP 44 'Leviathan CP 44' at 223.2,10.70,557.0 yaw 81.7, half width 6, half height 3; station 6802.6 (line 6942.9)
+  bumps: 
+  shot at Dan's spot: JADE at 266.5,8.69,561.1, next gate 0
+  player drifter: finished 236.0 s; resets 0; misses 0 []; longest near CP 44 unpassed 3 s
+  EMBER fastback: finished 247.2 s; resets 1; misses 0 []; longest near CP 44 unpassed 3 s
+  GOLD moto: finished 239.2 s; resets 1; misses 1 [L1 CP17 +5s / road gate passed outside span]; longest near CP 44 unpassed 3 s
+  BLUE atv: finished 242.0 s; resets 0; misses 0 []; longest near CP 44 unpassed 3 s
+  JADE drifter: finished 230.9 s; resets 1; misses 0 []; longest near CP 44 unpassed 3 s
+  VIOLET scrambler: finished 242.6 s; resets 1; misses 0 []; longest near CP 44 unpassed 3 s
+  CP 44 plane crossings: 6
+    JADE L1 forward at x 2.1 y -1.0 (grounded 4), next gate now 44, road 6802.0 verified 6802.0 tracked 6840.5, misses 0
+    GOLD L1 forward at x 2.1 y -0.9 (grounded 4), next gate now 44, road 6801.8 verified 6801.8 tracked 6840.3, misses 1
+    player L1 forward at x 2.1 y -1.0 (grounded 4), next gate now 44, road 6802.1 verified 6802.1 tracked 6840.6, misses 0
+    BLUE L1 forward at x 2.1 y -1.0 (grounded 4), next gate now 44, road 6802.5 verified 6802.5 tracked 6841.0, misses 0
+    VIOLET L1 forward at x 3.8 y -0.9 (grounded 4), next gate now 44, road 6802.1 verified 6802.1 tracked 6840.6, misses 0
+    EMBER L1 forward at x 2.1 y -0.8 (grounded 4), next gate now 44, road 6802.4 verified 6802.4 tracked 6840.9, misses 0
+  gate changes at CP 44 / finish: 12
+    JADE L1 next 43 -> 44 at 85.5,9.63,541.0 t 222.4
+    JADE L1 next 44 -> 0 at 224.4,9.73,555.1 t 225.5
+    GOLD L1 next 43 -> 44 at 85.3,9.65,541.1 t 226.1
+    player L1 next 43 -> 44 at 86.1,9.63,541.1 t 227.6
+    GOLD L1 next 44 -> 0 at 224.3,9.74,555.1 t 229.0
+    player L1 next 44 -> 0 at 224.5,9.73,555.1 t 230.7
+    BLUE L1 next 43 -> 44 at 85.7,9.63,541.1 t 233.2
+    VIOLET L1 next 43 -> 44 at 85.8,9.74,539.5 t 234.2
+    BLUE L1 next 44 -> 0 at 225.0,9.73,555.1 t 236.0
+    VIOLET L1 next 44 -> 0 at 224.8,9.83,553.5 t 236.0
+    EMBER L1 next 43 -> 44 at 85.2,9.75,541.2 t 236.0
+    EMBER L1 next 44 -> 0 at 224.7,9.87,555.2 t 236.0
+  resets: 4
+    VIOLET L1 next 5 at 507.2,79.77,-15.8 (road 640)
+    JADE L1 next 5 at 512.8,80.46,-14.2 (road 641)
+    GOLD L1 next 7 at 666.9,79.53,-111.5 (road 869)
+    EMBER L1 next 7 at 682.9,79.65,-100.2 (road 888)
+  flights off a bump: 0

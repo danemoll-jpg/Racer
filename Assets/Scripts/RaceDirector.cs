@@ -375,7 +375,7 @@ namespace Racer
                 r.FinishArmed = false;
                 r.FinishApproach = 0;
                 r.Travel = 0;
-                r.VerifiedRoad = 0;
+                r.VerifiedRoad = 0; r.InFlight = false;
                 r.Branch.Clear();
                 r.SampleOrigin(now);
                 return;
@@ -467,6 +467,17 @@ namespace Racer
                 // witnessed forward road progress. Branch exits seed this frontier.
                 if(r.RoadPosition<=r.VerifiedRoad+Mathf.Min(12,step*2+1))
                     r.VerifiedRoad = Mathf.Max(r.VerifiedRoad, r.RoadPosition);
+                // 0.121 (BUG-005): a flight's road progress counts once it lands back on the line. High over the line the station can move
+                // more in one step than the rule above allows, and the frontier then stayed where that happened for good: a gate flown past
+                // was never charged as missed, and on Leviathan the racer's station stayed pinned 60 m past it, so a rival turned back to it
+                // again and again (rivals off the Hwy 92 kicker circling at Leviathan Forward CP 44). On landing it moves up to where the racer
+                // is, never further than it flew from where it took off.
+                if(r.Car.GroundedWheels==0){if(!r.InFlight){r.InFlight=true;r.FlightFrom=r.VerifiedRoad;r.FlightTravel=0;}r.FlightTravel+=step;}
+                else if(r.InFlight&&r.Car.GroundedWheels>=2)
+                {
+                    r.InFlight=false;
+                    if(lateral<18&&r.RoadPosition>r.VerifiedRoad&&r.RoadPosition<=r.FlightFrom+r.FlightTravel+12)r.VerifiedRoad=r.RoadPosition;
+                }
             }
             if (road && p.LapActive && r.VerifiedRoad > road.Length * .35f && r.RoadPosition > road.Length * .35f && r.RoadPosition < road.Length * .8f)
                 r.FinishArmed = true;

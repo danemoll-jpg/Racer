@@ -27,7 +27,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan Forward Stunt Race: rivals driving in circles at CP 44 (Hwy 92) — target 0.121.0-review1 — NOT STARTED
+## Previous delivery — Leviathan Forward Stunt Race: rivals driving in circles at CP 44 (Hwy 92) — target 0.121.0-review1 — DELIVERED as 0.121.0-review1 (build 121000, local build), awaiting Dan's review
 
 Dan's report: session `2026-10-15_15-52-55-667_6d34cd` (now CLOSED and exported as `…_6d34cd_1615a117.zip` in `DebugReports`). BUG-001 to BUG-004 were done in 0.119; **only BUG-005 is new** (on 0.120). **Look at its screenshot first.**
 
@@ -45,6 +45,18 @@ Dan's report: session `2026-10-15_15-52-55-667_6d34cd` (now CLOSED and exported 
 
 ### Release
 Version 0.121.0-review1, local build only (2026-10-15 rule). Close everything started; no background task left running. Short results (at most about 20 lines) with "For Dan to check".
+
+### Results (2026-10-15, Claude Code)
+- Checkpoint `c0ebb1e9`. Dan's race was the Stunt Chapter's **Stunt Final** (Hard, 2 laps, 5 rivals; his results log). Evidence [Docs/Report121/](Docs/Report121/); check `-p106kind final121` ([Report106PlayerCheck.Round121.cs](Assets/Scripts/Report106PlayerCheck.Round121.cs)), tools [Tools/Report121/](Tools/Report121/).
+- **Cause:** 0.120's Kicker 6 stood 85 m before CP 44; at Hard its flights carry 100–134 m (0.120 worked them out at 53 m), so rivals flew over / beside CP 44 (3–13 m up, 8–24 m right) and it did not count. High over the line the road station jumps more per step than the verified-progress rule allows, so verified progress froze in the air: the miss was never charged, the rival's station stayed pinned 60 m past the gate and the AI turned back to it again and again. Reproduced: all 5 rivals circling 12–16 min, never finishing ([before](Docs/Report121/Player/before-stunt-final.txt), [diagnosis](Docs/Report121/Player/before-diag-lap1.txt)). Not a gate rule, a reset or Stunt Race rival logic.
+- **Fix 1 (Stunt Races only):** Kicker 6 moved to Hwy 92 west, (−105.3, 525.9), station 6510, same size / side / heading, 246 m back; flights now land before CP 43 ([bumps.md](Docs/Report121/bumps.md)). No gate or course change.
+- **Fix 2 (every race):** when a racer lands back on the line after a flight, its verified progress moves up to where it is, never further than it flew (+12 m) ([RaceDirector.cs](Assets/Scripts/RaceDirector.cs)). A gate flown past is charged +5 s on landing instead of leaving the racer stuck. Check with the old bump spot and this fix: rivals still fly over CP 44, are charged, all finish ([code-fix-only](Docs/Report121/Player/code-fix-only-old-bump.txt)).
+- **Check:** Stunt Final, AI only (2 laps, 5 rivals, Clay Hoppers and Skywhips, Hard): every rival finished, none waited more than 4 s at CP 44, every CP 44 pass on the ground and counted ([after](Docs/Report121/Player/after-stunt-final.txt)); normal Leviathan Forward, Hard, 5 rivals: all finished, ≤ 1 reset each ([normal](Docs/Report121/Player/normal-race.txt)); [shot at Dan's spot](Docs/Report121/Shots/spot-BUG-005-stunt.jpg) as June Park drives through.
+- **Decisions:** the bump moved back past CP 43 rather than removed (the nearest spot whose flights can't reach a gate; s 6540 still landed some 30 m short of CP 43 and two rivals missed it); other bumps near gates listed, not moved ("world changes only where Dan pointed").
+- **For Dan to check:**
+  - The new Kicker 6 spot on Hwy 92 west; and the other bumps with a gate soon after them ([bumps.md](Docs/Report121/bumps.md)).
+  - Resets: Hollis Gray reset 3 times in the final check (Kyle's bank and the lake-shore → CR110 turn, the known 0.118 spots, also before the fix); one rival in one earlier run reset once at the new Kicker 6 landing.
+  - Big kicker 5 (Leviathan Forward) flies over CP 30 at 15–18 m without a miss being charged; not looked into.
 
 ## Previous delivery — Stunt Races and the Stunt park after Dan's first drive of 0.119: points on screen, a multiplier for every trick in one flight, bumps to trick off, tricks out of the park count again, the garage shows stunt vehicles — target 0.120.0-review1 — DELIVERED as 0.120.0-review1 (build 120000, local build), awaiting Dan's review — REVIEWED BY DAN (BUG-005 in 0.121)
 

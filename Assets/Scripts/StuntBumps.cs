@@ -11,6 +11,8 @@ namespace Racer
     // in between the big jumps; you choose to hit one or not. Each lands on a down-slope; none on or just before a big jump, on a gate or across the
     // whole road. Placed by Tools/Report120/py/bumps.py from the course probes (Resources/StuntBumps.json, keyed by the start of the course id).
     // Built at each race start (RaceDirector.RestartRace) when the race is a Stunt Race, removed otherwise.
+    // 0.121 (BUG-005): Leviathan Forward's Kicker 6 moved from Hwy 92 east (s 6756, 85 m before CP 44) to Hwy 92 west (s 6510, 191 m before CP 43):
+    // at Hard its flights carried 100 m and more, over and beside CP 44 (Tools/Report121/py/bump6.py lists the places 0.120's rules allow).
     public static class StuntBumps
     {
         [Serializable] public sealed class Course { public string course; public LeviathanCourse.Kicker[] bumps; }

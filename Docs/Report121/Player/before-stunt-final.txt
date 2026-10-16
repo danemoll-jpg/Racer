@@ -1,0 +1,110 @@
+screen=1920x1080 kind=final121 version=0.120.0-review1 park=on
+== Stunt Final (campaign) on Leviathan - Forward (leviathan-forward-v4): stunts True, split True, laps 2, difficulty Hard, bumps built 6; player stuntbuggy; rivals Rusty Vance stuntbike, Mia Torres stuntbuggy, Big Ed Kowalski stuntbike, June Park stuntbuggy, Hollis Gray stuntbike
+  CP 44 'Leviathan CP 44' at 223.2,10.70,557.0 yaw 81.7, half width 6, half height 3; station 6802.6 (line 6942.9)
+  shot at Dan's spot: Hollis Gray at 268.4,8.65,549.6, next gate 44
+  player stuntbuggy: finished 490.1 s; resets 1; misses 2 [L1 CP44 +5s / road gate passed outside span; L2 CP44 +5s / road gate passed outside span]; longest near CP 44 unpassed 4 s
+  Rusty Vance stuntbike: DNF; resets 5; misses 1 [L2 CP17 +5s / road gate passed outside span]; longest near CP 44 unpassed 739 s
+  Mia Torres stuntbuggy: DNF; resets 1; misses 0 []; longest near CP 44 unpassed 966 s
+  Big Ed Kowalski stuntbike: DNF; resets 2; misses 1 [L1 CP17 +5s / road gate passed outside span]; longest near CP 44 unpassed 746 s
+  June Park stuntbuggy: DNF; resets 3; misses 0 []; longest near CP 44 unpassed 973 s
+  Hollis Gray stuntbike: DNF; resets 3; misses 0 []; longest near CP 44 unpassed 975 s
+  CP 44 plane crossings: 9
+    Hollis Gray L1 forward at x 8.6 y 8.2 (grounded 0), next gate now 44, road 6802.1 verified 6780.7 tracked 6840.6, misses 0
+    June Park L1 forward at x 8.6 y 5.4 (grounded 0), next gate now 44, road 6801.8 verified 6781.4 tracked 6840.4, misses 0
+    Rusty Vance L1 forward at x 6.2 y -0.9 (grounded 4), next gate now 44, road 6802.0 verified 6802.0 tracked 6840.5, misses 0
+    Big Ed Kowalski L1 forward at x 5.4 y -0.9 (grounded 4), next gate now 44, road 6801.9 verified 6801.9 tracked 6840.4, misses 1
+    Mia Torres L1 forward at x 8.4 y 5.2 (grounded 0), next gate now 44, road 6802.3 verified 6781.2 tracked 6840.8, misses 0
+    player L1 forward at x 8.7 y 3.2 (grounded 0), next gate now 44, road 6802.2 verified 6802.2 tracked 6840.7, misses 0
+    Big Ed Kowalski L2 forward at x 9.3 y 9.9 (grounded 0), next gate now 44, road 6802.3 verified 6781.2 tracked 6840.8, misses 1
+    Rusty Vance L2 forward at x 8.9 y 9.6 (grounded 0), next gate now 44, road 6802.1 verified 6780.7 tracked 6840.6, misses 1
+    player L2 forward at x 8.6 y 3.1 (grounded 0), next gate now 44, road 6802.2 verified 6802.2 tracked 6840.7, misses 1
+  gate changes at CP 44 / finish: 73
+    Hollis Gray L1 next 43 -> 44 at 85.6,9.74,541.1 t 225.4
+    June Park L1 next 43 -> 44 at 85.9,9.82,541.1 t 226.9
+    Rusty Vance L1 next 43 -> 44 at 85.9,9.74,540.1 t 227.7
+    Big Ed Kowalski L1 next 43 -> 44 at 86.2,9.75,537.8 t 228.4
+    Rusty Vance L1 next 44 -> 0 at 225.1,9.83,551.1 t 230.8
+    Big Ed Kowalski L1 next 44 -> 0 at 224.9,9.83,551.9 t 231.5
+    Mia Torres L1 next 43 -> 44 at 85.8,9.82,541.1 t 233.6
+    player L1 next 43 -> 44 at 86.1,9.82,541.2 t 238.2
+      Hollis Gray 16 s near CP 44 unpassed: at 300.5,8.60,549.3 heading 275 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 18.8 z 75.3
+    player L1 next 44 -> 0 at 243.1,9.26,548.8 t 242.3
+      June Park 16 s near CP 44 unpassed: at 293.5,8.71,566.7 heading 225 speed 3.2; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 0.6 z 70.9
+      Hollis Gray 18 s near CP 44 unpassed: at 293.5,8.60,563.3 heading 47 speed 9.8; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 4.0 z 70.4
+      June Park 18 s near CP 44 unpassed: at 290.5,8.73,562.3 heading 94 speed 0.8; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 4.5 z 67.3
+      Hollis Gray 20 s near CP 44 unpassed: at 304.6,8.60,556.7 heading 218 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 12.1 z 80.4
+      June Park 20 s near CP 44 unpassed: at 302.5,8.70,553.6 heading 204 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 14.9 z 78.0
+      Hollis Gray 22 s near CP 44 unpassed: at 290.7,8.60,560.9 heading 7 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 6.0 z 67.3
+      June Park 22 s near CP 44 unpassed: at 289.6,8.70,557.1 heading 7 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 9.6 z 65.7
+      Hollis Gray 24 s near CP 44 unpassed: at 303.4,8.60,561.4 heading 185 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 7.3 z 80.0
+      Mia Torres 16 s near CP 44 unpassed: at 300.3,8.70,563.8 heading 134 speed 2.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 4.4 z 77.2
+      June Park 24 s near CP 44 unpassed: at 302.8,8.70,560.9 heading 169 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 7.7 z 79.3
+      Hollis Gray 26 s near CP 44 unpassed: at 289.5,8.60,558.5 heading 347 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 8.1 z 65.8
+      Mia Torres 18 s near CP 44 unpassed: at 293.3,8.70,553.2 heading 302 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 14.0 z 68.7
+      June Park 26 s near CP 44 unpassed: at 290.7,8.70,556.7 heading 343 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 10.1 z 66.7
+      Hollis Gray 28 s near CP 44 unpassed: at 301.3,8.59,563.6 heading 164 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 4.8 z 78.2
+      Mia Torres 20 s near CP 44 unpassed: at 297.8,8.71,566.3 heading 109 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 1.6 z 75.1
+      June Park 28 s near CP 44 unpassed: at 298.7,8.70,560.5 heading 152 speed 5.5; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 7.6 z 75.1
+      Hollis Gray 30 s near CP 44 unpassed: at 289.3,8.60,557.1 heading 334 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 9.5 z 65.4
+      Mia Torres 22 s near CP 44 unpassed: at 295.4,8.70,553.8 heading 287 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 13.7 z 70.9
+      June Park 30 s near CP 44 unpassed: at 291.2,8.70,552.1 heading 292 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 14.8 z 66.5
+      Hollis Gray 32 s near CP 44 unpassed: at 299.8,8.59,564.9 heading 149 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 3.4 z 76.9
+      Mia Torres 24 s near CP 44 unpassed: at 296.5,8.71,566.9 heading 97 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 0.9 z 73.9
+      June Park 32 s near CP 44 unpassed: at 293.6,8.70,565.9 heading 92 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 1.4 z 70.9
+      Hollis Gray 34 s near CP 44 unpassed: at 289.7,8.60,556.2 heading 323 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 10.5 z 65.6
+      Mia Torres 26 s near CP 44 unpassed: at 296.6,8.70,554.1 heading 270 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 13.5 z 72.2
+      June Park 34 s near CP 44 unpassed: at 294.8,8.70,553.4 heading 272 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 14.0 z 70.3
+      Hollis Gray 36 s near CP 44 unpassed: at 298.6,8.60,565.7 heading 139 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 2.4 z 75.9
+      Mia Torres 28 s near CP 44 unpassed: at 294.2,8.71,567.0 heading 82 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 0.4 z 71.7
+      June Park 36 s near CP 44 unpassed: at 293.0,8.70,566.7 heading 78 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 0.6 z 70.4
+      Hollis Gray 38 s near CP 44 unpassed: at 290.3,8.60,555.5 heading 313 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 11.2 z 66.1
+      Mia Torres 30 s near CP 44 unpassed: at 297.5,8.70,554.8 heading 262 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 13.0 z 73.2
+      June Park 38 s near CP 44 unpassed: at 297.4,8.70,554.7 heading 253 speed 9.9; road 6862.4 verified 6781.4 tracked 6900.9 gate 6802.6; local x 13.1 z 73.1
+      Mia Torres 32 s near CP 44 unpassed: at 293.1,8.71,567.0 heading 75 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 0.3 z 70.6
+      Mia Torres 34 s near CP 44 unpassed: at 298.0,8.70,555.4 heading 255 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 12.5 z 73.7
+      Mia Torres 36 s near CP 44 unpassed: at 292.6,8.71,567.0 heading 71 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 0.2 z 70.1
+      Mia Torres 38 s near CP 44 unpassed: at 298.2,8.70,555.7 heading 251 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 12.2 z 74.0
+    Big Ed Kowalski L2 next 43 -> 44 at 85.4,9.74,541.0 t 454.2
+    Rusty Vance L2 next 43 -> 44 at 85.3,9.74,541.0 t 460.5
+    player L2 next 43 -> 44 at 85.3,9.82,541.0 t 469.7
+      Big Ed Kowalski 16 s near CP 44 unpassed: at 298.4,8.60,553.5 heading 259 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 14.4 z 73.9
+      Big Ed Kowalski 18 s near CP 44 unpassed: at 293.2,8.60,566.2 heading 65 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 1.1 z 70.5
+    player L2 next 44 -> 0 at 243.1,9.30,549.0 t 473.8
+      Big Ed Kowalski 20 s near CP 44 unpassed: at 300.0,8.60,555.4 heading 241 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 12.7 z 75.7
+      Big Ed Kowalski 22 s near CP 44 unpassed: at 289.4,8.60,560.4 heading 22 speed 4.8; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 6.3 z 65.9
+      Rusty Vance 16 s near CP 44 unpassed: at 299.8,8.60,559.9 heading 186 speed 0.1; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 8.3 z 76.1
+      Big Ed Kowalski 24 s near CP 44 unpassed: at 303.2,8.60,560.1 heading 181 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 8.5 z 79.5
+      Rusty Vance 18 s near CP 44 unpassed: at 299.8,8.60,559.9 heading 186 speed 0.0; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 8.3 z 76.1
+      Big Ed Kowalski 26 s near CP 44 unpassed: at 289.8,8.60,557.6 heading 348 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 9.1 z 66.0
+      Rusty Vance 20 s near CP 44 unpassed: at 301.5,8.63,547.0 heading 226 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 21.3 z 76.0
+      Big Ed Kowalski 28 s near CP 44 unpassed: at 301.8,8.59,563.7 heading 157 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 4.8 z 78.7
+      Rusty Vance 22 s near CP 44 unpassed: at 289.9,8.60,555.0 heading 19 speed 10.0; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 11.7 z 65.6
+      Big Ed Kowalski 30 s near CP 44 unpassed: at 293.2,8.60,554.4 heading 298 speed 5.7; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 12.8 z 68.9
+      Rusty Vance 24 s near CP 44 unpassed: at 292.7,8.60,560.0 heading 40 speed 0.0; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 7.1 z 69.2
+      Big Ed Kowalski 32 s near CP 44 unpassed: at 296.4,8.62,567.3 heading 103 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 0.5 z 73.8
+      Rusty Vance 26 s near CP 44 unpassed: at 292.7,8.60,560.0 heading 40 speed 0.0; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 7.1 z 69.2
+      Big Ed Kowalski 34 s near CP 44 unpassed: at 295.2,8.60,554.2 heading 274 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 13.3 z 70.7
+      Rusty Vance 28 s near CP 44 unpassed: at 297.8,8.60,564.6 heading 64 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 3.3 z 74.9
+      Big Ed Kowalski 36 s near CP 44 unpassed: at 294.2,8.61,567.2 heading 87 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 0.3 z 71.7
+      Rusty Vance 30 s near CP 44 unpassed: at 294.0,8.50,576.7 heading 245 speed 8.2; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x -9.2 z 72.8
+      Big Ed Kowalski 38 s near CP 44 unpassed: at 296.5,8.60,554.6 heading 264 speed 9.9; road 6862.4 verified 6781.2 tracked 6900.9 gate 6802.6; local x 13.0 z 72.1
+      Rusty Vance 32 s near CP 44 unpassed: at 292.5,8.51,576.0 heading 223 speed 0.0; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x -8.7 z 71.3
+      Rusty Vance 34 s near CP 44 unpassed: at 296.4,8.60,559.9 heading 134 speed 9.6; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 7.7 z 72.8
+      Rusty Vance 36 s near CP 44 unpassed: at 288.8,8.60,549.9 heading 314 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 16.6 z 63.8
+      Rusty Vance 38 s near CP 44 unpassed: at 292.2,8.60,563.0 heading 76 speed 9.9; road 6862.4 verified 6780.7 tracked 6900.9 gate 6802.6; local x 4.1 z 69.1
+  resets: 15
+    Big Ed Kowalski L1 next 7 at 683.2,79.62,-103.9 (road 886)
+    Mia Torres L1 next 7 at 703.3,81.45,-105.3 (road 908)
+    player L1 next 7 at 684.6,79.71,-103.2 (road 888)
+    Hollis Gray L1 next 44 at 295.9,8.63,559.2 (road 6862)
+    June Park L1 next 44 at 290.5,8.73,562.4 (road 6862)
+    June Park L1 next 44 at 294.0,8.73,562.8 (road 6862)
+    Rusty Vance L2 next 7 at 658.4,79.63,-113.8 (road 860)
+    Big Ed Kowalski L2 next 44 at 296.2,8.63,562.5 (road 6862)
+    Rusty Vance L2 next 44 at 295.6,8.63,559.2 (road 6862)
+    Rusty Vance L2 next 44 at 297.4,8.63,557.2 (road 6862)
+    Hollis Gray L1 next 44 at 304.5,8.63,559.1 (road 6862)
+    June Park L1 next 44 at 295.6,8.73,562.6 (road 6862)
+    Rusty Vance L2 next 44 at 291.2,8.63,564.8 (road 6862)
+    Hollis Gray L1 next 44 at 294.0,8.63,559.4 (road 6862)
+    Rusty Vance L2 next 44 at 293.2,8.63,561.2 (road 6862)

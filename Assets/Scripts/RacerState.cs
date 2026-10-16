@@ -27,6 +27,7 @@ namespace Racer
         public readonly BranchProgress Branch=new();
         public float RecoveryStart = float.NaN;
         public float TrackedStation = float.NaN; // 0.115: the last station on a tracked line (Leviathan)
+        public bool InFlight; public float FlightFrom, FlightTravel; // 0.121 (BUG-005): the verified road at take-off and the distance flown since
         public RacerState(string name, ArcadeVehicle car, int gates, int laps, bool isAi=false)
         {
             Name = name;
