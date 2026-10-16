@@ -1,0 +1,8 @@
+screen=1280x720 kind=debug1000 version=1.0.0 park=on
+phase 1: state Ready, main menu texts [Version 1.0.0 | WOODSTOCK RUSH]
+  at launch: visible False, panel False, menu False; debug texts on screen []
+  after F3: visible True, panel True, menu False; Session: NEW / Reports 0 / Next F4 starts BUG-001
+  after F4: comment dialog True
+  session 2026-10-16_01-30-04-935_503437: OPEN, reports 1, folder C:\Users\danmo\AppData\Local\Temp\report1000\debug-check\save\DebugReports\2026-10-16_01-30-04-935_503437
+  after F6: visible True, panel False, menu True
+  quitting with debug off

@@ -1,0 +1,16 @@
+{
+    "sha256":  "FFB590C9A565ADD916C8D12CA0F9CF356A16FD9CC411A3A0066E395E808CA44C",
+    "campaignSaves":  {
+                          "campaign-fresh-v1.json.bak":  "30C1BC6EB01E9AF8F70712C3CB1933F1A79EB355BE7CBE745D378C9632D8E40E",
+                          "campaign-v1-original-backup-20261012.json":  "C837523CEDAA0A8EE528DCD6024E1E922B625A262D78EE0AFA5C4F1935831237",
+                          "campaign-v1-original-backup-20261012.json.bak":  "2BFA6026DDC9C1F813ACC5EC6B3FD07A93C5AE71CC901F216E851FBBCDE0B489",
+                          "campaign-fresh-v1.json":  "3697716724D39EBA51F5B41B999C5DEA2D192DF24D907EE0BC3D38B39B0F6EEB",
+                          "campaign-v1.json.bak":  "2208648B098E33655F8AC2E70E8A34DA8BD34A60BA955262ECD25ED9DCF20CD4",
+                          "campaign-v1.json":  "2208648B098E33655F8AC2E70E8A34DA8BD34A60BA955262ECD25ED9DCF20CD4"
+                      },
+    "campaignSavesChanged":  [
+
+                             ],
+    "verification":  "Temporary master mute, original bytes restored",
+    "settingsRestored":  true
+}
