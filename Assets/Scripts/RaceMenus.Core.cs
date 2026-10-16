@@ -86,7 +86,7 @@ details.gameObject.SetActive(true);
                 }
                 else
                 {
-                    ClearCore("WOODSTOCK RUSH","");
+                    ClearCore("WOODSTOCK RUSH","Version "+Application.version); // 1.0: the version under the title
                     // 0.89: CAMPAIGN is the first entry (after RESUME DRIVING when Free Roam is paused)
                     // 0.90 Part A: the campaign's state under CAMPAIGN (and plainly when Testing has everything unlocked)
                     Row(10,"campaign","CAMPAIGN\n"+CampaignStatusLine,()=>OpenCampaign());buttons[10].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());
