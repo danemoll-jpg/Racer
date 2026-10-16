@@ -1,0 +1,15 @@
+screen=1920x1080 kind=race120 version=0.120.0-review1 park=on
+== Stunt Race on Mountain Loop - Forward (mountain-forward-v5-supported), Hard: bumps built 2 of 2; rivals stuntbuggy, stuntbike, stuntbuggy
+  mid-trick: panel 'BACKFLIP / +1,034 on the line'; race panel 'MOUNTAIN LOOP - FORWARD | LAP 1/1    POS 4/4 | Lap    00:20.697 | Race  00:23.817 | STUNT  0 pts  ·  −0.0 s'
+  after a landing: panel 'LANDED  +9,429 / COMBO x1  ·  9,429  ·  4.7 s'; race panel 'MOUNTAIN LOOP - FORWARD | LAP 1/1    POS 4/4 | Lap    00:25.477 | Race  00:28.597 | STUNT  9,429 pts  ·  −0.0 s'
+  player: 91.6 s (bonus 2.4 s, 9429 pts, best combo 9429); most types in a flight 3; recoveries 0
+  player flights: flight 1: 5.9 s, BACKFLIP + ROLL + 360 SPIN |   landed: BACKFLIP + ROLL + 360 SPIN x3 9411 pts (186 m, 5.8 s) | 
+  rival stuntbuggy: 108.0 (bonus 5.0 s, 19716 pts), resets 0, flights 4, tricks 6, most types 3, bails 0
+    flight 1: 5.9 s, BACKFLIP + ROLL + 360 SPIN |   landed: BACKFLIP + ROLL + 360 SPIN x3 9426 pts (186 m, 5.8 s) | flight 2: 0.5 s, no trick | flight 3: 0.6 s, no trick | flight 4: 7.3 s, BACKFLIP + ROLL + 360 SPIN |   landed: BACKFLIP + ROLL + 360 SPIN x3 10290 pts (203 m, 7.0 s) | 
+  rival stuntbike: 90.3 (bonus 2.6 s, 10538 pts), resets 0, flights 3, tricks 3, most types 3, bails 0
+    flight 1: 6.1 s, BACKFLIP + ROLL + 360 SPIN |   landed: BACKFLIP + ROLL + 360 SPIN x3 9972 pts (202 m, 6.0 s) | flight 2: 1.9 s, no trick |   landed: no trick 566 pts (38 m, 1.8 s) | flight 3: 0.5 s, no trick | 
+  rival stuntbuggy: 112.4 (bonus 4.5 s, 17711 pts), resets 0, flights 7, tricks 5, most types 3, bails 0
+    flight 1: 5.9 s, DOUBLE BACKFLIP + 360 SPIN |   landed: DOUBLE BACKFLIP + 360 SPIN x2 6392 pts (187 m, 5.8 s) | flight 2: 0.6 s, no trick | flight 3: 0.4 s, no trick | flight 4: 1.5 s, no trick |   landed: no trick 388 pts (25 m, 1.4 s) | flight 5: 0.9 s, no trick |   landed: no trick 273 pts (19 m, 0.8 s) | flight 6: 1.5 s, no trick |   landed: no trick 392 pts (25 m, 1.4 s) | flight 7: 7.3 s, BACKFLIP + ROLL + 360 SPIN |   landed: BACKFLIP + ROLL + 360 SPIN x3 10266 pts (203 m, 7.0 s) | 
+  flights off a bump: 3: stuntbike off bump 1: 38 m; stuntbuggy off bump 1: 25 m; stuntbuggy off bump 2: 25 m
+  rival resets: 0
+  then a normal race here: stunts False, bumps built 0, bump objects 0

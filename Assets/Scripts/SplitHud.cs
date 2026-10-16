@@ -119,9 +119,10 @@ namespace Racer
                 h.tag.text = (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(i + 1);
                 h.info.text = $"LAP {Mathf.Min(p.CompletedLaps + 1, p.TargetLaps)}/{p.TargetLaps}     POS {position}/{race.Racers.Count}\nLap   {RaceHud.FormatTime(p.Finished ? p.LastLap : p.LapTime(race.Clock))}\nRace  {RaceHud.FormatTime(p.RaceTime(race.Clock))}" + (p.PenaltySeconds > 0 ? $"   +{p.PenaltySeconds:0}s" : "");
                 // 0.119 Part B: a Stunt Race: the trick bonus or stunt points, and this player's last trick line (small, under the times)
-                var stunt = race.stunts ? StuntRaceScore.Current : null; var acts = i == 0 ? flow.Activities : split.P2Acts;
-                if (stunt) { string f = stunt.Flash(state); h.info.text += "\n" + (f != null ? "<color=#FFD24D>" + f + "</color>" : stunt.HudLine(state)); string trick = acts ? acts.StuntFeedback : null; if (trick != null) h.info.text += "\n<size=15><color=#FFE58A>" + trick.Replace("\n", "  ·  ") + "</color></size>"; }
-                ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(stunt ? 330 : 290, stunt ? (acts && acts.StuntFeedback != null ? 150 : 128) : 104);
+                // 0.120 Part A: the total stunt points always (the trick itself is on the trick panel, TrickHud)
+                var stunt = race.stunts ? StuntRaceScore.Current : null;
+                if (stunt) h.info.text += "\n" + stunt.HudLine(state);
+                ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(stunt ? 360 : 290, stunt ? 128 : 104);
                 ((RectTransform)h.gapsPanel.transform).anchoredPosition = new Vector2(14, -14 - ((RectTransform)h.infoPanel.transform).sizeDelta.y - 4);
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
                 string centre = "";

@@ -102,7 +102,7 @@ namespace Racer
         IEnumerator Start()
         {
             Directory.CreateDirectory(outDir); AudioListener.volume = 0;
-            string kind = Arg("-p106kind", "views");
+            string kind = Arg("-p106kind", "views"); StuntBumps.Override = Arg("-p120bumps", ""); // 0.120: the Stunt Race bumps being placed (checks only)
             Screen.SetResolution(int.Parse(Arg("-p106w", "1920")), int.Parse(Arg("-p106h", "1080")), Arg("-p106full", "0") == "1" ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed); yield return null; yield return null;
             pad = InputSystem.AddDevice<Gamepad>("Report106Pad");
             yield return WaitFlow();
@@ -162,6 +162,12 @@ namespace Racer
                 case "stunt119": yield return Stunt119(); break;
                 case "campaign119": yield return Campaign119(); break;
                 case "menus119": yield return Menus119(); break;
+                case "probe120": yield return Probe120(); break; // 0.120 (Report106PlayerCheck.Round120.cs)
+                case "park120": yield return Park120(); break;
+                case "split120": yield return Split120(); break;
+                case "race120": yield return Race120(); break;
+                case "clip120": yield return Clip120(); break;
+                case "garage120": yield return Garage120(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

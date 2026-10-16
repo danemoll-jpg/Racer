@@ -330,29 +330,34 @@ namespace Racer
         static void BuildKickers(Data data, Transform root, Material ground)
         {
             if (data.kickers == null) return;
-            foreach (var k in data.kickers)
-            {
-                var rot = Quaternion.Euler(0, k.yaw, 0); var f = rot * Vector3.forward; var r = rot * Vector3.right; var lip = new Vector3(k.pos[0], 0, k.pos[1]); var start = lip - f * k.length;
-                float hint = k.pos.Length > 2 ? k.pos[2] : float.NaN;
-                if (!Ground(lip, hint, out float yl) || !Ground(start, hint, out float ys)) { Debug.LogWarning($"Leviathan: no ground under the kicker {k.at}"); continue; }
-                float hw = k.width * .5f, top = yl + k.height, bottom = Mathf.Min(yl, ys) - .6f;
-                Vector3 V(Vector3 p, float side, float y) { var q = p + r * side; return new Vector3(q.x, y, q.z); }
-                var v = new List<Vector3> {
-                    V(start, -hw, ys - .05f), V(start, hw, ys - .05f), V(lip, hw, top), V(lip, -hw, top), // the ramp
-                    V(lip, -hw, top), V(lip, hw, top), V(lip, hw, bottom), V(lip, -hw, bottom),          // the lip's face
-                    V(start, -hw, ys - .05f), V(lip, -hw, top), V(lip, -hw, bottom), V(start, -hw, bottom), // left side
-                    V(start, hw, ys - .05f), V(start, hw, bottom), V(lip, hw, bottom), V(lip, hw, top) };  // right side
-                var tris = new List<int>(); for (int q = 0; q < 4; q++) { int i = q * 4; tris.AddRange(new[] { i, i + 3, i + 2, i, i + 2, i + 1 }); }
-                var mesh = new Mesh { name = "Leviathan kicker " + k.at }; mesh.SetVertices(v); mesh.SetTriangles(tris, 0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
-                // every face outward (the winding above is checked against the face's centre; flipped where it points in)
-                var t = mesh.triangles; var c = mesh.bounds.center; var vv = mesh.vertices;
-                for (int i = 0; i < t.Length; i += 3) { var n = Vector3.Cross(vv[t[i + 1]] - vv[t[i]], vv[t[i + 2]] - vv[t[i]]); var m = (vv[t[i]] + vv[t[i + 1]] + vv[t[i + 2]]) / 3; if (Vector3.Dot(n, m - c) < 0) { (t[i + 1], t[i + 2]) = (t[i + 2], t[i + 1]); } }
-                mesh.triangles = t; mesh.RecalculateNormals();
-                var go = new GameObject("Ground_Leviathan kicker (" + k.at + ")"); go.transform.SetParent(root, false);
-                go.AddComponent<MeshFilter>().sharedMesh = mesh; var mr = go.AddComponent<MeshRenderer>(); if (ground) mr.sharedMaterial = ground; go.AddComponent<MeshCollider>().sharedMesh = mesh;
-                Debug.Log($"Leviathan: kicker {k.at}: lip {top - yl:F2} m above its ground at ({lip.x:F1}, {lip.z:F1}), {k.length:F1} m long, {k.width:F1} m wide");
-            }
+            foreach (var k in data.kickers) BuildKicker(k, root, ground, "Leviathan");
             Physics.SyncTransforms();
+        }
+        // 0.120 Part C: also the Stunt Races' bumps (StuntBumps). The lip's own ground (at height hint pos[2] when given); null if there is none.
+        // 0.120: colour (with a vertex-colour material such as Scenery/Building): the top that colour, the sides a shade darker
+        public static GameObject BuildKicker(Kicker k, Transform root, Material ground, string owner, Color? colour = null)
+        {
+            var rot = Quaternion.Euler(0, k.yaw, 0); var f = rot * Vector3.forward; var r = rot * Vector3.right; var lip = new Vector3(k.pos[0], 0, k.pos[1]); var start = lip - f * k.length;
+            float hint = k.pos.Length > 2 ? k.pos[2] : float.NaN;
+            if (!Ground(lip, hint, out float yl) || !Ground(start, hint, out float ys)) { Debug.LogWarning($"{owner}: no ground under the kicker {k.at}"); return null; }
+            float hw = k.width * .5f, top = yl + k.height, bottom = Mathf.Min(yl, ys) - .6f;
+            Vector3 V(Vector3 p, float side, float y) { var q = p + r * side; return new Vector3(q.x, y, q.z); }
+            var v = new List<Vector3> {
+                V(start, -hw, ys - .05f), V(start, hw, ys - .05f), V(lip, hw, top), V(lip, -hw, top), // the ramp
+                V(lip, -hw, top), V(lip, hw, top), V(lip, hw, bottom), V(lip, -hw, bottom),          // the lip's face
+                V(start, -hw, ys - .05f), V(lip, -hw, top), V(lip, -hw, bottom), V(start, -hw, bottom), // left side
+                V(start, hw, ys - .05f), V(start, hw, bottom), V(lip, hw, bottom), V(lip, hw, top) };  // right side
+            var tris = new List<int>(); for (int q = 0; q < 4; q++) { int i = q * 4; tris.AddRange(new[] { i, i + 3, i + 2, i, i + 2, i + 1 }); }
+            var mesh = new Mesh { name = owner + " kicker " + k.at }; mesh.SetVertices(v); mesh.SetTriangles(tris, 0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
+            // every face outward (the winding above is checked against the face's centre; flipped where it points in)
+            var t = mesh.triangles; var c = mesh.bounds.center; var vv = mesh.vertices;
+            for (int i = 0; i < t.Length; i += 3) { var n = Vector3.Cross(vv[t[i + 1]] - vv[t[i]], vv[t[i + 2]] - vv[t[i]]); var m = (vv[t[i]] + vv[t[i + 1]] + vv[t[i + 2]]) / 3; if (Vector3.Dot(n, m - c) < 0) { (t[i + 1], t[i + 2]) = (t[i + 2], t[i + 1]); } }
+            mesh.triangles = t; mesh.RecalculateNormals();
+            if (colour is Color paint) mesh.SetColors(Enumerable.Range(0, v.Count).Select(i => i < 4 ? paint : new Color(paint.r * .82f, paint.g * .82f, paint.b * .82f, 1)).ToList());
+            var go = new GameObject("Ground_" + owner + " kicker (" + k.at + ")"); go.transform.SetParent(root, false);
+            go.AddComponent<MeshFilter>().sharedMesh = mesh; var mr = go.AddComponent<MeshRenderer>(); if (ground) mr.sharedMaterial = ground; go.AddComponent<MeshCollider>().sharedMesh = mesh;
+            Debug.Log($"{owner}: kicker {k.at}: lip {top - yl:F2} m above its ground at ({lip.x:F1}, {lip.z:F1}), {k.length:F1} m long, {k.width:F1} m wide");
+            return go;
         }
         // 0.117 Part B item 4: Climbing Ridge Cut (Forward) / Downhill Ridge Cut (Reverse) are Leviathan's main road: their scene signs lose
         // "optional shortcut" / "follow gold" in this race only

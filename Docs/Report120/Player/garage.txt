@@ -1,0 +1,15 @@
+screen=1920x1080 kind=garage120 version=0.120.0-review1 park=on
+start: page 'Ready/', focus 'race', saved stunt vehicle stuntbuggy, Skywhip locked False
+Race Setup: stunts True, focus 'race-type'
+Garage: Clay Hopper   ·   1 / 3 | Clay Hopper / Buggy
+  right: Skywhip 250   ·   2 / 3 | Skywhip 250 / Motorcycle
+B: page 'Ready/race', vehicle stuntbike, saved stunt vehicle stuntbike, normal vehicle drifter
+started: stunts True, driving stuntbike, bumps built 2
+chapter 5: 'Stunt Opener': page 'Ready/campaign-event', Vehicle:   Skywhip 250   ·   A: garage
+  garage (page 'Ready/vehicle-pick'), right through: Skywhip 250   ·   2 of 3 / Clay Hopper Cup   ·   3 of 3   ·   locked / Clay Hopper   ·   1 of 3
+  USE: page 'Ready/campaign-event', Vehicle:   Skywhip 250   ·   A: garage; saved stunt vehicle stuntbike
+  B: page 'Ready/campaign'
+chapter 1: 'Against the Clock': page 'Ready/campaign-event', Vehicle:   Ridge Scrambler   ·   A: garage
+  garage (page 'Ready/vehicle-pick'), right through: Ridge Scrambler   ·   6 of 10
+  B: page 'Ready/campaign-event'
+  B: page 'Ready/campaign'

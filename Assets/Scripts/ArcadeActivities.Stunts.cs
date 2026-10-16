@@ -19,6 +19,11 @@ namespace Racer
     // wipe-out. Part B: a flight that takes off inside the park counts wherever it lands. Part D: 5 s on the ground to chain the next trick.
     // 0.108 Part D: every combo banked in the park (the Stunt event and Free Roam, both players) can enter the Top 10 Best Combos (StuntProgress),
     // with its links and its tricks in short form (BF backflip, FF frontflip, R roll, BR barrel roll, 360 spin, LOOP, J a plain jump).
+    // 0.120 Part B (Dan: "the multiplier should go up for every stunt type you do during a jump"): a flight's points (its tricks and its jump) are
+    // multiplied by its number of different trick types (Score: flip, roll, spin): a backflip x1, backflip + roll x2, backflip + roll + 360 x3; doing
+    // a type again adds its points, not multiplier. The 5 s chain multiplies the combo on top. The rivals score with the same rule (RivalTricks).
+    // Part A: the live trick (Live, LastResult) for the trick panel (TrickHud). Part D: a flight that takes off outside the park while an in-park
+    // combo is going no longer spoils that combo: in the Stunt event it is not counted on its own; in Free Roam the park combo is banked first.
     public sealed partial class ArcadeActivities
     {
         public const float ComboGap = 5f, MinStuntAir = .6f, MinStuntDistance = 4f, RecoverWindow = 1.5f, RoofUp = -.17f, RoofHit = 3f;
@@ -63,6 +68,37 @@ namespace Racer
                 return "";
             }
         }
+        // 0.120 Part B: one flight's score (the players' and the rivals'). live: while still in the air, a turn counts once it is within 60 degrees of
+        // full (at the landing a half turn or more counts, as before)
+        public sealed class FlightScore
+        {
+            public int points, tricks, jump, types; public readonly List<string> names = new(), shorts = new();
+            public string Names => string.Join(" + ", names);
+            public string Multiplier => types > 1 ? $"x{types}" : "";
+        }
+        public static FlightScore Score(Vector3 turn, bool barrel, float distance, float air, bool live = false)
+        {
+            var s = new FlightScore();
+            int Turns(float d) => live ? (int)Mathf.Sign(d) * Mathf.FloorToInt((Mathf.Abs(d) + 60) / 360) : Mathf.RoundToInt(d / 360);
+            int flips = Turns(turn.x), rolls = Turns(turn.z), spins = Mathf.FloorToInt((Mathf.Abs(turn.y) + 30) / 360);
+            string Times(int n) => n == 2 ? "DOUBLE " : n >= 3 ? "TRIPLE " : "";
+            if (flips != 0) { int n = Mathf.Abs(flips); s.names.Add(Times(n) + (flips < 0 ? "BACKFLIP" : "FRONTFLIP")); s.shorts.Add((n > 1 ? n.ToString() : "") + (flips < 0 ? "BF" : "FF")); s.tricks += FlipPoints * n; s.types++; }
+            if (rolls != 0) { int n = Mathf.Abs(rolls); s.names.Add(Times(n) + (barrel ? "BARREL ROLL" : "ROLL")); s.shorts.Add((n > 1 ? n.ToString() : "") + (barrel ? "BR" : "R")); s.tricks += RollPoints * n + (barrel ? BarrelPoints : 0); s.types++; }
+            if (spins > 0) { s.names.Add(spins * 360 + " SPIN"); s.shorts.Add((spins * 360).ToString()); s.tricks += SpinPoints * spins; s.types++; }
+            s.jump = Mathf.RoundToInt(Mathf.Min(distance, 250) * 10 + Mathf.Min(air, 12) * 100);
+            s.points = (s.tricks + s.jump) * Mathf.Max(1, s.types);
+            return s;
+        }
+        // 0.120 Part A: the trick panel (TrickHud) carries this vehicle's trick lines: a Stunt Race, the Stunt chapter's events, the Stunt event
+        public bool TrickBox => StuntsOn && car && (!race.FreeRoam || StuntEvent.InEvent(car));
+        // in the air: the tricks turned so far, the multiplier and the points on the line (null on the ground)
+        public FlightScore Live => sFlying && sAir > .2f && car ? Score(sTurn, sBarrel, Vector3.ProjectOnPlane(car.Body.position - sTakeoff, Vector3.up).magnitude, sAir, true) : null;
+        // the last flight's outcome ("LANDED +1,240", "BAILED", "NOT COUNTED"), for a moment after it
+        public string LastResult { get; private set; } = ""; public float LastResultAt { get; private set; } = -100; public int LastResultKind { get; private set; } // 1 landed, 2 bailed, 3 not counted
+        // 0.120 Part A: a stunt line; where the trick panel carries them (TrickBox) it is left out of the activity lines (Hud)
+        void StuntSay(string value, float seconds) { Message(value, seconds); feedbackStunt = true; }
+        void Result(string text, int kind) { LastResult = text; LastResultAt = Time.time; LastResultKind = kind; }
+        public int LastFlightTypes { get; private set; }
         void StuntReset() { sFlying = false; sBarrel = false; sGround = sAir = sStable = 0; sTouch = sTilt = -1; sTurn = Vector3.zero; loopAcc = 0; loopPrev = float.NaN; loopOut = 1; }
         void StuntSession() { StuntReset(); ComboLinks = ComboPoints = 0; ComboInPark = true; sSince = 0; comboTricks.Clear(); }
 
@@ -113,30 +149,32 @@ namespace Racer
         // the tricks of a flight that ended on its wheels
         void Landed()
         {
-            int flips = Mathf.RoundToInt(sTurn.x / 360), rolls = Mathf.RoundToInt(sTurn.z / 360), spins = Mathf.FloorToInt((Mathf.Abs(sTurn.y) + 30) / 360);
-            var names = new List<string>(); var shortNames = new List<string>(); int points = 0;
-            if (flips != 0) { int n = Mathf.Abs(flips); names.Add((n == 2 ? "DOUBLE " : n >= 3 ? "TRIPLE " : "") + (flips < 0 ? "BACKFLIP" : "FRONTFLIP")); shortNames.Add((n > 1 ? n.ToString() : "") + (flips < 0 ? "BF" : "FF")); points += FlipPoints * n; }
-            if (rolls != 0) { int n = Mathf.Abs(rolls); names.Add((n == 2 ? "DOUBLE " : n >= 3 ? "TRIPLE " : "") + (sBarrel ? "BARREL ROLL" : "ROLL")); shortNames.Add((n > 1 ? n.ToString() : "") + (sBarrel ? "BR" : "R")); points += RollPoints * n + (sBarrel ? BarrelPoints : 0); }
-            if (spins > 0) { names.Add(spins * 360 + " SPIN"); shortNames.Add((spins * 360).ToString()); points += SpinPoints * spins; }
             float distance = Vector3.ProjectOnPlane(sLanding - sTakeoff, Vector3.up).magnitude;
-            int jump = Mathf.RoundToInt(Mathf.Min(distance, 250) * 10 + Mathf.Min(sAir, 12) * 100);
-            Tricks += names.Count; LastStuntRotation = new Vector3(sTurn.x, sTurn.y, sTurn.z);
-            string line = names.Count > 0 ? string.Join(" + ", names) : $"{(LastSketchy ? "JUMP" : "CLEAN JUMP")} / {DisplayUnits.Jump(distance)} / {sAir:0.00} s";
+            var f = Score(sTurn, sBarrel, distance, sAir);
+            Tricks += f.names.Count; LastStuntRotation = new Vector3(sTurn.x, sTurn.y, sTurn.z); LastFlightTypes = f.types;
+            string line = f.names.Count > 0 ? f.Names + (f.types > 1 ? "  " + f.Multiplier : "") : $"{(LastSketchy ? "JUMP" : "CLEAN JUMP")} / {DisplayUnits.Jump(distance)} / {sAir:0.00} s";
             if (LastSketchy) line = "SKETCHY LANDING\n" + line;
-            Link(points + jump, line, StuntPark.OnPark(sTakeoff), shortNames.Count > 0 ? string.Join("+", shortNames) : "J"); // 0.107 Part B: took off in the park: counts wherever it lands
+            bool inPark = StuntPark.OnPark(sTakeoff); // 0.107 Part B: took off in the park: counts wherever it lands
+            // 0.120 Part D: took off outside the park with an in-park combo going (a hop down the bank after flying out): it never spoils that combo
+            if (!inPark && race.FreeRoam && StuntPark.Current && ComboLinks > 0 && ComboInPark)
+            {
+                if (StuntEvent.InEvent(car)) { Result("OUTSIDE THE PARK: NOT COUNTED", 3); StuntSay("Outside the park: not counted", 2.5f); return; }
+                EndCombo(null);
+            }
+            Link(f.points, line, inPark, f.shorts.Count > 0 ? string.Join("+", f.shorts) : "J");
         }
         void Link(int points, string line, bool inPark, string trick)
         {
             if (ComboLinks < MaxLinks) ComboLinks++;
             comboTricks.Add(trick);
             ComboPoints += points; ComboInPark &= inPark; sSince = 0;
-            LastStunt = line; LastStuntPoints = points;
-            Message($"{line} / {points:N0} pts" + (ComboLinks > 1 ? $"\nCOMBO x{ComboLinks} · {ComboTotal:N0}" : ""), 3.5f);
+            LastStunt = line; LastStuntPoints = points; Result($"LANDED  +{points:N0}", 1);
+            StuntSay($"{line} / {points:N0} pts" + (ComboLinks > 1 ? $"\nCOMBO x{ComboLinks} · {ComboTotal:N0}" : ""), 3.5f);
         }
         // the end of a combo: banked (points x links), or with a bail
         void EndCombo(string bail)
         {
-            if (ComboLinks <= 0) { if (bail != null) Message("BAILED / " + bail, 3.5f); return; }
+            if (ComboLinks <= 0) { if (bail != null) StuntSay("BAILED / " + bail, 3.5f); return; }
             int total = ComboTotal; bool park = ComboInPark; int links = ComboLinks;
             ComboLinks = ComboPoints = 0; ComboInPark = true; sSince = 0;
             BestCombo = Mathf.Max(BestCombo, total);
@@ -146,9 +184,11 @@ namespace Racer
             if (park && race.FreeRoam && CampaignRun.Active == null && !DeveloperLocationHud.Inspecting && StuntEvent.Counts(car) && (player == 1 || SplitScreen.Active && !SplitScreen.P2Ai))
                 LastComboPlace = StuntProgress.RecordComboTop(SplitScreen.Active ? SplitScreen.NameOf(player) : PlayerNames.Player, configuration.profileId, total, links, LastComboTricks);
             string top = LastComboPlace > 0 ? $"\nNEW TOP 10 COMBO — #{LastComboPlace}" : "";
-            if (bail != null) Message($"BAILED / {bail}\nCOMBO ENDED · x{links} · {total:N0} pts" + top, 4);
-            else if (links > 1) Message($"COMBO x{links} / {total:N0} pts" + top, 3.5f);
-            else if (top != "") Message($"{LastStunt} / {total:N0} pts" + top, 3.5f);
+            if (bail != null) StuntSay($"BAILED / {bail}\nCOMBO ENDED · x{links} · {total:N0} pts" + top, 4);
+            else if (links > 1) StuntSay($"COMBO x{links} / {total:N0} pts" + top, 3.5f);
+            else if (top != "") StuntSay($"{LastStunt} / {total:N0} pts" + top, 3.5f);
+            // 0.120 Part A: the trick panel: the combo banked (its multiplier and points), or the bail that ended it
+            if (bail != null) Result($"BAILED  ·  COMBO x{links} BANKED  +{total:N0}", 2); else if (links > 1 || top != "") Result($"COMBO x{links}  +{total:N0}" + (LastComboPlace > 0 ? $"  ·  TOP 10 #{LastComboPlace}" : ""), 1);
             ComboBanked?.Invoke(total, park);
             // the best single combo in Free Roam (player 1, alone; not the Stunt event)
             if (!SplitScreen.Active && car == race.vehicle && race.FreeRoam && CampaignRun.Active == null && !DeveloperLocationHud.Inspecting) StuntProgress.RecordCombo(total, configuration.profileId);
@@ -157,7 +197,7 @@ namespace Racer
         {
             if (!sFlying) return;
             bool tried = sAir >= MinStuntAir || sTurn.magnitude > 90;
-            sFlying = false; sGround = 0; Bails++; LastBail = why; LastTouchTilt = sTilt;
+            sFlying = false; sGround = 0; Bails++; LastBail = why; LastTouchTilt = sTilt; Result("BAILED", 2);
             if (tried || ComboLinks > 0) EndCombo(why);
         }
         // the first touch of a flight (a wheel or the body): its tilt from upright, and the recovery window starts

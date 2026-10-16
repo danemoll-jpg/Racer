@@ -136,7 +136,7 @@ namespace Racer
         string StuntLine(RacerState me)
         {
             var s=race.stunts?StuntRaceScore.Current:null;if(!s)return "";
-            string flash=s.Flash(me);return "\n"+(flash!=null?"<color=#FFD24D>"+flash+"</color>":s.HudLine(me));
+            return "\n"+s.HudLine(me); // 0.120 Part A: the total stunt points always, then the bonus or the place (for a moment what the last combo earned)
         }
         void LateUpdate()
         {
@@ -148,7 +148,7 @@ namespace Racer
                 if(cameraHint)cameraHint.gameObject.SetActive(false);if(activities)activities.text="";if(medalHolder)medalHolder.gameObject.SetActive(false);if(waypointPanel)waypointPanel.SetActive(false);if(clockPanel)clockPanel.SetActive(false);return;
             }
             display.text=BuildText();display.supportRichText=true;
-            {var panel=(RectTransform)display.transform.parent;float h=(race.Forest||race.reverseCourse?132:108)+(race.stunts&&!race.FreeRoam?26:0);if(Mathf.Abs(panel.sizeDelta.y-h)>.5f)panel.sizeDelta=new(panel.sizeDelta.x,h);} // 0.119: the stunt line
+            {var panel=(RectTransform)display.transform.parent;bool st=race.stunts&&!race.FreeRoam;float h=(race.Forest||race.reverseCourse?132:108)+(st?26:0),w=st?385:300;if(Mathf.Abs(panel.sizeDelta.y-h)>.5f||Mathf.Abs(panel.sizeDelta.x-w)>.5f)panel.sizeDelta=new(w,h);} // 0.119: the stunt line (0.120: wider, for the total points)
             display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible&&!CampaignEventUi.ReplacesRacePanel);UpdateMedals();
             UpdateCameraHint();
             // 0.79 Part B: in Free Roam only what is relevant now: the activity you are at, the attempt, its result, an acorn

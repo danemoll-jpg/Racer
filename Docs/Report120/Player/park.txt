@@ -1,0 +1,12 @@
+screen=1920x1080 kind=park120 version=0.120.0-review1 park=on
+Stunt event alone; trick panel on: True; vehicle stuntbuggy
+  hop: 'CLEAN JUMP / 30.3 ft / 1.32 s' 224 pts; combo x1; panel 'LANDED  +224 / COMBO x1  ·  224  ·  4.9 s'
+  three types: 'BACKFLIP + ROLL  x2', 2448 pts, types 2, turned (-332.71, -1.35, 359.21); combo x2 5344; panel 'LANDED  +2,448 / COMBO x2  ·  5,344  ·  4.8 s'
+  banked: event points 5344, last log 15.3s +5344 (BACKFLIP + ROLL  x2; x2: J · BF+R) Top 10 combo #8
+  same type twice: 'DOUBLE BACKFLIP', 1157 pts, types 1, turned (-720.04, 0.00, -0.01); panel 'LANDED  +1,157 / COMBO x1  ·  1,157  ·  4.8 s'
+  a backflip off the floor by the south fence, out toward Hwy 92: took off at u 60, v 9, 360 degrees turned; first touch by the wheels at 0 degrees from upright (game: 0); landed at u 60, v -22 (outside the park), upright 2 degrees from level -> COUNTED, 709 pts
+      shown: BACKFLIP / 709 pts
+  landed outside the park at u 60, v -22; combo x1 709
+  the hop outside: landed outside the park, 1.9 s after take-off; result 'OUTSIDE THE PARK: NOT COUNTED'; panel 'OUTSIDE THE PARK: NOT COUNTED / COMBO x1  ·  709  ·  3.8 s'; combo x1 709
+  event points 6,501 -> 7,210 (+709); not counted 0 -> 0; log: 27.0s +1157 (DOUBLE BACKFLIP; x1: 2BF) | 38.5s +709 (BACKFLIP; x1: BF)
+  reset (Y) -> 'Recovered in the stunt park' at u 30, v 34, IN the park

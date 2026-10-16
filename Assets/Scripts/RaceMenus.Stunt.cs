@@ -20,7 +20,9 @@ namespace Racer
             if (!keepPlayers) SplitScreen.FromRoam = false;
             StuntPage(keepPlayers);
         }
-        static VehicleProfile[] StuntVehicles => SplitScreen.Vehicles.Where(v => !v.IsPolice).OrderBy(v => v.Stunt ? 0 : 1).ToArray();
+        static VehicleProfile[] StuntVehicles => SplitScreen.Vehicles.Where(v => !v.IsPolice).ToArray(); // 0.120 Part E: the stunt vehicles only
+        // 0.120 Part E: player 1's stunt vehicle is saved as the stunt choice (as a Stunt Race's garage saves it) and is the default next time
+        void RememberStunt(string id) { var p = VehicleProfile.Find(id); if (p.Id == id && p.Stunt && flow.Save.Settings.stuntVehicleId != id) { flow.Save.Settings.stuntVehicleId = id; flow.Save.SaveSettings(); } }
         static string NextStuntVehicle(string id, int d) { var list = StuntVehicles; int i = System.Array.FindIndex(list, v => v.Id == id); return list[((i < 0 ? 0 : i) + d + list.Length) % list.Length].Id; }
         void StuntPage(bool keepPlayers)
         {
@@ -29,7 +31,7 @@ namespace Racer
             if (SplitScreen.P2Device != null && (!SplitScreen.P2Device.added || SplitScreen.P2Device == SplitScreen.P1Device)) SplitScreen.P2Device = null;
             SplitScreen.Mode = SplitScreen.Kind.Stunt; SplitScreen.P2Ai = SplitScreen.Solo;
             // 0.110 Part D: each player's newest driven vehicle the event allows; the stunt buggy for a player who has driven nothing yet
-            if (!keepPlayers) { SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id; SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id; PreselectVehicles(StuntVehicles); }
+            if (!keepPlayers) { SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id; SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id; PreselectVehicles(StuntVehicles); if (StuntVehicles.Any(v => v.Id == flow.Save.Settings.stuntVehicleId)) SplitScreen.P1Vehicle = flow.Save.Settings.stuntVehicleId; }
             if (!StuntVehicles.Any(v => v.Id == SplitScreen.P1Vehicle)) SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id;
             if (!StuntVehicles.Any(v => v.Id == SplitScreen.P2Vehicle)) SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id;
             if (page != "stunt") { pageMemory[RaceFlow.Stage.Ready + "/stunt"] = ("stunt-players", 1f); Navigate("stunt"); } else Show(); // opens on its first row, scrolled to the top (the description and medals in view)
@@ -60,7 +62,7 @@ namespace Racer
                     () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
             }
             string Vehicle(string id) { var p = VehicleProfile.Find(id); return $"{p.Name} ({(p.Stunt ? "stunt " + p.Class.ToLowerInvariant() : p.Class)})"; }
-            Step(n++, "stunt-p1-vehicle", (solo ? "Vehicle:   " : SplitScreen.NameOf(1) + ":   ") + Vehicle(SplitScreen.P1Vehicle), d => { SplitScreen.P1Vehicle = NextStuntVehicle(SplitScreen.P1Vehicle, d); flow.Click(); Show(); });
+            Step(n++, "stunt-p1-vehicle", (solo ? "Vehicle:   " : SplitScreen.NameOf(1) + ":   ") + Vehicle(SplitScreen.P1Vehicle), d => { SplitScreen.P1Vehicle = NextStuntVehicle(SplitScreen.P1Vehicle, d); RememberStunt(SplitScreen.P1Vehicle); flow.Click(); Show(); });
             int vehicleRow = n - 1;
             if (!solo) { Step(n++, "stunt-p2-vehicle", SplitScreen.NameOf(2) + ":   " + Vehicle(SplitScreen.P2Vehicle), d => { SplitScreen.P2Vehicle = NextStuntVehicle(SplitScreen.P2Vehicle, d); flow.Click(); Show(); }); vehicleRow = n - 1; }
             var strip = PreviewStrip("Stunt event vehicles", buttons[vehicleRow].transform.GetSiblingIndex() + 1, 170);

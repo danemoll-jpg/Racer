@@ -190,6 +190,7 @@ namespace Racer
                 CreateCars();
             if (SplitScreen.Active) SplitScreen.Race?.PlayerTwo(); // 0.90 Part D: the rival slot becomes player 2
             StuntRaceScore.Prepare(this); // 0.119 Part B: a Stunt Race's tricks scored (removed in any other race)
+            StuntBumps.Apply(this); // 0.120 Part C: a Stunt Race's bumps (removed in any other race)
             ShowGrid();
             foreach (var r in Racers)
             {

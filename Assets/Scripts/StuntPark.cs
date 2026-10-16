@@ -208,6 +208,7 @@ namespace Racer
         // ---------------------------------------------------------------- materials and colours
         static Material building, lettering; static Font font;
         static Color C(float r, float g, float b, float a = 1) => new(r, g, b, a);
+        public static Color DirtColour => Dirt; // 0.120 Part C: the Stunt Race bumps are the park's dirt (StuntBumps)
         static readonly Color Clay = C(.58f, .35f, .22f), ClayDark = C(.49f, .29f, .18f), Dirt = C(.50f, .33f, .22f), Ply = C(.74f, .60f, .42f), PlyDark = C(.55f, .43f, .29f),
             Gravel = C(.50f, .48f, .45f), BankGrass = C(.36f, .42f, .22f), Tire = C(.07f, .07f, .075f), Steel = C(.70f, .70f, .68f), Red = C(.70f, .14f, .12f), White = C(.90f, .89f, .86f),
             Yellow = C(.93f, .70f, .10f), Black = C(.08f, .08f, .08f), Lamp = C(1f, .95f, .80f, .1f);

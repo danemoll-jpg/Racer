@@ -1,0 +1,4 @@
+screen=1920x1080 kind=probe120 version=0.120.0-review1 park=on
+== probe Mountain Loop - Reverse: Mountain Loop - Reverse (mountain-reverse-v4-natural-summit-merge), line 3031 m, stunts True
+  7 gates, 2 flights (Westbound Gully Flight 2236-2744, South Face Summit Flight 756-1261), 2 shortcuts
+  AI lap: finished True, 122.8 s, recoveries 0

@@ -1,0 +1,228 @@
+{
+ "courses": [
+  {
+   "course": "mountain-forward",
+   "bumps": [
+    {
+     "at": "Kicker 1",
+     "pos": [
+      1170.93,
+      -50.31,
+      144.78
+     ],
+     "yaw": -94.0,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Kicker 2",
+     "pos": [
+      1155.44,
+      147.83,
+      151.97
+     ],
+     "yaw": 65.7,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    }
+   ]
+  },
+  {
+   "course": "mountain-reverse",
+   "bumps": [
+    {
+     "at": "Big kicker 1",
+     "pos": [
+      1014.73,
+      153.27,
+      161.77
+     ],
+     "yaw": 35.6,
+     "width": 4.0,
+     "length": 7.0,
+     "height": 3.0
+    },
+    {
+     "at": "Big kicker 2",
+     "pos": [
+      1208.57,
+      -99.87,
+      132.59
+     ],
+     "yaw": 128.1,
+     "width": 4.0,
+     "length": 7.0,
+     "height": 3.0
+    },
+    {
+     "at": "Kicker 3",
+     "pos": [
+      698.67,
+      -190.11,
+      89.28
+     ],
+     "yaw": 24.3,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    }
+   ]
+  },
+  {
+   "course": "leviathan-forward",
+   "bumps": [
+    {
+     "at": "Big kicker 1",
+     "pos": [
+      430.51,
+      135.81,
+      81.97
+     ],
+     "yaw": 143.1,
+     "width": 4.0,
+     "length": 7.0,
+     "height": 3.0
+    },
+    {
+     "at": "Kicker 2",
+     "pos": [
+      1086.77,
+      130.22,
+      152.0
+     ],
+     "yaw": 85.4,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Kicker 3",
+     "pos": [
+      554.41,
+      -248.81,
+      30.68
+     ],
+     "yaw": 167.9,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Kicker 4",
+     "pos": [
+      405.45,
+      -434.38,
+      37.99
+     ],
+     "yaw": -38.5,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Big kicker 5",
+     "pos": [
+      7.01,
+      -353.92,
+      39.34
+     ],
+     "yaw": -165.5,
+     "width": 4.0,
+     "length": 7.0,
+     "height": 3.0
+    },
+    {
+     "at": "Kicker 6",
+     "pos": [
+      139.08,
+      543.55,
+      9.1
+     ],
+     "yaw": 86.0,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    }
+   ]
+  },
+  {
+   "course": "leviathan-reverse",
+   "bumps": [
+    {
+     "at": "Kicker 1",
+     "pos": [
+      -467.41,
+      -554.93,
+      6.84
+     ],
+     "yaw": 94.0,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Kicker 2",
+     "pos": [
+      -110.78,
+      -583.94,
+      30.01
+     ],
+     "yaw": 87.7,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Big kicker 3",
+     "pos": [
+      182.24,
+      -315.38,
+      44.48
+     ],
+     "yaw": 113.7,
+     "width": 4.0,
+     "length": 7.0,
+     "height": 3.0
+    },
+    {
+     "at": "Kicker 4",
+     "pos": [
+      546.34,
+      -396.77,
+      28.07
+     ],
+     "yaw": 2.3,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Kicker 5",
+     "pos": [
+      1039.51,
+      179.34,
+      157.78
+     ],
+     "yaw": 30.7,
+     "width": 3.6,
+     "length": 4.5,
+     "height": 1.5
+    },
+    {
+     "at": "Big kicker 6",
+     "pos": [
+      468.04,
+      77.45,
+      82.84
+     ],
+     "yaw": -15.2,
+     "width": 4.0,
+     "length": 7.0,
+     "height": 3.0
+    }
+   ]
+  }
+ ]
+}

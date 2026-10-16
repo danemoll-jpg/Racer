@@ -9,7 +9,7 @@ namespace Racer
     // 0.119 Part B: Stunt Races. The same courses as the normal races (Mountain Loop Forward / Reverse, Leviathan Forward / Reverse: routes, gates,
     // shortcuts and in-order rules unchanged), but the player and every rival on stunt vehicles (Clay Hopper, Skywhip 250, any later one), with air
     // steering and the stunt park's landing rules (0.107: a 1.5 s recovery window, a bail only on a real roof or side landing). Scored by finish time
-    // with a trick bonus: each combo banked knocks SecondsPer500 off the race time for every 500 points (capped at CapPerLap a lap, so tricks alone
+    // with a trick bonus: each combo banked knocks SecondsPerStep off the race time for every PointsPerStep points (capped at CapPerLap a lap, so tricks alone
     // never win a race), shown live. Or Split score (0.119 Part C): ranked by finish and by stunt points, 10 / 7 / 5 / 3 / 2 / 1 for each. Rivals do
     // tricks too (RivalTricks). Its own records: the Top 10 boards under "stunt-<course id>" (RaceDirector.RecordCourse), ghosts likewise, and the
     // best combo per course (StuntRaceRecords). Stunt vehicles stay out of every normal race, the other campaign chapters and their records.
@@ -31,12 +31,14 @@ namespace Racer
             var pool = All.Where(p => !p.CupEdition).Select(p => p.Id).ToArray(); int at = UnityEngine.Random.Range(0, pool.Length);
             return Enumerable.Range(0, Mathf.Max(0, count)).Select(i => pool[(at + i) % pool.Length]).ToArray();
         }
-        public const double SecondsPer500 = .5; public const float CapPerLap = 8;
-        public static double Bonus(int points) => Math.Round(points / 500.0 * SecondsPer500, 1);
+        // 0.120 Part B: a flight's points are multiplied by its trick types now, so the rate is a quarter (0.5 s per 2,000 points, was per 500): at
+        // 1,000 a lap of x2 / x3 summit tricks reached the 8 s cap. The cap stays 8 s a lap (tricks alone still never win a race)
+        public const double SecondsPerStep = .5; public const int PointsPerStep = 2000; public const float CapPerLap = 8;
+        public static double Bonus(int points) => Math.Round((double)points / PointsPerStep * SecondsPerStep, 1);
         public const string Rules = "Stunt vehicles only, for you and every rival. Steer in the air: flips, rolls, spins; land on your wheels.";
         public static string ScoringText(bool split) => split
             ? "Split score: ranked by finish and by stunt points; each pays 10 / 7 / 5 / 3 / 2 / 1, the total decides (ties: the better finish)."
-            : $"Trick bonus: every combo landed takes {SecondsPer500:0.0} s off your race time for each 500 points (up to {CapPerLap:0} s a lap).";
+            : $"Trick bonus: every combo landed takes {SecondsPerStep:0.0} s off your race time for each {PointsPerStep:N0} points (up to {CapPerLap:0} s a lap). Each different trick type in one jump raises its multiplier (flip + roll + spin: x3).";
     }
 
     // 0.119 Part B: a Stunt Race's scoring, on the race object while one runs. Every combo banked (the players' by ArcadeActivities, the rivals' by
@@ -77,7 +79,7 @@ namespace Racer
             if (!race || r == null || points <= 0 || closed.Contains(r) || !race.Racers.Contains(r)) return;
             double bonus = race.splitScore ? 0 : Math.Max(0, Math.Min(StuntRace.Bonus(points), Cap - r.Progress.BonusSeconds));
             r.Progress.AddStunt(points, bonus);
-            flash[r] = (race.splitScore ? $"+{points:N0} STUNT PTS" : bonus > 0 ? $"−{bonus:0.0} s TRICK BONUS" : "TRICK BONUS FULL", Time.time + 3);
+            flash[r] = (race.splitScore ? $"+{points:N0}" : bonus > 0 ? $"+{points:N0}  −{bonus:0.0} s" : $"+{points:N0}  (bonus full)", Time.time + 3);
             // the best combo per course (quick Stunt Races only, the human players)
             bool human = r == race.Racers[0] || (SplitScreen.Race && r == SplitScreen.Race.P2 && !SplitScreen.P2Ai);
             if (human && CampaignRun.Active == null && race.Flow && !race.Flow.DebugMovementUsed)
@@ -110,11 +112,16 @@ namespace Racer
         }
         public int StuntPlace(RacerState r) { if (!race) return 0; var t = SplitTable(false); return t.FirstOrDefault(l => l.racer == r)?.stunt ?? 0; }
         // the HUD's line for a racer, and the moment's bonus / points ("−2.5 s TRICK BONUS")
+        // 0.120 Part A: always the race's total stunt points, then the trick bonus so far (or, Split score, the live stunt-point place)
         public string HudLine(RacerState r)
         {
             if (!race || r == null) return "";
-            if (race.splitScore) { var l = SplitTable(false).FirstOrDefault(x => x.racer == r); return $"STUNT  {r.Progress.StuntPoints:N0} pts  ·  {Campaign.Ordinal(l?.stunt ?? 1)}"; }
-            return $"TRICKS  −{r.Progress.BonusSeconds:0.0} s" + (r.Progress.BonusSeconds >= Cap - .05 ? "  (max)" : "");
+            // the points banked and the open combo (it is always banked: when the chain time runs out, on a bail, at the finish), so it rises as tricks land
+            int open = hooks.Where(h => h.racer == r && h.acts).Sum(h => h.acts.ComboTotal);
+            string total = $"STUNT  {r.Progress.StuntPoints + open:N0} pts", flashed = Flash(r);
+            if (flashed != null) return $"{total}  <color=#FFD24D>{flashed}</color>"; // what the last combo earned, for a moment
+            if (race.splitScore) { var l = SplitTable(false).FirstOrDefault(x => x.racer == r); return $"{total}  ·  {Campaign.Ordinal(l?.stunt ?? 1)} in tricks"; }
+            return $"{total}  ·  −{r.Progress.BonusSeconds:0.0} s" + (r.Progress.BonusSeconds >= Cap - .05 ? " (max)" : "");
         }
         public string Flash(RacerState r) => r != null && flash.TryGetValue(r, out var f) && Time.time < f.until ? f.text : null;
         // ---------- the rivals' tricks over them, near a player ----------
@@ -156,6 +163,7 @@ namespace Racer
         public int Tricks { get; private set; }
         public int Bails { get; private set; }
         public int Flights { get; private set; }
+        public int Types { get; private set; } // checks: the most trick types landed in one flight
         public string LastLine { get; private set; } = ""; public float LineUntil { get; private set; } public bool LastBail { get; private set; }
         public string Log { get; private set; } = ""; // checks: each flight's plan and outcome
         // checks only (Report106PlayerCheck stunt119): the player's own vehicle driven by the road AI turns its tricks with this, and the player's
@@ -175,6 +183,10 @@ namespace Racer
             new() { name = "BACKFLIP + 360 SPIN", steps = new[] { (0, -360f), (1, 360f) }, seconds = 3.2f },
             new() { name = "ROLL + 360 SPIN", steps = new[] { (2, 360f), (1, 360f) }, seconds = 3.2f },
             new() { name = "DOUBLE BACKFLIP + 360 SPIN", steps = new[] { (0, -720f), (1, 360f) }, seconds = 4.4f },
+            // 0.120 Part B: more two-type tricks, and three types on the longest flights (x2, x3: ArcadeActivities.Score)
+            new() { name = "BACKFLIP + ROLL", steps = new[] { (0, -360f), (2, 360f) }, seconds = 3.1f },
+            new() { name = "FRONTFLIP + 360 SPIN", steps = new[] { (0, 360f), (1, 360f) }, seconds = 3.2f },
+            new() { name = "BACKFLIP + ROLL + 360 SPIN", steps = new[] { (0, -360f), (2, 360f), (1, 360f) }, seconds = 4.8f },
         };
         public void Initialize(RaceDirector owner, int n) { race = owner; car = GetComponent<ArcadeVehicle>(); slot = n; rng = new System.Random(DriverVariation.Seed * 31 + n * 7919 + 17); }
         public void Bind(RacerState state) => racer = state;
@@ -256,16 +268,12 @@ namespace Racer
             float distance = Vector3.ProjectOnPlane(landing - takeoff, Vector3.up).magnitude;
             if (air < ArcadeActivities.MinStuntAir || distance < ArcadeActivities.MinStuntDistance && Mathf.Abs(turned.y) < 300) return; // a hop
             if (bail && planName != "" && !SteerOnly) { Bailed("bailed the " + planName.ToLowerInvariant()); car.Body.linearVelocity *= .6f; car.Body.angularVelocity += car.transform.forward * 1.2f; return; }
-            int flips = Mathf.RoundToInt(turned.x / 360), rolls = Mathf.RoundToInt(turned.z / 360), spins = Mathf.FloorToInt((Mathf.Abs(turned.y) + 30) / 360);
-            var line = new List<string>(); int points = 0;
-            if (flips != 0) { int n = Mathf.Abs(flips); line.Add((n == 2 ? "DOUBLE " : n >= 3 ? "TRIPLE " : "") + (flips < 0 ? "BACKFLIP" : "FRONTFLIP")); points += ArcadeActivities.FlipPoints * n; }
-            if (rolls != 0) { int n = Mathf.Abs(rolls); line.Add((n == 2 ? "DOUBLE " : n >= 3 ? "TRIPLE " : "") + "ROLL"); points += ArcadeActivities.RollPoints * n; }
-            if (spins > 0) { line.Add(spins * 360 + " SPIN"); points += ArcadeActivities.SpinPoints * spins; }
-            int jump = Mathf.RoundToInt(Mathf.Min(distance, 250) * 10 + Mathf.Min(air, 12) * 100);
-            Tricks += line.Count; if (links < ArcadeActivities.MaxLinks) links++; comboPoints += points + jump; since = 0;
+            var f = ArcadeActivities.Score(turned, false, distance, air); // 0.120 Part B: the player's rule (a multiplier for each trick type)
+            var line = f.names; int points = f.points, jump = 0;
+            Tricks += line.Count; if (links < ArcadeActivities.MaxLinks) links++; comboPoints += points + jump; since = 0; Types = Mathf.Max(Types, f.types);
             names.Add(line.Count > 0 ? string.Join(" + ", line) : "JUMP");
-            if (line.Count > 0) Say(string.Join(" + ", line), false);
-            Log += $"  landed: {(line.Count > 0 ? string.Join(" + ", line) : "no trick")} {points + jump} pts ({distance:0} m, {air:0.0} s)\n";
+            if (line.Count > 0) Say(f.Names + (f.types > 1 ? "  " + f.Multiplier : ""), false);
+            Log += $"  landed: {(line.Count > 0 ? f.Names + (f.types > 1 ? " " + f.Multiplier : "") : "no trick")} {points + jump} pts ({distance:0} m, {air:0.0} s)\n";
         }
         void Bailed(string why)
         {

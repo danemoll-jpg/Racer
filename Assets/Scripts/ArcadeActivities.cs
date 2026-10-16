@@ -26,9 +26,9 @@ namespace Racer
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
-        public string Hud=>CampaignEventHidesHud?"":Stunted(CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashLine:"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:""));
+        public string Hud=>CampaignEventHidesHud?"":Stunted(CampaignHud(Time.time<feedbackUntil&&!(feedbackStunt&&TrickBox)?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashLine:"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:""));
         // 0.106 Part B: the open combo under the other lines (not while its own line is showing)
-        string Stunted(string line){var s=StuntHud;if(string.IsNullOrEmpty(s)||Time.time<feedbackUntil&&Feedback!=null&&Feedback.Contains("COMBO"))return line;return string.IsNullOrEmpty(line)?s:line+"\n"+s;}
+        string Stunted(string line){var s=TrickBox?"":StuntHud;if(string.IsNullOrEmpty(s)||Time.time<feedbackUntil&&Feedback!=null&&Feedback.Contains("COMBO"))return line;return string.IsNullOrEmpty(line)?s:line+"\n"+s;}
         // 0.96 Part A: a campaign jump / speed trap / smash event shows its own panel and attempt banner (CampaignEventUi), not
         // these lines
         static bool CampaignEventHidesHud=>CampaignRun.Active!=null&&CampaignRun.Active.Kind!=CampaignEventKind.Race&&CampaignRun.Active.Kind!=CampaignEventKind.TimeTrial;
@@ -220,7 +220,7 @@ namespace Racer
             if(!StuntLines)Message(site.title+" / "+measurement+"\n"+(improved?"NEW BEST":"personal best retained")+(site.kind==ActivitySite.Kind.Jump?$" / {LastAirtime:0.00}s / {Mathf.RoundToInt(value*10+LastAirtime*100)} pts":""),6);LastMedal=medal;ResultValue=Measurement(site,value);
             try{AtomicSave.Write(path,JsonUtility.ToJson(Results,true));}catch(Exception e){Message("Activity result could not be saved: "+e.Message,6);}
         }
-        void Message(string value,float seconds){Feedback=value;feedbackUntil=Time.time+seconds;LastMedal=-1;}
+        void Message(string value,float seconds){Feedback=value;feedbackUntil=Time.time+seconds;LastMedal=-1;feedbackStunt=false;}bool feedbackStunt;
         // 0.119 Part B: in a Stunt Race the trick lines are the jumps' lines (a jump site's own result line would cover them)
         bool StuntLines=>race&&race.stunts&&!race.FreeRoam;
         void OnDestroy(){BreakableProp.BrokenByVehicle-=Smash;if(car&&car.TryGetComponent<VehicleRespawn>(out var respawn))respawn.Respawned-=Recovered;}

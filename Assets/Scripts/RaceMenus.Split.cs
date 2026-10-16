@@ -136,7 +136,7 @@ namespace Racer
             var allowed = SplitScreen.Vehicles; if (allowed.Length == 0) return;
             string Fix(string id, string fallback) => allowed.Any(p => p.Id == id) ? id : allowed.Any(p => p.Id == fallback) ? fallback : allowed[0].Id;
             bool stunt = SplitScreen.Mode == SplitScreen.Kind.Race && SplitScreen.StuntRace;
-            SplitScreen.P1Vehicle = Fix(SplitScreen.P1Vehicle, stunt ? VehicleProfile.StuntBuggy.Id : "original"); SplitScreen.P2Vehicle = Fix(SplitScreen.P2Vehicle, stunt ? VehicleProfile.StuntBuggy.Id : "atv");
+            SplitScreen.P1Vehicle = Fix(SplitScreen.P1Vehicle, stunt ? flow.Save.Settings.stuntVehicleId : "original"); // 0.120 Part E: the saved stunt choice SplitScreen.P2Vehicle = Fix(SplitScreen.P2Vehicle, stunt ? VehicleProfile.StuntBuggy.Id : "atv");
         }
         // The next name used before on this PC (not the other player's).
         static string NextKnownName(string current, int d, string other)

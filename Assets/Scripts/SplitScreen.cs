@@ -91,7 +91,8 @@ namespace Racer
         public static bool LeftRight => Hints.Flow && Hints.Flow.Save != null && Hints.Flow.Save.Settings.splitLeftRight;
         // Every vehicle except the acorn reward, which joins once earned; every course.
         // 0.106 Part C: the stunt vehicles in Free Roam for two and the Stunt event only
-        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.LockedInSplit(p) && (Mode == Kind.Race && StuntRace ? p.Stunt : !p.Stunt || Mode == Kind.FreeRoam || Mode == Kind.Stunt)).ToArray();
+        // 0.120 Part E: a Stunt Race and the Stunt event (the park): the stunt vehicles only
+        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.LockedInSplit(p) && (Mode == Kind.Race && StuntRace || Mode == Kind.Stunt ? p.Stunt : !p.Stunt || Mode == Kind.FreeRoam)).ToArray();
         // 0.119 Part B: a split-screen Stunt Race (Race type on the setup screen): the stunt vehicles only, on the Stunt Race courses; SplitScore: its scoring
         public static bool StuntRace, SplitScore;
         public static string DeviceName(InputDevice d) => d == null ? "—" : d is Keyboard ? "Keyboard" : d is Gamepad g ? "Controller " + (Gamepad.all.ToList().IndexOf(g) + 1) : d.displayName;

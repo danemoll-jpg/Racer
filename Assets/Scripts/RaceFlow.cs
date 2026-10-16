@@ -128,7 +128,7 @@ namespace Racer
             CameraViews.Attach(this); TrailerMode.Attach(this); NameTags.Attach(this);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
-            AcornBanner.Attach(this);CampaignEventUi.Attach(this);UnlockNotice.Pending.Clear();UnlockNotice.Showing=null;UnlockNotice.Missed(Save); // 0.95 Part F
+            AcornBanner.Attach(this);CampaignEventUi.Attach(this);TrickHud.Attach(this);/* 0.120 Part A */UnlockNotice.Pending.Clear();UnlockNotice.Showing=null;UnlockNotice.Missed(Save); // 0.95 Part F
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
             Hints.Flow=this;gameObject.AddComponent<HintWatch>().Initialize(this);
             LockVehicle(true);

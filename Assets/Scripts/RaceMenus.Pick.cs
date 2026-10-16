@@ -111,13 +111,16 @@ namespace Racer
         string NotAllowed(VehicleProfile p)
         {
             if (pickCup) return "Not for this championship: some of its courses are for motorcycles and ATVs only";
+            if (p.Stunt && VehicleUnlocks.Locked(p)) return "Locked: " + VehicleUnlocks.LockedTextFor(p); // 0.120 Part E: a stunt vehicle not yet earned
             var e = CampaignData.Find(campaignEvent); if (e == null) return "";
             if (!e.Allows(p)) return "Not for this event: " + e.Entry.ToLowerInvariant();
             return "Not for this event: " + e.CourseTitle + " is for motorcycles and ATVs only";
         }
         void RenderVehiclePick()
         {
-            var allowed = PickAllowed; var owned = VehicleProfile.All.Where(v => !v.Reward && (Campaign.Testing || Campaign.Owns(v.Id))).OrderBy(v => allowed.Contains(v) ? 0 : 1).ToArray();
+            // 0.120 Part E: a Stunt chapter event's garage: only the stunt vehicles (the earned ones to choose, the others as locked silhouettes)
+            bool stunt = !pickCup && CampaignData.Find(campaignEvent)?.Stunt == true;
+            var allowed = PickAllowed; var owned = (stunt ? StuntRace.All : VehicleProfile.All.Where(v => !v.Reward && (Campaign.Testing || Campaign.Owns(v.Id)))).OrderBy(v => allowed.Contains(v) ? 0 : 1).ToArray();
             if (owned.Length == 0) { BackPage(); return; }
             var p = owned.FirstOrDefault(v => v.Id == pickVehicle) ?? owned[0]; pickVehicle = p.Id; int at = System.Array.IndexOf(owned, p); bool ok = allowed.Contains(p);
             string what = pickCup ? CampaignData.FindCup(campaignCup)?.Name : CampaignData.Find(campaignEvent)?.Name;
@@ -130,12 +133,12 @@ namespace Racer
             if (!ok) Silhouette(previewRoot.transform);
             previewLock = ok ? null : NotAllowed(p); FramePreview(p); ShowPreviewLock();
             void StepPick(int d) { pickVehicle = owned[(at + d + owned.Length) % owned.Length].Id; flow.Click(); Show(); }
-            Step(0, "pick-vehicle", $"{p.Name}   ·   {at + 1} of {owned.Length}" + (ok ? "" : "   ·   not allowed"), StepPick);
+            Step(0, "pick-vehicle", $"{p.Name}   ·   {at + 1} of {owned.Length}" + (ok ? "" : stunt ? "   ·   locked" : "   ·   not allowed"), StepPick);
             if (!ok) buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.62f, .66f, .66f);
             ShowGarageStats(p, Campaign.Testing ? null : p.Id);
             Step(1, "pick-colour", "Color:   " + (p.CupEdition ? "Cup livery" : scheme < 0 ? "Factory" : VehiclePaint.Name(scheme)), d => { if (p.CupEdition) return; // 0.111: a Cup edition keeps its livery
                 int i = VehicleProfile.IndexOf(p.Id); if (i >= 0) { flow.Save.Settings.bodyColors[i] = VehiclePaint.Next(scheme, d); flow.Save.SaveSettings(); } flow.Click(); Show(); });
-            Row(2, "pick-use", ok ? "USE THIS VEHICLE" : "NOT ALLOWED HERE", () => { campaignVehicle = p.Id; BackPage(); });
+            Row(2, "pick-use", ok ? "USE THIS VEHICLE" : stunt ? "LOCKED" : "NOT ALLOWED HERE", () => { campaignVehicle = p.Id; RememberStunt(p.Id); BackPage(); });
             var colors = buttons[2].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[2].colors = colors; buttons[2].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; buttons[2].interactable = ok;
             Row(3, "pick-shop", "Shop…   (" + Campaign.Money(Campaign.Current.money) + ")", () => { shopToPick = true; shopFromCampaign = false; shopVehicle = p.Id; flow.OpenGarage(); page = "shop"; pages.Clear(); Show(); });
             Row(4, "pick-back", "Back", () => BackPage());
@@ -226,7 +229,7 @@ namespace Racer
         void PickStep(int player, int d, int what)
         {
             if (player == 1 ? pickReady1 : pickReady2) return;
-            if (what == 0) { if (player == 1) SplitScreen.P1Vehicle = NextSplitVehicle(SplitScreen.P1Vehicle, d); else SplitScreen.P2Vehicle = NextSplitVehicle(SplitScreen.P2Vehicle, d); }
+            if (what == 0) { if (player == 1) { SplitScreen.P1Vehicle = NextSplitVehicle(SplitScreen.P1Vehicle, d); RememberStunt(SplitScreen.P1Vehicle); } else SplitScreen.P2Vehicle = NextSplitVehicle(SplitScreen.P2Vehicle, d); } // 0.120 Part E
             else { if (player == 1) SplitScreen.P1Color = VehiclePaint.Next(SplitScreen.P1Color, d); else SplitScreen.P2Color = VehiclePaint.Next(SplitScreen.P2Color, d); }
             flow.Click(); Show();
         }

@@ -165,7 +165,8 @@ namespace Racer
         // fresh run uses only what was driven in it.
         string PickVehicle(VehicleProfile[] list)
         {
-            if (list.Length > 0 && !list.Any(p => p.Id == campaignVehicle)) campaignVehicle = Campaign.Fresh ? Campaign.DefaultVehicle(list) : RecentVehicles.Pick(1, list);
+            // 0.120 Part E: a Stunt chapter event starts on the saved stunt choice
+            if (list.Length > 0 && !list.Any(p => p.Id == campaignVehicle)) campaignVehicle = list.All(p => p.Stunt) && list.Any(p => p.Id == flow.Save.Settings.stuntVehicleId) ? flow.Save.Settings.stuntVehicleId : Campaign.Fresh ? Campaign.DefaultVehicle(list) : RecentVehicles.Pick(1, list);
             return campaignVehicle;
         }
         // The vehicle row: left / right steps through the allowed vehicles; A opens the garage view to choose (with the
@@ -173,7 +174,7 @@ namespace Racer
         void VehicleStepper(int row, VehicleProfile[] list, string empty, bool cup, string prize = null)
         {
             int at = System.Array.FindIndex(list, p => p.Id == campaignVehicle);
-            void StepVehicle(int d) { if (list.Length == 0) return; campaignVehicle = list[((at < 0 ? 0 : at) + d + list.Length) % list.Length].Id; flow.Click(); Show(); }
+            void StepVehicle(int d) { if (list.Length == 0) return; campaignVehicle = list[((at < 0 ? 0 : at) + d + list.Length) % list.Length].Id; RememberStunt(campaignVehicle); flow.Click(); Show(); }
             var v = VehicleProfile.Find(campaignVehicle);
             Step(row, "event-vehicle", list.Length == 0 ? empty : $"Vehicle:   {v.Name}" + (Campaign.Upgraded(v.Id) ? "  (upgraded)" : "") + "   ·   A: garage", StepVehicle, list.Length == 0 ? null : () => OpenVehiclePick(cup));
             if (list.Length == 0 && prize == null) return;

@@ -1,0 +1,3 @@
+screen=1920x1080 kind=clip120 version=0.120.0-review1 park=on
+== clip: bump 1 'Kicker 1' on Mountain Loop - Forward: lip 1170.9,144.78,-50.3 yaw -94, 1.5 m over 4.5 m; run-up from 1230.8,141.44,-46.1 at 24 m/s
+  flown True: 'BACKFLIP' 879 pts, types 1, result 'LANDED  +879'; 192 frames

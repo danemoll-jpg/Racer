@@ -1,0 +1,4 @@
+screen=1920x1080 kind=probe120 version=0.120.0-review1 park=on
+== probe Mountain Loop - Forward: Mountain Loop - Forward (mountain-forward-v5-supported), line 2760 m, stunts True
+  7 gates, 2 flights (Eastbound Gully Flight 195-742, Homeward Summit Flight 1908-2488), 2 shortcuts
+  AI lap: finished True, 112.6 s, recoveries 0
