@@ -27,7 +27,50 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## Previous delivery — Leviathan Forward Stunt Race: rivals driving in circles at CP 44 (Hwy 92) — target 0.121.0-review1 — DELIVERED as 0.121.0-review1 (build 121000, local build), awaiting Dan's review
+## CURRENT — Woodstock Rush 1.0: the finished game, published; then the trailer, filmed and cut — target 1.0.0 — NOT STARTED
+
+Dan (2026-10-16, 01:12): "I am ready to finish this one up and just come back when I see bugs or want to add something. Lets call this 1.0 and go ahead and create the trailer." 0.121 is accepted; there are no new debug reports. This round makes **no gameplay, world or balance changes**. Part A is the release, Part B the trailer (the former QUEUED section, folded in here).
+
+### Part A — Version 1.0.0, published
+1. **Version 1.0.0** (no "-review" suffix). Pick a build number above 121000 that the updater orders after it, and say which. Everything that shows the version (main menu, debug HUD, launcher, results log, debug reports) reads 1.0.0.
+2. **Publish:** this round says "publish", so run the full release as before 2026-10-15: GitHub release in `woodstock-rush-releases` (Latest, earlier releases kept), the hosted download, signature and file-by-file checks, and the production updater at the 1.0.0 build. `Play-Racer.cmd` launches 1.0.0, and Dan's settings and both campaign saves are untouched (byte for byte).
+3. **Housekeeping, no game changes:** delete leftover temporary editor tools from `Assets/Editor` (`Report097Temp`, `Report098Temp` and any other `Report*Temp`) when no build uses them, and list what was removed. Leave `Assets/_Recovery/` alone and say whether Dan can delete it.
+4. **Keep the debug tool, hidden** (Dan, 2026-10-16 01:14: "Lets keep the debug just keep it hidden. So i can access it if I find something"). The debug tool stays in 1.0 and works exactly as now: F3 mode, F4 capture, the F6 debug menu, sessions that survive quitting, export to ZIP, and reports in `DebugReports`.
+   - **Hidden by default:** every launch starts with debug mode off, whatever it was when the game was last closed. Nothing debug-related shows on screen, in the menus, on the loading screens or in the trailer: no debug panel, no "F3 / F4" hints, no Debug rows in Settings.
+   - **Still reachable:** the same keys turn it on (F3), and nothing else changes. An OPEN session is still resumed when debug mode is turned on.
+   - Don't list it in any player-facing help or controls screen.
+   - **Check:** launch 1.0.0: no debug UI anywhere. Press F3: the panel shows, F4 makes a report into the open session, F6 opens the menu. Quit and relaunch: hidden again, and the session is still open.
+5. **TODO:** after the release, this file's top says the game is at 1.0 and in maintenance. New rounds come from Dan's bug reports or new ideas, and the standing rules stay as they are.
+- **Check:** the published build launches through `Play-Racer.cmd`, its main menu shows 1.0.0 with no debug UI, and one quick race starts and finishes.
+
+### Part B — The trailer, filmed and cut by Code (tools and output only)
+Dan (2026-10-13, 19:57): "I think I am going to add the video making back to the list. It is difficult for me to make it look good, especially with some of the camera angles suggested." Dan (2026-10-16): "go ahead and create the trailer." This reverses 0.98's "stop filming until Dan confirms". Lessons from 0.97 Part C (clips discarded): the footage showed broken things (the storm drain), and filming must never change the game or the world.
+
+1. **The plan is `Docs/Trailer/shot-list.md`** (2026-10-12: 20 shots plus split-screen S1–S3, about 65 s; the Project copy is the same). The game gained a lot after it was written, so **replace up to 3 of the weaker shots** with the new features. Keep the total at about 65–75 s, and add each new shot to `shot-list.md` (marked "added 1.0"):
+   - Leviathan's summit flight;
+   - a Stunt Race with rivals tricking in the air (a BACKFLIP + ROLL);
+   - the new rider look (hands, hair) in a close chase shot.
+   For a shot that can't be made exactly as written, use the closest one that looks good and say why.
+2. **Capture** with the 0.97 offline method (`Tools/Report097/Run-Trailer.ps1` and its capture mode, in a development build of 1.0.0 only, never in the released menus):
+   - fixed 60 fps rendering, every frame at full quality, 3840×2160 if it renders, otherwise 2560×1440;
+   - real slow motion (more frames), never stretched;
+   - game sound recorded: engines (other vehicles too), sirens, radio voices, rain, thunder; the in-game radio music off;
+   - HUD off, except S1–S3 (HUD on, both views);
+   - the same rider look and vehicle colors throughout;
+   - the game's own scenes as they are. **No world changes for filming.** If something looks wrong on camera (a bump, a floating sign, a seam), don't hide it: list it with its position for Dan as a bug and pick another angle.
+3. **Each shot** is its own clip, a few seconds longer than the edit needs, with three takes of anything with a jump: `Trailer/Clips/NN-name.mp4` (S1–S3 as `S1-…`). Make a **contact sheet** (`Trailer/contact-sheet.jpg`: three frames per clip, labeled) so Dan can review fast.
+4. **First cut** in shot-list order and timing:
+   - `Trailer/WoodstockRush-trailer-v2.mp4` (game sound) and `-silent.mp4` (for music);
+   - the title "Woodstock Rush" over the last shot, and the end card is the cover art;
+   - simple cuts and short fades, nothing flashy;
+   - no music added (Dan picks a licensed track). If Dan has put one in `Trailer/Music/`, make a third version with it, mixed under the game sound.
+5. Close every player and editor started. Commit nothing to git except the scripts and the shot list. The 1.0.0 release and Dan's saves stay untouched.
+- **Deliver:** the contact sheet and the cut first; a list of any shot that didn't match the plan and any bug seen on camera.
+
+### Results
+Short (at most about 20 lines): the version, build and release links; what housekeeping removed; the trailer files; "For Dan to check".
+
+## Previous delivery — Leviathan Forward Stunt Race: rivals driving in circles at CP 44 (Hwy 92) — target 0.121.0-review1 — DELIVERED as 0.121.0-review1 (build 121000, local build), awaiting Dan's review — REVIEWED BY DAN (accepted; the game is called 1.0)
 
 Dan's report: session `2026-10-15_15-52-55-667_6d34cd` (now CLOSED and exported as `…_6d34cd_1615a117.zip` in `DebugReports`). BUG-001 to BUG-004 were done in 0.119; **only BUG-005 is new** (on 0.120). **Look at its screenshot first.**
 
@@ -213,100 +256,9 @@ Version 0.119.0-review1, local build only (2026-10-15 rule; no GitHub release). 
   - Your save shows "CAMPAIGN UPDATED: Chapter 5: Stunt is open" once.
 - **Release:** local build only (2026-10-15 rule; no GitHub release). Built fresh from `b461caca` (pushed), 0 errors ([build-release.txt](Docs/Report119/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/119000`, 118000 kept as the previous ([runtime-identity.json](Docs/Report119/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.119.0-review1; your settings restored byte for byte, campaign saves untouched ([play-racer-launch.json](Docs/Report119/play-racer-launch.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 214.1 GB.
 
-## Previous delivery — Leviathan: remove the two ROAD CLOSED barricades Dan called out, smooth Kyle's hill, guide with more gates instead of arrow boards, the Reverse lake out-and-back; Chastain Rush's updated hands and hair styles — target 0.118.0-review1 — DELIVERED as 0.118.0-review1 (build 118000, local build), awaiting Dan's review — REVIEWED BY DAN (4 reports; follow-ups in 0.119)
-
-Dan's report `2026-10-15_10-07-01-350_18f9c1` (0.117, Leviathan Forward lap 1 and Reverse laps 1–2, Drifter Twin; in `DebugReports`). Dan (10:38): "things are mostly ok. Fix these and I want to add the updated hands and hair styles from the Chastain Rush game that was added there." **Read the 4 screenshots first.** Parts A–C apply to the Leviathan races only (Free Roam and every other course unchanged). The standing rules apply, including "World changes only where Dan pointed" and the 0.97 rule: "I would rather manage where the signs are needed than rely on it to put crap wherever."
-
-### Part A — Remove only the two barricades Dan called out
-0.117 Part A had a script close the ways that meet the course (26 Forward, 33 Reverse). Dan (10:38): "unnecessary … why would this be blocked?" Then (10:47): "At this point just leave the road closed signs in except for the ones I specifically called out. Some of those actually kind of helped, for example the one on the forward track made it more clear which way to go."
-1. **Remove exactly two closures**, the fence and sign together at each:
-   - **BUG-001**, Forward, X=1185.99 Z=192.54, heading 170°: the fence and ROAD CLOSED sign in the open field. The gray blank board beside it also goes if it came with 0.116 or 0.117.
-   - **BUG-002**, Reverse, X=−611.04 Z=−492.14, heading 155°, near the church: the fence across the dirt way ahead.
-2. **Every other 0.117 closure stays exactly as it is.** Do not re-audit them, and do not add new ones.
-3. **Check:** one shot at each spot, after the change.
-
-### Part A2 — Smooth Kyle's hill
-Dan: "Can we smooth out Kyle's hill to make this easier to traverse. It is kind of awkward for me as well." This is the 0.117 link from Kyle's driveway up the grass bank behind the garage to the lake path's west side. It is Forward CP 3 and Reverse CP 14, and the 0.117 notes say it is steep for 4 m. One rival got stuck there.
-   **Where:** Kyle's driveway is around X≈480–500, Z≈−17 to −21 (0.117 BUG-002 / BUG-011 / BUG-014). The bank is the 30 m race-only link that 0.117's `splice.py` built from the end of the drive to the lake path, with top-downs in `Docs/Report117/Probe/`. Forward climbs it heading roughly east; Reverse comes down it.
-1. **Make the climb an even, gentle slope** from the end of Kyle's drive to the lake path:
-   - no step, lip or sudden pitch change;
-   - no steeper than the steepest stretch of the Street Loop road;
-   - wide enough for two vehicles side by side;
-   - joined smoothly at both ends.
-   Dan asked for this, so it is the one terrain change allowed this round, on this spot only. Kyle's house, garage and the rest of the yard stay unchanged.
-2. **Keep it race-only if possible**, as the 0.117 link is. If smoothing it needs the scene's terrain changed, change only that bank, and only in the scene that has it (MountainLoop / MountainLoopReverse). Say which in the results.
-3. **Nothing floats and nothing is buried:**
-   - trees, fence and garage stay on the new ground;
-   - the gate at the top stands on its new ground;
-   - resets on the hill put you on the slope, facing the course.
-4. **Check:**
-   - one first-person clip each way up/down the hill at racing speed (the Drifter Twin, as Dan drives);
-   - one AI race of that stretch with the vehicle types that use it, including the fastback that got stuck in 0.117: none stuck, no resets there.
-
-### Part B — Guide with gates, not arrow boards (Reverse lake out-and-back)
-Dan's two reports:
-- **BUG-003**, Reverse lap 2, X=696.87 Z=11.48, heading 120°, next CP 16: "this is still confusing, even got a sign telling me I was going the wrong way. Let's use more CP as opposed to adding more arrow signs. All the arrow signs are what makes it confusing."
-- **BUG-004**, Reverse lap 2, X=700.44 Z=12.79, heading 324°, next CP 20, at the same spot on the way back: "going back isn't clear either."
-
-1. **Arrow boards out, gates in.** On Leviathan (both directions), remove the 0.116 and 0.117 race-only arrow boards. Keep the chevrons only where the turn is a real road corner. Then add gates so that **from every gate, the next one is in view** as you leave it, and every turn the course makes off a road has a gate in or just past the turn. Use more gates rather than signs. Gates count in order, as now.
-2. **The Reverse lake out-and-back** (CP 16 out, CP 20 back, X≈697–700 Z≈11–13):
-   - the way out (toward CP 16) and the way back (toward CP 20) are each marked by their own gates, close enough together that you never have to guess;
-   - where the out and back lines cross or share road, the only gate drawn is the next one (the 0.116 rule), so the gate you see is always the one you need.
-3. **No wrong-way warning on the course line.** Find out why one showed near BUG-003 while Dan was driving the course. On Leviathan, wrong-way must be judged against Leviathan's own line, on the pass of the lap he is on (as 0.117 did for the guide), never against the Mountain Loop road nearest to him.
-4. **Check:** one recording, Reverse, from CP 14 to CP 21, driven along the course. It shows each next gate in view and no wrong-way warning. Add one shot at each of Dan's two spots. Forward: one list of the gates added and the boards removed (no recording needed).
-5. Gates added change the courses, so the course ids move on (`leviathan-forward-v3` / `leviathan-reverse-v4`) and records start again, as in 0.117.
-
-### Part C — Chastain Rush's updated hands and hair styles
-Dan: "I want to add the updated hands and hair styles from the Chastain Rush game that was added there." Chastain Rush is Dan's sequel project on this PC: `C:\Users\danmo\chastain_rush`, and also `chastain_rush_r7`.
-1. **Find them first.** Work out which of the two folders is current: its git log and its own TODO / CLAUDE.md. Then find the change that updated the rider **hands** and the **hair styles**: commit(s), scripts, meshes or Blender scripts, materials, textures. Write a short note in the results: where they came from (folder and commit), what the new hands are, and the list of hair styles. **Only read Chastain Rush.** Never change, build or commit anything in it, and leave its open editors alone.
-2. **Port into Woodstock Rush:**
-   - the new **hands** replace the current first-person and rider hands (the ones on the handlebars and the wheel in Dan's screenshots), for every vehicle pose: car wheel, motorcycle bars, Dirt pose, stunt vehicles, police bike;
-   - the new **hair styles** are added to the garage Rider page's **Hair** row next to the current ones (same hair colors, including Gray).
-   Use Woodstock Rush's own materials and render setup, so nothing shows pink or unlit. Only the hands and hair: nothing else from Chastain Rush.
-3. **Saves keep working.** Hair is saved by index, so existing styles keep their indexes and the new ones go on the end. Dan's saved rider (and player 2's) must look the same after the update, except for the new hands. The hands and hair also apply to the rivals and the trailer capture's rider look.
-4. **Checks:**
-   - one first-person shot each: car, motorcycle, stunt bike;
-   - one chase-view shot of the rider;
-   - the garage Rider page with the controller only (Hair row through every style, B back), and one shot per new hair style;
-   - Dan's settings and saves loaded unchanged.
-   Hands sit on the grips and wheel with no gaps or clipping at rest and at full steer.
-
-### Part D — Release
-Version 0.118.0-review1. Run the usual build and release; close everything you started; leave no background task running. Write a short result list, as the standing rules say.
-
-### Results (2026-10-15, Claude Code)
-- Checkpoint `12359cd3`. Evidence [Docs/Report118/](Docs/Report118/); course files made by [Tools/Report118/py/run-all.sh](Tools/Report118/py/run-all.sh). Course ids `leviathan-forward-v3` / `leviathan-reverse-v4` (records start again).
-- **A:** only Dan's two closures removed: Forward's fence and ROAD CLOSED at (1189.5, 186.2) (the gray board was its second sign's back) and Reverse's fence at (−606.6, −506.3). Every other closure kept. Shots: `Shots/spot-A-BUG-00*.jpg`.
-- **A2:** Kyle's bank is one even 25 % slope with a 3 m ease at the foot and a 9 m rounded top (a car stays on the ground to about 40 mph), 9 m wide, sides blended in ([bank.txt](Docs/Report118/bank.txt)). The steepest Street Loop stretch measured the same way is 28 %; 0.117 had 34 %. It is race only: the ground tile's vertices are set when a Leviathan race loads, so Free Roam and the other courses keep the scene's ground; the trees on the bank move with it. Checks: [first-person clips](Docs/Report118/Clips/) up and down with no hop on the bank; AI races both ways (12 rivals, fastback included) with none stuck or reset on the bank; resets on the hill land on the slope, facing the course ([Player/](Docs/Report118/Player/)).
-- **B:** arrow boards removed (11 Forward, 12 Reverse). Chevrons kept only at road-to-road corners (13 / 10). Gates 26→45 Forward, 24→45 Reverse: the next gate is in view from each one, there is a gate at every turn off a road, and none stands on a jump ([gates-and-boards.md](Docs/Report118/gates-and-boards.md)).
-- **B, wrong way:** not reproduced. Likely cause: on the lake out-and-back both passes share a road 1.5 m apart, and three code paths in `WrongWayGuidance` could take the other pass's station (after a reset or a big position jump, when finding the line again off the road, in a shortcut fallback). That reads as driving backwards. It now uses the racer's own pass, as the guide has since 0.117. Checks: [rec-R-cp14-cp21.mp4](Docs/Report118/Clips/rec-R-cp14-cp21.mp4) (0 warnings, 0 missed gates); ±3 m lanes and resets on both passes, 0 warnings.
-- Gates built for the course now stand on the ground at the course line's height, with posts reaching the ground. Kyle's driveway gate floated 0.85 m, and Reverse CP 8 sat on the trailer ramp.
-- **C:** from `chastain_rush` commit `4e4cd51` (`rider.py`). Closed hands round the grips and wheel in every pose; Mohawk, Crew cut, Spiky, Buzz and Curly added after Bald (indexes 5–9); `Rider.fbx` regenerated with 0 split errors. Checks: first-person car, moto and stunt bike, the chase view and each new style ([Shots/](Docs/Report118/Shots/)); the Rider page by controller only (Hair through every style, B back); Dan's saved look unchanged ([rider.txt](Docs/Report118/Player/rider.txt)).
-- **Decisions:**
-  - Chastain's remodeled Short and Medium were not taken, because Dan's rider wears Medium and must look the same.
-  - Random looks still draw from the old five styles, so player 2 and the rivals look as before, now with the new hands.
-  - The bank keeps 0.117's S-shaped line; the heights of the drive pad and the lake path set the 25 %.
-- **Release:** local build only (2026-10-15 rule; no GitHub release). Built fresh from `4409c8a5` (pushed), 0 errors ([build-release.txt](Docs/Report118/build-release.txt)). Signed locally and activated by the existing updater: `Builds/Latest` runs `versions/118000`, with 117000 kept as the previous build. The published catalog is still 117000, so the launcher keeps 118000. `Play-Racer.cmd` (unchanged) launched 0.118.0-review1, and Dan's settings were restored byte for byte ([play-racer-launch.json](Docs/Report118/play-racer-launch.json)). Cleanup: Builds 12.47 → 8.34 GB, C: free 217.0 GB.
-- **For Dan to check:**
-  - The hill at speed, and the sharp turn onto the pad at its foot.
-  - The 45 gates' placement.
-  - Rivals still reset at the lake-shore → CR110 turn, as in 0.117; once an ATV looped there.
-  - BUG-002's dirt way is still closed at its other end, 49 m on.
-  - The street-to-Kyle's-driveway drop (unchanged) throws a fast car 0.8 s.
-  - A hat hides the top of the new styles.
-
-## QUEUED — The trailer, filmed and cut by Code — target: no game version (tools and output only) — NOT STARTED (run last: after 0.113 and 0.114 are delivered and Dan says the game looks right; Claude (chat) promotes it)
-
-Dan (2026-10-13, 19:57): "I think I am going to add the video making back to the list. It is difficult for me to make it look good, especially with some of the camera angles suggested." This reverses 0.98's "stop filming until Dan confirms"; Dan confirms by asking. Lessons from 0.97 Part C (clips discarded): footage showed broken things (the storm drain); filming must never change the game or the world.
-1. **The plan is `Docs/Trailer/shot-list.md`** (2026-10-12: 20 shots + split-screen S1–S3, about 65 s; the Project copy is the same). Shots that can't be made exactly as written: the closest that looks good, and say why.
-2. **Capture** with the 0.97 offline method (`Tools/Report097/Run-Trailer.ps1` and its capture mode, development build only, never in the release menus): fixed 60 fps rendering, every frame at full quality, 3840×2160 if it renders, otherwise 2560×1440; real slow motion (more frames), never stretched; game sound recorded (engines, now with other vehicles' 0.113 sounds, sirens, radio voices, rain, thunder); in-game radio music off. HUD off except S1–S3 (HUD on, both views). Same rider look and vehicle colors throughout. The game's own scenes as they are: **no world changes for filming**; if something looks wrong on camera (a bump, a floating sign, a seam), don't hide it: list it with its position for Dan as a bug and pick another angle.
-3. **Each shot** its own clip, a few seconds longer than the edit needs, three takes of anything with a jump; `Trailer/Clips/NN-name.mp4` (S1–S3 as `S1-…`). A **contact sheet** (`Trailer/contact-sheet.jpg`: three frames per clip, labeled) so Dan can review fast.
-4. **First cut** in shot-list order and timing: `Trailer/WoodstockRush-trailer-v2.mp4` (game sound) and `-silent.mp4` (for music); title "Woodstock Rush" over shot 20, end card = the cover art; simple cuts and short fades, nothing flashy. No music added (Dan picks a licensed track); if Dan provides one in `Trailer/Music/`, a third version with it, mixed under the game sound.
-5. Close every player/editor started; nothing committed to git except the scripts; the game version and Dan's saves untouched.
-- **Deliver:** the contact sheet and the cut sent first; a list of any shot that didn't match the plan and any bug seen on camera.
-
 ## History archive
 
+- 2026-10-16 (twelfth move): 0.121 reviewed, so the 0.118 "Previous delivery" section was moved verbatim to the end of the archive. The QUEUED trailer section was folded into the 1.0 CURRENT section.
 - 2026-10-15 (eleventh move): 0.120 reviewed, so the 0.117 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-15 (tenth move): 0.119 reviewed, so the 0.116 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-15 (ninth move): 0.118 reviewed, so the 0.115 "Previous delivery" section was moved verbatim to the end of the archive.
