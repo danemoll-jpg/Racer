@@ -207,6 +207,9 @@ namespace Racer
 #if UNITY_EDITOR
             if (!string.IsNullOrEmpty(ValidationReportRoot)) return ValidationReportRoot;
 #endif
+            // 1.0: a check started on a test save (-racerTestSave) keeps its reports there, never in the player's DebugReports
+            var a = Environment.GetCommandLineArgs(); int i = Array.IndexOf(a, "-racerTestSave");
+            if (i >= 0 && i + 1 < a.Length) return Path.Combine(Path.GetFullPath(a[i + 1]), "DebugReports");
             return Path.Combine(Application.persistentDataPath, "DebugReports");
         }
         // First use after launch continues the newest still-OPEN session from disk.

@@ -27,7 +27,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Woodstock Rush 1.0: the finished game, published; then the trailer, filmed and cut — target 1.0.0 — NOT STARTED
+## CURRENT — Woodstock Rush 1.0: the finished game, published; then the trailer, filmed and cut — target 1.0.0 — IN PROGRESS (Part A: build 1000000)
 
 Dan (2026-10-16, 01:12): "I am ready to finish this one up and just come back when I see bugs or want to add something. Lets call this 1.0 and go ahead and create the trailer." 0.121 is accepted; there are no new debug reports. This round makes **no gameplay, world or balance changes**. Part A is the release, Part B the trailer (the former QUEUED section, folded in here).
 
