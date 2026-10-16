@@ -85,6 +85,7 @@ public sealed partial class Report080Checks {
   flow.QuitRace(); yield return null;
  }
  IEnumerator Run097c(string[] a) {
+  if (a[0] == "cap100") { Directory.CreateDirectory(Path.Combine(capOut, "Clips")); return Run100(a); } // 1.0 trailer (Report1000Trailer.cs)
   if (!a[0].StartsWith("cap97")) return null;
   Directory.CreateDirectory(Path.Combine(capOut, "Clips"));
   return a[0] switch { "cap97" => a[1] switch { "test" => CapTest(), "survey" => CapSurvey(), "survey2" => CapSurvey2(), "shot" => CapShot(int.Parse(a[2])), _ => null }, _ => null };

@@ -32,7 +32,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Woodstock Rush 1.0: the finished game, published; then the trailer, filmed and cut — target 1.0.0 — Part A DELIVERED (1.0.0 published, build 1000000); Part B in progress
+## CURRENT — Woodstock Rush 1.0: the finished game, published; then the trailer, filmed and cut — target 1.0.0 — DELIVERED (1.0.0 published, build 1000000; trailer first cut made), awaiting Dan's review
 
 Dan (2026-10-16, 01:12): "I am ready to finish this one up and just come back when I see bugs or want to add something. Lets call this 1.0 and go ahead and create the trailer." 0.121 is accepted; there are no new debug reports. This round makes **no gameplay, world or balance changes**. Part A is the release, Part B the trailer (the former QUEUED section, folded in here).
 
@@ -74,6 +74,17 @@ Dan (2026-10-13, 19:57): "I think I am going to add the video making back to the
 
 ### Results
 Short (at most about 20 lines): the version, build and release links; what housekeeping removed; the trailer files; "For Dan to check".
+
+### Results (2026-10-16, Claude Code)
+- **1.0.0 published:** build **1000000** (1.0.0 → 1,000,000, above 121000), source `c82ebccf` (checkpoint `57f0c86f`), [game-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1000000) Latest, earlier releases kept; public download, pinned signature, startup and all 235 files match `Builds/Latest` ([hosted/result.json](Docs/Report1000/hosted/result.json)); updater at 1000000, 121000 kept as the previous. `Play-Racer.cmd` (unchanged) launched 1.0.0 ([play-racer-launch.json](Docs/Report1000/play-racer-launch.json)); settings and both campaign saves byte for byte ([settings-preserved.json](Docs/Report1000/settings-preserved.json)). Cleanup: Builds 10.63 → 8.35 GB, C: free 201.5 GB.
+- **Version shown:** the main menu now reads "Version 1.0.0" under the title (it showed no version before); debug reports, the results log and the launcher take it from the build.
+- **Debug hidden:** the tool was already off at every launch (never saved); no F3 hints, Debug rows or help entries exist in a release build. The shipped README no longer lists the keys and `Review/DEBUG_MODE.md` is no longer shipped. Check in the released build ([phase 1](Docs/Report1000/Player/debug-check-phase1.txt), [phase 2](Docs/Report1000/Player/debug-check-phase2.txt), [menu](Docs/Report1000/Player/menu-2.png)): nothing at launch; F3 panel, F4 report into the session, F6 menu; relaunch hidden, session still OPEN; a 1-lap race started and finished (131.7 s). A test-save launch now keeps its reports in the test save, never in `DebugReports`.
+- **Housekeeping:** removed `Assets/Editor/Report097Temp` and `Report098Temp` (copies stay in Tools/Report097, Report098). `Assets/_Recovery/` left alone: Unity crash-recovery copies of an unsaved scene (Sep 18 – Oct 9), in no build: Dan can delete it.
+- **Trailer** (not in git: `Trailer/`): [contact sheet](Trailer/contact-sheet.jpg), `Trailer/WoodstockRush-trailer-v2.mp4` (73.8 s, 4K 60, game sound) and `-silent.mp4`; 41 clips in `Trailer/Clips` (3 takes of every jump). No track in `Trailer/Music/`, so no music version. Shot list: 6 → 6N rider close, 9 → 9N Leviathan summit, 12 → 18N Stunt Race BACKFLIP + ROLL ([shot-list.md](Docs/Trailer/shot-list.md)). Tools: [Tools/Report1000/Trailer](Tools/Report1000/Trailer) (capture in the editor's play mode, batch mode; `cut.py`, `sheet.py`, `edit.json`).
+- **Decisions:** the recorder's sound now follows the picture (it ran 28% long); split-screen and garage shots are composited from every camera plus the HUD; 18N's rivals were given only BACKFLIP + ROLL in memory for the clip.
+- **Not as planned:** 3 ends on the Needle 600 Champion (the normal garage never shows stunt vehicles); 9N and 20 are in daylight (race shots keep the race's own light); 20's car is Dan's red Street Classic, and the crest gives only a short hop; 9N shows the rider's flight, the field behind; S2's cop is driven along the road, not chasing; 14 has no radio line; 1 is dim.
+- **Bugs seen on camera:** none in the world.
+- **For Dan to check:** the cut and the takes (swap in-points or takes in `Tools/Report1000/Trailer/edit.json`, then `python Tools/Report1000/Trailer/cut.py`); pick a licensed track for `Trailer/Music/`; 1.0.0 from `Play-Racer.cmd`.
 
 ## Previous delivery — Leviathan Forward Stunt Race: rivals driving in circles at CP 44 (Hwy 92) — target 0.121.0-review1 — DELIVERED as 0.121.0-review1 (build 121000, local build), awaiting Dan's review — REVIEWED BY DAN (accepted; the game is called 1.0)
 

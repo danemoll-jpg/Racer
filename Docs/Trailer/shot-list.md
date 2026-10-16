@@ -31,13 +31,15 @@ A trailer of about 65 seconds, made from 23 short clips, filmed by Dan. Updated 
 | 3 | The vehicles turning one after another, ending on the stunt buggy, stunt motorcycle and patrol car | Garage, vehicle screen | Rotate the preview | n/a | 3 s, fast cuts |
 | 4 | Race start, the pack pulls away | Any course grid, full AI field, Trailer Mode on | Side, low | Day, Clear | 3 s. Music kicks in |
 | 5 | Fast run along the new Hwy 92: stores, lots, traffic lights going by | Hwy 92 | Chase, low | Day, Clear | 3 s. Shows the real-world road |
-| 6 | Over the handlebars at speed | Road loop or a trail | First person | Day, Clear | 2 s |
+| ~~6~~ | ~~Over the handlebars at speed~~ (replaced in 1.0 by 6N) | | | | |
+| 6N | **Added 1.0.** The rider up close: the new rider look (the hands on the bars, the hair) in a close chase from the side | The road loop by Dan's house | Side tracking, close and low | Golden hour, Clear | 3 s |
 | 7 | Smashing through a fence or mailboxes | Fence-line smash area | Side | Day, Clear | 2 s |
 | 8 | The Turf Rocket mower cutting across Kyle's lawn past the mailbox | Kyle's house | Side | Day, Clear | 2 s. A laugh |
-| 9 | Into the storm-drain tunnel, headlight on the walls | Storm drain | Chase, then Front | Night, Clear | 3 s |
+| ~~9~~ | ~~Into the storm-drain tunnel~~ (replaced in 1.0 by 9N; the 0.97 footage showed the drain broken) | | | | |
+| 9N | **Added 1.0.** Leviathan's summit flight: the field leaving the summit together, the whole flight | Leviathan Forward race, the Homeward Summit Flight | Side tracking, slow motion in the air | Dusk, Clear | 4 s |
 | 10 | The Cabin Jump: up the run-up boards, off the roof, over the bushes | Abandoned cabin, Dan's Backyard | Fixed planted beside the landing | Dusk, Clear | 3 s. LB from take-off |
 | 11 | Lightning over the mountain, rider small in frame | A road facing the mountain | Fixed, wide | Night, Rain; lightning on cue | 3 s. Hold on the flash |
-| 12 | Wet road, rain streaks, tail light | Any road | Chase, camera low | Dusk, Rain | 2 s |
+| ~~12~~ | ~~Wet road, rain streaks, tail light~~ (replaced in 1.0 by 18N in the stunt section) | | | | |
 | 13 | Sledders going by on a white road; broom hockey on the frozen pool | Sledding hill; Dan's pool | Fixed; Free camera slow orbit | Day, Snow | 2 s + 2 s |
 | 14 | A hidden cop lights up as you blast past, and the chase begins | A hidden-police spot beside a road | Fixed planted just past the cop, or Chase | Dusk, Clear | 2 s. Siren and the radio line |
 | 15 | Getaway at night: cruisers with lights behind you, the helicopter's searchlight sweeping over | Hwy 92 or the loop, Getaway at heat 4–5 | Chase, then Flyover | Night, Clear | 4 s. Lights, sirens, radio voices |
@@ -47,6 +49,7 @@ A trailer of about 65 seconds, made from 23 short clips, filmed by Dan. Updated 
 | 16 | The stunt park from the entrance: the sign, ramps, school bus, junk cars, the loop | Stunt park, Hwy 92 entrance | Flyover or Free camera rising over the fence | Day, Clear | 2 s. "New place" reveal |
 | 17 | Stunt buggy backflip off the big kicker, landed clean | Stunt park, biggest kicker | Side for the run-up; Fixed below the landing for the flip | Day, Clear | 3 s. LB through the flip |
 | 18 | Stunt motorcycle around the loop, then a barrel roll off the corkscrew ramp | Stunt park | Fixed at the loop's side; Orbit for the barrel roll | Dusk, Clear | 3 s |
+| 18N | **Added 1.0.** A Stunt Race: the rivals on stunt vehicles flying the gully, turning a BACKFLIP + ROLL in the air | Mountain Loop Forward Stunt Race, the Eastbound Gully Flight | Fixed beside the landing, slow motion | Day, Clear | 3 s |
 | 19 | THE GIANT JUMP: run-up, take-off, the whole flight, the moon behind | Summit giant jump | Side for the run-up; Fixed from below for the flight | Dusk, Clear, full moon | 6 s. LB from take-off. The music's peak |
 | 20 | COVER SHOT: a car and an ATV airborne over the crest toward camera, golden light, the house on the left | The road crest looking back at Dan's house, as in the cover art | Fixed planted low on the road just past the crest, looking back up it | Dusk, Clear, clock paused with the sun low | 4 s slow motion. Title over this |
 
@@ -65,15 +68,15 @@ Optional extra if a cut runs short:
 - **Auto camera:** on a long ride it finds angles not listed here. Keep recording.
 - **Not in Free Roam:** the Forest cave and the Mountain race roads. Film those in their races with Trailer Mode on.
 
-## Structure (about 65 s)
+## Structure (about 68 s)
 
 - **0–10 s:** calm opening (1), garage (2, 3).
 - **10–22 s:** racing and the neighborhood (4–8).
-- **22–33 s:** the world in different light and weather (9–13).
+- **22–33 s:** the world in different light and weather, Leviathan's summit (9N–13).
 - **33–43 s:** police (14, 15).
 - **43–50 s:** split-screen, "bring a friend" (S1–S3).
-- **50–58 s:** the stunt park (16–18).
-- **58–65 s:** the giant jump (19), the cover shot and title (20), end card.
+- **50–61 s:** the stunt park (16–18) and a Stunt Race (18N).
+- **61–68 s:** the giant jump (19), the cover shot and title (20), end card.
 
 ## Music
 
@@ -82,3 +85,9 @@ Use a track you have the right to use (royalty-free or your own). It should star
 ## Editing
 
 Put the clips in one folder. Claude can assemble a first cut in shot order (trims, fades, title, music), or follow the list by hand in DaVinci Resolve.
+
+## 1.0 update (2026-10-16)
+
+Filmed and cut by Claude Code with the 0.97 offline capture (Tools/Report1000/Trailer), not by hand. Three of the weaker shots were replaced
+with what the game gained since this list was written, each marked "added 1.0" above: 6 → 6N (the new rider look, close), 9 → 9N (Leviathan's
+summit flight), 12 → 18N (a Stunt Race with rivals tricking, placed in the stunt section). About 68 s with the end card.

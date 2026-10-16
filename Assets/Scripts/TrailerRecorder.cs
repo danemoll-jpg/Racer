@@ -19,7 +19,7 @@ namespace Racer {
 public sealed class TrailerRecorder {
  public int Width, Height, Fps = 60; public string Ffmpeg; public bool Audio = true;
  public long Frames { get; private set; } public string Clip { get; private set; } public double EncodeSeconds { get; private set; }
- RenderTexture rt; Texture2D tex; Process ff; Stream pipe; FileStream pcm; Camera cam; RenderTexture previous; string videoPath, pcmPath; int channels, rate;
+ long samples; RenderTexture rt; Texture2D tex; Process ff; Stream pipe; FileStream pcm; Camera cam; RenderTexture previous; string videoPath, pcmPath; int channels, rate;
  bool audioOn; float oldCapture; bool recording, fromScreen, foreign; readonly Stopwatch watch = new();
  public bool Recording => recording;
  public Camera Camera => cam;
@@ -39,7 +39,7 @@ public sealed class TrailerRecorder {
   if (cam != null && !foreign && !screen) { previous = cam.targetTexture; cam.targetTexture = rt; }
   audioOn = false;
   if (Audio) { try { AudioRenderer.Start(); audioOn = true; rate = AudioSettings.outputSampleRate; channels = AudioSettings.speakerMode == AudioSpeakerMode.Mono ? 1 : 2; pcm = new FileStream(pcmPath, FileMode.Create); } catch (Exception e) { UnityEngine.Debug.LogWarning("AudioRenderer: " + e.Message); audioOn = false; } }
-  Frames = 0; recording = true; watch.Restart(); return true;
+  Frames = 0; samples = 0; recording = true; watch.Restart(); return true;
  }
  // call at the start of the next frame: the camera has already drawn the previous one into the render texture (WaitForEndOfFrame never fires in a batch-mode editor)
  public void Grab() {
@@ -49,7 +49,7 @@ public sealed class TrailerRecorder {
   var raw = tex.GetRawTextureData<byte>(); pipe.Write(raw.ToArray(), 0, raw.Length);
   if (audioOn) {
    int n = AudioRenderer.GetSampleCountForCaptureFrame(); using var buf = new NativeArray<float>(n * channels, Allocator.Temp);
-   if (AudioRenderer.Render(buf)) { var bytes = new byte[buf.Length * 4]; Buffer.BlockCopy(buf.ToArray(), 0, bytes, 0, bytes.Length); pcm.Write(bytes, 0, bytes.Length); }
+   if (AudioRenderer.Render(buf)) { var bytes = new byte[buf.Length * 4]; Buffer.BlockCopy(buf.ToArray(), 0, bytes, 0, bytes.Length); pcm.Write(bytes, 0, bytes.Length); samples += n; }
   }
   Frames++;
  }
@@ -62,12 +62,16 @@ public sealed class TrailerRecorder {
   if (!foreign && rt != null) UnityEngine.Object.Destroy(rt); UnityEngine.Object.Destroy(tex);
   string result = Clip;
   if (audioOn && File.Exists(pcmPath) && new FileInfo(pcmPath).Length > 0) {
-   var mux = new ProcessStartInfo(Ffmpeg, $"-y -hide_banner -loglevel error -i {Q(videoPath)} -f f32le -ar {rate} -ac {channels} -i {Q(pcmPath)} -c:v copy -c:a aac -b:a 256k -shortest {Q(Clip)}") { UseShellExecute = false, CreateNoWindow = true };
+   var mux = new ProcessStartInfo(Ffmpeg, $"-y -hide_banner -loglevel error -i {Q(videoPath)} -f f32le -ar {rate} -ac {channels} -i {Q(pcmPath)} {Tempo()}-c:v copy -c:a aac -b:a 256k -shortest {Q(Clip)}") { UseShellExecute = false, CreateNoWindow = true };
    var m = Process.Start(mux); m.WaitForExit(120000);
   } else if (File.Exists(videoPath)) { File.Copy(videoPath, Clip, true); }
   if (File.Exists(Clip)) { try { File.Delete(videoPath); } catch { } }
   return result;
  }
+ // 1.0: the audio renderer hands over a fixed block a frame (1024 samples at 48 kHz, 21 ms) while a frame is 16.7 ms of game time, so the sound runs
+ // long; atempo brings it back onto the picture (same pitch). Tempo = the sound recorded / the picture's length.
+ public double AudioTempo => Frames > 0 && rate > 0 ? samples / (Frames / (double)Fps * rate) : 1;
+ string Tempo() { double t = AudioTempo; if (Math.Abs(t - 1) < .01) return ""; var parts = new List<string>(); while (t > 2) { parts.Add("atempo=2"); t /= 2; } while (t < .5) { parts.Add("atempo=0.5"); t /= .5; } parts.Add("atempo=" + t.ToString("0.#####", System.Globalization.CultureInfo.InvariantCulture)); return "-af " + string.Join(",", parts) + " "; }
  // peak and mean level of the clip's recorded sound (a check that the sound really is in the file)
  public static (float peak, float rms) PcmLevel(string pcmFile) {
   if (!File.Exists(pcmFile)) return (0, 0); var b = File.ReadAllBytes(pcmFile); int n = b.Length / 4; if (n == 0) return (0, 0); var f = new float[n]; Buffer.BlockCopy(b, 0, f, 0, n * 4);
