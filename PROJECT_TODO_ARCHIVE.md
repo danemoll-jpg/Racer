@@ -7667,3 +7667,91 @@ Version 0.118.0-review1. Run the usual build and release; close everything you s
   - BUG-002's dirt way is still closed at its other end, 49 m on.
   - The street-to-Kyle's-driveway drop (unchanged) throws a fast car 0.8 s.
   - A hat hides the top of the new styles.
+
+## Previous delivery — Leviathan: Dan's 4 reports on 0.118 (two more barricades out, CP 18 straight ahead, stars behind the mountain); Stunt Races (stunt vehicles only, own records) and the Stunt chapter in the campaign — target 0.119.0-review1 — DELIVERED as 0.119.0-review1 (build 119000, local build), awaiting Dan's review — REVIEWED BY DAN (5 notes from play; follow-ups in 0.120)
+
+Dan (2026-10-15, 16:16): "please pull in my latest bug report and lets prepare it for the next round. Also, maybe we go ahead and implement the stunt vehicle only races along with the stunt campaign chapter." So this round is Part A (his report) **and** the former QUEUED NEXT (Parts B–C), in that order. The proposed defaults in Parts B–C are taken as decided unless marked "Dan to check".
+
+Dan's report: session `2026-10-15_15-52-55-667_6d34cd` (0.118.0-review1, Drifter Twin, 4 reports; still OPEN, not zipped: read it from the folder in `DebugReports`). **Read the 4 screenshots first.** Standing rules apply, including "World changes only where Dan pointed" and the 0.97 sign rule. Part A applies to the Leviathan races only, except A4 (the night sky).
+
+### Part A — Dan's 4 reports (0.118)
+
+1. **BUG-001** Leviathan Forward, lap 2, X=570.63 Z=−88.85, heading 354°, next CP 17 (the gate is in view to the left). A timber barricade with a ROAD CLOSED sign straight across the way ahead. Dan: "this barrier should be removed. It is straight in the path where you are supposed to go. Seems AI is getting hung up here."
+   - Remove this closure (all its panels and its sign).
+   - Find out why the course line or the rivals' line ran into a closure here and say so in one line. If another 0.117 closure touches Leviathan's line or a rival lane, **list it for Dan; do not remove it.**
+   - **Check:** one shot at the spot; one AI race of that stretch with no rival stuck or reset there.
+2. **BUG-002** Leviathan Forward, lap 2, X=526.29 Z=−25.40, heading 296°, next CP 18 (112 ft away). Dan: "this gate should just be straight ahead from here instead of where it is."
+   - Move CP 18 so it stands **straight ahead of this spot** (along about 296°), on the course, facing the way Dan is driving, on its own ground (0.118 rule).
+   - If the course line hooks away here and that is why the gate sits off to the side, straighten the line from CP 17 to CP 19 on existing drivable ground (race only), so you drive straight at the gate. Kyle's bank (0.118) stays as it is.
+   - The next gate is still in view from it (0.118 rule). Course id moves on to `leviathan-forward-v4` (records start again).
+   - **Check:** one shot from Dan's spot; one rival lap through it with no reset.
+3. **BUG-003** Leviathan Reverse, lap 1, X=−589.61 Z=−531.84, heading 140°, next CP 10, by the church. A fence across the dirt way ahead. Dan: "this one should have been removed too." It is the other end of 0.118's BUG-002 dirt way (0.118's note: "still closed at its other end, 49 m on").
+   - Remove this closure (fence and sign). Every other closure stays as it is.
+   - If the open dirt way now lets a racer skip a gate, the in-order gate rule must still hold; say whether it does.
+   - **Check:** one shot at the spot.
+4. **BUG-004** Leviathan Reverse, lap 2, X=459.83 Z=−515.92, heading 135°, **Night / Clear**. Dan: "stars are in front of the mountain." Stars show as dots over the hillside.
+   - Stars belong to the sky: always behind terrain, trees, buildings and clouds, never drawn over them. Find the cause (for example a star dome or particles with depth test off, drawn after the world, or closer than the far hills) and say which in one line.
+   - This is a sky fix, not a world change, so fix it wherever the night sky is drawn (Free Roam and every course).
+   - **Check:** one night shot at Dan's spot and one in Free Roam with a hill against the sky.
+
+### Part B — Stunt Races
+
+Dan (2026-10-14, 19:24–19:26): "With all the air you get on the mountain jumps, it would be a fun place to do stunts" … "or we can have special stunt-only mountain races with their own separate records and it would mix well with a stunt campaign." Stunt vehicles stay out of normal races, the existing campaign chapters and their records (fairness, balancing).
+
+1. A race type **Stunt Race**: stunt vehicles only (Clay Hopper, Skywhip 250, and any later stunt vehicle) for the player and every rival; air steering on; the stunt park's landing rules (0.107: 1.5 s recovery window, bail only on a real roof or side landing).
+2. **Courses: Mountain Loop Forward / Reverse and Leviathan Forward / Reverse**, the same routes, gates, shortcuts and in-order rules as the normal races (Leviathan as left by Part A).
+3. **Scoring: position by finish time, with a trick bonus.** Each landed trick or combo knocks time off your race time (0.5 s per 500 trick points), capped so a race can't be won by tricks alone, shown live ("−2.5 s TRICK BONUS").
+   - **Rivals do tricks too** (Dan, 19:28: "the rivals can't do stunts?"). At the big jumps whose flights are known (the summit flights, Downhill Ridge Cut's flight, the Street Loop jumps on Leviathan), a rival picks a trick its airtime allows (flip, roll, 360, or a combo on long flights) by its skill and the difficulty, rotates through it with the same air steering the player has, and lands it.
+   - An occasional bail (more on Easy, rare on Hard) costs it the bonus and a little time, never a stuck reset.
+   - Rivals earn the same trick bonus. Their tricks show briefly over them ("BACKFLIP") when near the player. Tune so you have to trick to win.
+4. **Own records:** separate Records / Top 10 boards for Stunt Races (race time with bonus, best lap, best combo per course), never mixed with the normal boards. Ghosts per Stunt Race course. Split-screen counts on the Top 10 as for other races.
+5. Race > Tracks: a "Stunt Race" option shown once a stunt vehicle is owned (the Clay Hopper is available from the start, 0.107). Vehicle choice goes through the garage, as for other races. Split-screen supported. Controller-first.
+6. Trick pop-ups smaller in races than in the park, never covering the position / lap HUD, the NEXT CP line or the minimap.
+
+### Part C — Stunt chapter in the campaign
+
+1. A separate **Stunt chapter**, listed after Chapter 4 and open once Chapter 4 is finished. It gives the Clay Hopper for the campaign at its start. Its own events, rivals on stunt vehicles, and its own prize at the end: a stunt-vehicle **Cup edition** (like 0.111's), with the unlock message.
+2. **Events (7):**
+   1. a Stunt Race on Mountain Loop Forward;
+   2. a trick-score challenge at the summit jump (best combo in 3 tries);
+   3. the 10-minute Stunt event at the park (a medal target);
+   4. a Stunt Race on Mountain Loop Reverse;
+   5. "Land it clean": fly the summit jump N times without a bail;
+   6. a Stunt Race on Leviathan Reverse;
+   7. the final: a 2-lap Stunt Race on Leviathan Forward.
+3. **Split score for Stunt chapter races** (Dan, 19:32: "you get 10 points for finishing first place and 10 points for scoring the most stunt points"):
+   - each race ranks everyone twice: by **finish** (race time, no trick time bonus here) and by **stunt points** (all landed tricks and combos in the race);
+   - each ranking pays 10 / 7 / 5 / 3 / 2 / 1 points by place (the championship scale); the event result is the **total** (max 20); ties go to the better finish;
+   - passing = top 3 by total, winning = 1st, as in other campaign races;
+   - the results screen shows both columns and the total; the HUD shows your live finish place and stunt-point place.
+   Quick Stunt Races (Part B) keep the trick time bonus by default, with **Split score** offered as a setting there too.
+4. Prize money and the new-player hints work as in the other chapters. Its own balancing through the results log (tagged `stunt`), same method as 0.112.
+
+### Checks (built player, controller, test saves; the verification budget applies)
+- Part A: the checks listed with each item.
+- One Stunt Race on each of the four courses (AI may drive); a trick bonus applied and shown; rivals land tricks at the known jumps, with at least one bail seen; no rival stuck.
+- Records on their own boards; the normal boards unchanged.
+- From a test save: the Stunt chapter opening after Chapter 4, its first two events and the final, the split score on a results screen, the prize message.
+- Normal races, records and the existing chapters unchanged (one normal Leviathan Forward race, rivals on normal vehicles).
+- Long play checks go on the "For Dan to check" list.
+
+### Release
+Version 0.119.0-review1, local build only (2026-10-15 rule; no GitHub release). Close everything started; leave no background task running. Short results (at most about 20 lines), with "For Dan to check".
+
+### Results (2026-10-15, Claude Code)
+- Checkpoint `c936eee4`. Evidence [Docs/Report119/](Docs/Report119/) ([Shots/](Docs/Report119/Shots/), [Player/](Docs/Report119/Player/)); course files by [partA.py](Tools/Report119/py/partA.py) ([partA.txt](Docs/Report119/partA.txt)); checks [Run-Checks.ps1](Tools/Report119/Run-Checks.ps1).
+- **A1** the closure at (573, −84) is out. Why rivals ran into it: it closed the Forest race route 14 m up its shallow fork off the lake's south shore, straight ahead as you come along the shore, its west end 10 m from the line where rivals swing wide. Closures within 7 m of the line, kept: Forward (718, −33), (740, −21), (488, −47); Reverse (718, −109), (149, −310), (−250, −567), (488, −47). Check: [shot](Docs/Report119/Shots/spot-A1-BUG-001-F.jpg); an AI race (3 rivals) through it and CP 18: none stuck or reset there ([aiF](Docs/Report119/Player/aiF.txt)).
+- **A2** CP 18 is on Kyle's drive (500.8, −22.9) facing west: from Dan's spot 26 m, 20° left of his heading, square on; CP 19 in view from it. The line is unchanged: straight ahead of his spot is the bank's unsmoothed side by the house (4 m down in 6 m), and the 0.118 bank stays. Course id `leviathan-forward-v4`. Check: [shot](Docs/Report119/Shots/spot-A2-BUG-002-F.jpg), the AI race above.
+- **A3** the fence at the Southwest Cut's other end is out. No gate lies between its two ends (CP 9 before, CP 10 after), so the in-order rule holds; it cuts the corner (about 1 s, as 0.116 measured). Check: [shot](Docs/Report119/Shots/spot-A3-BUG-003-R.jpg).
+- **A4** cause: the stars sit on a dome 600 m out, the world-edge hills about 1.8 km out, so the depth-tested stars drew over them. Each star is now drawn at the far plane ([NightStars.shader](Assets/Environment/NightStars.shader)): only open sky shows it, everywhere. Check: [race, night](Docs/Report119/Shots/spot-A4-BUG-004-R-night.jpg), [Free Roam](Docs/Report119/Shots/roam-A4-roam-night-dan-spot.jpg).
+- **B** Stunt Races ([StuntRace.cs](Assets/Scripts/StuntRace.cs)): Race Setup > Race type and Scoring (trick bonus / split score); Tracks shows the four courses; the garage the stunt vehicles; every rival on a Clay Hopper or Skywhip 250, turning tricks at the long flights with the player's air steering, bailing more on Easy; bonus 0.5 s per 500 pts, at most 8 s a lap; records, ghosts and best combo under `stunt-<course>`; split screen too. Check: a race on each course ([4](Docs/Report119/Player/stunt4.txt), [5](Docs/Report119/Player/stunt5.txt), [8](Docs/Report119/Player/stunt8.txt), [9](Docs/Report119/Player/stunt9.txt)): [bonus shown](Docs/Report119/Shots/stunt-hud-bonus-8.jpg), [rival trick](Docs/Report119/Shots/stunt-rival-trick-9.jpg), bails seen, [split score](Docs/Report119/Shots/stunt-results-9.jpg), normal boards unchanged.
+- **C** Stunt chapter (5): opens after the Summit Final and gives the Clay Hopper; 7 events (new kinds Trick, Clean, Park); split score in its races; prize the Clay Hopper Cup; results log tag `stunt`. Check ([campaign](Docs/Report119/Player/campaign.txt)): opens on a copy of Dan's save with its notice; Opener (split score) and Summit Tricks (3 tries); the park event starts and returns to the campaign; the Final pays the [prize panel](Docs/Report119/Shots/campaign-prize-message.jpg).
+- Controller only: every new row reachable, B back ([menus](Docs/Report119/Player/menus.txt)).
+- **Decisions:** CP 18 moved, not the line (no drivable ground straight down); the bonus counts every banked combo, jump points too (capped); rivals trick on any flight long enough for one; the stunt vehicle choice is saved apart from the normal one; Summit Tricks 3,100 / 3,600 / 4,100 pts and Land It Clean 3 / 4 / 5 in a row are first guesses.
+- **For Dan to check:**
+  - The bonus scale and the stunt targets (`stunt` in the results log).
+  - Mountain Loop Forward: two Skywhips tangled once at the summit run-up (1 race of 3; both reset once).
+  - Land It Clean, the park event to a medal, and a split-screen Stunt Race were not driven in the checks.
+  - The moon is drawn 900 m out and may show in front of the far hills when low (not changed).
+  - Your save shows "CAMPAIGN UPDATED: Chapter 5: Stunt is open" once.
+- **Release:** local build only (2026-10-15 rule; no GitHub release). Built fresh from `b461caca` (pushed), 0 errors ([build-release.txt](Docs/Report119/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/119000`, 118000 kept as the previous ([runtime-identity.json](Docs/Report119/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.119.0-review1; your settings restored byte for byte, campaign saves untouched ([play-racer-launch.json](Docs/Report119/play-racer-launch.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 214.1 GB.
