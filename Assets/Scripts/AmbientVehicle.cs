@@ -91,6 +91,14 @@ namespace Racer
             if(box){float height=BodyType==3?1.72f:BodyType==2?1.32f:1.28f;box.size=new(2.08f,height,4.3f);box.center=new(0,(height-.55f)*.5f,0);motor.Body.ResetInertiaTensor();}
             AppearanceRevision++;
         }
+        // 1.1: a race replay's traffic car shows the body and paint it had then (ReplayViewer)
+        public void Appear(int body,int paintIndex)
+        {
+            if(!bodies[0]||body<0||body>3||paintIndex<0||paintIndex>=Paints.Length||(body==BodyType&&paintIndex==PaintIndex))return;
+            BodyType=body;PaintIndex=paintIndex;bool kit=VehicleVisual.NewModels&&modern[BodyType];
+            for(int i=0;i<bodies.Length;i++){bodies[i].gameObject.SetActive(!kit&&i==BodyType);if(modern[i])modern[i].gameObject.SetActive(kit&&i==BodyType);}
+            block.SetColor("_BaseColor",Paints[PaintIndex]);foreach(var r in kit?modernPainted[BodyType]:painted[BodyType])r.SetPropertyBlock(block);
+        }
         public static bool Offscreen(Vector3 point)
         {
             if(SplitScreen.Views.Count>0)return !SplitScreen.InAView(point,.2f); // 0.92 Part F: neither player's view

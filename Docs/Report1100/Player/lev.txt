@@ -1,0 +1,6 @@
+screen=1920x1080 kind=replay1100 version=1.1.0-review1 park=on
+replay check part lev, save C:\Users\danmo\AppData\Local\Temp\report1100\lev\save-copy, replays in C:\Users\danmo\AppData\Local\Temp\report1100\lev\save-copy\Replays
+Leviathan Forward (leviathan-forward-v4) driven to road 2601 m; left the race
+recorder: stopped (the race was left) at 126.4 s; 4 racers, 12948 racer frames, 0 traffic, 0 traffic frames, 4 events
+  TV camera 18 at 1033.9,142.63,-64.7: blocked from the path
+TV cameras along Leviathan: 40 (4 on the way itself), 1 inside or under anything; mountain shot at race clock 109.7 s, racer at 882.8,214.76,115.2, camera TV 33 at 898.4,217.74,119.6 898.4,217.74,119.6

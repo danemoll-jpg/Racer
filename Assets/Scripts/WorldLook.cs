@@ -220,6 +220,14 @@ namespace Racer
             if (!flow) flow = FindAnyObjectByType<RaceFlow>();
             if (!flow || flow.Save == null) return;
             var s = flow.Save.Settings;
+            // 1.1: a race replay shows its race's own time of day and weather
+            var replay = ReplayViewer.Current;
+            if (replay && pinned == null)
+            {
+                RaceTime = (TimeOfDay)Mathf.Clamp(replay.Data.timeOfDay, 0, 3); RaceWeather = (Weather)Mathf.Clamp(replay.Data.weather, 0, 2); Mode = "Race";
+                string rkey = $"Race {RaceTime} {RaceWeather}"; if (rkey != applied) { Apply(LookPresets.Compose(RaceTime, RaceWeather)); applied = rkey; }
+                return;
+            }
             RaceTime = (TimeOfDay)Mathf.Clamp(s.timeOfDay, 0, 3); RaceWeather = (Weather)Mathf.Clamp(s.weather, 0, 2);
             var campaign = CampaignRun.Active; if (campaign != null) { RaceTime = campaign.Time; RaceWeather = campaign.Weather; } // 0.89: the event's conditions
             if (SplitScreen.Active) { RaceTime = SplitScreen.Time; RaceWeather = SplitScreen.Weather; } // 0.92 Part F: the setup screen's conditions (0.90: Day / Clear)

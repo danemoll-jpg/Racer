@@ -281,7 +281,7 @@ namespace Racer
                     if(locked==null)ShowGarageStats(profile); // 0.82 Part D
                 }
             }
-            RenderCore();SplitSetupDevices();
+            RenderCore();ReplayRows();SplitSetupDevices(); // 1.1: the results' WATCH / SAVE REPLAY rows
             var active = buttons.FindAll(b=>b.gameObject.activeSelf&&b.interactable);
             // 0.91 Part A: up / down follow the rows as drawn (rows moved on screen, like CAMPAIGN and SPLIT SCREEN, were
             // skipped when this followed the row numbers)
@@ -346,8 +346,9 @@ namespace Racer
         }
         void Update()
         {
+            if(ReplayHide())return; // 1.1: a replay plays (RaceMenus.Replays.cs)
             if(DeveloperLocationHud.OwnsInput)return;
-            UpdateCore();UpdateSplitJoin();UpdateSplitPick();
+            UpdateCore();UpdateSplitJoin();UpdateSplitPick();UpdateReplayKeys();
             if(!editingPlaylistName)return;
             if(!controllerName&&Gamepad.current?.startButton.wasPressedThisFrame==true){controllerName=true;playlistName.DeactivateInputField();Show();return;}
             if(Keyboard.current?.escapeKey.wasPressedThisFrame==true||Gamepad.current?.buttonEast.wasPressedThisFrame==true)FinishName(false);
@@ -366,7 +367,7 @@ namespace Racer
         void Adjust(System.Action action) { action(); flow.Save.ApplySettings(); flow.Save.SaveSettings(); flow.Click(); Show(); }
         void LateUpdate()
         {
-            if (!flow || !banner) return;
+            if (!flow || !banner || replayHidden) return;
             UpdateShell();UpdateGaragePreview();UpdateMinis();
             if(false&&musicPage&&flow.State==RaceFlow.Stage.Settings&&flow.Radio&&Time.unscaledTime>=nextMusicRefresh)
             {
@@ -399,6 +400,6 @@ namespace Racer
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             if (!DeveloperLocationHud.OwnsInput && flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && !SplitPickOpen && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
-        void OnDestroy() { if(roamHint)Destroy(roamHint);if(finishPanel)Destroy(finishPanel);playlistAdd?.Dispose();playlistContext?.Dispose();if(ownedUiActions){ownedUiActions.Disable();Destroy(ownedUiActions);} if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter; tabsAction?.Dispose();adjustAction?.Dispose();previousTab?.Dispose();deleteAction?.Dispose();spaceAction?.Dispose(); if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
+        void OnDestroy() { DisposeReplayInput();if(roamHint)Destroy(roamHint);if(finishPanel)Destroy(finishPanel);playlistAdd?.Dispose();playlistContext?.Dispose();if(ownedUiActions){ownedUiActions.Disable();Destroy(ownedUiActions);} if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter; tabsAction?.Dispose();adjustAction?.Dispose();previousTab?.Dispose();deleteAction?.Dispose();spaceAction?.Dispose(); if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }
 }

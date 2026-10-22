@@ -17,6 +17,9 @@ namespace Racer
         public RecordBoards Boards { get; private set; }
         public ArcadeActivities Activities {get;private set;}
         public CleanLapGhost Ghost {get;private set;}
+        // 1.1: race replays (ReplayRecorder); the records' folder they live beside (ReplayData.Root)
+        public ReplayRecorder Replays {get;private set;}
+        public string SaveRoot {get;private set;}
         Stage extrasReturn;
         readonly System.Collections.Generic.Stack<Stage> callers=new();
         static bool returnToSetup;
@@ -49,7 +52,7 @@ namespace Racer
             if (DebugMovementUsed) return;
             DebugMovementUsed = true; DebugMovementReason = reason;
             if(Race.FreeRoam)return;
-            Boards?.RevokeAttempt(); Save?.RevokeAttempt(); Ghost?.RejectDebugRun();
+            Boards?.RevokeAttempt(); Save?.RevokeAttempt(); Ghost?.RejectDebugRun(); Replays?.Revoke(); // 1.1: no #1 replay kept from it
             LapRank = RaceRank = 0; NewLapRecord = NewRaceRecord = false;
             Notify(reason + " / competitive records disabled until restart", 8);
         }
@@ -92,7 +95,7 @@ namespace Racer
 #if UNITY_EDITOR
             if(!string.IsNullOrEmpty(ValidationSaveRoot))root=ValidationSaveRoot;
 #endif
-            Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
+            Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps); SaveRoot = ReplayData.Root = root; // 1.1
             ResultsLog.Init(root, root != Path.Combine(Application.persistentDataPath, "Phase7", "street-loop-gates-v1-laps" + Race.laps)); // 0.109 Parts C and D
             VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider; LeviathanCourse.ShortcutsOff = Save.Settings.leviathanShortcutsOff ?? new string[0]; /* 0.116 */
@@ -127,6 +130,7 @@ namespace Racer
             Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);BalanceSheet.NoteScene(gameObject.scene.name,Activities.Sites); // 0.109 Part D
             CameraViews.Attach(this); TrailerMode.Attach(this); NameTags.Attach(this);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
+            Replays=gameObject.AddComponent<ReplayRecorder>();Replays.Initialize(this); // 1.1: every race recorded
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             AcornBanner.Attach(this);CampaignEventUi.Attach(this);TrickHud.Attach(this);/* 0.120 Part A */UnlockNotice.Pending.Clear();UnlockNotice.Showing=null;UnlockNotice.Missed(Save); // 0.95 Part F
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
@@ -148,6 +152,7 @@ namespace Racer
             else if(CampaignRun.PendingStart&&CampaignRun.Active!=null){CampaignRun.PendingStart=false;EnterMenuAfterTitle();CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);StartRace();}
             else if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
             else if(pendingRace){pendingRace=false;EnterMenuAfterTitle();StartRace();}
+            else if(ReplayViewer.PendingFile!=null){var file=ReplayViewer.PendingFile;ReplayViewer.PendingFile=null;EnterMenuAfterTitle();menus.WatchReplayFile(file);} // 1.1: a replay picked on the REPLAYS page for this course
             else if(InRoamWorld){Radio=LocalRadio.Attach(this);StartFreeRoam();if(roamHint){roamHint=false;RoamMenuHintUntil=Time.unscaledTime+12;}}
             else if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
             Started=true;LoadingScreen.Started();
@@ -201,6 +206,7 @@ namespace Racer
         void Update()
         {
             if (Save == null || !Started || LoadingScreen.Holding || State==Stage.Title || menus?.OwnsTextInput==true || DeveloperLocationHud.OwnsInput) return;
+            if (ReplayViewer.Active) return; // 1.1: the replay has the buttons (B / Esc / Start leave it)
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (MenuInput.Blocked) return;
@@ -454,6 +460,14 @@ namespace Racer
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             if(CampaignRun.Active?.Kind is CampaignEventKind.SpeedTrap or CampaignEventKind.Jump or CampaignEventKind.Smash or CampaignEventKind.Trick or CampaignEventKind.Clean){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
+            if(!Race.FreeRoam)Replays?.Begin(); // 1.1: the race is recorded from the countdown
+        }
+        // 1.1: a replay of another course, picked on the REPLAYS page: that course loads, then it plays (StartWhenBuilt)
+        public void LoadCourseForReplay(int course,string file)
+        {
+            if(course<0||course>=RacePlaylists.Scenes.Length)return;
+            if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
+            ReplayViewer.PendingFile=file;callers.Clear();menus.ResetPages();Go(RacePlaylists.Scenes[course]);
         }
         public void StartRace() { if(!CampaignAllows())return; BalanceLog.Abandon(this,"restarted"); /* 0.109 Part C */ if(CampaignRun.Active==null&&!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
         // 0.84 Part G: building the rivals and traffic for a race takes about half a second, then the first frame with them
@@ -594,11 +608,13 @@ namespace Racer
             // 0.89: campaign events never write the Top 10 boards or personal bests (they keep their own in the campaign save)
             bool records=!DebugMovementUsed&&CampaignRun.Active==null&&!SplitScreen.Active; // 0.90: nor split-screen
             LapRank=records?Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress):0;
+            Replays?.Keep(Race.Racers[0],false,LapRank,Race.Category,Race.Progress.LastLap); // 1.1: a new #1 lap keeps its replay
             bool best = records && Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
             if (Race.Progress.Finished)
             {
                 NewRaceRecord = records && Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
                 RaceRank=records?Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock):0;
+                Replays?.Keep(Race.Racers[0],true,RaceRank,Race.Category,Race.Progress.AdjustedTime(Race.Clock)); // 1.1: and a new #1 race
                 if(records)FinishCards.Finish(Boards,Race.Category,attempt,Race.Progress,Race.Clock);
                 input.enabled = respawn.enabled = false;
                 // Clear the finish with normal pedals/steering so following racers are not blocked.
@@ -616,7 +632,7 @@ namespace Racer
         }
         public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;}
             // 0.96 Part A: a time trial's lap is its attempt: its result (the medal) shows for 3 s at the line before the results
-            if(CampaignRun.Active?.Kind==CampaignEventKind.TimeTrial&&!CampaignRun.Done&&!ttBannerShown&&!DebugMovementUsed&&Race.Progress.Finished&&Race.Progress.LapTimes.Count>0&&State==Stage.Racing){ttBannerShown=true;CampaignRun.RecordAttempt((float)Race.Progress.LapTimes[0],true);StartCoroutine(ResultsAfterBanner());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,CampaignRun.Active.Kind==CampaignEventKind.Park?StuntEvent.Current?.Of(1)?.points??0:GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true);BalanceLog.Finished(this); /* 0.109 Part C */ SetStage(Stage.Results); }
+            if(CampaignRun.Active?.Kind==CampaignEventKind.TimeTrial&&!CampaignRun.Done&&!ttBannerShown&&!DebugMovementUsed&&Race.Progress.Finished&&Race.Progress.LapTimes.Count>0&&State==Stage.Racing){ttBannerShown=true;CampaignRun.RecordAttempt((float)Race.Progress.LapTimes[0],true);StartCoroutine(ResultsAfterBanner());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,CampaignRun.Active.Kind==CampaignEventKind.Park?StuntEvent.Current?.Of(1)?.points??0:GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true);BalanceLog.Finished(this); /* 0.109 Part C */ Replays?.Stop("the results"); /* 1.1: before the results draw their WATCH / SAVE REPLAY rows */ SetStage(Stage.Results); }
         // 0.91 Part C: pause menu > End event in a campaign jump event (its best scored jump counts).
         public CampaignTrapWatch JumpEvent=>CampaignRun.Active?.Kind is CampaignEventKind.Jump or CampaignEventKind.Trick or CampaignEventKind.Clean&&!CampaignRun.Done?GetComponent<CampaignTrapWatch>():null;
         public void EndJumpEvent(){var watch=JumpEvent;if(watch)watch.EndNow();}
@@ -637,7 +653,7 @@ namespace Racer
 #if UNITY_EDITOR
             ValidationSaveRoot=directory;
 #endif
-            Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
+            Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps); SaveRoot = ReplayData.Root = directory; // 1.1
             VehicleUnlocks.Load(directory); Campaign.Load(directory); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider; LeviathanCourse.ShortcutsOff = Save.Settings.leviathanShortcutsOff ?? new string[0]; /* 0.116 */
             Scenery.Set(!Save.Settings.classicScenery);

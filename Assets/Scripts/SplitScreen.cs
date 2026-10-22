@@ -248,6 +248,13 @@ namespace Racer
             float tilt = lr || one ? 0 : 9; cam1.GetComponent<ChaseCamera>().flightTilt = tilt; chase2.flightTilt = tilt;
             hud.Layout(lr); ApplyWatching();
         }
+        // 1.1: a race replay plays full screen on player 1's camera (ReplayViewer); its end puts the halves back
+        public void ReplayView(bool on)
+        {
+            if (!cam1) return;
+            if (on) { cam1.rect = new Rect(0, 0, 1, 1); cam1.farClipPlane = far1; cam1.cullingMask = mask1 & ~(1 << View2Layer); if (cam2) cam2.enabled = false; return; }
+            cam1.farClipPlane = SplitScreen.OneView ? far1 : Mathf.Min(far1, FarClip); ApplyWatching();
+        }
         // 0.96 Part E: a caught runner's half goes; the other player's view fills the screen until the round ends
         public void ApplyWatching()
         {
@@ -316,12 +323,14 @@ namespace Racer
             if (p.CompletedLaps > seen && p.LapTimes.Count == p.CompletedLaps)
             {
                 seen = p.CompletedLaps; int rank = flow.Boards.CompletedLap("split-" + attempt, category, vehicle, p, name);
+                flow.Replays?.Keep(state, false, rank, category, p.LastLap); // 1.1: split screen's #1s keep replays too
                 if (rank > 0) TopTen.Add($"{name} lap #{rank}");
             }
             if (p.Finished && !raced)
             {
                 StuntRaceScore.Current?.Close(state); // 0.119 Part B: the open combo counts before the time is recorded
                 raced = true; int rank = flow.Boards.CompletedRace("split-" + attempt, category, vehicle, p, race.Clock, name);
+                flow.Replays?.Keep(state, true, rank, category, p.AdjustedTime(race.Clock));
                 if (rank > 0) TopTen.Add($"{name} race #{rank}");
                 if (flow.State == RaceFlow.Stage.Results) flow.RefreshMenu();
             }

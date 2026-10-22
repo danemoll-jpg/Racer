@@ -1,0 +1,5 @@
+screen=1920x1080 kind=replay1100 version=1.1.0-review1 park=on
+replay check part split, save C:\Users\danmo\AppData\Local\Temp\report1100\split\save-copy, replays in C:\Users\danmo\AppData\Local\Temp\report1100\split\save-copy\Replays
+split-screen results: 1. GOLD  02:09.675  (+0.0s / 0 misses) / 2. AI  02:18.935  (+0.0s / 0 misses) / 3. BLUE  02:19.560  (+0.0s / 0 misses) / 4. Player One  02:21.718  (+0.0s / 0 misses); recorder: stopped (the results) at 141.7 s; 4 racers, 14476 racer frames, 0 traffic, 0 traffic frames, 1 events
+split-screen replay: camera rect (x:0.00, y:0.00, width:1.00, height:1.00), other cameras drawing: none; RB through 0 Player One (player 1) -> 1 AI -> 2 GOLD -> 3 BLUE -> 0 Player One (player 1)
+left: camera rect (x:0.00, y:0.00, width:0.50, height:1.00), player 2's camera drawing

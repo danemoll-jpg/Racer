@@ -1,0 +1,16 @@
+screen=1920x1080 kind=replay1100 version=1.1.0-review1 park=on
+replay check part main, save C:\Users\danmo\AppData\Local\Temp\report1100\main\save-copy, replays in C:\Users\danmo\AppData\Local\Temp\report1100\main\save-copy\Replays
+== Street Loop - Forward (street-v14-discovery), 3 laps, 3 rivals (Longroof GT / Drifter Twin / Sundown Roadster), Normal, traffic 20 cars; player drifter
+results: state Results; 1. GOLD  06:39.130  (+0.0s / 0 misses) / 2. Dan  06:54.746  (+5.0s / 1 misses) / 3. BLUE  06:56.001  (+0.0s / 0 misses) / 4. EMBER  07:00.439  (+0.0s / 0 misses)
+smashed: 'Mailbox - Dan - blue X' at 466.3,80.39,2.0, race clock 152.10 s; 'Mailbox - Original house 2' at 497.9,86.00,-117.5, race clock 166.65 s
+recorder: stopped (the results) at 420.4 s; 4 racers, 42348 racer frames, 20 traffic, 84700 traffic frames, 8 events; #1 lap kept street-v14-discovery-drifter-race4-d1-tourer-drifter-roadster-traffic.lap.wrreplay (756 KB); #1 race kept street-v14-discovery-drifter-race4-d1-tourer-drifter-roadster-traffic-laps3.race.wrreplay (2169 KB)
+replay: Street Loop Forward, 4 racers, 20 traffic, 8 events (6 props), -3.2 to 420.4 s; laps of player 1: 3.68-132.64, 2: 132.64-279.52, 3: 279.52-409.74
+position error over 4199 samples x 4 racers: median 0.000 m, 99th 0.005 m, max 5.964 m; worst per racer Dan 5.96, EMBER 0.01, GOLD 0.01, BLUE 0.01
+finish screen rows: watch-replay: WATCH REPLAY   (X) | save-replay: SAVE REPLAY   (Y) | primary: RACE AGAIN | replays: Replays
+pad X: viewer open, menu canvas hidden True, camera TV, TV cameras 201
+break on time: 'Mailbox - Dan - blue X' recorded at 152.08 s: broken at 150.58 s False, at 152.73 s True
+TV camera 142 at 480.1,90.75,-34.7, racer at 470.2,88.16,-40.8
+pad: A: paused True; A: paused False; RT 1 s: +4.3 s; LT 1 s: -3.7 s; X: rate 0.5; X: rate 0.25; X: rate 1; Y: Chase; RB: racer 1 (EMBER); LB: racer 0; Y: Free; free: sticks moved the camera 16.3 m; free: RB up 11.0 m; Y: TV; D-pad right: 165.9 -> 280.0 s; D-pad left: 280.0 -> 133.1 s; D-pad up: restart at -2.8 s (start -3.2); D-pad down: HUD True; D-pad down: HUD False; View: 'REPLAY SAVED' -> Street Loop Forward 2026-10-22 04.19.09.wrreplay (2,170 KB); View again: 'ALREADY SAVED'; B: viewer closed, state Results, focus tab-STANDINGS, time scale 0
+keys: V: viewer open; Space: paused True; Space: paused False; Right 1 s: +4.5 s; Left 1 s: -3.7 s; S: rate 0.5; S S: rate 1; C: Chase; E: racer 1; Q: racer 0; C: Free; W 1 s: camera moved 13.9 m; C: TV; . : 158.2 -> 280.0 s; , : 280.0 -> 133.1 s; Home: -2.8 s; H: HUD True; K: 'ALREADY SAVED'; Esc: viewer closed, state Results; K on the finish screen: ALREADY SAVED   (K)
+pad Y on the finish screen: saved Street Loop Forward 2026-10-22 04.19.09.wrreplay (2,170 KB) — one 3-lap replay
+page by the controller: B: state Ready; race; roam; split; police; stunt; garage; records; replays; A: page rows best-2, back, saved-3, best-1; best-1; best-2; saved-3; A: saved replay page, focus watch; A WATCH: viewer open, saved, 4 racers; B: viewer closed, page focus watch; B: focus saved-3; B: focus replays

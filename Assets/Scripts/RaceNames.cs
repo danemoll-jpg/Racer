@@ -123,15 +123,16 @@ namespace Racer
             if (!root) Build();
             int mode = Mathf.Clamp(flow.Save.Settings.nameTags, 0, 2), used = 0; string trace = Trace ? $"mode {mode} state {flow.State} menu {flow.MenuVisible} views {SplitScreen.Views.Count} " : null;
             bool driving = flow.State == RaceFlow.Stage.Racing || flow.State == RaceFlow.Stage.Countdown;
-            if (mode > 0 && driving && !flow.MenuVisible && !TrailerMode.Active && !(WinnerShot.Active && !SplitScreen.Active))
+            var replay = ReplayViewer.Current; // 1.1: a race replay tags its racers (the option on)
+            if (mode > 0 && (replay || driving && !flow.MenuVisible && !TrailerMode.Active && !(WinnerShot.Active && !SplitScreen.Active)))
             {
-                var split = SplitScreen.Race; var targets = Targets();
-                var views = SplitScreen.Views.Count > 0 ? SplitScreen.Views.ToList() : new List<Camera> { Camera.main };
+                var split = replay ? null : SplitScreen.Race; var targets = replay ? replay.Tags() : Targets();
+                var views = !replay && SplitScreen.Views.Count > 0 ? SplitScreen.Views.ToList() : new List<Camera> { Camera.main };
                 for (int v = 0; v < views.Count; v++)
                 {
                     var cam = views[v]; if (!cam) continue;
                     if (split && split.ShotActive(v + 1)) continue;
-                    var own = v == 0 ? flow.Race.vehicle : split ? split.P2Car : null;
+                    var own = replay ? null : v == 0 ? flow.Race.vehicle : split ? split.P2Car : null;
                     var px = cam.pixelRect; var placed = new List<Rect>(); var near = new List<(Target t, Vector3 sp, float d)>();
                     foreach (var t in targets)
                     {

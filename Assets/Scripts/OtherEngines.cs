@@ -58,14 +58,15 @@ namespace Racer
         {
             if (!flow) flow = FindAnyObjectByType<RaceFlow>();
             var race = flow ? flow.Race : null;
-            bool engine = race && (flow.State == RaceFlow.Stage.Racing || flow.State == RaceFlow.Stage.Countdown);
-            bool paused = flow && (flow.State == RaceFlow.Stage.Paused || flow.State == RaceFlow.Stage.Settings);
+            bool replay = ReplayViewer.Active; // 1.1: a race replay's vehicles (the live ones are frozen)
+            bool engine = race && (replay || flow.State == RaceFlow.Stage.Racing || flow.State == RaceFlow.Stage.Countdown);
+            bool paused = !replay && flow && (flow.State == RaceFlow.Stage.Paused || flow.State == RaceFlow.Stage.Settings);
             if (paused) return; // the listener pause holds them where they are
             if (!engine || Disabled) { foreach (var v in voices) Stop(v); Playing = 0; return; }
             float dt = Mathf.Min(Time.unscaledDeltaTime, .05f);
             if (Time.unscaledTime >= nextPick) { nextPick = Time.unscaledTime + .25f; Pick(race); }
-            bool split = SplitScreen.Active && SplitScreen.Race && SplitScreen.Race.P2Car;
-            float volume = (flow.Save != null ? flow.Save.Settings.vehicle : .75f) * (SplitScreen.Active ? .6f : 1) * (1 - .3f * WeatherEffects.Duck) * Quieter;
+            bool split = !replay && SplitScreen.Active && SplitScreen.Race && SplitScreen.Race.P2Car;
+            float volume = (flow.Save != null ? flow.Save.Settings.vehicle : .75f) * (split ? .6f : 1) * (1 - .3f * WeatherEffects.Duck) * Quieter;
             Playing = 0;
             foreach (var v in voices)
             {
@@ -94,6 +95,7 @@ namespace Racer
         }
         static float Throttle(ArcadeVehicle car)
         {
+            if (car.Puppet) return ReplayViewer.ThrottleOf(car); // 1.1
             var road = car.GetComponent<RoadDriver>(); if (road && road.enabled) return road.LastThrottle;
             var cop = car.GetComponent<CopDriver>(); if (cop && cop.enabled) return cop.LastThrottle;
             return 0;
@@ -106,6 +108,7 @@ namespace Racer
         void Pick(RaceDirector race)
         {
             candidates.Clear();
+            if (ReplayViewer.Active) { PickReplay(); return; }
             var p2 = SplitScreen.Active && SplitScreen.Race ? SplitScreen.Race.P2Car : null;
             bool Eligible(ArcadeVehicle c) => c && c != race.vehicle && c != p2 && c.gameObject.activeInHierarchy && c.Body && !HasOwnAudio(c);
             foreach (var d in race.Drivers) if (d && Eligible(d.Car)) candidates.Add((d.Car, d.GetComponent<AmbientVehicle>()));
@@ -130,6 +133,28 @@ namespace Racer
                     }
                 }
             // every wanted car not yet on a voice goes to a free voice, or to one fading out (as its next car)
+            foreach (var car in wanted)
+            {
+                bool placed = false;
+                foreach (var v in voices) if (v.car == car || v.next == car) { placed = true; break; }
+                if (placed) continue;
+                foreach (var v in voices) if (!v.car) { v.car = car; v.level = 0; v.rpm = .85f; v.pedal = 0; placed = true; break; }
+                if (placed) continue;
+                foreach (var v in voices) if (!wanted.Contains(v.car) && !v.next) { v.next = car; break; }
+            }
+        }
+        // 1.1: a replay: its racers and traffic nearest the camera, each heard from where it is
+        void PickReplay()
+        {
+            foreach (var c in ReplayViewer.EngineCars) if (c) candidates.Add((c, false));
+            foreach (var c in ReplayViewer.TrafficCars) if (c) candidates.Add((c, true));
+            var at = Camera.main ? Camera.main.transform.position : Vector3.zero; wanted.Clear();
+            foreach (bool traffic in new[] { false, true })
+            {
+                candidates.Sort((a, b) => (a.car.Body.position - at).sqrMagnitude.CompareTo((b.car.Body.position - at).sqrMagnitude));
+                int n = 0; foreach (var c in candidates) { if (c.traffic != traffic || n >= (traffic ? TrafficVoices : RivalVoices)) continue; if ((c.car.Body.position - at).sqrMagnitude > Audible * Audible) break; if (wanted.Add(c.car)) n++; }
+            }
+            Info = $"replay: candidates {candidates.Count}, wanted {wanted.Count}";
             foreach (var car in wanted)
             {
                 bool placed = false;

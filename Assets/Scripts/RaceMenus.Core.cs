@@ -45,6 +45,7 @@ details.gameObject.SetActive(true);
                 Row(0,"back","Back",()=>BackPage());return;
             }
             if(page=="trailer"){RenderTrailer();return;}
+            if(RenderReplayPages())return; // 1.1: REPLAYS (RaceMenus.Replays.cs)
             if(RenderLater())return;
             if(flow.State==RaceFlow.Stage.Ready)
             {
@@ -101,6 +102,7 @@ details.gameObject.SetActive(true);
                     Row(14,"stunt","STUNT EVENT",()=>OpenStuntSetup());buttons[14].transform.SetSiblingIndex(buttons[13].transform.GetSiblingIndex()+1);
                     Hints.Show("stunt-new","New: Stunt Event. Flips, rolls, spins and combos at "+StuntPark.Title+", alone or with a friend: main menu > STUNT EVENT.",9);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
+                    Row(15,"replays","REPLAYS",()=>Navigate("replays"));buttons[15].transform.SetSiblingIndex(buttons[3].transform.GetSiblingIndex()+1); // 1.1: race replays, after RECORDS
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[10].transform.GetSiblingIndex());
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
                         if(CameraViews.Current){Step(9,"camera-view",CameraViewLabel,CycleCameraView);buttons[9].transform.SetSiblingIndex(buttons[8].transform.GetSiblingIndex()+1);}}

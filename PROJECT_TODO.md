@@ -3,7 +3,7 @@
 
 ## Status: Woodstock Rush 1.0.0 is released (build 1000000, 2026-10-16); the game is in maintenance
 
-- 1.0.0 is published ([game-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1000000)) and is what `Play-Racer.cmd` launches.
+- 1.0.0 is published ([game-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1000000)). 1.1.0-review1 (race replays, build 1010000) is a local review build: `Play-Racer.cmd` launches it until a later round publishes 1.1.0 (its build number must be above 1010000).
 - New rounds come from Dan's bug reports (the hidden F3 debug tool, `DebugReports`) or his new ideas. The standing rules below stay as they are.
 
 ## Mandatory standing workflow
@@ -32,7 +32,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Race replays from Chastain Rush: record every race, watch it with TV / chase / free cameras, keep the #1 lap and race, save any race — target 1.1.0-review1
+## CURRENT — Race replays from Chastain Rush: record every race, watch it with TV / chase / free cameras, keep the #1 lap and race, save any race — target 1.1.0-review1 — DELIVERED as 1.1.0-review1 (build 1010000, local build), awaiting Dan's review
 
 Dan (2026-10-22, 01:51): "I implemented a Replay system in Chastain Rush. Can we add this system to Woodstock Rush". Dan on it in Chastain Rush (2026-10-22): "The replays seem to work fine." His original ask there: "automatically replace top 1 laps and races with the ability to save any race you want", and "be able to watch your race you just ran and move the camera around differently". This is a new feature for the 1.0 game: **no gameplay, world, course or balance changes** beyond the hooks replays need.
 
@@ -73,6 +73,19 @@ Dan (2026-10-22, 01:51): "I implemented a Replay system in Chastain Rush. Can we
 
 ### Release
 Version 1.1.0-review1, local build only (2026-10-15 rule). When Dan accepts it, a later round publishes 1.1.0. Close everything started; no background task left running. Short results (at most about 20 lines) with "For Dan to check".
+
+### Results (2026-10-22, Claude Code)
+- Checkpoint `8c3b2468`. Evidence [Docs/Report1100/](Docs/Report1100/) ([Shots/](Docs/Report1100/Shots/), [Player/](Docs/Report1100/Player/)); check `-p106kind replay1100 -p1100part main|best|stunt|split|lev` ([Report106PlayerCheck.Round1100.cs](Assets/Scripts/Report106PlayerCheck.Round1100.cs)), tools [Tools/Report1100/](Tools/Report1100/).
+- **Ported from Chastain `736a8e7`:** the file format, recorder, viewer (controls, TV / chase / free cameras, overlay, seek and rewind), puppets and the menus, nearly line for line ([RaceReplay.cs](Assets/Scripts/RaceReplay.cs), [ReplayRecorder.cs](Assets/Scripts/ReplayRecorder.cs), [ReplayViewer.cs](Assets/Scripts/ReplayViewer.cs), [RaceMenus.Replays.cs](Assets/Scripts/RaceMenus.Replays.cs)). **New for Woodstock Rush:** the hooks into `RaceFlow` / `RaceDirector` / `SplitScreen` (begin at the countdown, keep at the Top 10 rank, stop at the results); traffic puppets with their body and paint (`AmbientVehicle.Appear`); `BreakableProp` replay breaks and restores; the race's time and weather (`WorldLook`); Stunt Race bumps rebuilt; split screen full screen; loading another course from the REPLAYS page; WR's eased free camera; TV cameras placed only with a clear line to the racer's path.
+- **Record:** every race that reaches the finish screen (quick, campaign, championship, Stunt Race, split screen; not Free Roam or its activities). Racers 25 / s, traffic 10 / s, prop breaks and waves. Check ([main](Docs/Report1100/Player/main.txt)): Street Loop Forward, 3 laps, 3 rivals, Normal, 20 traffic cars, two mailboxes smashed. Replay vs live race at the same moment: median 0.000 m, 99th percentile 0.005 m, max 6 m (the player's car as the check's pad took over to aim at a mailbox). The mailbox breaks on time ([shot](Docs/Report1100/Shots/main-break-in-replay.jpg)). **A 3-lap replay is about 2.2 MB** (the #1 lap 0.75 MB).
+- **Watch:** finish screen **WATCH REPLAY (X / V)** and **SAVE REPLAY (Y / K)** under RACE AGAIN, Chastain's buttons (nothing on the results uses them) ([shot](Docs/Report1100/Shots/main-finish-screen-buttons.jpg)). Every viewer control checked by pad and by keys ([main](Docs/Report1100/Player/main.txt)). Shots: [TV](Docs/Report1100/Shots/main-camera-tv.jpg), [chase](Docs/Report1100/Shots/main-camera-chase.jpg), [free](Docs/Report1100/Shots/main-camera-free.jpg), [HUD](Docs/Report1100/Shots/main-camera-tv-hud.jpg). Name tags follow the option.
+- **#1s** ([best](Docs/Report1100/Player/best.txt)): an empty board gets its #1 lap and race; a slower run leaves both files byte for byte; a faster run replaces both. The lap replay plays that lap ±2 s.
+- **Stunt Race** ([stunt](Docs/Report1100/Player/stunt.txt), [shot](Docs/Report1100/Shots/stunt-stunt-replay-trick.jpg)): its boards keep #1s; the tricks play (racers upside down in the air). **Split screen** ([split](Docs/Report1100/Player/split.txt), [shot](Docs/Report1100/Shots/split-split-replay-full-screen.jpg)): full screen; LB / RB through both players and the rivals; the halves come back after. **Leviathan** ([lev](Docs/Report1100/Player/lev.txt), [shot](Docs/Report1100/Shots/lev-leviathan-tv-mountain.jpg)): 40 TV cameras, none inside rock (each stands above the top surface with a clear line to the racer's path; one is not seen from a nearer stretch and is used only where it sees the racer).
+- **REPLAYS page:** main menu (after RECORDS) and the quick-race results. Lists the #1s (watch only) and saved replays (watch / delete). Each is marked when it was recorded on another build or before Leviathan's course id moved on. Checked with the controller only, from finish screen through the page to playback and B back out ([page](Docs/Report1100/Shots/main-replays-page.jpg), [from the page](Docs/Report1100/Shots/main-watched-from-page.jpg)). Files: `Replays/best/<Top 10 board>.lap|race.wrreplay`, `Replays/saved/<course> <date time>.wrreplay` beside the records, written to a temporary file first, then swapped in.
+- **Fixed on the way:** the World Map's View-button toggle swallowed the viewer's View (save); a new menu page could open focused on Back.
+- **Decisions:** the #1 race replay keeps the whole recording (the others to their finish); the REPLAYS row on the results shows for quick races only; a replay of another course loads that course first and you stay on its menu afterwards; Stunt Races' best-combo record has no replay (its boards' lap and race #1s do).
+- **For Dan to check:** watching a race and a #1 from the page; the TV camera choices and cuts; a rain or night replay; a campaign event's replay.
+  - Not done: Trailer Mode, the debug tool and save loading were not re-tested (their code is untouched).
 
 ## Previous delivery — Woodstock Rush 1.0: the finished game, published; then the trailer, filmed and cut — target 1.0.0 — DELIVERED (1.0.0 published, build 1000000; trailer first cut made), awaiting Dan's review — DAN MOVED ON (2026-10-22: replays from Chastain Rush in 1.1; his trailer review is still open)
 

@@ -1,0 +1,4 @@
+screen=1920x1080 kind=replay1100 version=1.1.0-review1 park=on
+replay check part stunt, save C:\Users\danmo\AppData\Local\Temp\report1100\stunt\save-copy, replays in C:\Users\danmo\AppData\Local\Temp\report1100\stunt\save-copy\Replays
+Stunt Race results: 1. GOLD  01:47.570  (+0.0s / 0 misses) / 2. EMBER  01:50.681  (+0.0s / 0 misses) / 3. Dan  01:51.325  (+0.0s / 0 misses) / 4. BLUE  01:52.758  (+0.0s / 0 misses); recorder: stopped (the results) at 120.4 s; 4 racers, 12340 racer frames, 0 traffic, 0 traffic frames, 2 events; #1 lap kept stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear.lap.wrreplay (274 KB); #1 race kept stunt-mountain-forward-v5-supported-stuntbuggy-race4-d1-stuntbuggy-stuntbike-stuntbuggy-clear-laps1.race.wrreplay (284 KB)
+Stunt Race replay: 4 racers, played -3 to 120 s at x4: racers upside down in 14 racer-seconds; shot taken

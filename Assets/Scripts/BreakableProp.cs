@@ -112,6 +112,30 @@ namespace Racer
             for(int i=0;i<visuals.Length;i++)visuals[i].enabled=initialVisualEnabled[i];
             sensor.enabled = true; IsBroken = false; PendingRestore = false; age = 0;
         }
+        // 1.1 (from Chastain Rush's FenceChunk.ReplayBreak): a race replay breaks the prop that stood at 'at' (the one recorded), as a vehicle at 'vel'
+        // would; quiet (going back in time puts the world as it was): hidden, no flight, no sound. BrokenByVehicle is not raised.
+        public Vector3 Home => initialPosition;
+        public static bool ReplayBreak(Vector3 at, Vector3 vel, bool show)
+        {
+            BreakableProp found = null; float best = .25f;
+            foreach (var prop in all) { if (!prop || !prop.initialized) continue; float d = (prop.initialPosition - at).sqrMagnitude; if (d < best) { best = d; found = prop; } }
+            if (!found || found.IsBroken) return found;
+            found.PendingRestore = false;
+            if (show) { found.Yield(vel); SmashAudio.Play(found.initialPosition, vel.magnitude, found.surface); }
+            else { found.IsBroken = true; found.sensor.enabled = false; found.HideDebris(); }
+            return true;
+        }
+        // a replay going back in time: every prop as it stood, at once (no vehicle can block it: the replay's vehicles have no colliders)
+        public static void ReplayRestoreAll()
+        {
+            foreach (var prop in all.ToArray())
+            {
+                if (!prop || !prop.initialized || (!prop.IsBroken && !prop.PendingRestore)) continue;
+                prop.HideDebris(); prop.transform.SetPositionAndRotation(prop.initialPosition, prop.initialRotation); prop.transform.localScale = prop.initialScale;
+                for (int i = 0; i < prop.visuals.Length; i++) prop.visuals[i].enabled = prop.initialVisualEnabled[i];
+                prop.sensor.enabled = true; prop.IsBroken = false; prop.PendingRestore = false; prop.age = 0;
+            }
+        }
         public static void RestoreRace()
         {
             Physics.SyncTransforms();

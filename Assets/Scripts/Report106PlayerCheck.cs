@@ -170,6 +170,7 @@ namespace Racer
                 case "garage120": yield return Garage120(); break;
                 case "final121": yield return Final121(); break; // 0.121 (Report106PlayerCheck.Round121.cs)
                 case "debug1000": yield return Debug1000(); break; // 1.0 (Report106PlayerCheck.Round1000.cs)
+                case "replay1100": yield return Replay1100(); break; // 1.1 (Report106PlayerCheck.Round1100.cs)
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

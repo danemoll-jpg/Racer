@@ -1,0 +1,10 @@
+screen=1920x1080 kind=replay1100 version=1.1.0-review1 park=on
+replay check part best, save C:\Users\danmo\AppData\Local\Temp\report1100\best\save-copy, replays in C:\Users\danmo\AppData\Local\Temp\report1100\best\save-copy\Replays
+board street-v14-discovery-drifter-race4-d0-mower-mower-atv-clear-laps1: race entries 0, lap entries 0
+first run (top speed x0.8): lap 02:39.420 rank #1, race 02:43.029 rank #1; recorder: stopped (the results) at 170.6 s; 4 racers, 17368 racer frames, 0 traffic, 0 traffic frames, 2 events; #1 lap kept street-v14-discovery-drifter-race4-d0-mower-mower-atv-clear.lap.wrreplay (386 KB); #1 race kept street-v14-discovery-drifter-race4-d0-mower-mower-atv-clear-laps1.race.wrreplay (394 KB)
+   kept: lap lap 02:39.420 (387 KB, B94D2CD93D5B); race race 02:43.029 (394 KB, 2C8055416B60)
+slower run (top speed x0.6): lap 03:03.365 rank #2, race 03:07.383 rank #2; recorder: stopped (the results) at 195.0 s; 4 racers, 19800 racer frames, 0 traffic, 0 traffic frames, 2 events
+   kept: lap lap 02:39.420 (387 KB, B94D2CD93D5B); race race 02:43.029 (394 KB, 2C8055416B60)
+faster run (top speed x1): lap 02:29.011 rank #1, race 02:32.323 rank #1; recorder: stopped (the results) at 159.9 s; 4 racers, 16296 racer frames, 0 traffic, 0 traffic frames, 1 events; #1 lap kept street-v14-discovery-drifter-race4-d0-mower-mower-atv-clear.lap.wrreplay (371 KB); #1 race kept street-v14-discovery-drifter-race4-d0-mower-mower-atv-clear-laps1.race.wrreplay (377 KB)
+   kept: lap lap 02:29.011 (371 KB, 21A08CAE19E0); race race 02:32.323 (378 KB, 331442CE4A68)
+   the #1 lap's replay: 1.3 to 154.3 s (153.0 s), the race had 149.0 s laps
