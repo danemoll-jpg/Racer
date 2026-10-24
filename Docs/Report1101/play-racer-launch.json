@@ -1,0 +1,14 @@
+{
+    "entryPoint":  "C:\\Users\\danmo\\Racer\\Play-Racer.cmd",
+    "path":  "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\1010100\\Racer.exe",
+    "version":  "1.1.0",
+    "build":  1010100,
+    "pid":  65736,
+    "responsive":  true,
+    "window":  "Woodstock Rush",
+    "windowRect":  "0,0 1280x720",
+    "display":  "3840x2160",
+    "stableLauncherRoot":  "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+    "futureSignedUpdatesPreserved":  true,
+    "verifiedAt":  "2026-10-24T03:31:01.8879330-04:00"
+}

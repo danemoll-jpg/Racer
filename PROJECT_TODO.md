@@ -1,10 +1,10 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
-## Status: Woodstock Rush 1.0.0 is released (build 1000000, 2026-10-16); the game is in maintenance
+## Status: Woodstock Rush 1.1.0 is released (build 1010100, 2026-10-24); the game is in maintenance
 
-- 1.0.0 is published ([game-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1000000)). 1.1.0-review1 (race replays, build 1010000) is a local review build: `Play-Racer.cmd` launches it until a later round publishes 1.1.0 (its build number must be above 1010000).
-- The complete download (launcher + game 1.0.0 + soundtrack + icon and poster, one ZIP; the launcher updates by itself on start) is [starter-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/starter-1000000), published not as Latest so the update catalog stays on `game-1000000`.
+- 1.1.0 (race replays; full screen and the Screen mode option for the Steam Deck) is published as Latest ([game-1010100](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1010100)); `Play-Racer.cmd` launches it. 1.0.0 stays published ([game-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1000000)).
+- The complete download (launcher + game 1.1.0 + soundtrack + icon and poster, one ZIP; the launcher updates by itself on start) is [starter-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/starter-1000000) (`WoodstockRush-1.0.0-Full.zip`, name kept so links keep working), not Latest so the update catalog stays on the game release.
 - New rounds come from Dan's bug reports (the hidden F3 debug tool, `DebugReports`) or his new ideas. The standing rules below stay as they are.
 
 ## Mandatory standing workflow
@@ -33,7 +33,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Steam Deck: the game opens windowed and half the menu is off screen; start full screen, add a Display option, publish 1.1.0 — target 1.1.0 (published) — IMPLEMENTED (Part A checked; 1.1.0 build and release in progress)
+## CURRENT — Steam Deck: the game opens windowed and half the menu is off screen; start full screen, add a Display option, publish 1.1.0 — target 1.1.0 (published) — DELIVERED as 1.1.0 (build 1010100, published as Latest; starter refreshed), awaiting Dan's Steam Deck test
 
 Dan (2026-10-24, 01:51–02:06, Steam Deck, **Gaming Mode**, launched through the new self-updating launcher, game 1.0.0): "steam deck still not opening full screen" and "I can't do anything because half the menu isn't even visible". Alt+Enter (mapped to a back button) only opens the game menu: the game reads Enter as a menu key, so Unity's own toggle never fires. What is known: `ProjectSettings` has `fullscreenMode: 1` (full-screen window), `defaultIsNativeResolution: 1`, default 1024×768; the launcher passes no `-screen-*` arguments; no game script sets the screen mode. Likely cause: a windowed mode / size saved by Unity (`Screenmanager …` values in the prefix's registry, e.g. from the old 0.21 install), which the game has no way to undo. The Deck's screen is **1280×800 (16:10)**.
 
@@ -63,6 +63,11 @@ Dan (02:09): "I mean I don't care since its all new anyway and i didn't even get
 - **Found:** Dan's own Unity screen values were Windowed 1920×1080 (left by earlier test players), the same kind of stale value the Deck likely has; 1.1.0 ignores them. The registry was exported before the checks and imported back after.
 - **Decisions:** the full-screen mode is borderless (the project's default), not exclusive; Alt+Enter is left as it is (the option replaces it).
 - **Not changed (16:9, list only):** at 1280×720 the REPLAYS page's intro text loses its last words ("…set a #1 lap or race on a Top 10 board.") ([pages-169](Docs/Report1101/Player/pages-169.txt)).
+- **B1–B2 published:** fresh build of `78115348` (0 errors, [build-release.txt](Docs/Report1101/build-release.txt)), version 1.1.0, build **1010100**, signed with the existing key and published as Latest: [game-1010100](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1010100) (earlier releases kept; [release.json](Docs/Report1101/release.json)). Hosted check: public catalog → signed manifest → download into a fresh install, all 235 files match `Builds/Latest`, startup ready ([hosted/result.json](Docs/Report1101/hosted/result.json)). (The first publish run hit GitHub's draft-list lag again; `--resume-draft` finished it.)
+- **B5 automatic update:** the published 1.0.0 starter, downloaded fresh and left alone: "Updating to game 1.1.0…", 411 MiB, installed and started `versions/1010100` in 94 s ([starter-1.0.0-updates](Docs/Report1101/starter-1.0.0-updates/result.json)).
+- **B3 starter refreshed:** `starter-1000000` now titled "Woodstock Rush 1.1.0 — complete download", zip rebuilt with game 1.1.0 from the published manifests (435 files, 1,225,956,238 bytes, SHA-256 `c45b847e…16bba`) and swapped in under the **same file name** `WoodstockRush-1.0.0-Full.zip`, so the direct link is unchanged; update catalog byte for byte unchanged by the swap. Fresh download of it: "Up to date", started 1.1.0 ([starter-1.1.0-fresh](Docs/Report1101/starter-1.1.0-fresh/result.json)).
+- **B4 Dan's PC:** `Builds/Latest` activated by the updater from the hosted manifest: `versions/1010100` (1.1.0), previous `versions/1010000`. `Play-Racer.cmd` (unchanged) launched `versions/1010100/Racer.exe`, full screen over the whole display ([play-racer-launch.json](Docs/Report1101/play-racer-launch.json)); settings.json byte for byte ([settings-preserved.json](Docs/Report1101/settings-preserved.json)); the other 666 save-folder files unchanged except the game's read-only `BalanceLog/balance-sheet.md`, re-stamped "Version 1.1.0". Cleanup: Builds 12.76 → 7.77 GB, C: free 73.5 GB.
+- **For Dan to check:** on the Deck in Gaming Mode, open Woodstock Rush and leave the launcher alone: it should install 1.1.0 and the game should fill the screen with the whole menu visible. If it ever opens windowed, Settings > DISPLAY > Screen mode. Then set your name (Settings > Gameplay > Player name).
 
 ## Previous delivery — Launcher updates by itself on start, plus the icon and poster in the download's top folder — target launcher update + refreshed 1.0.0 starter (game stays 1.0.0) — DELIVERED (self-updating launcher; starter zip replaced on `starter-1000000`), awaiting Dan's Steam Deck test — DAN MOVED ON (2026-10-24: launched it on the Deck in Gaming Mode; the game opens windowed with half the menu off screen)
 

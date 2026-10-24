@@ -1,0 +1,37 @@
+{
+  "latest": {
+    "tag": "game-1010100",
+    "url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1010100",
+    "published": "2026-10-24T07:27:20Z",
+    "assets": [
+      {
+        "name": "game-manifest.json",
+        "size": 47497,
+        "digest": "sha256:77380538380ed3d02bbca75a7feccba8acb584838d1108b28bbd7fcef53c7eb9"
+      },
+      {
+        "name": "game.zip",
+        "size": 431650226,
+        "digest": "sha256:232743c0b941eb77db3b7b2e50f0d7467349a277dd217d09aefa2cd25df8d3ff"
+      },
+      {
+        "name": "update-catalog.json",
+        "size": 993,
+        "digest": "sha256:ac389c76433adb601dfd8ec06f0d8f9135d2edebe64c02d6e09943f2b38cd95e"
+      }
+    ]
+  },
+  "starter": {
+    "tag": "starter-1000000",
+    "title": "Woodstock Rush 1.1.0 — complete download",
+    "url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/starter-1000000",
+    "draft": false,
+    "assets": [
+      {
+        "name": "WoodstockRush-1.0.0-Full.zip",
+        "size": 1225956238,
+        "digest": "sha256:c45b847e110f7a8caa591b0a169ece3798a0947a5f4de3ad2732215ccc416bba"
+      }
+    ]
+  }
+}

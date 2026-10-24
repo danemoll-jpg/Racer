@@ -16,7 +16,11 @@ do {
  if($found.Count -eq 1){$launched=$found[0];$launched.Refresh()}
 }while((!$launched -or !$launched.MainWindowHandle -or !$launched.Responding) -and (Get-Date) -lt $deadline)
 if(!$launched -or !$launched.MainWindowHandle -or !$launched.Responding){throw 'New signed release did not present a responsive game window'}
-$record=[ordered]@{entryPoint=(Join-Path $root 'Play-Racer.cmd');path=$launched.Path;version='1.1.0';build=1010100;pid=$launched.Id;responsive=$launched.Responding;window=$launched.MainWindowTitle;stableLauncherRoot=$latest;futureSignedUpdatesPreserved=$true;verifiedAt=(Get-Date -Format o)}
+# 1.1.0: the game window's size a few seconds in (full screen = the whole display)
+Add-Type -Namespace W -Name U -MemberDefinition '[DllImport("user32.dll")] public static extern bool GetWindowRect(System.IntPtr h, out RECT r); public struct RECT { public int L, T, R, B; }'
+Start-Sleep -Seconds 6; $r=New-Object W.U+RECT; $null=[W.U]::GetWindowRect($launched.MainWindowHandle,[ref]$r)
+$display=(Get-CimInstance Win32_VideoController | Where-Object CurrentHorizontalResolution | Select-Object -First 1)
+$record=[ordered]@{entryPoint=(Join-Path $root 'Play-Racer.cmd');path=$launched.Path;version='1.1.0';build=1010100;pid=$launched.Id;responsive=$launched.Responding;window=$launched.MainWindowTitle;windowRect="$($r.L),$($r.T) $($r.R-$r.L)x$($r.B-$r.T)";display="$($display.CurrentHorizontalResolution)x$($display.CurrentVerticalResolution)";stableLauncherRoot=$latest;futureSignedUpdatesPreserved=$true;verifiedAt=(Get-Date -Format o)}
 $record | ConvertTo-Json | Set-Content (Join-Path $root 'Docs/Report1101/play-racer-launch.json')
 $null=$launched.CloseMainWindow()
 if(!$launched.WaitForExit(5000)){$remaining=Get-Process -Id $launched.Id -ErrorAction SilentlyContinue;if($remaining -and $remaining.Path -eq $expected){$remaining.Kill()}}
