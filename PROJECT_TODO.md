@@ -33,7 +33,34 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Steam Deck: the launcher fails under Proton (linked-folder check, "Invalid signature encoding"); fix it and publish a 1.0 starter zip with the fixed launcher — target launcher fix + 1.0.0 starter (game stays 1.0.0) — DELIVERED (fixed launcher; starter published as `starter-1000000`), awaiting Dan's Steam Deck test
+## CURRENT — Launcher updates by itself on start, plus the icon and poster in the download's top folder — target launcher update + refreshed 1.0.0 starter (game stays 1.0.0) — NOT STARTED
+
+Dan (2026-10-24, on the Steam Deck after installing the new starter): "why dont it just get the latest update without having to click button within 2 seconds?" and "i can't click it quick enough anyway". Today the launcher plays the installed version after 3 seconds untouched (`launcher.cpp`, the `GetTickCount64()-opened>3000` → `Play()` line) and never checks for updates unless a button is pressed. Also: "Can you also include the icon and the logo in the root folder so i can easily find them" (he wants them for his Steam shortcut on the Deck).
+
+### Part A — Update automatically, then play
+1. On opening, the launcher **checks for updates by itself** (game and soundtrack, same signed catalog and verification as the buttons). While it checks, the window says so.
+2. **Newer version found:** download, verify and install it, showing progress in the window, then start the game. Same safe install and rollback as the "Update game and play" button.
+3. **Nothing newer, offline, check fails, or the download fails:** start the installed version, as today. A failure shows one short line, and never leaves the game broken or unplayable.
+4. **Skip:** B on the controller, Esc, or a Cancel button cancels the check or download and plays the installed version at once. The menu stays reachable (any other button or a click stops the automatic flow and shows the menu, as now).
+5. **Never go backwards:** if the installed game is newer than the catalog's (Dan's PC runs the local 1.1.0-review1, the catalog has 1.0.0), do nothing and play the installed one. `Play-Racer.cmd` on Dan's PC must still launch 1.1.0-review1 after this round.
+6. **Download limit:** the current 10-minute limit on a whole download (about 0.7 MB/s for 1.0's 430 MB) would fail automatic updates on a slow connection. Replace it with a stall limit (give up only when no data has arrived for about 60 seconds), keeping any other safety limits.
+7. **Check:** on Dan's PC with a test install of 1.0.0 and a test catalog offering a newer game: opening the launcher untouched updates and starts it; with B pressed it plays the old one; with the network off it plays the installed one. One check that Dan's own `Builds/Latest` (1.1) is not touched. Launcher text in American English.
+
+### Part B — Icon and poster in the download's top folder
+1. In the starter zip's **top folder**, beside `WoodstockRushLauncher.exe`, add `WoodstockRush-Icon.png` (from `Assets/Branding/WoodstockRushIcon.png`, the ATV icon) and `WoodstockRush-Poster.png` (from `SourceArt/Poster/WoodstockRushPoster.png`, the poster with the title). Plain copies, no new artwork.
+2. Mention both in the install steps' Steam Deck section: they can be set as the Steam shortcut's icon and artwork.
+
+### Part C — Publish
+1. Rebuild the starter (`Tools/Package-LauncherStarter.py`) with the new launcher and the two images; game stays 1.0.0; nothing re-signed beyond what the existing workflow already does; never regenerate, replace or expose signing keys.
+2. Publish it on the **same** release, `starter-1000000` ("Woodstock Rush 1.0.0 — complete download"), replacing the zip so Dan's game-hub link stays the same. If the publisher cannot replace an asset safely, publish a new tag instead and say so. Not as Latest; `releases/latest` (the update catalog) stays on `game-1000000`.
+3. Install the new launcher in Dan's `Builds/Latest` the same way as last round, his settings and saves untouched.
+4. **Check:** fresh download of the published zip into an empty folder: the two images are in the top folder, the launcher starts 1.0.0 by itself.
+
+### Part D — Results (short, per the standing rule)
+- One line per part, the check, and the release link.
+- **For Dan to check:** on the Deck, download the new zip, extract it over `/home/deck/Games/WoodstockRush` (or into a fresh folder and point the existing shortcut at it), open the launcher and leave it alone: it should check and start the game by itself.
+
+## Previous delivery — Steam Deck: the launcher fails under Proton (linked-folder check, "Invalid signature encoding"); fix it and publish a 1.0 starter zip with the fixed launcher — target launcher fix + 1.0.0 starter (game stays 1.0.0) — DELIVERED (fixed launcher; starter published as `starter-1000000`), awaiting Dan's Steam Deck test — DAN MOVED ON (2026-10-24: installed the starter on the Deck and it launched; asked for automatic updates and the icon/poster next)
 
 Dan (2026-10-23/24) is reinstalling on his Steam Deck after a repair and factory reset. He wants the launcher install so the Deck stays updatable ("what if I want an updatable version so i don't have to install it every time"). Long ago the 0.21 launcher install worked on the Deck, but the Deck broke before he could try updating, so updating under Proton has never been tried (the 0.21 release notes say Deck validation was pending). Tonight, from `WoodstockRush-0.21.0-launcher1-Full.zip` (release `build-21002`) added to Steam as a non-Steam game with Proton Experimental:
 
@@ -185,40 +212,9 @@ Short (at most about 20 lines): the version, build and release links; what house
 - **Bugs seen on camera:** none in the world.
 - **For Dan to check:** the cut and the takes (swap in-points or takes in `Tools/Report1000/Trailer/edit.json`, then `python Tools/Report1000/Trailer/cut.py`); pick a licensed track for `Trailer/Music/`; 1.0.0 from `Play-Racer.cmd`.
 
-## Previous delivery — Leviathan Forward Stunt Race: rivals driving in circles at CP 44 (Hwy 92) — target 0.121.0-review1 — DELIVERED as 0.121.0-review1 (build 121000, local build), awaiting Dan's review — REVIEWED BY DAN (accepted; the game is called 1.0)
-
-Dan's report: session `2026-10-15_15-52-55-667_6d34cd` (now CLOSED and exported as `…_6d34cd_1615a117.zip` in `DebugReports`). BUG-001 to BUG-004 were done in 0.119; **only BUG-005 is new** (on 0.120). **Look at its screenshot first.**
-
-**BUG-005** Leviathan Forward, **Stunt Race**, Clay Hopper, lap 2 of 2, Day / Clear, X=290.96 Z=560.12, heading 82°, at the Hwy 92 intersection. The HUD says "NEXT CP 44 0 ft". Dan was 1st, 228.7 s ahead of June Park. Dan: "why they all just driving around in a circle?" In the shot, four rivals (Rusty Vance, Hollis Gray, Mia Torres, Big Ed Kowalski) mill around in the intersection instead of going on.
-
-1. **Find the cause first** and say it in one or two lines. Reproduce it with an AI-only Leviathan Forward Stunt Race (2 laps) and, for comparison, one normal Leviathan Forward race. Things to rule out:
-   - CP 44 not counting for rivals (or for anyone) where it stands. "0 ft" means the guide thinks Dan is on top of it.
-   - A rival stuck behind the in-order gate rule (0.115), driving back for a gate it missed.
-   - A 0.120 stunt bump near here throwing the rivals off their line.
-   - The rivals losing their place on the course near the twice-driven roads (0.117 / 0.118).
-   - Stunt Race rival logic, such as trick or bail recovery, putting rivals back on the wrong pass.
-2. **Fix that cause only.** The rivals go through this intersection and finish, in Stunt Races and normal races. Don't move gates or change the course unless the cause is there. If something has to move, keep it as close as possible and say what moved.
-3. If the cause also affects normal Leviathan races or the other courses, fix it there too and say so. Don't change anything else.
-4. **Check:** one AI-only Leviathan Forward Stunt Race (2 laps, 5 rivals, mixed stunt vehicles): every rival finishes, none circles at CP 44, ≤ 2 resets each. One normal Leviathan Forward AI race: all finish. One shot at Dan's spot as rivals pass through.
-
-### Release
-Version 0.121.0-review1, local build only (2026-10-15 rule). Close everything started; no background task left running. Short results (at most about 20 lines) with "For Dan to check".
-
-### Results (2026-10-15, Claude Code)
-- Checkpoint `c0ebb1e9`. Dan's race was the Stunt Chapter's **Stunt Final** (Hard, 2 laps, 5 rivals; his results log). Evidence [Docs/Report121/](Docs/Report121/); check `-p106kind final121` ([Report106PlayerCheck.Round121.cs](Assets/Scripts/Report106PlayerCheck.Round121.cs)), tools [Tools/Report121/](Tools/Report121/).
-- **Cause:** 0.120's Kicker 6 stood 85 m before CP 44; at Hard its flights carry 100–134 m (0.120 worked them out at 53 m), so rivals flew over / beside CP 44 (3–13 m up, 8–24 m right) and it did not count. High over the line the road station jumps more per step than the verified-progress rule allows, so verified progress froze in the air: the miss was never charged, the rival's station stayed pinned 60 m past the gate and the AI turned back to it again and again. Reproduced: all 5 rivals circling 12–16 min, never finishing ([before](Docs/Report121/Player/before-stunt-final.txt), [diagnosis](Docs/Report121/Player/before-diag-lap1.txt)). Not a gate rule, a reset or Stunt Race rival logic.
-- **Fix 1 (Stunt Races only):** Kicker 6 moved to Hwy 92 west, (−105.3, 525.9), station 6510, same size / side / heading, 246 m back; flights now land before CP 43 ([bumps.md](Docs/Report121/bumps.md)). No gate or course change.
-- **Fix 2 (every race):** when a racer lands back on the line after a flight, its verified progress moves up to where it is, never further than it flew (+12 m) ([RaceDirector.cs](Assets/Scripts/RaceDirector.cs)). A gate flown past is charged +5 s on landing instead of leaving the racer stuck. Check with the old bump spot and this fix: rivals still fly over CP 44, are charged, all finish ([code-fix-only](Docs/Report121/Player/code-fix-only-old-bump.txt)).
-- **Check:** Stunt Final, AI only (2 laps, 5 rivals, Clay Hoppers and Skywhips, Hard): every rival finished, none waited more than 4 s at CP 44, every CP 44 pass on the ground and counted ([after](Docs/Report121/Player/after-stunt-final.txt)); normal Leviathan Forward, Hard, 5 rivals: all finished, ≤ 1 reset each ([normal](Docs/Report121/Player/normal-race.txt)); [shot at Dan's spot](Docs/Report121/Shots/spot-BUG-005-stunt.jpg) as June Park drives through.
-- **Decisions:** the bump moved back past CP 43 rather than removed (the nearest spot whose flights can't reach a gate; s 6540 still landed some 30 m short of CP 43 and two rivals missed it); other bumps near gates listed, not moved ("world changes only where Dan pointed").
-- **For Dan to check:**
-  - The new Kicker 6 spot on Hwy 92 west; and the other bumps with a gate soon after them ([bumps.md](Docs/Report121/bumps.md)).
-  - Resets: Hollis Gray reset 3 times in the final check (Kyle's bank and the lake-shore → CR110 turn, the known 0.118 spots, also before the fix); one rival in one earlier run reset once at the new Kicker 6 landing.
-  - Big kicker 5 (Leviathan Forward) flies over CP 30 at 15–18 m without a miss being charged; not looked into.
-- **Release:** local build only (no GitHub release). Built fresh from `4061b15f` (pushed), 0 errors ([build-release.txt](Docs/Report121/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/121000`, 120000 kept as the previous ([runtime-identity.json](Docs/Report121/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.121.0-review1 ([play-racer-launch.json](Docs/Report121/play-racer-launch.json)); your settings restored byte for byte ([settings-preserved.json](Docs/Report121/settings-preserved.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 204.1 GB.
-
 ## History archive
 
+- 2026-10-24 (fourteenth move): the Steam Deck launcher round moved to "Previous delivery" for the automatic-update round, so the 0.121 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-24 (thirteenth move): the 1.1 replay round moved to "Previous delivery" for the Steam Deck launcher round, so the 0.120 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-16 (twelfth move): 0.121 reviewed, so the 0.118 "Previous delivery" section was moved verbatim to the end of the archive. The QUEUED trailer section was folded into the 1.0 CURRENT section.
 - 2026-10-15 (eleventh move): 0.120 reviewed, so the 0.117 "Previous delivery" section was moved verbatim to the end of the archive.
