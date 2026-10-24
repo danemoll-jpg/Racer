@@ -7755,3 +7755,69 @@ Version 0.119.0-review1, local build only (2026-10-15 rule; no GitHub release). 
   - The moon is drawn 900 m out and may show in front of the far hills when low (not changed).
   - Your save shows "CAMPAIGN UPDATED: Chapter 5: Stunt is open" once.
 - **Release:** local build only (2026-10-15 rule; no GitHub release). Built fresh from `b461caca` (pushed), 0 errors ([build-release.txt](Docs/Report119/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/119000`, 118000 kept as the previous ([runtime-identity.json](Docs/Report119/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.119.0-review1; your settings restored byte for byte, campaign saves untouched ([play-racer-launch.json](Docs/Report119/play-racer-launch.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 214.1 GB.
+
+## Previous delivery — Stunt Races and the Stunt park after Dan's first drive of 0.119: points on screen, a multiplier for every trick in one flight, bumps to trick off, tricks out of the park count again, the garage shows stunt vehicles — target 0.120.0-review1 — DELIVERED as 0.120.0-review1 (build 120000, local build), awaiting Dan's review — REVIEWED BY DAN (BUG-005 in 0.121)
+
+Dan (2026-10-15, 18:58), after playing 0.119 (no debug report this time; his words are the spec):
+> 1) It was supposed to show your total points during the race but it is not there
+> 2) On the ramps you really have only a couple of times to get a score, the multiplier should go up for every stunt type you do during a jump
+> 3) perhaps we can add some bumps on the stunt tracks in order to be able to get some extra point
+> 4) The stunt course itself: we had a rule that stunts completed out of the arena still counted but I think it has reverted here. There is no counter for your current stunt and multiplier
+> 5) You can select the garage but it is pointless because it only shows all the other vehicles you can't use, the stunt course vehicles aren't there...at least I didn't see them
+
+Standing rules apply (controller first, verification budget, signs, American spelling). Normal races, their records and the normal campaign chapters stay unchanged.
+
+### Part A — One trick HUD everywhere tricks score
+Items 1 and 4 (second half). The Stunt Race, the Stunt chapter's events and the Stunt park event (solo and split screen, each player their own) show:
+1. **Total stunt points** for the race or event, always on screen, updating as tricks land. In Stunt Races, the trick time bonus earned so far next to it ("−4.5 s"). In split-score races, also your live stunt-point place (as the 0.119 spec asked; it was missing).
+2. **The current trick and multiplier**, live: the trick names as they happen in the air ("BACKFLIP + ROLL"), the multiplier ("x2"), the points on the line, and the chain countdown on the ground. Then "LANDED +1,240" or "BAILED".
+3. Placed clear of the position / lap panel, the NEXT CP line, the minimap and the speedometer; smaller in races than in the park (0.119 item 6). Both split-screen views.
+- First find out why the total and the counter don't show (missing, hidden, or behind another panel) and say which in one line.
+- **Check:** one shot each: Stunt Race mid-trick, Stunt Race after a landing, the park mid-combo, a split-screen view.
+
+### Part B — The multiplier goes up for every trick type in one flight
+Item 2. Dan: "the multiplier should go up for every stunt type you do during a jump."
+1. Within one flight, each **different** trick type added (flip, roll, 360 spin, and any other type the game has) raises the multiplier by 1: backflip alone x1, backflip + roll x2, backflip + roll + 360 x3. Repeating the same type adds its points, not multiplier.
+2. Chaining on the ground (the 5 s chain) keeps working as now on top of it.
+3. **One scoring system:** the same rule for the player and the rivals, in Stunt Races, the Stunt chapter and the Stunt park.
+4. Because scores go up, re-tune the trick time bonus cap in Stunt Races (still "can't win by tricks alone") and the Stunt chapter targets (Summit Tricks, the park medals if they change). Old park records stay on the boards as they are. Say the new numbers.
+5. Rivals use it on long flights (a two-type combo sometimes, more on Hard).
+- **Check:** one flight with three types landed: x3 shown and scored; one with the same type twice: x1.
+
+### Part C — Bumps to trick off on the stunt courses
+Item 3. Dan: "perhaps we can add some bumps on the stunt tracks in order to be able to get some extra points."
+1. On each Stunt Race course (Mountain Loop Forward / Reverse, Leviathan Forward / Reverse), add **kickers and bumps that exist in Stunt Races only** (never in normal races or Free Roam), so there are more chances for air between the big jumps.
+2. About 4–6 per course, on the course or just beside it, so you choose to hit one or not. Each fits its place (a dirt mound, a driveway lip, a bank), stands on its own ground, lands on a down-slope, nothing floating, and doesn't block the line or a gate. Not on or right before the existing big jumps.
+3. Big enough for one trick type with a stunt vehicle at racing speed; one or two bigger ones per course for two types.
+4. Rivals can take them and trick off them; none gets stuck or reset on one.
+5. List every bump with its position, so Dan can say which to remove or move.
+- **Check:** a top-down of each course with the bumps marked; one clip over one bump with a trick landed; one AI Stunt Race on one course with no rival reset at a bump.
+
+### Part D — Tricks that leave the park count again (regression)
+Item 4 (first half). 0.107 Part B, accepted: "If a trick takes you out of the park, I feel like it should still count." A flight that **takes off inside the park counts wherever it lands** (Stunt park event solo and split screen, the Stunt chapter's park event, Free Roam best combo). A flight that takes off outside the park still doesn't count in the event.
+- Find which round reverted it and say so in one line; put it back without undoing anything else that round did.
+- **Check:** in the park event, a backflip that lands outside the fence on the Hwy 92 side is added; reset puts you back in the park.
+
+### Part E — The garage shows stunt vehicles for stunt events
+Item 5. When the garage is opened from a Stunt Race setup (Quick Race and split screen), a Stunt chapter event or the Stunt park event, it shows **only the stunt vehicles**: the Clay Hopper, the Skywhip 250, the Clay Hopper Cup and any later one, with their stats and paint. Owned ones selectable; not-yet-unlocked ones as silhouettes (standing rule). The choice saves as the stunt vehicle (0.119 keeps it apart from the normal one) and is the default next time.
+- The normal garage (normal races, normal chapters) never shows stunt vehicles, as now.
+- **Check:** controller only: Stunt Race setup > garage shows the stunt vehicles, pick the Skywhip, start, it's the Skywhip; the same from a Stunt chapter event; B back.
+
+### Release
+Version 0.120.0-review1, local build only (2026-10-15 rule). Close everything started; no background task left running. Short results (at most about 20 lines) with "For Dan to check".
+
+### Results (2026-10-15, Claude Code)
+- Checkpoint `605e8d38`. Evidence [Docs/Report120/](Docs/Report120/) ([Shots/](Docs/Report120/Shots/), [Player/](Docs/Report120/Player/)); checks [Run-Checks.ps1](Tools/Report120/Run-Checks.ps1).
+- **A, why missing:** the race panel only ever showed the seconds off ("TRICKS −x s"), never the points; the live combo was the small bottom-left activity line, with nothing in the air; in the Stunt chapter's park event the 0.96 rule that hides activity lines in non-race campaign events hid every trick line.
+- **A:** race panel (solo and each split-screen view): `STUNT 12,340 pts · −4.5 s` (Split score: `· 2nd in tricks`), rising as tricks land. New trick panel ([TrickHud.cs](Assets/Scripts/TrickHud.cs)) on the left of each view, wherever tricks score: live trick names, `x2`, points on the line; then `LANDED +n` / `BAILED`; `COMBO x3 · pts · 3.2 s`. Shots: [race mid-trick](Docs/Report120/Shots/A-race-mid-trick-4.jpg), [race after a landing](Docs/Report120/Shots/A-race-after-landing-9.jpg), [park mid-combo](Docs/Report120/Shots/A-park-mid-combo.jpg), [split screen](Docs/Report120/Shots/A-split-both-views.jpg).
+- **B:** a flight's points (tricks and jump) × its number of different types (flip, roll, spin; barrel roll is a roll); the 5 s chain on top; one function for players and rivals (rivals gain BACKFLIP + ROLL, FRONTFLIP + 360, BACKFLIP + ROLL + 360). Check ([park](Docs/Report120/Player/park.txt), [race](Docs/Report120/Player/race4.txt)): backflip + roll x2 (2,448), double backflip x1 (1,157), backflip + roll + 360 x3 (10,305) shown and scored; rivals landed x2 and x3.
+- **B, numbers:** trick bonus 0.5 s per 2,000 pts (was per 500; at 1,000 a single lap reached the cap), cap still 8 s a lap; Summit Tricks 3,000 / 6,000 / 9,500 (one / two / three types; was 3,100 / 3,600 / 4,100); park medals unchanged; old records untouched.
+- **C:** bumps in Stunt Races only ([StuntBumps.cs](Assets/Scripts/StuntBumps.cs), [StuntBumps.json](Assets/Resources/StuntBumps.json), placed by [bumps.py](Tools/Report120/py/bumps.py) from course probes): Mountain Loop Forward 2, Reverse 3, Leviathan Forward 6, Reverse 6, each listed in [bumps.md](Docs/Report120/bumps.md) with [top-downs](Docs/Report120/Bumps/). Kicker 1.5 m over 4.5 m, big 3 m over 7 m, park dirt, on one half of the road; kept clear of gates, the big jumps and their run-ups, the marked jumps (High Ridge Drop, Fern Creek Leap…) and Leviathan's twice-driven roads. Checks: [clip](Docs/Report120/Clips/bump-ML-forward-1-backflip.mp4) (backflip landed, +879); AI races ([ML Forward, Hard](Docs/Report120/Player/race4.txt): 3 rival flights off bumps, 0 resets; [Leviathan Reverse](Docs/Report120/Player/race9.txt): 17 flights off bumps, 1 reset 282 m from any bump); a normal race in the same scene: no bumps.
+- **D, cause:** no round reverted it: 0.107's rule still held for a lone flight ([0.119 check](Docs/Report120/Player/base-0.119-event107.txt)), but any later hop that took off outside (down the bank after landing) joined the same combo and, by the 0.106 combo rule, threw the whole combo out. Now such a hop is "not counted" on its own (in Free Roam the park combo is banked first). Check: backflip out to the Hwy 92 side +709, then the hop "OUTSIDE THE PARK: NOT COUNTED", reset back in the park ([shot](Docs/Report120/Shots/D-hop-outside.jpg)).
+- **E:** the Stunt chapter's garage page (A on the vehicle row) listed only non-reward vehicles, so it showed the normal ones as "not allowed"; it now shows the stunt vehicles (locked ones as silhouettes); the park event's vehicle row is stunt vehicles only; every stunt choice saves as the stunt vehicle. Controller only ([garage](Docs/Report120/Player/garage.txt)): Stunt Race garage, Clay Hopper → Skywhip 250, race started in it; Stunt Opener garage Skywhip / Cup (locked) / Clay Hopper, USE, B back; Chapter 1's garage unchanged ([shot](Docs/Report120/Shots/E-campaign-garage-ch5.jpg)).
+- **Decisions:** the multiplier covers the jump points too; the race total counts the open combo; the Mountain Loops get 2 and 3 bumps, not 4–6 (most of their lap is a big jump, its run-up or a marked jump, and the rest climbs); landings are level or downhill, never uphill; one 360 needs about 1.5 s, so the small kickers suit the player and rivals trick mostly off the big ones; the park event no longer offers normal vehicles.
+- **For Dan to check:** the bump spots and sizes ([bumps.md](Docs/Report120/bumps.md)); the bonus rate and Summit Tricks targets; whether park medals need raising now that x2 / x3 flights exist.
+  - Seen, not changed: 0.117's Leviathan kickers (Rocky Way Cut, Hollow Creek Hop) draw pale gray-white (the ground material needs vertex colors they lack).
+  - The split-screen vehicle pick still hides locked vehicles (no silhouettes), as before.
+  - Each bump's far side is a steep face, as Leviathan's 0.117 kickers; none stands where the course comes back the other way.
+- **Release:** local build only (no GitHub release). Built fresh from `3414957b` (pushed), 0 errors ([build-release.txt](Docs/Report120/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/120000`, 119000 kept as the previous ([runtime-identity.json](Docs/Report120/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 0.120.0-review1 ([play-racer-launch.json](Docs/Report120/play-racer-launch.json)); the first try stopped on the launcher's menu because input arrived during its countdown. Your settings restored byte for byte ([settings-preserved.json](Docs/Report120/settings-preserved.json)). Cleanup: Builds 11.62 → 7.77 GB, C: free 188.8 GB.
