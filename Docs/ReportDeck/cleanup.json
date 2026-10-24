@@ -1,0 +1,9 @@
+{
+    "buildsBeforeGB":  8.91,
+    "buildsAfterGB":  7.77,
+    "tempBeforeGB":  3.63,
+    "tempAfterGB":  0,
+    "cFreeBeforeGB":  70.2,
+    "cFreeAfterGB":  74.9,
+    "kept":  "Builds/StarterRelease-1000000/INVENTORY.json (publisher record; the ZIP is on GitHub)"
+}
