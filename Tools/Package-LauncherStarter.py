@@ -1,6 +1,7 @@
 """Assemble a complete starter ZIP (launcher + game + soundtrack) from already-published signed manifests, verify its extracted
 inventory, and stage it as a publisher draft for Publish-LauncherRelease.py. Never signs, uploads or reads keys.
-Layout as the 0.21 Full ZIP: WoodstockRush/ launcher, cover, README, state.json, versions/<build>, shared/soundtracks/<build>."""
+Layout as the 0.21 Full ZIP: WoodstockRush/ launcher, cover, README, state.json, versions/<build>, shared/soundtracks/<build>;
+plus the icon and poster beside the launcher for a Steam shortcut (plain copies)."""
 import argparse,importlib.util,json,pathlib,shutil,subprocess,zipfile
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('release',ROOT/'Tools/Prepare-LauncherRelease.py');r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)
@@ -23,6 +24,8 @@ def main():
     p.add_argument('--launcher',type=pathlib.Path,default=ROOT/'Builds/Launcher/WoodstockRushLauncher.exe')
     p.add_argument('--checks',type=pathlib.Path,default=ROOT/'Builds/Launcher/LauncherChecks.exe')
     p.add_argument('--cover',type=pathlib.Path,default=ROOT/'Builds/Latest/WoodstockRush-Cover.png')
+    p.add_argument('--icon',type=pathlib.Path,default=ROOT/'Assets/Branding/WoodstockRushIcon.png')
+    p.add_argument('--poster',type=pathlib.Path,default=ROOT/'SourceArt/Poster/WoodstockRushPoster.png')
     p.add_argument('--readme',type=pathlib.Path,default=ROOT/'Docs/Starter/README-LAUNCHER.md')
     p.add_argument('--out',type=pathlib.Path,required=True,help='new draft folder')
     p.add_argument('--zip-name',required=True);p.add_argument('--tag',required=True);p.add_argument('--title',required=True);p.add_argument('--notes',required=True)
@@ -36,6 +39,7 @@ def main():
     g=f"versions/{gm['build']}";m=f"shared/soundtracks/{mm['build']}"
     copy_exact(a.game,starter/g,gm['files']);copy_exact(a.music,starter/m,mm['files'])
     shutil.copy2(a.launcher,starter/'WoodstockRushLauncher.exe');shutil.copy2(a.cover,starter/'WoodstockRush-Cover.png')
+    shutil.copy2(a.icon,starter/'WoodstockRush-Icon.png');shutil.copy2(a.poster,starter/'WoodstockRush-Poster.png')
     shutil.copy2(a.readme,starter/'README-LAUNCHER.md');shutil.copy2(ROOT/'Tools/Install-Launcher.ps1',starter)
     shutil.copy2(a.game_manifest,starter/'game-manifest.json');shutil.copy2(a.music_manifest,starter/'soundtrack-manifest.json')
     licenses=starter/'Launcher-Licenses';licenses.mkdir()

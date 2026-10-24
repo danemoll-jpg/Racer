@@ -28,6 +28,7 @@ void CheckInventory(const fs::path& root,const json& files,bool exact=true);
 void Extract(const fs::path& archive,const fs::path& destination,const json& files);
 void Download(const std::string& url,const fs::path& output,uint64_t expectedBytes,const std::string& sha,
               std::atomic<bool>& cancel,Progress progress={},bool fixture=false);
+void AbortNetwork();
 std::string Fetch(const std::string& url,std::atomic<bool>& cancel,bool fixture=false);
 struct UpdateInfo {json catalog,game,music;bool gameAvailable=false,musicAvailable=false;uint64_t musicBytes=0;int added=0,changed=0,removed=0;};
 class Store {

@@ -1,0 +1,59 @@
+{
+  "results": [
+    {
+      "run": "update",
+      "launcherExit": 0,
+      "status": [
+        "   0.0s Checking for updates\u2026",
+        "   0.3s Downloading 0%  (0 / 569 MiB)",
+        "  51.4s Update installed. Starting the game\u2026"
+      ],
+      "gameStarted": "C:\\Users\\danmo\\Racer\\Temp\\reportauto-1792819278446019600\\update\\versions\\1000001\\Racer.exe",
+      "ready": true,
+      "installedBuild": 1000001,
+      "versions": [
+        "1000000",
+        "1000001"
+      ],
+      "seconds": 66.8
+    },
+    {
+      "run": "skip",
+      "launcherExit": 0,
+      "status": [
+        "   0.0s Downloading 0%  (0 / 569 MiB)",
+        "   1.6s Download cancelled; installed version unchanged"
+      ],
+      "gameStarted": "C:\\Users\\danmo\\Racer\\Temp\\reportauto-1792819278446019600\\skip\\versions\\1000000\\Racer.exe",
+      "ready": true,
+      "installedBuild": 1000000,
+      "versions": [
+        "1000000"
+      ],
+      "seconds": 19.4,
+      "skipToReadySeconds": 14.6
+    },
+    {
+      "run": "offline",
+      "launcherExit": 0,
+      "status": [
+        "   0.0s Checking for updates\u2026",
+        "   2.0s Couldn't check for updates; starting the installed version."
+      ],
+      "gameStarted": "C:\\Users\\danmo\\Racer\\Temp\\reportauto-1792819278446019600\\offline\\versions\\1000000\\Racer.exe",
+      "ready": true,
+      "installedBuild": 1000000,
+      "versions": [
+        "1000000"
+      ],
+      "seconds": 23.0
+    }
+  ],
+  "latestStateUnchanged": true,
+  "testGame": {
+    "build": 1000001,
+    "version": "1.0.1-test",
+    "zipBytes": 597464038
+  },
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\reportauto-1792819278446019600"
+}

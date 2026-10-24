@@ -1,0 +1,14 @@
+{
+  "latestUnchanged": true,
+  "game": "1.1.0-review1",
+  "build": 1010000,
+  "savesFilesBefore": 667,
+  "savesFilesAfter": 667,
+  "changed": [],
+  "added": [],
+  "launcherLog": [
+    "Game child started; launcher remains alive",
+    "Child exit 4294967295"
+  ],
+  "launcherSha256": "ff221e823dbab9817f8ce77c0790d2028100f1a54bda4208204a682103d38611"
+}
