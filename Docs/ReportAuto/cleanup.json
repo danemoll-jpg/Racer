@@ -1,0 +1,14 @@
+{
+  "buildsBeforeGB": 8.93,
+  "buildsAfterGB": 7.77,
+  "tempBeforeGB": 0.02,
+  "tempAfterGB": 0.0,
+  "cFreeBeforeGB": 72.47,
+  "cFreeAfterGB": 73.65,
+  "removed": [
+    "Builds/StarterRelease-1000000-r2/assets (published zip) and work",
+    "Builds/StarterRelease-1000000 (superseded starter draft inventory)",
+    "Temp/venv (test-signing environment)",
+    "Temp/reportauto-* test installs"
+  ]
+}

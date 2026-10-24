@@ -1,0 +1,30 @@
+{
+  "url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/starter-1000000/WoodstockRush-1.0.0-Full.zip",
+  "bytes": 1239618679,
+  "sha256": "1eafa6a702b2bb4ca46db49a14a74f699b4866508c0c9676199d485a421f2278",
+  "downloadMatches": true,
+  "topFolder": [
+    "Install-Launcher.ps1",
+    "README-LAUNCHER.md",
+    "WoodstockRush-Cover.png",
+    "WoodstockRush-Icon.png",
+    "WoodstockRush-Poster.png",
+    "WoodstockRushLauncher.exe",
+    "game-manifest.json",
+    "soundtrack-manifest.json",
+    "state.json"
+  ],
+  "imagesMatchSources": {
+    "WoodstockRush-Icon.png": true,
+    "WoodstockRush-Poster.png": true
+  },
+  "status": [
+    "   0.0s Checking for updates\u2026",
+    "   0.7s Up to date. Starting the game\u2026"
+  ],
+  "installedBuild": 1000000,
+  "gameStarted": "C:\\Users\\danmo\\Racer\\Temp\\reportauto-fresh-1792820046156714400\\extracted\\WoodstockRush\\versions\\1000000\\Racer.exe",
+  "ready": true,
+  "launcherExit": 0,
+  "launcherSha256": "d1826ad1b08d306e5c105ec1008e84257d2e3e4ba4ee47903acfd4824de338fd"
+}
