@@ -22,6 +22,8 @@ std::string HashBytes(const std::string& data);
 json Verify(const std::string& envelope);
 fs::path SafePath(const fs::path& root,const std::string& relative);
 void CheckNoLinks(const fs::path& path);
+void ProtectRoot(const fs::path& root);
+std::vector<BYTE> Base64Decode(const std::string& input);
 void CheckInventory(const fs::path& root,const json& files,bool exact=true);
 void Extract(const fs::path& archive,const fs::path& destination,const json& files);
 void Download(const std::string& url,const fs::path& output,uint64_t expectedBytes,const std::string& sha,

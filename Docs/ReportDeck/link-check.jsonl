@@ -1,0 +1,5 @@
+{"tool":"old","case":"root under a linked parent folder","exit":1,"output":"Linked directories/files are not supported: C:\\Users\\danmo\\Racer\\Temp\\reportdeck\\links\\linkparent"}
+{"tool":"old","case":"link inside the install root (versions/evil)","exit":1,"output":"Linked directories/files are not supported: C:\\Users\\danmo\\Racer\\Temp\\reportdeck\\links\\inside\\root\\versions\\evil"}
+{"tool":"new","case":"root under a linked parent folder","exit":0,"output":"{\r\n  \"schema\": 1\r\n}"}
+{"tool":"new","case":"link inside the install root (versions/evil)","exit":1,"output":"Linked directories/files are not supported: C:\\Users\\danmo\\Racer\\Temp\\reportdeck\\links\\inside\\root\\versions\\evil"}
+{"tool":"new","case":"install root itself is a link","exit":1,"output":"Linked directories/files are not supported: C:\\Users\\danmo\\Racer\\Temp\\reportdeck\\links\\rootlink"}

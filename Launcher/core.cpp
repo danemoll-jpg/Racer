@@ -3,7 +3,6 @@
 #include "vendor/miniz.h"
 #include <winhttp.h>
 #include <bcrypt.h>
-#include <wincrypt.h>
 #include <shlobj.h>
 #include <fstream>
 #include <set>
@@ -13,7 +12,6 @@
 #include <sstream>
 #pragma comment(lib,"winhttp.lib")
 #pragma comment(lib,"bcrypt.lib")
-#pragma comment(lib,"crypt32.lib")
 #pragma comment(lib,"shell32.lib")
 #pragma comment(lib,"ole32.lib")
 namespace wr {
@@ -25,7 +23,12 @@ static std::vector<BYTE> Unhex(const std::string& text){Require(text.size()%2==0
 static std::string Transaction(){BYTE data[16];Nt(BCryptGenRandom(nullptr,data,16,BCRYPT_USE_SYSTEM_PREFERRED_RNG));return Hex(data,16);}
 std::wstring Wide(const std::string& s){if(s.empty())return {};int length=MultiByteToWideChar(CP_UTF8,MB_ERR_INVALID_CHARS,s.data(),(int)s.size(),nullptr,0);Require(length>0,"Invalid UTF-8 text");std::wstring result(length,0);MultiByteToWideChar(CP_UTF8,MB_ERR_INVALID_CHARS,s.data(),(int)s.size(),result.data(),length);return result;}
 std::string Utf8(const std::wstring& s){if(s.empty())return {};int length=WideCharToMultiByte(CP_UTF8,WC_ERR_INVALID_CHARS,s.data(),(int)s.size(),nullptr,0,nullptr,nullptr);Require(length>0,"Invalid Unicode path");std::string result(length,0);WideCharToMultiByte(CP_UTF8,WC_ERR_INVALID_CHARS,s.data(),(int)s.size(),result.data(),length,nullptr,nullptr);return result;}
-void CheckNoLinks(const fs::path& path){auto p=fs::absolute(path).lexically_normal();for(;;){DWORD attributes=GetFileAttributesW(p.c_str());if(attributes!=INVALID_FILE_ATTRIBUTES)Require(!(attributes&FILE_ATTRIBUTE_REPARSE_POINT),"Linked directories/files are not supported: "+Utf8(p.wstring()));else{DWORD e=GetLastError();Require(e==ERROR_FILE_NOT_FOUND||e==ERROR_PATH_NOT_FOUND,"Cannot inspect path: "+Utf8(p.wstring()));}auto parent=p.parent_path();if(parent.empty()||parent==p)break;p=parent;}}
+// Steam Deck: Proton shows /home as the reparse point Z:\home, so only links at or below a protected launcher root (install, saves) are refused; folders above it are the user's.
+static std::vector<fs::path> protectedRoots;
+static fs::path Normal(const fs::path& path){auto p=fs::absolute(path).lexically_normal();if(!p.has_filename()&&p.has_relative_path())p=p.parent_path();return p;}
+static bool Within(const fs::path& p,const fs::path& base){auto a=Lower(Utf8(p.wstring())),b=Lower(Utf8(base.wstring()));return a==b||a.rfind(b.back()=='\\'?b:b+"\\",0)==0;}
+void ProtectRoot(const fs::path& root){protectedRoots.push_back(Normal(root));}
+void CheckNoLinks(const fs::path& path){auto p=Normal(path);fs::path stop;for(auto& base:protectedRoots)if(Within(p,base)&&base.native().size()>stop.native().size())stop=base;for(;;){DWORD attributes=GetFileAttributesW(p.c_str());if(attributes!=INVALID_FILE_ATTRIBUTES)Require(!(attributes&FILE_ATTRIBUTE_REPARSE_POINT),"Linked directories/files are not supported: "+Utf8(p.wstring()));else{DWORD e=GetLastError();Require(e==ERROR_FILE_NOT_FOUND||e==ERROR_PATH_NOT_FOUND,"Cannot inspect path: "+Utf8(p.wstring()));}if(!stop.empty()&&Lower(Utf8(p.wstring()))==Lower(Utf8(stop.wstring())))break;auto parent=p.parent_path();if(parent.empty()||parent==p)break;p=parent;}}
 fs::path SafePath(const fs::path& root,const std::string& relative){
  Require(!relative.empty()&&relative.size()<1024&&relative.front()!='/'&&relative.find('\\')==std::string::npos&&relative.find(':')==std::string::npos,"Unsafe relative path");
  for(unsigned char c:relative)Require(c>=32&&c!=127,"Control character in path");
@@ -37,9 +40,12 @@ void AtomicWrite(const fs::path& path,const std::string& data){CheckNoLinks(path
 struct Digest {BCRYPT_ALG_HANDLE algorithm=nullptr;BCRYPT_HASH_HANDLE hash=nullptr;Digest(){Nt(BCryptOpenAlgorithmProvider(&algorithm,BCRYPT_SHA256_ALGORITHM,nullptr,0));Nt(BCryptCreateHash(algorithm,&hash,nullptr,0,nullptr,0,0));}~Digest(){if(hash)BCryptDestroyHash(hash);if(algorithm)BCryptCloseAlgorithmProvider(algorithm,0);}void Add(const void* p,size_t n){Nt(BCryptHashData(hash,(PUCHAR)p,(ULONG)n,0));}std::vector<BYTE> Finish(){std::vector<BYTE> out(32);Nt(BCryptFinishHash(hash,out.data(),32,0));return out;}};
 std::string HashBytes(const std::string& data){Digest hash;hash.Add(data.data(),data.size());auto bytes=hash.Finish();return Hex(bytes.data(),bytes.size());}
 std::string Hash(const fs::path& path){CheckNoLinks(path);std::ifstream in(path,std::ios::binary);Require(bool(in),"Cannot hash file");Digest hash;std::vector<char> buffer(1024*1024);while(in){in.read(buffer.data(),buffer.size());if(in.gcount())hash.Add(buffer.data(),(size_t)in.gcount());}Require(in.eof(),"File read failed while hashing");auto out=hash.Finish();return Hex(out.data(),out.size());}
-static std::vector<BYTE> Base64(const std::string& input){Require(input.size()<12*1024*1024,"Signed metadata too large");DWORD length=0;Require(CryptStringToBinaryA(input.data(),(DWORD)input.size(),CRYPT_STRING_BASE64|CRYPT_STRING_STRICT,nullptr,&length,nullptr,nullptr)!=0,"Invalid signature encoding");std::vector<BYTE> result(length);Require(CryptStringToBinaryA(input.data(),(DWORD)input.size(),CRYPT_STRING_BASE64|CRYPT_STRING_STRICT,result.data(),&length,nullptr,nullptr)!=0,"Invalid signature encoding");result.resize(length);return result;}
+// Strict standard base64 (padding required, no whitespace). Replaces CryptStringToBinaryA: Wine/Proton's crypt32 rejects CRYPT_STRING_STRICT outright.
+std::vector<BYTE> Base64Decode(const std::string& input){Require(input.size()<12*1024*1024,"Signed metadata too large");Require(!input.empty()&&input.size()%4==0,"Invalid signature encoding");size_t pad=input.back()=='='?(input[input.size()-2]=='='?2:1):0;std::vector<BYTE> result;result.reserve(input.size()/4*3);uint32_t bits=0;int count=0;
+ for(size_t i=0;i<input.size()-pad;i++){unsigned char c=(unsigned char)input[i];int v=c>='A'&&c<='Z'?c-'A':c>='a'&&c<='z'?c-'a'+26:c>='0'&&c<='9'?c-'0'+52:c=='+'?62:c=='/'?63:-1;Require(v>=0,"Invalid signature encoding");bits=(bits<<6)|(uint32_t)v;if(++count==4){result.push_back(BYTE(bits>>16));result.push_back(BYTE(bits>>8));result.push_back(BYTE(bits));bits=0;count=0;}}
+ if(pad==1){result.push_back(BYTE(bits>>10));result.push_back(BYTE(bits>>2));}else if(pad==2){result.push_back(BYTE(bits>>4));}return result;}
 json Verify(const std::string& text){
- Require(text.size()<=12*1024*1024,"Signed metadata too large");auto envelope=json::parse(text);Require(envelope.at("keyId")==KeyId,"Unknown publisher signing key");auto payload=Base64(envelope.at("payload").get<std::string>()),signature=Base64(envelope.at("signature").get<std::string>());Digest digest;digest.Add(payload.data(),payload.size());auto hash=digest.Finish();auto modulus=Unhex(ModulusHex),exponent=Unhex(ExponentHex);
+ Require(text.size()<=12*1024*1024,"Signed metadata too large");auto envelope=json::parse(text);Require(envelope.at("keyId")==KeyId,"Unknown publisher signing key");auto payload=Base64Decode(envelope.at("payload").get<std::string>()),signature=Base64Decode(envelope.at("signature").get<std::string>());Digest digest;digest.Add(payload.data(),payload.size());auto hash=digest.Finish();auto modulus=Unhex(ModulusHex),exponent=Unhex(ExponentHex);
  BCRYPT_RSAKEY_BLOB header{BCRYPT_RSAPUBLIC_MAGIC,(ULONG)modulus.size()*8,(ULONG)exponent.size(),(ULONG)modulus.size(),0,0};std::vector<BYTE> blob(sizeof(header));memcpy(blob.data(),&header,sizeof(header));blob.insert(blob.end(),exponent.begin(),exponent.end());blob.insert(blob.end(),modulus.begin(),modulus.end());BCRYPT_ALG_HANDLE algorithm=nullptr;BCRYPT_KEY_HANDLE key=nullptr;Nt(BCryptOpenAlgorithmProvider(&algorithm,BCRYPT_RSA_ALGORITHM,nullptr,0));NTSTATUS imported=BCryptImportKeyPair(algorithm,nullptr,BCRYPT_RSAPUBLIC_BLOB,&key,blob.data(),(ULONG)blob.size(),0);BCRYPT_PKCS1_PADDING_INFO padding{BCRYPT_SHA256_ALGORITHM};NTSTATUS valid=imported>=0?BCryptVerifySignature(key,&padding,hash.data(),(ULONG)hash.size(),signature.data(),(ULONG)signature.size(),BCRYPT_PAD_PKCS1):imported;if(key)BCryptDestroyKey(key);BCryptCloseAlgorithmProvider(algorithm,0);Require(valid>=0,"Publisher signature is invalid; installed game unchanged");auto result=json::parse(payload.begin(),payload.end());Require(result.at("schema")==LauncherSchema,"This update requires a newer launcher; current game remains playable");return result;
 }
 void CheckInventory(const fs::path& root,const json& files,bool exact){

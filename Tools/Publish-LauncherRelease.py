@@ -1,6 +1,7 @@
 """Deliberate publisher operation. Default is dry run; never called by game builds."""
 import argparse, hashlib, json, pathlib, subprocess, urllib.request
 REPO='danemoll-jpg/woodstock-rush-releases'
+LATEST_CATALOG='https://github.com/'+REPO+'/releases/latest/download/update-catalog.json'
 def gh(*args):
     return subprocess.run(['gh',*args],check=True,capture_output=True,text=True).stdout
 def main():
@@ -16,6 +17,10 @@ def main():
     print(json.dumps(dict(repository=REPO,tag=tag,assets=len(inventory['assets']),bytes=sum(x['bytes'] for x in inventory['assets']),publish=a.publish)))
     if not a.publish:return
     if a.confirm_repository!=REPO:raise ValueError('Explicit repository confirmation required')
+    # A starter-only release (inventory latest=false) leaves Latest, and so every launcher's update catalog, where it is.
+    latest=inventory.get('latest',True)
+    if not latest:
+        with urllib.request.urlopen(LATEST_CATALOG,timeout=20) as response: catalog_before=response.read()
     # No credential extraction. gh uses the publisher\'s own deliberately configured session.
     repo=json.loads(gh('api','repos/'+REPO));
     if repo['private'] or not repo.get('permissions',{}).get('push'):raise ValueError('Public repository with publishing permission required')
@@ -26,7 +31,7 @@ def main():
         remote=matches[0]
     else:
         if a.resume_draft:raise ValueError('No matching draft exists')
-        gh('release','create',tag,'--repo',REPO,'--draft','--title','Woodstock Rush '+inventory['game']['version'],'--notes',inventory['game']['notes'])
+        gh('release','create',tag,'--repo',REPO,'--draft','--title',inventory.get('title','Woodstock Rush '+inventory['game']['version']),'--notes',inventory['game']['notes'],*([] if latest else ['--latest=false']))
         releases=json.loads(gh('api','repos/'+REPO+'/releases?per_page=100'))
         remote=next(r for r in releases if r['tag_name']==tag and r['draft'])
     release_id=remote['id'];existing={x['name']:x for x in remote['assets']}
@@ -44,8 +49,11 @@ def main():
     for item in inventory['assets']:
         r=by_name.get(item['path'])
         if not r or r['size']!=item['bytes'] or r.get('digest')!='sha256:'+item['sha256']:raise ValueError('Uploaded asset verification failed; draft remains unpublished')
-    gh('release','edit',tag,'--repo',REPO,'--draft=false','--latest')
-    with urllib.request.urlopen('https://github.com/'+REPO+'/releases/latest/download/update-catalog.json',timeout=20) as response: catalog=response.read()
+    gh('release','edit',tag,'--repo',REPO,'--draft=false','--latest' if latest else '--latest=false')
+    with urllib.request.urlopen(LATEST_CATALOG,timeout=20) as response: catalog=response.read()
+    if not latest:
+        if catalog!=catalog_before:raise ValueError('Latest update catalog changed; investigate before announcing')
+        print('Published without moving Latest; the signed update catalog is unchanged. Previous releases retained.');return
     if hashlib.sha256(catalog).hexdigest()!=hashlib.sha256((assets/'update-catalog.json').read_bytes()).hexdigest():raise ValueError('Latest catalog fetch mismatch; investigate before announcing rollout')
     print('Published and fetched latest signed catalog. Previous releases retained.')
 if __name__=='__main__':main()

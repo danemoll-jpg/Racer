@@ -1,0 +1,194 @@
+{
+  "cases": [
+    {
+      "case": "update-catalog.json payload",
+      "chars": 360,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "case": "update-catalog.json signature",
+      "chars": 512,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "build": 0,
+      "case": "update-catalog.json Verify()",
+      "pass": true,
+      "type": "catalog"
+    },
+    {
+      "case": "game-manifest.json payload",
+      "chars": 46516,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "case": "game-manifest.json signature",
+      "chars": 512,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "build": 1000000,
+      "case": "game-manifest.json Verify()",
+      "pass": true,
+      "type": "game"
+    },
+    {
+      "case": "soundtrack-manifest.json payload",
+      "chars": 78980,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "case": "soundtrack-manifest.json signature",
+      "chars": 512,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "build": 1,
+      "case": "soundtrack-manifest.json Verify()",
+      "pass": true,
+      "type": "soundtrack"
+    },
+    {
+      "case": "one byte (2 pads)",
+      "chars": 4,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "case": "two bytes (1 pad)",
+      "chars": 4,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "case": "three bytes",
+      "chars": 4,
+      "expected": true,
+      "newAccepts": true,
+      "pass": true,
+      "sameBytes": true,
+      "windowsAccepts": true
+    },
+    {
+      "case": "bad character $",
+      "chars": 4,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": false
+    },
+    {
+      "case": "missing padding",
+      "chars": 2,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": true
+    },
+    {
+      "case": "missing one pad",
+      "chars": 3,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": true
+    },
+    {
+      "case": "pad in the middle",
+      "chars": 8,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": false
+    },
+    {
+      "case": "three pads",
+      "chars": 4,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": false
+    },
+    {
+      "case": "space",
+      "chars": 5,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": true
+    },
+    {
+      "case": "line break",
+      "chars": 10,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": true
+    },
+    {
+      "case": "url-safe alphabet",
+      "chars": 4,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": false
+    },
+    {
+      "case": "empty",
+      "chars": 0,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": true
+    },
+    {
+      "case": "oversized (12 MiB)",
+      "chars": 12582912,
+      "expected": false,
+      "newAccepts": false,
+      "pass": true,
+      "sameBytes": false,
+      "windowsAccepts": true
+    }
+  ],
+  "pass": true
+}
