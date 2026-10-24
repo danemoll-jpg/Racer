@@ -33,7 +33,30 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Launcher updates by itself on start, plus the icon and poster in the download's top folder — target launcher update + refreshed 1.0.0 starter (game stays 1.0.0) — DELIVERED (self-updating launcher; starter zip replaced on `starter-1000000`), awaiting Dan's Steam Deck test
+## CURRENT — Steam Deck: the game opens windowed and half the menu is off screen; start full screen, add a Display option, publish 1.1.0 — target 1.1.0 (published) — NOT STARTED
+
+Dan (2026-10-24, 01:51–02:06, Steam Deck, **Gaming Mode**, launched through the new self-updating launcher, game 1.0.0): "steam deck still not opening full screen" and "I can't do anything because half the menu isn't even visible". Alt+Enter (mapped to a back button) only opens the game menu: the game reads Enter as a menu key, so Unity's own toggle never fires. What is known: `ProjectSettings` has `fullscreenMode: 1` (full-screen window), `defaultIsNativeResolution: 1`, default 1024×768; the launcher passes no `-screen-*` arguments; no game script sets the screen mode. Likely cause: a windowed mode / size saved by Unity (`Screenmanager …` values in the prefix's registry, e.g. from the old 0.21 install), which the game has no way to undo. The Deck's screen is **1280×800 (16:10)**.
+
+### Part A — Always usable full screen
+1. **Display option** in the game's settings: **Full screen** (default) / **Windowed**, reachable and changeable with a controller only (standing rule), saved with the other settings.
+2. **On start**, the game applies that setting itself: full screen at the display's native resolution unless the player chose Windowed. A stale windowed size saved by Unity no longer wins. When there is no saved choice yet (a first run, or every existing install including Dan's Deck), it is Full screen.
+3. **Windowed** must never be bigger than the screen: clamp the window to the display so the menus always fit.
+4. **16:10 / 1280×800:** every menu page and the HUD must be fully visible and usable at 1280×800 (the main menu, settings, player name entry, garage, campaign, track select with its map, finish screen, replays, pause). One screenshot per page at 1280×800 from the built player; fix layout only where something is cut off or overlaps. Do not change how anything looks at 16:9.
+5. Dan's PC: his own display settings are unchanged after the round (he plays full screen at 4K).
+
+### Part B — Publish as 1.1.0, replays included
+Dan (02:09): "I mean I don't care since its all new anyway and i didn't even get to set my name properly". So he does not need the replays held back: **publish 1.1.0 = main (the 1.1 race replays) + Part A**, as one release.
+1. Build 1.1.0 from main with Part A, build number above 1010000 (e.g. 1010100). This counts as Dan accepting the replays for release; his look at them happens in play.
+2. Publish it as the new **Latest** game release with the existing publisher workflow (it becomes the update catalog's game), so the Deck's launcher installs it by itself on its next start. Never regenerate, replace or expose signing keys.
+3. Refresh the complete download on `starter-1000000` with game 1.1.0 (same tag and link, so Dan's game hub keeps working; title "Woodstock Rush 1.1.0 — complete download"). If the starter tool cannot do that cleanly, leave it on 1.0.0 (the launcher updates it on first start) and say so.
+4. Dan's PC: local and published latest match again (standing rule); `Play-Racer.cmd` launches 1.1.0, his settings and saves untouched.
+5. **Check:** a fresh launcher install of 1.0.0 (test folder) updates to 1.1.0 by itself on start; 1.1.0 started with a deliberately saved windowed 1024×768 Unity setting opens full screen; the Display option switches both ways with a controller.
+
+### Part C — Results (short, per the standing rule)
+- One line per part with its check; the 1.1.0 release link; the 1280×800 screenshot folder.
+- **For Dan to check:** on the Deck in Gaming Mode, open Woodstock Rush and leave the launcher alone: it should install 1.1.0 and the game should fill the screen with the whole menu visible.
+
+## Previous delivery — Launcher updates by itself on start, plus the icon and poster in the download's top folder — target launcher update + refreshed 1.0.0 starter (game stays 1.0.0) — DELIVERED (self-updating launcher; starter zip replaced on `starter-1000000`), awaiting Dan's Steam Deck test — DAN MOVED ON (2026-10-24: launched it on the Deck in Gaming Mode; the game opens windowed with half the menu off screen)
 
 Dan (2026-10-24, on the Steam Deck after installing the new starter): "why dont it just get the latest update without having to click button within 2 seconds?" and "i can't click it quick enough anyway". Today the launcher plays the installed version after 3 seconds untouched (`launcher.cpp`, the `GetTickCount64()-opened>3000` → `Play()` line) and never checks for updates unless a button is pressed. Also: "Can you also include the icon and the logo in the root folder so i can easily find them" (he wants them for his Steam shortcut on the Deck).
 
@@ -172,62 +195,9 @@ Version 1.1.0-review1, local build only (2026-10-15 rule). When Dan accepts it, 
   - Not done: Trailer Mode, the debug tool and save loading were not re-tested (their code is untouched).
 - **Release:** local build only (no GitHub release). Built fresh from `ac45d2df` (pushed), 0 errors ([build-release.txt](Docs/Report1100/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/1010000`, 1000000 kept as the previous ([runtime-identity.json](Docs/Report1100/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 1.1.0-review1 ([play-racer-launch.json](Docs/Report1100/play-racer-launch.json)); settings restored byte for byte ([settings-preserved.json](Docs/Report1100/settings-preserved.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 132.5 GB.
 
-## Previous delivery — Woodstock Rush 1.0: the finished game, published; then the trailer, filmed and cut — target 1.0.0 — DELIVERED (1.0.0 published, build 1000000; trailer first cut made), awaiting Dan's review — DAN MOVED ON (2026-10-22: replays from Chastain Rush in 1.1; his trailer review is still open)
-
-Dan (2026-10-16, 01:12): "I am ready to finish this one up and just come back when I see bugs or want to add something. Lets call this 1.0 and go ahead and create the trailer." 0.121 is accepted; there are no new debug reports. This round makes **no gameplay, world or balance changes**. Part A is the release, Part B the trailer (the former QUEUED section, folded in here).
-
-### Part A — Version 1.0.0, published
-1. **Version 1.0.0** (no "-review" suffix). Pick a build number above 121000 that the updater orders after it, and say which. Everything that shows the version (main menu, debug HUD, launcher, results log, debug reports) reads 1.0.0.
-2. **Publish:** this round says "publish", so run the full release as before 2026-10-15: GitHub release in `woodstock-rush-releases` (Latest, earlier releases kept), the hosted download, signature and file-by-file checks, and the production updater at the 1.0.0 build. `Play-Racer.cmd` launches 1.0.0, and Dan's settings and both campaign saves are untouched (byte for byte).
-3. **Housekeeping, no game changes:** delete leftover temporary editor tools from `Assets/Editor` (`Report097Temp`, `Report098Temp` and any other `Report*Temp`) when no build uses them, and list what was removed. Leave `Assets/_Recovery/` alone and say whether Dan can delete it.
-4. **Keep the debug tool, hidden** (Dan, 2026-10-16 01:14: "Lets keep the debug just keep it hidden. So i can access it if I find something"). The debug tool stays in 1.0 and works exactly as now: F3 mode, F4 capture, the F6 debug menu, sessions that survive quitting, export to ZIP, and reports in `DebugReports`.
-   - **Hidden by default:** every launch starts with debug mode off, whatever it was when the game was last closed. Nothing debug-related shows on screen, in the menus, on the loading screens or in the trailer: no debug panel, no "F3 / F4" hints, no Debug rows in Settings.
-   - **Still reachable:** the same keys turn it on (F3), and nothing else changes. An OPEN session is still resumed when debug mode is turned on.
-   - Don't list it in any player-facing help or controls screen.
-   - **Check:** launch 1.0.0: no debug UI anywhere. Press F3: the panel shows, F4 makes a report into the open session, F6 opens the menu. Quit and relaunch: hidden again, and the session is still open.
-5. **TODO:** after the release, this file's top says the game is at 1.0 and in maintenance. New rounds come from Dan's bug reports or new ideas, and the standing rules stay as they are.
-- **Check:** the published build launches through `Play-Racer.cmd`, its main menu shows 1.0.0 with no debug UI, and one quick race starts and finishes.
-
-### Part B — The trailer, filmed and cut by Code (tools and output only)
-Dan (2026-10-13, 19:57): "I think I am going to add the video making back to the list. It is difficult for me to make it look good, especially with some of the camera angles suggested." Dan (2026-10-16): "go ahead and create the trailer." This reverses 0.98's "stop filming until Dan confirms". Lessons from 0.97 Part C (clips discarded): the footage showed broken things (the storm drain), and filming must never change the game or the world.
-
-1. **The plan is `Docs/Trailer/shot-list.md`** (2026-10-12: 20 shots plus split-screen S1–S3, about 65 s; the Project copy is the same). The game gained a lot after it was written, so **replace up to 3 of the weaker shots** with the new features. Keep the total at about 65–75 s, and add each new shot to `shot-list.md` (marked "added 1.0"):
-   - Leviathan's summit flight;
-   - a Stunt Race with rivals tricking in the air (a BACKFLIP + ROLL);
-   - the new rider look (hands, hair) in a close chase shot.
-   For a shot that can't be made exactly as written, use the closest one that looks good and say why.
-2. **Capture** with the 0.97 offline method (`Tools/Report097/Run-Trailer.ps1` and its capture mode, in a development build of 1.0.0 only, never in the released menus):
-   - fixed 60 fps rendering, every frame at full quality, 3840×2160 if it renders, otherwise 2560×1440;
-   - real slow motion (more frames), never stretched;
-   - game sound recorded: engines (other vehicles too), sirens, radio voices, rain, thunder; the in-game radio music off;
-   - HUD off, except S1–S3 (HUD on, both views);
-   - the same rider look and vehicle colors throughout;
-   - the game's own scenes as they are. **No world changes for filming.** If something looks wrong on camera (a bump, a floating sign, a seam), don't hide it: list it with its position for Dan as a bug and pick another angle.
-3. **Each shot** is its own clip, a few seconds longer than the edit needs, with three takes of anything with a jump: `Trailer/Clips/NN-name.mp4` (S1–S3 as `S1-…`). Make a **contact sheet** (`Trailer/contact-sheet.jpg`: three frames per clip, labeled) so Dan can review fast.
-4. **First cut** in shot-list order and timing:
-   - `Trailer/WoodstockRush-trailer-v2.mp4` (game sound) and `-silent.mp4` (for music);
-   - the title "Woodstock Rush" over the last shot, and the end card is the cover art;
-   - simple cuts and short fades, nothing flashy;
-   - no music added (Dan picks a licensed track). If Dan has put one in `Trailer/Music/`, make a third version with it, mixed under the game sound.
-5. Close every player and editor started. Commit nothing to git except the scripts and the shot list. The 1.0.0 release and Dan's saves stay untouched.
-- **Deliver:** the contact sheet and the cut first; a list of any shot that didn't match the plan and any bug seen on camera.
-
-### Results
-Short (at most about 20 lines): the version, build and release links; what housekeeping removed; the trailer files; "For Dan to check".
-
-### Results (2026-10-16, Claude Code)
-- **1.0.0 published:** build **1000000** (1.0.0 → 1,000,000, above 121000), source `c82ebccf` (checkpoint `57f0c86f`), [game-1000000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-1000000) Latest, earlier releases kept; public download, pinned signature, startup and all 235 files match `Builds/Latest` ([hosted/result.json](Docs/Report1000/hosted/result.json)); updater at 1000000, 121000 kept as the previous. `Play-Racer.cmd` (unchanged) launched 1.0.0 ([play-racer-launch.json](Docs/Report1000/play-racer-launch.json)); settings and both campaign saves byte for byte ([settings-preserved.json](Docs/Report1000/settings-preserved.json)). Cleanup: Builds 10.63 → 8.35 GB, C: free 201.5 GB.
-- **Version shown:** the main menu now reads "Version 1.0.0" under the title (it showed no version before); debug reports, the results log and the launcher take it from the build.
-- **Debug hidden:** the tool was already off at every launch (never saved); no F3 hints, Debug rows or help entries exist in a release build. The shipped README no longer lists the keys and `Review/DEBUG_MODE.md` is no longer shipped. Check in the released build ([phase 1](Docs/Report1000/Player/debug-check-phase1.txt), [phase 2](Docs/Report1000/Player/debug-check-phase2.txt), [menu](Docs/Report1000/Player/menu-2.png)): nothing at launch; F3 panel, F4 report into the session, F6 menu; relaunch hidden, session still OPEN; a 1-lap race started and finished (131.7 s). A test-save launch now keeps its reports in the test save, never in `DebugReports`.
-- **Housekeeping:** removed `Assets/Editor/Report097Temp` and `Report098Temp` (copies stay in Tools/Report097, Report098). `Assets/_Recovery/` left alone: Unity crash-recovery copies of an unsaved scene (Sep 18 – Oct 9), in no build: Dan can delete it.
-- **Trailer** (not in git: `Trailer/`): [contact sheet](Trailer/contact-sheet.jpg), `Trailer/WoodstockRush-trailer-v2.mp4` (73.8 s, 4K 60, game sound) and `-silent.mp4`; 41 clips in `Trailer/Clips` (3 takes of every jump). No track in `Trailer/Music/`, so no music version. Shot list: 6 → 6N rider close, 9 → 9N Leviathan summit, 12 → 18N Stunt Race BACKFLIP + ROLL ([shot-list.md](Docs/Trailer/shot-list.md)). Tools: [Tools/Report1000/Trailer](Tools/Report1000/Trailer) (capture in the editor's play mode, batch mode; `cut.py`, `sheet.py`, `edit.json`).
-- **Decisions:** the recorder's sound now follows the picture (it ran 28% long); split-screen and garage shots are composited from every camera plus the HUD; 18N's rivals were given only BACKFLIP + ROLL in memory for the clip.
-- **Not as planned:** 3 ends on the Needle 600 Champion (the normal garage never shows stunt vehicles); 9N and 20 are in daylight (race shots keep the race's own light); 20's car is Dan's red Street Classic, and the crest gives only a short hop; 9N shows the rider's flight, the field behind; S2's cop is driven along the road, not chasing; 14 has no radio line; 1 is dim.
-- **Bugs seen on camera:** none in the world.
-- **For Dan to check:** the cut and the takes (swap in-points or takes in `Tools/Report1000/Trailer/edit.json`, then `python Tools/Report1000/Trailer/cut.py`); pick a licensed track for `Trailer/Music/`; 1.0.0 from `Play-Racer.cmd`.
-
 ## History archive
 
+- 2026-10-24 (fifteenth move): the automatic-update round moved to "Previous delivery" for the Deck full-screen round, so the 1.0 "Previous delivery" section was moved verbatim to the end of the archive. Dan's trailer review from that round is still open.
 - 2026-10-24 (fourteenth move): the Steam Deck launcher round moved to "Previous delivery" for the automatic-update round, so the 0.121 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-24 (thirteenth move): the 1.1 replay round moved to "Previous delivery" for the Steam Deck launcher round, so the 0.120 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-16 (twelfth move): 0.121 reviewed, so the 0.118 "Previous delivery" section was moved verbatim to the end of the archive. The QUEUED trailer section was folded into the 1.0 CURRENT section.
