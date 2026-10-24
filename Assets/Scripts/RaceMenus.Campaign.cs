@@ -79,7 +79,7 @@ namespace Racer
                 : (st.complete ? "★ CHAMPION OF WOODSTOCK  ·  " : $"Chapter {st.chapter} of {chapters.Length}  ·  ") + $"{passed} of {CampaignData.Events.Length} events passed  ·  {trophies} of {CampaignData.Cups.Length} trophies  ·  {st.owned.Count} vehicles owned"));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 28;
             var actions = LaterGroup("Campaign actions", content, true); actions.SetSiblingIndex(1); int n = 0;
-            void ActionButton(string id, string label, System.Action action) { Row(n, id, label, action); var t = buttons[n].GetComponentInChildren<UnityEngine.UI.Text>(true); t.alignment = TextAnchor.MiddleCenter; t.fontSize = 18; buttons[n++].transform.SetParent(actions, false); }
+            void ActionButton(string id, string label, System.Action action) { Row(n, id, label, action); var t = buttons[n].GetComponentInChildren<UnityEngine.UI.Text>(true); t.alignment = TextAnchor.MiddleCenter; t.fontSize = 18; t.resizeTextForBestFit = true; t.resizeTextMinSize = 12; t.resizeTextMaxSize = 18; /* 1.1.0: shrinks only where 18 does not fit (16:10, 1280x800) */ buttons[n++].transform.SetParent(actions, false); }
             var next = Campaign.Next;
             // Continue: a championship in progress first (resume), else the next event
             var resume = CampaignData.Cups.FirstOrDefault(c => Campaign.ActiveCup(c) != null);

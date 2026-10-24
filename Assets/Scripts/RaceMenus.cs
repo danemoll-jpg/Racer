@@ -228,7 +228,7 @@ namespace Racer
             title.fontSize=32;
             foreach(var b in buttons) { b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=(shown==RaceFlow.Stage.Garage || shown==RaceFlow.Stage.Results)?38:44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>(true);label.supportRichText=false;label.alignment=TextAnchor.MiddleCenter; }
             details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 160;
-            details.fontSize=20;
+            details.fontSize=20;details.resizeTextForBestFit=false; // 1.1.0: best fit only where a page asks for it (the garage)
             details.supportRichText=false;
             if(shown!=RaceFlow.Stage.Garage)garageLocked=null;
             previewLock=null;
@@ -242,7 +242,7 @@ namespace Racer
                 var shownProfile=locked??profile;
                 title.text=shownProfile.Name + " / " + shownProfile.Class+(locked!=null?"  (locked)":"");
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
-                details.fontSize=18;
+                details.fontSize=18;details.resizeTextForBestFit=true;details.resizeTextMinSize=14;details.resizeTextMaxSize=18; // 1.1.0: the description shrinks only where its lines do not fit (16:10, 1280x800)
                 details.text=locked!=null?(locked.Reward?$"LOCKED: {VehicleUnlocks.LockedTextFor(locked)}.\n{VehicleUnlocks.RewardNote(locked)}":$"LOCKED: {Campaign.HowToGet(locked)}.\nCampaign vehicle: buy it in the Shop or win it in the campaign.")
                     :$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nColor: left / right on the Color row.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }

@@ -1,6 +1,6 @@
-# Woodstock Rush 1.0.0 — complete download
+# Woodstock Rush 1.1.0 — complete download
 
-This ZIP holds the launcher, the game (1.0.0), the soundtrack, the cover art, and the icon and poster. The launcher keeps the game up to date: each time you open it, it checks for a newer version and installs it before the game starts, so you only install once.
+This ZIP holds the launcher, the game (1.1.0), the soundtrack, the cover art, and the icon and poster. The launcher keeps the game up to date: each time you open it, it checks for a newer version and installs it before the game starts, so you only install once.
 
 ## Windows
 

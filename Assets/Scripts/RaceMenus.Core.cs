@@ -260,11 +260,13 @@ details.gameObject.SetActive(true);
             }
             if(page=="settings-display")
             {
-                details.gameObject.SetActive(true);details.text="VSync uses your display refresh. The frame cap applies with VSync off.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=58;
-                Toggle(4,"vsync","VSync",s.vsync,()=>Adjust(()=>s.vsync=!s.vsync));
-                Step(5,"fps","Frame cap: "+s.frameLimit+" FPS",d=>Adjust(()=>{int[] caps={30,60,120};s.frameLimit=caps[Mathf.Clamp(Array.IndexOf(caps,s.frameLimit)+d,0,2)];}));
-                Toggle(6,"lightning","Lightning flashes",s.lightningFlashes,()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
-                Step(7,"scenery","Scenery:   "+(s.classicScenery?"Classic":"New"),d=>Adjust(()=>{s.classicScenery=!s.classicScenery;Scenery.Set(!s.classicScenery);}));
+                details.gameObject.SetActive(true);details.text="Full screen uses your display's own resolution. VSync uses your display refresh. The frame cap applies with VSync off.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=58;
+                // 1.1.0 (Steam Deck): Full screen (the default) / Windowed, applied at once and again on every start
+                Step(4,"screen-mode","Screen mode:   "+(s.windowed?"Windowed":"Full screen"),d=>Adjust(()=>{s.windowed=!s.windowed;DisplayMode.Set(s.windowed);}));
+                Toggle(5,"vsync","VSync",s.vsync,()=>Adjust(()=>s.vsync=!s.vsync));
+                Step(6,"fps","Frame cap: "+s.frameLimit+" FPS",d=>Adjust(()=>{int[] caps={30,60,120};s.frameLimit=caps[Mathf.Clamp(Array.IndexOf(caps,s.frameLimit)+d,0,2)];}));
+                Toggle(7,"lightning","Lightning flashes",s.lightningFlashes,()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
+                Step(8,"scenery","Scenery:   "+(s.classicScenery?"Classic":"New"),d=>Adjust(()=>{s.classicScenery=!s.classicScenery;Scenery.Set(!s.classicScenery);}));
             }
             if(page=="settings-controls")RenderControls();
             if(page!="settings-controls")Row(14,"back","Back",flow.CloseSettings);

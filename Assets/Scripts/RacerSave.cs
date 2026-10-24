@@ -25,6 +25,7 @@ namespace Racer
             public string radioChannel="";
             public int frameLimit = 60;
             public bool vsync = true;
+            public bool windowed = false; // 1.1.0: Settings > Display "Screen mode" (false = Full screen, the default; missing in older saves = Full screen)
             public bool opponents = true, traffic = true;
             public int laps = 3, lastFiniteLaps = 3;
             public bool estimateAiFinishes = false;
@@ -153,6 +154,7 @@ namespace Racer
             AudioListener.volume = Settings.master;
             QualitySettings.vSyncCount = Settings.vsync ? 1 : 0;
             Application.targetFrameRate = Settings.frameLimit;
+            DisplayMode.Startup(Settings.windowed); // 1.1.0: once per launch
         }
     }
 }

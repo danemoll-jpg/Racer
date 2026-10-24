@@ -1,0 +1,18 @@
+screen=1280x720 kind=display1101 version=1.1.0-review1 park=on
+display check part pages: screen 1280x720 Windowed, display 2560x1440, saved Screen mode Full screen
+page 01-main-menu: everything on screen, no text cut
+page 02-settings-gameplay: everything on screen, no text cut
+page 03-settings-audio: everything on screen, no text cut
+page 04-settings-display: everything on screen, no text cut
+page 05-settings-controls: everything on screen, no text cut
+page 06-player-name-entry: everything on screen, no text cut
+page 07-garage: everything on screen, no text cut
+page 08-campaign: everything on screen, no text cut
+page 09-track-select-map: everything on screen, no text cut
+page 10-records: everything on screen, no text cut
+page 11-replays: TEXT CUT 'Viewport/Content/Details' "Everyraceisrecorded.The#1lapan" shows 176 of 185 characters, ends " set a #1 lap or race on a Top 10 board."
+page 12-race-hud: everything on screen, no text cut
+page 13-pause-menu: everything on screen, no text cut
+page 14-finish-screen: everything on screen, no text cut
+page 15-replay-viewer: everything on screen, no text cut
+page 16-replay-viewer-hud: everything on screen, no text cut

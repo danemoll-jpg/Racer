@@ -1,0 +1,8 @@
+screen=1280x800 kind=display1101 version=1.1.0-review1 park=on
+display check part toggle: screen 1280x800 Windowed, display 3840x2160, saved Screen mode Full screen
+controller path: race > roam > split > police > stunt > garage > records > replays > exploration > trailer > settings > tab-gameplay > tab-audio > tab-display > tab-controls > screen-mode
+before: row 'Screen mode:   Full screen', screen 1280x800 Windowed
+D-pad right: row 'Screen mode:   Windowed', focus screen-mode, screen 1280x800 Windowed (display 3840x2160), settings.json windowed: true
+D-pad left: row 'Screen mode:   Full screen', focus screen-mode, screen 3840x2160 FullScreenWindow (display 3840x2160), settings.json windowed: false
+D-pad right: row 'Screen mode:   Windowed', focus screen-mode, screen 3072x1728 Windowed (display 3840x2160), settings.json windowed: true
+B: focus settings, settings open False

@@ -1,0 +1,3 @@
+screen=3072x1728 kind=display1101 version=1.1.0-review1 park=on
+display check part startup: screen 3072x1728 Windowed, display 3840x2160, saved Screen mode Windowed
+startup: after 3 s screen 3072x1728 Windowed, display 3840x2160

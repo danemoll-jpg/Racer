@@ -103,6 +103,7 @@ namespace Racer
         {
             Directory.CreateDirectory(outDir); AudioListener.volume = 0;
             string kind = Arg("-p106kind", "views"); StuntBumps.Override = Arg("-p120bumps", ""); // 0.120: the Stunt Race bumps being placed (checks only)
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-p106keepscreen") < 0) // 1.1.0: the start-up check keeps the screen the game chose
             Screen.SetResolution(int.Parse(Arg("-p106w", "1920")), int.Parse(Arg("-p106h", "1080")), Arg("-p106full", "0") == "1" ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed); yield return null; yield return null;
             pad = InputSystem.AddDevice<Gamepad>("Report106Pad");
             yield return WaitFlow();
@@ -171,6 +172,7 @@ namespace Racer
                 case "final121": yield return Final121(); break; // 0.121 (Report106PlayerCheck.Round121.cs)
                 case "debug1000": yield return Debug1000(); break; // 1.0 (Report106PlayerCheck.Round1000.cs)
                 case "replay1100": yield return Replay1100(); break; // 1.1 (Report106PlayerCheck.Round1100.cs)
+                case "display1101": yield return Display1101(); break; // 1.1.0 (Report106PlayerCheck.Round1101.cs)
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();
