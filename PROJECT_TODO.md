@@ -33,7 +33,74 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Steam Deck: the game opens windowed and half the menu is off screen; start full screen, add a Display option, publish 1.1.0 — target 1.1.0 (published) — DELIVERED as 1.1.0 (build 1010100, published as Latest; starter refreshed), awaiting Dan's Steam Deck test
+## CURRENT — HIGH MODE (simple, forgiving "pure mindless fun" mode) and Free Roam easy to find — target 1.2.0-review1 (local build) — NOT STARTED
+
+Dan (2026-10-24/25, after playing split screen with a friend): "the free roam was really hard to find. I seemed to keep getting stuck on the different cop modes." He wants a **"high" mode where everything is more simplified. The menus have less choices but important things like vehicles can easily be switched out and you can select time of day and weather if you want. Also if you do a race in "high" mode the roads will be like a bowling alley that has gutter bumpers meaning that it is very difficult to fall off the track especially the mountain tracks. Lets think of this mode as just pure mindless fun. Records would also be marked as "high" high scores.**
+
+His answers (2026-10-25): name it **HIGH MODE**; a **single ON/OFF button at the top of the main menu** (the game starts in whichever mode was on last, so it is also the first thing you see at startup); police chases and stunt events **are offered in HIGH MODE through one simple menu**; HIGH MODE is **more forgiving**, and if someone **keeps wrecking** in normal mode the game pops up **"Would you like to play HIGH MODE?" Yes / No** — Yes switches to it; No says it is available from the main menu. The world additions (ramps, trees, smash spots, blocked roads) are the QUEUED round below and go in **both** modes.
+
+### Part A — Free Roam easy to find (both modes)
+1. Main menu: a **FREE ROAM** entry right after RACE (today it is under EXPLORATION). Selecting it asks **1 Player / 2 Players**; 2 Players goes straight into split-screen Free Roam with both players joining as today. EXPLORATION keeps what else it shows (acorns, areas).
+2. In SPLIT SCREEN setup, Free Roam is the first choice.
+3. One hint once for existing players: "Free Roam is now on the main menu."
+
+### Part B — The HIGH MODE switch
+1. **HIGH MODE: ON / OFF** is the top row of the main menu (above CAMPAIGN / RESUME DRIVING), switched with A or left/right. It is remembered between sessions, per save, and shown clearly (e.g. a "HIGH" badge on the menu and HUD while on).
+2. Turning it on or off from inside Free Roam or a race takes effect without restarting the game; in a race it applies from the next race (ask "Restart in HIGH MODE?" if switched mid-race).
+3. In split screen, the mode is shared by both players.
+
+### Part C — HIGH MODE menus (fewer choices)
+Main menu with HIGH MODE on: **HIGH MODE: ON**, **FREE ROAM**, **RACE**, **CHASES & STUNTS**, **VEHICLE**, **TIME & WEATHER**, **REPLAYS**, **SETTINGS**, **QUIT**. No campaign, records boards reached from RACE results and REPLAYS only.
+1. **Everything unlocked** in HIGH MODE (all vehicles, all tracks), like split screen; nothing done in HIGH MODE changes the campaign or unlocks anything in normal mode. Upgrades: not applied.
+2. **VEHICLE:** one scrolling row of every vehicle with its picture and three stat bars; pick and go. Also in the pause menu in Free Roam and between races, so switching vehicles never needs the full garage. (Colors/rider: keep last used.)
+3. **TIME & WEATHER:** two rows (time of day: morning / day / sunset / night / cycle; weather: clear / rain / snow / random). Applies to Free Roam and races.
+4. **RACE:** pick a track (one list, map visible as now), then go: default laps, rivals on, no other setup rows.
+5. **CHASES & STUNTS:** one page with simple choices: **Run from the cops**, **Be the cop**, **Catch speeders**, **Stunt event** (alone or two players picked on the same page). Sensible defaults for everything the full setup screens ask; no further pages.
+6. Controller-only, scrolling rows, no "press A to cycle" (standing rules).
+
+### Part D — More forgiving driving in HIGH MODE
+1. **Races: gutter bumpers.** On every race course, HIGH MODE adds bumpers along the course edges, like bowling-alley gutters: low rounded walls or berms that bounce you back onto the road. Most important on the two mountain courses, cliff edges and hanging roads. Shortcuts keep their bumpers too. They appear only in HIGH MODE races; normal races are unchanged.
+2. **No wrecks from landings.** Hard or crooked landings don't wreck you; a vehicle on its roof or side flips itself upright after about a second.
+3. **Quicker reset** (same reset rules as normal: nearest point, facing the right way).
+4. **Hits cost less:** walls, traffic and (once the queued round adds them) trees slow you less.
+5. AI rivals in HIGH MODE races run a bit easier so a casual player can still win.
+
+### Part E — HIGH records
+1. Races and stunt events in HIGH MODE have their **own Top 10 boards, marked HIGH** (e.g. "HIGH · Street Loop Forward"). They never mix with normal records; replays saved from them are marked HIGH too.
+2. The RECORDS screen in normal mode shows a HIGH tab after the normal boards.
+
+### Part F — "Would you like to play HIGH MODE?"
+1. In **normal mode**, when a player keeps wrecking (start at **3 wrecks or resets within 2 minutes**, or **2 wrecks in one lap**; tune if it fires too easily), show: **"Would you like to play HIGH MODE?"** **Yes / No**.
+2. **Yes:** switch to HIGH MODE (a race restarts in HIGH MODE; Free Roam carries on in HIGH MODE).
+3. **No:** "No problem. HIGH MODE is on the main menu any time." Then do not ask again for the rest of the session.
+4. It can appear anywhere in normal mode. In a campaign event, "Yes" leaves the event and starts the same track as a HIGH MODE race (campaign untouched).
+
+### Part G — Check (targeted)
+- Main menu with a controller: HIGH MODE switch, FREE ROAM (1 and 2 players), CHASES & STUNTS, VEHICLE, TIME & WEATHER, all reachable; one screenshot of each HIGH MODE page at 4K and 1280×800.
+- One HIGH MODE lap on each mountain course with deliberate steering at the edges: stays on the course.
+- A crooked landing in HIGH MODE flips upright; the same in normal mode still wrecks.
+- A HIGH race record lands on the HIGH board only. The wreck prompt appears after forced wrecks, and No stops it for the session.
+- Test save only, never Dan's real records or campaign.
+
+### Part H — Results (short, per the standing rule)
+- One line per part with its check; local build only (no publish unless Dan asks).
+- **For Dan to check:** play HIGH MODE with a friend: Free Roam, a mountain race, a chase.
+
+## QUEUED NEXT — Free Roam world: big ramps (also over and through houses), breakable trees, smash spots, blocked roads that loop or flip you back — both modes — target 1.3.0-review1 — NOT STARTED (start only when Claude (chat) promotes it to CURRENT)
+
+Dan (2026-10-24/25): "make trees breakable in freeroam and more big ramps spread across the map and stuff to drive people from the edge of map"; "we can put these ramps where they don't interfere with any tracks and it is ok to have ones that jump over or through houses"; "the blocked roads that they circle around or they have a large ramp that flips you high in the air but spins you back to the proper direction". His answers: draw people **inward** (not walls at the edge); **Code places the ramps** and he removes any he doesn't like; **all trees** break; all of this in **both** modes, HIGH MODE more forgiving.
+
+Free Roam world only (one-player and split-screen Free Roam, and chases/stunts played in it). Race instances do not change. **Nothing new on or across any race route** as it runs through the Free Roam world. Do not change Dan's Backyard area, the storm drain, existing shortcuts and jumps, or the stunt park; **Dan's house and Kyle's house are not jumped through** (over is fine only if clear of them) unless Dan says otherwise.
+
+- **A — Big ramps:** about 8–12 across the map, mostly in the middle areas, none near the edge; a few huge ones, medium kickers, a couple of gap jumps, and some that **jump over houses or through them** (a lined-up opening or breakable wall so you fly in one side and out the other). Long run-up, clear safe landing, off roads or beside them so traffic is not blocked.
+- **B — Breakable trees:** every tree breaks when hit hard enough (thin ones easily, big trunks need real speed), snaps and falls with debris and sound, costs speed (less in HIGH MODE), never wrecks you by itself; fallen trees clear and regrow when you leave the area. Only the hit tree becomes physics; two-player Free Roam frame rate in the forest measured before/after.
+- **C — Smash spots:** a few clusters in the middle areas (hay bales, crates, cones, boxes) that scatter and reset.
+- **D — Blocked roads:** at every road that ends in a barricade in Free Roam, replace the dead end with either a **turnaround loop** that circles you back, or a **big flip ramp** that throws you high, spins you round in the air and lands you facing back the way you came (the spin is assisted so it always lands right side up). Mix them; list which is which.
+- **E — Map:** ramps, smash spots and flip ramps marked on the Free Roam map and minimap with small icons.
+- **Check:** a numbered map picture of every new ramp, smash spot and blocked-road change, one in-game shot of each; jump a few including a huge one and a house jump, and one flip ramp in each mode, in the built player.
+- **Results:** each item listed by number with its spot so Dan can say "remove 4".
+
+## Previous delivery — Steam Deck: the game opens windowed and half the menu is off screen; start full screen, add a Display option, publish 1.1.0 — target 1.1.0 (published) — DELIVERED as 1.1.0 (build 1010100, published as Latest; starter refreshed), awaiting Dan's Steam Deck test — DAN CONFIRMED (2026-10-24: "everything is working" on the Deck)
 
 Dan (2026-10-24, 01:51–02:06, Steam Deck, **Gaming Mode**, launched through the new self-updating launcher, game 1.0.0): "steam deck still not opening full screen" and "I can't do anything because half the menu isn't even visible". Alt+Enter (mapped to a back button) only opens the game menu: the game reads Enter as a menu key, so Unity's own toggle never fires. What is known: `ProjectSettings` has `fullscreenMode: 1` (full-screen window), `defaultIsNativeResolution: 1`, default 1024×768; the launcher passes no `-screen-*` arguments; no game script sets the screen mode. Likely cause: a windowed mode / size saved by Unity (`Screenmanager …` values in the prefix's registry, e.g. from the old 0.21 install), which the game has no way to undo. The Deck's screen is **1280×800 (16:10)**.
 
@@ -152,64 +219,9 @@ Dan (2026-10-23/24) is reinstalling on his Steam Deck after a repair and factory
   - On the Deck: install from the new ZIP into a normal home folder (not `drive_c`), add it to Steam with Proton Experimental, Check for updates, play; then tell Claude (chat) what happened. The saves of tonight's `drive_c` install stay in that shortcut's Proton prefix; a new shortcut starts with empty saves.
   - Game updates must finish downloading in 10 minutes (the launcher's limit for a big download, about 0.7 MB/s for 1.0's 430 MB); not a Proton problem, not changed.
 
-## Previous delivery — Race replays from Chastain Rush: record every race, watch it with TV / chase / free cameras, keep the #1 lap and race, save any race — target 1.1.0-review1 — DELIVERED as 1.1.0-review1 (build 1010000, local build), awaiting Dan's review — DAN MOVED ON (2026-10-24: Steam Deck launcher fix first; his replay review is still open)
-
-Dan (2026-10-22, 01:51): "I implemented a Replay system in Chastain Rush. Can we add this system to Woodstock Rush". Dan on it in Chastain Rush (2026-10-22): "The replays seem to work fine." His original ask there: "automatically replace top 1 laps and races with the ability to save any race you want", and "be able to watch your race you just ran and move the camera around differently". This is a new feature for the 1.0 game: **no gameplay, world, course or balance changes** beyond the hooks replays need.
-
-### Part A — Read Chastain Rush first (read only)
-1. **Source:** `C:\Users\danmo\chastain_rush`, commit `736a8e7` ("Round 57 F: race replays"). Files:
-   - `Assets/Scripts/Race/Replay/RaceReplay.cs` (ReplayData and the file format), `ReplayRecorder.cs`, `ReplayViewer.cs`;
-   - `Assets/Scripts/Menus/GameMenus.Replays.cs` (WATCH / SAVE REPLAY on the finish screen, the REPLAYS page);
-   - the hooks in that commit: `RaceController.cs`, `ArcadeVehicle.cs` (`Puppet`), `VehicleInput.cs`, `VehicleConfiguration.cs`, `OtherEngines.cs`, and the world events (`FenceChunk.ReplayBreak` / `ReplayRestore`, `TreeTrunks.ReplaySnap`, `ManholePlume.Erupted`, `RaceBarriers.GateOpened`);
-   - its check `Assets/Scripts/Checks/Round20Runner.R57F.cs`, and the Round 57 F status in its `TODO.md` and `CLAUDE.md`.
-2. **Only read it.** Never change, build or commit anything in `chastain_rush` (or `chastain_rush_r7`), and leave its open editors and players alone: Dan is working on it.
-3. Chastain Rush started from Racer but is its own codebase now (namespace `ChastainRush`, `RaceController`, `GameMenus`). Port the design, and the code wherever it fits, onto Woodstock Rush's own classes: `RaceDirector` / `RaceFlow`, `RaceMenus.Finish`, `ChaseCamera`, `CameraViews.FreeLook`, `BreakableProp`, the ambient traffic, the records / Top 10 and `AtomicSave`. One line in the results: what was reused and what had to be written new.
-
-### Part B — The same replays in Woodstock Rush
-1. **Record every race** that ends on the finish screen: quick races, campaign events and championships, Stunt Races, split screen. Free roam, police chases and the other free-roam activities are not recorded.
-   - Every racer (both players in split screen, every rival): pose, speed, steering, pedal, as Chastain samples them; the traffic; and the world events a race causes, so they happen again at the same moment (the `BreakableProp`s such as mailboxes, and whatever else a race can knock over or open in Woodstock Rush).
-   - Engines and impacts play from the replay; the radio plays live (as Chastain does).
-   - The replay uses the race's own time of day and weather. Rain and lightning don't have to match flash for flash.
-   - Each racer looks as it raced: vehicle, colors, rider look (Dan's rider, player 2's, the rivals). Name tags follow the name-over-head option.
-2. **Watch:** on the finish screen, **WATCH REPLAY** and **SAVE REPLAY**, with Chastain's buttons (X / V and Y / K) unless they clash with a finish-screen button already there; then pick free ones and say which.
-   - Viewer controls as in Chastain: A play / pause, RT fast forward, LT rewind, X slow motion, Y camera (TV, chase, free), LB / RB racer, D-pad lap / restart / HUD (HUD off by default), View save, B leave. Keys as Chastain has them.
-   - Cameras: TV (roadside cameras placed along the course that cut as the racers pass), chase on any racer, and free (Woodstock Rush's own free look). On the Mountain and Leviathan roads and in tunnels, a TV camera must never sit inside rock or terrain; where none can see the racer, fall back to a chase view as Chastain does.
-   - Split screen replays play full screen, with LB / RB through both players and the rivals.
-3. **Keep the #1s:** automatically, per course key and direction (and laps, as the Top 10 keys them), the replay of the #1 Top 10 lap and of the #1 Top 10 race. A new #1 replaces the old one. The best-lap replay plays just that lap (the others as they were then).
-   - Stunt Races have their own records: keep their #1 by that record (no lap replay where there is no lap board).
-   - Split screen counts on the Top 10 (Dan's rule), so its #1s keep replays too.
-   - Records set before this version have no replay. The page only lists replays that exist.
-4. **SAVE** any race from the finish screen or from the viewer, named by course, direction, date and time.
-5. **A REPLAYS page** on the main menu (and the race / pause menus where it fits, as in Chastain): the kept #1s and the saved ones; watch or delete (the #1s can't be deleted there, only replaced). Fully usable with the controller, focus visible, B back.
-6. **Files:** beside the records in the save folder (`Replays/best/`, `Replays/saved/`), with Woodstock Rush's own extension (not `.crreplay`), written the safe way the other saves are. Report the size of one 3-lap replay.
-7. **Old replays:** mark each replay with the build and the course version (Leviathan's ids move on when its gates change). The page says when one is older: still playable, but the world may differ.
-8. **Untouched:** Dan's settings, both campaign saves and the records load exactly as before; the debug tool stays hidden; Trailer Mode works as before.
-
-### Check (exe, windowed, in the background, muted; a test save, never Dan's real records)
-- Street Loop forward, 3 laps, 3 rivals, Normal traffic, smashing a mailbox or two. Finish and watch: positions match the race within a small error (report it), breaks happen on time, each camera works, every control works by pad (controller only) and keys. Save the race, find it on the page, and play it from there.
-- #1s: in the test save, beat a lap and a race record and see the #1 replays replaced; a slower run leaves them alone.
-- One Stunt Race replay, watched briefly (the tricks play). One split-screen race replay. One TV camera shot on a Leviathan stretch.
-- Pictures: one per camera kind, the finish screen buttons, the REPLAYS page.
-
-### Release
-Version 1.1.0-review1, local build only (2026-10-15 rule). When Dan accepts it, a later round publishes 1.1.0. Close everything started; no background task left running. Short results (at most about 20 lines) with "For Dan to check".
-
-### Results (2026-10-22, Claude Code)
-- Checkpoint `8c3b2468`. Evidence [Docs/Report1100/](Docs/Report1100/) ([Shots/](Docs/Report1100/Shots/), [Player/](Docs/Report1100/Player/)); check `-p106kind replay1100 -p1100part main|best|stunt|split|lev` ([Report106PlayerCheck.Round1100.cs](Assets/Scripts/Report106PlayerCheck.Round1100.cs)), tools [Tools/Report1100/](Tools/Report1100/).
-- **Ported from Chastain `736a8e7`:** the file format, recorder, viewer (controls, TV / chase / free cameras, overlay, seek and rewind), puppets and the menus, nearly line for line ([RaceReplay.cs](Assets/Scripts/RaceReplay.cs), [ReplayRecorder.cs](Assets/Scripts/ReplayRecorder.cs), [ReplayViewer.cs](Assets/Scripts/ReplayViewer.cs), [RaceMenus.Replays.cs](Assets/Scripts/RaceMenus.Replays.cs)). **New for Woodstock Rush:** the hooks into `RaceFlow` / `RaceDirector` / `SplitScreen` (begin at the countdown, keep at the Top 10 rank, stop at the results); traffic puppets with their body and paint (`AmbientVehicle.Appear`); `BreakableProp` replay breaks and restores; the race's time and weather (`WorldLook`); Stunt Race bumps rebuilt; split screen full screen; loading another course from the REPLAYS page; WR's eased free camera; TV cameras placed only with a clear line to the racer's path.
-- **Record:** every race that reaches the finish screen (quick, campaign, championship, Stunt Race, split screen; not Free Roam or its activities). Racers 25 / s, traffic 10 / s, prop breaks and waves. Check ([main](Docs/Report1100/Player/main.txt)): Street Loop Forward, 3 laps, 3 rivals, Normal, 20 traffic cars, two mailboxes smashed. Replay vs live race at the same moment: median 0.000 m, 99th percentile 0.005 m, max 6 m (the player's car as the check's pad took over to aim at a mailbox). The mailbox breaks on time ([shot](Docs/Report1100/Shots/main-break-in-replay.jpg)). **A 3-lap replay is about 2.2 MB** (the #1 lap 0.75 MB).
-- **Watch:** finish screen **WATCH REPLAY (X / V)** and **SAVE REPLAY (Y / K)** under RACE AGAIN, Chastain's buttons (nothing on the results uses them) ([shot](Docs/Report1100/Shots/main-finish-screen-buttons.jpg)). Every viewer control checked by pad and by keys ([main](Docs/Report1100/Player/main.txt)). Shots: [TV](Docs/Report1100/Shots/main-camera-tv.jpg), [chase](Docs/Report1100/Shots/main-camera-chase.jpg), [free](Docs/Report1100/Shots/main-camera-free.jpg), [HUD](Docs/Report1100/Shots/main-camera-tv-hud.jpg). Name tags follow the option.
-- **#1s** ([best](Docs/Report1100/Player/best.txt)): an empty board gets its #1 lap and race; a slower run leaves both files byte for byte; a faster run replaces both. The lap replay plays that lap ±2 s.
-- **Stunt Race** ([stunt](Docs/Report1100/Player/stunt.txt), [shot](Docs/Report1100/Shots/stunt-stunt-replay-trick.jpg)): its boards keep #1s; the tricks play (racers upside down in the air). **Split screen** ([split](Docs/Report1100/Player/split.txt), [shot](Docs/Report1100/Shots/split-split-replay-full-screen.jpg)): full screen; LB / RB through both players and the rivals; the halves come back after. **Leviathan** ([lev](Docs/Report1100/Player/lev.txt), [shot](Docs/Report1100/Shots/lev-leviathan-tv-mountain.jpg)): 40 TV cameras, none inside rock (each stands above the top surface with a clear line to the racer's path; one is not seen from a nearer stretch and is used only where it sees the racer).
-- **REPLAYS page:** main menu (after RECORDS) and the quick-race results. Lists the #1s (watch only) and saved replays (watch / delete). Each is marked when it was recorded on another build or before Leviathan's course id moved on. Checked with the controller only, from finish screen through the page to playback and B back out ([page](Docs/Report1100/Shots/main-replays-page.jpg), [from the page](Docs/Report1100/Shots/main-watched-from-page.jpg)). Files: `Replays/best/<Top 10 board>.lap|race.wrreplay`, `Replays/saved/<course> <date time>.wrreplay` beside the records, written to a temporary file first, then swapped in.
-- **Fixed on the way:** the World Map's View-button toggle swallowed the viewer's View (save); a new menu page could open focused on Back.
-- **Decisions:** the #1 race replay keeps the whole recording (the others to their finish); the REPLAYS row on the results shows for quick races only; a replay of another course loads that course first and you stay on its menu afterwards; Stunt Races' best-combo record has no replay (its boards' lap and race #1s do).
-- **For Dan to check:** watching a race and a #1 from the page; the TV camera choices and cuts; a rain or night replay; a campaign event's replay.
-  - Not done: Trailer Mode, the debug tool and save loading were not re-tested (their code is untouched).
-- **Release:** local build only (no GitHub release). Built fresh from `ac45d2df` (pushed), 0 errors ([build-release.txt](Docs/Report1100/build-release.txt)); signed locally and activated by the existing updater: `Builds/Latest` runs `versions/1010000`, 1000000 kept as the previous ([runtime-identity.json](Docs/Report1100/runtime-identity.json)). `Play-Racer.cmd` (unchanged) launched 1.1.0-review1 ([play-racer-launch.json](Docs/Report1100/play-racer-launch.json)); settings restored byte for byte ([settings-preserved.json](Docs/Report1100/settings-preserved.json)). Cleanup: Builds 12.47 → 8.35 GB, C: free 132.5 GB.
-
 ## History archive
 
+- 2026-10-24 (sixteenth move): the 1.1.0 Deck full-screen round moved to "Previous delivery" for the Free Roam multiplayer-feedback round, so the 1.1 replay round's "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-24 (fifteenth move): the automatic-update round moved to "Previous delivery" for the Deck full-screen round, so the 1.0 "Previous delivery" section was moved verbatim to the end of the archive. Dan's trailer review from that round is still open.
 - 2026-10-24 (fourteenth move): the Steam Deck launcher round moved to "Previous delivery" for the automatic-update round, so the 0.121 "Previous delivery" section was moved verbatim to the end of the archive.
 - 2026-10-24 (thirteenth move): the 1.1 replay round moved to "Previous delivery" for the Steam Deck launcher round, so the 0.120 "Previous delivery" section was moved verbatim to the end of the archive.
