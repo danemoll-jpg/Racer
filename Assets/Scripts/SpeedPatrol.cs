@@ -241,6 +241,7 @@ namespace Racer
             State = Phase.Done; foreach (var c in Cops) { c.siren = false; c.lights.Siren = false; Hold(c.car, false); }
             foreach (var s in Speeders.ToList()) Release(s);
             Places.Clear(); var board = LoadBoard();
+            if (HighMode.Now) { flow.CompleteResults(); return; } // 1.2: HIGH MODE patrols are not put on the (normal) Top 10
             foreach (var c in Cops)
             {
                 var e = new Entry { name = SplitScreen.NameOf(c.player), points = c.points, catches = c.catches, minutes = SplitScreen.PoliceMinutes, date = System.DateTime.Now.ToString("yyyy-MM-dd") };

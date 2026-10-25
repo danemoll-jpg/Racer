@@ -228,7 +228,7 @@ namespace Racer
             var m = System.Text.RegularExpressions.Regex.Match(a.text.Length > 400 ? a.text.Substring(0, 400) : a.text, "\"id\"\\s*:\\s*\"([^\"]+)\"");
             return m.Success ? m.Groups[1].Value : "";
         }
-        public string Title => (course >= 0 && course < RacePlaylists.Titles.Length ? RacePlaylists.Titles[course] : courseName).Replace(" - ", " ") + (stunt ? " (Stunt Race)" : "");
+        public string Title => (category.StartsWith(HighMode.RecordPrefix) ? "HIGH · " : "") + (course >= 0 && course < RacePlaylists.Titles.Length ? RacePlaylists.Titles[course] : courseName).Replace(" - ", " ") + (stunt ? " (Stunt Race)" : "");
         public string When => DateTime.TryParse(date, null, System.Globalization.DateTimeStyles.RoundtripKind, out var d) ? d.ToLocalTime().ToString("MMM d, yyyy h:mm tt") : date;
     }
 }

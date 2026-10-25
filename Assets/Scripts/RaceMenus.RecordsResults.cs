@@ -9,6 +9,7 @@ namespace Racer
         static string TrackTitle(string category)
         {
             string c=category??"";bool reverse=c.Contains("reverse");
+            if(c.StartsWith(HighMode.RecordPrefix))return "HIGH · "+TrackTitle(c.Substring(HighMode.RecordPrefix.Length)); // 1.2: HIGH MODE's own boards
             if(c.StartsWith(StuntRace.RecordPrefix))return "Stunt Race · "+TrackTitle(c.Substring(StuntRace.RecordPrefix.Length)); // 0.119 Part B: their own boards
             if(c.StartsWith("backyard"))return "Dan's Backyard Loop - "+(reverse?"Reverse":"Forward");
             if(c.StartsWith("leviathan"))return "Leviathan - "+(reverse?"Reverse":"Forward"); // 0.115
@@ -28,30 +29,36 @@ namespace Racer
         bool TrackHasTimes(int track,bool race){int keep=recordTrack;recordTrack=track;bool any=flow.Boards.Top(OnRecordTrack,race).Count>0;recordTrack=keep;return any;}
         void ChooseRecordTrack()
         {
-            int last=RecordIndex(TrackTitle(flow.Race.Category));
+            bool high=recordTab==HighTab; // 1.2: the HIGH tab chooses among the HIGH boards, the others among the normal ones
+            int last=RecordIndex(TrackTitle(flow.Race.Category));if(last>=0&&HighTrack(last)!=high)last=-1;
             if(flow.TrackBrowsingLocked&&last>=0){recordTrack=last;return;}
             if(last>=0&&TrackHasTimes(last,false)){recordTrack=last;return;}
-            foreach(int i in RacePlaylists.DisplayOrder)if(TrackHasTimes(i,false)||TrackHasTimes(i,true)){recordTrack=i;return;}
-            recordTrack=Mathf.Max(0,last);
+            foreach(int i in high?HighOrder:RacePlaylists.DisplayOrder)if(TrackHasTimes(i,false)||TrackHasTimes(i,true)){recordTrack=i;return;}
+            recordTrack=last>=0?last:high?HighOrder[0]:0;
         }
+        // 1.2: Records > HIGH (after the normal boards): HIGH MODE's best laps, best races and Stunt event Top 10
+        public const int HighTab=7; int highBoard;
         static string RecordDate(string date)=>DateTime.TryParse(date,null,System.Globalization.DateTimeStyles.RoundtripKind,out var d)?d.ToLocalTime().ToString("d MMM yyyy"):"—";
         void StepRecordTrack(int d)
         {
-            if(flow.TrackBrowsingLocked)return;var order=RecordOrder;int at=Mathf.Max(0,order.IndexOf(recordTrack));
+            if(flow.TrackBrowsingLocked)return;var order=recordTab==HighTab?HighOrder:RecordOrder;int at=Mathf.Max(0,order.IndexOf(recordTrack));
             recordTrack=order[(at+d+order.Count)%order.Count];recordsVehicle="All vehicles";Show();
         }
         void RenderRecords()
         {
             if(page!="")page="";
-            if(recordTrack<0||recordTrack>=RecordTracks||(flow.TrackBrowsingLocked&&RecordTitle(recordTrack)!=TrackTitle(flow.Race.Category)))ChooseRecordTrack();
-            ClearCore("RECORDS","");var recordTabs=new[]{"LAP","RACE","SPEED TRAPS","JUMPS","GHOST","STUNTS","COMBOS"};TabRow(recordTabs,recordTab,i=>{recordTab=i;activityKey="";Show();});int row=recordTabs.Length;
+            if(recordTrack<0||recordTrack>=RecordTracks||HighTrack(recordTrack)!=(recordTab==HighTab)||(flow.TrackBrowsingLocked&&RecordTitle(recordTrack)!=TrackTitle(flow.Race.Category)))ChooseRecordTrack();
+            ClearCore("RECORDS","");var recordTabs=new[]{"LAP","RACE","SPEED TRAPS","JUMPS","GHOST","STUNTS","COMBOS","HIGH"};TabRow(recordTabs,recordTab,i=>{recordTab=i;activityKey="";Show();});int row=recordTabs.Length;
             int backRow=row;Row(row++,"back","Back",flow.CloseExtras);
+            bool highTab=recordTab==HighTab;
+            if(highTab){Step(row++,"high-board","HIGH MODE:   "+new[]{"Best laps","Best races","Stunt event Top 10"}[highBoard],d=>{highBoard=(highBoard+d+3)%3;Show();});buttons[row-1].GetComponentInChildren<UnityEngine.UI.Text>(true).alignment=TextAnchor.MiddleCenter;
+                if(highBoard==2){details.gameObject.SetActive(true);details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=28;details.text="HIGH MODE · STUNT EVENT · "+StuntProgress.Minutes+" minutes at "+StuntPark.Title;int first=row;row=StuntTop(row,new int[0],StuntProgress.HighTop);Table(first,row);buttons[backRow].transform.SetAsLastSibling();return;}}
             if(recordTab==5){RenderStuntRecords(row,backRow);return;} // 0.106 Part D
             if(recordTab==6){RenderComboRecords(row,backRow);return;} // 0.108 Part D
             if(recordTab==4){details.gameObject.SetActive(true);details.text="Race your best compatible clean lap.\n"+flow.Ghost.Status+"\nNo resets, teleports or missed gates. Legal shortcuts qualify.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=120;Toggle(row,"ghost","Ghost",flow.Ghost.Enabled,flow.ToggleGhost);return;}
-            if(recordTab<2)
+            if(recordTab<2||highTab)
             {
-                bool race=recordTab==1;string track=RecordTitle(recordTrack).Replace(" - "," — ");
+                bool race=highTab?highBoard==1:recordTab==1;string track=RecordTitle(recordTrack).Replace(" - "," — ");
                 var vehicles=flow.Boards.TopVehicles(OnRecordTrack,race);
                 if(recordsVehicle!="All vehicles"&&!vehicles.Contains(recordsVehicle))recordsVehicle="All vehicles";
                 var board=flow.Boards.Top(OnRecordTrack,race,recordsVehicle=="All vehicles"?null:recordsVehicle);
@@ -147,7 +154,9 @@ namespace Racer
                 for(int i=0;i<championship.Events.Length;i++){int eventIndex=i;var e=championship.Events[i];Row(n++,"event-"+i,(i+1)+". "+(e?.course??RacePlaylists.Active.entries[i].Title+" · Pending"),()=>Help(championship.Summary(eventIndex)));}
                 Row(n++,"rules","Scoring / tie rules",()=>Help(PlaylistChampionship.Rules));
             }
-            Row(n++,"setup","Race Setup",()=>flow.OpenResultsSetup());Row(n++,"records","Records",flow.OpenBoards);Row(n++,"exploration","Exploration",flow.OpenExploration);Row(n++,"settings","Settings",flow.OpenSettings);
+            // 1.2 HIGH MODE: between races the vehicle is one row away and the track another (no Race Setup)
+            if(flow.Race.high){title.text="RESULTS   ·   HIGH MODE";Row(n++,"high-vehicle","VEHICLE   ·   "+VehicleProfile.Find(flow.PlayerVehicleId).Name,()=>Navigate("high-vehicle"));Row(n++,"tracks","Change track",flow.OpenCourses);Row(n++,"records","Records",flow.OpenBoards);Row(n++,"settings","Settings",flow.OpenSettings);}
+            else{Row(n++,"setup","Race Setup",()=>flow.OpenResultsSetup());Row(n++,"records","Records",flow.OpenBoards);Row(n++,"exploration","Exploration",flow.OpenExploration);Row(n++,"settings","Settings",flow.OpenSettings);}
             Row(n,"menu","Return to Menu",()=>{if(playlist)Confirm("QUIT PLAYLIST?","This ends the active championship. Saved playlists are kept.",flow.QuitRace);else flow.QuitRace();});
         }
     }

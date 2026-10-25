@@ -201,10 +201,11 @@ namespace Racer
         }
         // The garage's stock stat bars (split-screen vehicles are stock). 0.111 Part A: upgrades = the campaign's upgrades of that vehicle drawn after
         // the stock bar in gold (as the Shop and the garage view draw them); rowHeight / fontSize for the smaller cards.
-        void StatBars(Transform parent, VehicleProfile p, bool upgrades = false, float rowHeight = 20, int fontSize = 16, float labelShare = .4f)
+        void StatBars(Transform parent, VehicleProfile p, bool upgrades = false, float rowHeight = 20, int fontSize = 16, float labelShare = .4f, int[] only = null)
         {
             for (int i = 0; i < GarageStats.Length; i++)
             {
+                if (only != null && !only.Contains(i)) continue; // 1.2: HIGH MODE's VEHICLE cards show three of them
                 var row = Rect(GarageStats[i].label, parent); row.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = rowHeight;
                 var text = Label("Label", row, fontSize, 0); text.rectTransform.anchorMin = Vector2.zero; text.rectTransform.anchorMax = new Vector2(labelShare, 1); text.rectTransform.offsetMin = text.rectTransform.offsetMax = Vector2.zero; text.text = GarageStats[i].label; text.color = new Color(.86f, .86f, .8f);
                 var track = Rect("Bar", row); track.anchorMin = new Vector2(labelShare + .02f, .2f); track.anchorMax = new Vector2(1, .8f); track.offsetMin = track.offsetMax = Vector2.zero; track.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, .12f);

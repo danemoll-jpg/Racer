@@ -43,6 +43,7 @@ namespace Racer
         public static string LapCategory(string category)=>Regex.Replace(category,@"-laps\d+$","");
         public static string Describe(string category)
         {
+            if(category.StartsWith(HighMode.RecordPrefix))return "HIGH / "+Describe(category.Substring(HighMode.RecordPrefix.Length)); // 1.2
             if(category.StartsWith(StuntRace.RecordPrefix))return "Stunt Race / "+Describe(category.Substring(StuntRace.RecordPrefix.Length)); // 0.119 Part B
             var match=Regex.Match(category,@"^(.*?)-(original|tourer|moto|atv|stuntbuggy|stuntbike|hoppercup)-(.*)$");if(!match.Success)return category;
             var bits=match.Groups[3].Value.Split('-');string course=match.Groups[1].Value;

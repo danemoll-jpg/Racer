@@ -191,7 +191,7 @@ namespace Racer
             if (bail != null) Result($"BAILED  ·  COMBO x{links} BANKED  +{total:N0}", 2); else if (links > 1 || top != "") Result($"COMBO x{links}  +{total:N0}" + (LastComboPlace > 0 ? $"  ·  TOP 10 #{LastComboPlace}" : ""), 1);
             ComboBanked?.Invoke(total, park);
             // the best single combo in Free Roam (player 1, alone; not the Stunt event)
-            if (!SplitScreen.Active && car == race.vehicle && race.FreeRoam && CampaignRun.Active == null && !DeveloperLocationHud.Inspecting) StuntProgress.RecordCombo(total, configuration.profileId);
+            if (!SplitScreen.Active && !race.high && car == race.vehicle && race.FreeRoam && CampaignRun.Active == null && !DeveloperLocationHud.Inspecting) StuntProgress.RecordCombo(total, configuration.profileId);
         }
         void Bail(string why)
         {

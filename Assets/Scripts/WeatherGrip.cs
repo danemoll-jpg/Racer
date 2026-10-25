@@ -35,6 +35,7 @@ namespace Racer
         {
             if (SplitScreen.Active) return SplitScreen.Weather;
             var campaign = CampaignRun.Active; if (campaign != null) return campaign.Weather;
+            if (race && race.high) return HighMode.Weather; // 1.2
             var flow = race ? race.Flow : null; return flow != null && flow.Save != null ? (Weather)Mathf.Clamp(flow.Save.Settings.weather, 0, 2) : Weather.Clear;
         }
         // the grip under one wheel's contact

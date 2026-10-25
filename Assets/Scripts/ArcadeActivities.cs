@@ -210,7 +210,7 @@ namespace Racer
                 var e=CampaignRun.Active;string award=e.Site==site.id&&e.Kind!=CampaignEventKind.Race&&e.Kind!=CampaignEventKind.TimeTrial?" / "+new[]{"NO MEDAL","BRONZE","SILVER","GOLD"}[Campaign.MedalFor(e,value)]:"";
                 if(!StuntLines)Message(site.title+" / "+(site.kind==ActivitySite.Kind.Jump?"SCORED: ":"")+Measurement(site,value)+award,6);return;}
             // 0.90 Part D: split-screen results are not written to the activity records either.
-            if(SplitScreen.Active){Awards++;if(!StuntLines)Message(site.title+" / "+Measurement(site,value),6);return;}
+            if(SplitScreen.Active||race.high){Awards++;if(!StuntLines)Message(site.title+" / "+Measurement(site,value),6);return;} // 1.2: nor HIGH MODE's (its own records are races and the Stunt event)
             if(BalanceLog.RoamActivity(race))BalanceLog.Activity(this,site,configuration.profileId,value,units,"scored",Selected==site,best?.value??0); // 0.109 Part C
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});

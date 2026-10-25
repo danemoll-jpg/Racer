@@ -33,7 +33,7 @@ namespace Racer
         // or Police Chase (Free Roam, cop vs runner: who is the cop first, and the round limit in minutes).
         // 0.106 Part D: Stunt = the Stunt event at the stunt park (its own setup, like Police Chase)
         public enum Kind { Race, FreeRoam, Police, Stunt }
-        public static Kind Mode = Kind.Race;
+        public static Kind Mode = Kind.FreeRoam; // 1.2 Part A: the split-screen setup opens on Free Roam
         public static int CopFirst = 1, PoliceMinutes = 5;
         // 0.95 Parts A and B: Police Chase has its own setup (main menu / Free Roam > POLICE CHASE). Solo = one player against
         // the AI on a full screen (no split, one role kept, one round); two players = split-screen with the swap. SoloRole:

@@ -17,10 +17,10 @@ namespace Racer
         // 0.106 Part C: the stunt buggy from the start; the stunt motorcycle with the first Gold in the Stunt event (StuntProgress)
         public static bool Earned(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarEarned || Campaign.Testing : p.Unlock == "police-bike" ? PoliceProgress.BikeEarned || Campaign.Testing
             : p.Unlock == "stunt-buggy" ? true : p.Unlock == "stunt-gold" ? StuntProgress.GoldEarned || Campaign.Testing
-            : p.Unlock == "stunt-cup" ? Campaign.OwnedInAnySlot(p.Id) || Campaign.Testing : RewardEarned; // 0.119 Part C: the Stunt chapter's prize
+            : p.Unlock == "stunt-cup" ? Campaign.OwnedInAnySlot(p.Id) || Campaign.Testing : RewardEarned || HighMode.On; // 0.119 Part C: the Stunt chapter's prize; 1.2: HIGH MODE has everything
         public static bool Locked(VehicleProfile p) => p != null && p.Reward && !Earned(p);
         // split-screen has everything unlocked except the acorn reward (as before)
-        public static bool LockedInSplit(VehicleProfile p) => p != null && (p.Stunt && p.CupEdition ? !Earned(p) : p.CupEdition ? Campaign.VehicleLocked(p) : p.Reward && !p.IsPolice && (p.Stunt ? !Earned(p) : !RewardEarned)); // 0.111: a Cup edition once won in MY CAMPAIGN
+        public static bool LockedInSplit(VehicleProfile p) => p != null && !HighMode.On && (p.Stunt && p.CupEdition ? !Earned(p) : p.CupEdition ? Campaign.VehicleLocked(p) : p.Reward && !p.IsPolice && (p.Stunt ? !Earned(p) : !RewardEarned)); // 0.111: a Cup edition once won in MY CAMPAIGN
         public static string LockedTextFor(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarGoal : p.Unlock == "police-bike" ? PoliceProgress.BikeGoal
             : p.Unlock == "stunt-cup" ? (Earned(p) ? StuntOnly : StuntCupGoal) : p.Stunt ? (Earned(p) ? StuntOnly : StuntProgress.BikeGoal) : LockedText;
         public const string StuntCupGoal = "Prize: pass the Stunt Final (campaign Stunt chapter)";

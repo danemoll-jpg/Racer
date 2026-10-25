@@ -97,7 +97,8 @@ namespace Racer
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps); SaveRoot = ReplayData.Root = root; // 1.1
             ResultsLog.Init(root, root != Path.Combine(Application.persistentDataPath, "Phase7", "street-loop-gates-v1-laps" + Race.laps)); // 0.109 Parts C and D
-            VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
+            HighMode.Set(Save.Settings.highMode); // 1.2: the game starts in the mode last used
+            VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything || HighMode.On; RecentVehicles.Use(Save);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider; LeviathanCourse.ShortcutsOff = Save.Settings.leviathanShortcutsOff ?? new string[0]; /* 0.116 */
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
             Playlists=new RacePlaylists(root);StuntRaceRecords.Load(root); // 0.119 Part B
@@ -109,6 +110,7 @@ namespace Racer
             Save.Settings.lastFiniteLaps=Mathf.Clamp(Save.Settings.lastFiniteLaps,1,5);
             Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
             Race.difficulty = Mathf.Clamp(Save.Settings.difficulty,0,2);
+            Race.high = HighMode.On; if (Race.high) HighRaceDefaults(); // 1.2
             var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
             if (!configuration) configuration = Race.vehicle.gameObject.AddComponent<VehicleConfiguration>();
             ApplyStuntSetting();
@@ -134,7 +136,7 @@ namespace Racer
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             AcornBanner.Attach(this);CampaignEventUi.Attach(this);TrickHud.Attach(this);/* 0.120 Part A */UnlockNotice.Pending.Clear();UnlockNotice.Showing=null;UnlockNotice.Missed(Save); // 0.95 Part F
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
-            Hints.Flow=this;gameObject.AddComponent<HintWatch>().Initialize(this);
+            Hints.Flow=this;gameObject.AddComponent<HintWatch>().Initialize(this);gameObject.AddComponent<HighPrompt>().Initialize(this); // 1.2 Part F
             LockVehicle(true);
             StartCoroutine(StartWhenBuilt());
         }
@@ -175,6 +177,7 @@ namespace Racer
             if(SplitScreen.Active&&!roam)return ("Split screen: "+(course>=0?RacePlaylists.Titles[course].Replace(" - "," — "):scene),$"Player 1: {VehicleProfile.Find(SplitScreen.P1Vehicle).Name}\nPlayer 2: {VehicleProfile.Find(SplitScreen.P2Vehicle).Name}{(SplitScreen.P2Ai?" (AI)":"")}\nDay · Clear · {SplitScreen.Laps} lap{(SplitScreen.Laps==1?"":"s")}",course>=0&&course<courses.Length?courses[course]:null);
             var campaign=CampaignRun.Active;if(campaign!=null&&!roam)return ("Campaign: "+campaign.Name,$"{RacePlaylists.Titles[campaign.Course].Replace(" - "," — ")}\n{campaign.Time} · {campaign.Weather}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":""),course>=0&&course<courses.Length?courses[course]:null);
             string detail=roam?$"Starting at {from}\nWeather: {RoamWeatherLabel}\n{vehicle}":$"{TimeOfDayLabel} · {WeatherLabel}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":"");
+            if(HighMode.On&&campaign==null)detail=(roam?$"HIGH MODE · starting at {from}\n":"HIGH MODE · ")+$"{HighMode.TimeNames[HighMode.TimeChoice]} · {HighMode.WeatherNames[HighMode.WeatherChoice]}\n{vehicle}"; // 1.2
             return (what,detail,!roam&&course>=0&&course<courses.Length?courses[course]:null);
         }
         // FreeRoamWorld shows the selected course's name and vehicle rules and starts the player at that course's start.
@@ -307,7 +310,61 @@ namespace Racer
         {
             if(State!=Stage.Courses || course<0 || course>=RacePlaylists.Scenes.Length)return;
             if(!menus.RoamTrackPick&&!Campaign.CourseOpen(course))return; // 0.89: Race picks only courses the campaign has opened
+            // 1.2 HIGH MODE: RACE is pick a track, then go (default laps, rivals on, no setup page)
+            if(HighMode.On&&!menus.RoamTrackPick)
+            {
+                if(!InRoamWorld&&RacePlaylists.CourseOf(gameObject.scene)==course){StartRace();return;}
+                if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
+                pendingRace=true;callers.Clear();menus.ResetPages();Go(RacePlaylists.Scenes[course]);return;
+            }
             menus.SaveSceneReturn();returnToSetup=true;Go(RacePlaylists.Scenes[course]);
+        }
+        // ---------- 1.2 HIGH MODE ----------
+        public const int HighLaps=3;
+        void HighRaceDefaults(){Race.opponents=true;Race.traffic=true;Race.difficulty=0;Race.laps=HighLaps;} // rivals on (Easy), default laps
+        // At each start (and when the switch takes effect): the unlocks, the session's mode, and a quick race's settings and vehicle for the mode.
+        // A campaign event, a playlist and split screen keep their own settings (split screen shares the mode); normal mode is untouched unless
+        // it is coming back from HIGH MODE.
+        void ModeSettings()
+        {
+            bool was=Race.high;Race.high=HighMode.On&&CampaignRun.Active==null;
+            if(HighMode.On)Campaign.Testing=true;else if(was)Campaign.Testing=UnlockEverything;
+            if(Race.high&&HighMode.WeatherChoice==3)HighMode.Roll();
+            if(SplitScreen.Active||CampaignRun.Active!=null||RacePlaylists.Active!=null||RacePlaylists.PendingStart)return;
+            if(Race.high)HighRaceDefaults();
+            else if(was){Race.opponents=Save.Settings.opponents;Race.traffic=Save.Settings.traffic;Race.difficulty=Mathf.Clamp(Save.Settings.difficulty,0,2);
+                Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);}
+            if(was==Race.high)return;
+            ApplyStuntSetting();RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();
+            if(configuration.profileId!=PlayerVehicleId){configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);}
+        }
+        // The main menu's switch (and the pause menu's, and the prompt's Yes). Free Roam and the menus take it at once; a race keeps the mode it
+        // started with until it is restarted (RestartForMode) or the next race.
+        public void SetHighMode(bool on)
+        {
+            if(HighMode.On!=on){HighMode.Set(on);Save.Settings.highMode=on;Save.SaveSettings();}
+            Click();if(TrackBrowsingLocked){menus.Show();return;}
+            ModeSettings();SelectRecords(Race.Category);
+        }
+        public void RestartForMode(){if(CampaignRun.Active!=null||RacePlaylists.Active!=null)QuitRace();StartRace();}
+        // Part F: HighPrompt saw a player keep wrecking in normal mode: pause and ask (RaceMenus.AskHighMode)
+        public void AskHighMode(){if(State!=Stage.Racing)return;Pause();menus.AskHighMode();}
+        // Yes: Free Roam carries on in HIGH MODE; a race restarts in it (a campaign event or playlist is left first: the same track, the campaign
+        // untouched)
+        public void AcceptHighMode()
+        {
+            if(Race.FreeRoam){SetHighMode(true);Resume();Notify("HIGH MODE is on",4);return;}
+            if(CampaignRun.Active!=null||RacePlaylists.Active!=null)QuitRace();
+            SetHighMode(true);StartRace();
+        }
+        public void DeclineHighMode(){HighMode.Declined=true;Resume();Notify("No problem. HIGH MODE is on the main menu any time.",6);}
+        // HIGH MODE's VEHICLE page: pick and go (Free Roam at once; a race from its next start). The colors and rider stay as last used.
+        public void ChooseVehicle(string id)
+        {
+            var p=VehicleProfile.Find(id);Save.Settings.vehicleId=p.Id;if(p.Stunt)Save.Settings.stuntVehicleId=p.Id;Save.SaveSettings();
+            var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
+            if(Race.FreeRoam&&!SplitScreen.Active)RecentVehicles.Drove(1,Save.Settings.vehicleId);
+            SelectRecords(Race.Category);Click();
         }
         public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Go(reverse?"MountainLoopReverse":"MountainLoop");}
         public void SelectBackyardForward(){if(State!=Stage.Courses)return;Go("DansBackyardForward");}
@@ -333,7 +390,7 @@ namespace Racer
         public string PlayerVehicleId => Race.PlayerVehicle(Race.stunts?Save.Settings.stuntVehicleId:Save.Settings.vehicleId);
         // 0.119 Part B: Race > Race type: a Stunt Race on the Stunt Race courses (Mountain Loop and Leviathan, both ways: stunt vehicles only, its own
         // records); any other course (and Free Roam) races as before. The stunt vehicle chosen is kept apart from the normal one.
-        void ApplyStuntSetting(){Race.stunts=Save.Settings.stuntRace&&RacePlaylists.Active==null&&!RacePlaylists.PendingStart&&StuntRace.Offered&&StuntRace.Scene(gameObject.scene.name)&&!InRoamWorld;Race.splitScore=Race.stunts&&Save.Settings.stuntSplitScore;}
+        void ApplyStuntSetting(){Race.stunts=Save.Settings.stuntRace&&!Race.high&&RacePlaylists.Active==null&&!RacePlaylists.PendingStart&&StuntRace.Offered&&StuntRace.Scene(gameObject.scene.name)&&!InRoamWorld;Race.splitScore=Race.stunts&&Save.Settings.stuntSplitScore;}
         public void StepRaceType(int d=1)
         {
             if(State!=Stage.Ready&&State!=Stage.Results)return;
@@ -469,7 +526,7 @@ namespace Racer
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
             ReplayViewer.PendingFile=file;callers.Clear();menus.ResetPages();Go(RacePlaylists.Scenes[course]);
         }
-        public void StartRace() { if(!CampaignAllows())return; BalanceLog.Abandon(this,"restarted"); /* 0.109 Part C */ if(CampaignRun.Active==null&&!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
+        public void StartRace() { ModeSettings(); if(!CampaignAllows())return; BalanceLog.Abandon(this,"restarted"); /* 0.109 Part C */ if(CampaignRun.Active==null&&!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
         // 0.84 Part G: building the rivals and traffic for a race takes about half a second, then the first frame with them
         // is slow too; START RACE used to freeze the menu for that time. The loading screen now comes up at once and the
         // race is built behind it (the countdown waits for it, as after a scene load).
@@ -482,7 +539,7 @@ namespace Racer
             yield return null;yield return null; // the screen is drawn before the work starts
             restarting=false;Race.RestartRace();LoadingScreen.Started();
         }
-        public void StartFreeRoam(){if(!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ int course=RacePlaylists.CourseOf(gameObject.scene);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
+        public void StartFreeRoam(){ModeSettings();if(!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ int course=RacePlaylists.CourseOf(gameObject.scene);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){HiddenPolice.Attach(this);Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         // 0.90 Part D: it cannot be resumed while a player's controller is missing. 0.91 Part B: the pause menu answers
@@ -594,6 +651,7 @@ namespace Racer
             Race.vehicle.GetComponent<VehicleAudio>()?.Silence();
             if(SplitScreen.Active)EndSplit();
             if(CampaignRun.Active!=null)EndCampaignEvent();
+            ModeSettings();SelectRecords(Race.Category); // 1.2: a switch made during the race takes effect in the menus
         }
         public void ResetFeedback()
         {
@@ -654,7 +712,8 @@ namespace Racer
             ValidationSaveRoot=directory;
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps); SaveRoot = ReplayData.Root = directory; // 1.1
-            VehicleUnlocks.Load(directory); Campaign.Load(directory); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
+            HighMode.Set(Save.Settings.highMode); Race.high = HighMode.On; // 1.2
+            VehicleUnlocks.Load(directory); Campaign.Load(directory); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything || HighMode.On; RecentVehicles.Use(Save);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider; LeviathanCourse.ShortcutsOff = Save.Settings.leviathanShortcutsOff ?? new string[0]; /* 0.116 */
             Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);

@@ -8,7 +8,7 @@ namespace Racer
         public UnityEngine.UI.Text display;
         UnityEngine.UI.Text speedometer;
         GameObject speedPanel;RectTransform medalHolder;string medalKey; // 0.96 Part B: Free Roam activity targets / result as medals
-        GameObject wrongPanel;
+        GameObject wrongPanel,highBadge;
         UnityEngine.UI.Text wrongText,wrongArrow;
         UnityEngine.UI.Text activities;
         UnityEngine.UI.Text waypointText,waypointArrow;GameObject waypointPanel;
@@ -49,6 +49,10 @@ namespace Racer
             UnityEngine.UI.Text WLabel(string name,Vector2 position,Vector2 dimensions,int fontSize){var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wp,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.86f,.3f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
             waypointArrow=WLabel("Waypoint direction",new(-132,0),new(50,50),40);waypointArrow.text="↑";waypointText=WLabel("Waypoint distance",new(26,0),new(270,50),24);waypointPanel.SetActive(false);
             BuildClock();BuildCameraHint();BuildNames();
+            // 1.2: the HIGH MODE badge, left of the speedometer, while the session is in HIGH MODE
+            highBadge=new GameObject("HIGH MODE badge",typeof(RectTransform),typeof(UnityEngine.UI.Image));var hb=(RectTransform)highBadge.transform;hb.SetParent(transform,false);
+            hb.anchorMin=hb.anchorMax=hb.pivot=new Vector2(1,0);hb.anchoredPosition=new(-192,18);hb.sizeDelta=new(96,62);var hbi=highBadge.GetComponent<UnityEngine.UI.Image>();hbi.color=new Color(.025f,.055f,.07f,.84f);hbi.raycastTarget=false;
+            var hbt=HudText("HIGH",hb,28,TextAnchor.MiddleCenter,HighMode.Colour);hbt.fontStyle=FontStyle.Bold;hbt.text=HighMode.Badge;Stretch(hbt.rectTransform,0,0,0,0);highBadge.SetActive(false);
             var feedback=new GameObject("Arcade activity feedback",typeof(RectTransform),typeof(UnityEngine.UI.Text));feedback.transform.SetParent(transform,false);activities=feedback.GetComponent<UnityEngine.UI.Text>();activities.font=display.font;activities.fontSize=21;activities.color=new Color(1,.9f,.5f);activities.raycastTarget=false;activities.alignment=TextAnchor.LowerLeft;activities.rectTransform.anchorMin=activities.rectTransform.anchorMax=activities.rectTransform.pivot=Vector2.zero;activities.rectTransform.anchoredPosition=new(22,78);activities.rectTransform.sizeDelta=new(700,80);feedback.AddComponent<UnityEngine.UI.Outline>();
             medalHolder=new GameObject("Activity medals",typeof(RectTransform)).GetComponent<RectTransform>();medalHolder.SetParent(transform,false);medalHolder.anchorMin=medalHolder.anchorMax=medalHolder.pivot=Vector2.zero;medalHolder.anchoredPosition=new(22,28);medalHolder.sizeDelta=new(700,44);
         }
@@ -145,7 +149,7 @@ namespace Racer
             if(SplitScreen.Active)
             {
                 display.transform.parent.gameObject.SetActive(false);if(speedPanel)speedPanel.SetActive(false);if(wrongPanel)wrongPanel.SetActive(false);
-                if(cameraHint)cameraHint.gameObject.SetActive(false);if(activities)activities.text="";if(medalHolder)medalHolder.gameObject.SetActive(false);if(waypointPanel)waypointPanel.SetActive(false);if(clockPanel)clockPanel.SetActive(false);return;
+                if(cameraHint)cameraHint.gameObject.SetActive(false);if(activities)activities.text="";if(medalHolder)medalHolder.gameObject.SetActive(false);if(waypointPanel)waypointPanel.SetActive(false);if(clockPanel)clockPanel.SetActive(false);if(highBadge)highBadge.SetActive(false);return;
             }
             display.text=BuildText();display.supportRichText=true;
             {var panel=(RectTransform)display.transform.parent;bool st=race.stunts&&!race.FreeRoam;float h=(race.Forest||race.reverseCourse?132:108)+(st?26:0),w=st?385:300;if(Mathf.Abs(panel.sizeDelta.y-h)>.5f||Mathf.Abs(panel.sizeDelta.x-w)>.5f)panel.sizeDelta=new(w,h);} // 0.119: the stunt line (0.120: wider, for the total points)
@@ -171,7 +175,7 @@ namespace Racer
             }
             if(clockPanel)
             {
-                bool clock=race.FreeRoam&&!race.Flow.MenuVisible&&WorldLook.Current&&WorldLook.Current.Mode=="Free Roam";clockPanel.SetActive(clock);
+                bool clock=race.FreeRoam&&!race.Flow.MenuVisible&&WorldLook.Current&&WorldLook.Current.Mode=="Free Roam"&&!(race.high&&HighMode.FixedHour>=0);clockPanel.SetActive(clock); // 1.2: no clock while HIGH MODE holds the sky at one time
                 if(clock){var look=WorldLook.Current;clockDay.text="Day "+look.Day;clockTime.text=look.Clock;moon.Phase=look.MoonPhase;}
             }
             var guide=race.GetComponent<WaypointGuide>();if(!guide)guide=FindAnyObjectByType<WaypointGuide>();
@@ -211,6 +215,7 @@ namespace Racer
                     wrongArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-Vector3.SignedAngle(forward,guidance.Direction,Vector3.up));
                 }
             }
+            if(highBadge)highBadge.SetActive(race.high&&!race.Flow.MenuVisible&&!TrailerMode.Active);
             if(speedPanel) { speedPanel.SetActive(!race.Flow.MenuVisible); speedometer.text=$"{DisplayUnits.Mph(Mathf.Abs(race.vehicle.ForwardSpeed)):0} <size=17>mph</size>"; }
         }
     }

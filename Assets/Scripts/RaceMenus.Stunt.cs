@@ -125,9 +125,9 @@ namespace Racer
             return n;
         }
         // the Stunt event Top 10 (rows from n); mine: the places to highlight
-        int StuntTop(int n, int[] mine)
+        int StuntTop(int n, int[] mine, System.Collections.Generic.IReadOnlyList<StuntProgress.Entry> list = null) // 1.2: list = the HIGH board (Records > HIGH)
         {
-            var top = StuntProgress.Top; var tw = new[] { .1f, .26f, .16f, .12f, .2f, .16f };
+            var top = list ?? StuntProgress.Top; var tw = new[] { .1f, .26f, .16f, .12f, .2f, .16f };
             TableRow(n++, "stunt-top-header", new[] { "Top 10", "Name", "Points", "Medal", "Vehicle", "Date" }, tw, () => { });
             for (int i = 0; i < top.Count; i++)
             {

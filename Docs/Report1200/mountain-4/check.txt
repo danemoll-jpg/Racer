@@ -1,0 +1,12 @@
+screen=1920x1080 kind=high1200 version=1.2.0-review1 park=on
+HIGH MODE check part mountain: save C:\Users\danmo\AppData\Local\Temp\report1200\mountain-4\save-copy, HIGH MODE saved off
+== HIGH MODE lap of Mountain Loop - Forward: race HIGH True, 3 laps, rivals 3 (Easy); bumpers shown: 3163 stations (6326 m of bumper), 29 left open for crossings and shortcuts
+  pinned at 1166.2,65.65,-276.8 s 572: the reset button
+  t 50 s: s 588 of 2760, bumper hits 7, resets 1, righted 0
+  pinned at 1355.0,99.84,-272.5 s 747: the reset button
+  t 110 s: s 1577 of 2760, bumper hits 27, resets 2, righted 0
+  pinned at 1005.5,161.15,106.5 s 1595: the reset button
+  pinned at 1273.4,152.67,227.8 s 1896: the reset button
+  t 170 s: s 2223 of 2760, bumper hits 41, resets 4, righted 0
+  lap COMPLETED in 192.6 s (196 s game time); 35 runs at an edge, bumper hits 45; resets 0 by the game (a fall off the course or below the world) and 4 by the bot's reset button when pinned; flipped upright 0; missed gates 0
+  furthest out past the bumper line: never (always inside it); physics steps grounded past it: 0; times it got past it: 0

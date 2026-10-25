@@ -141,7 +141,7 @@ namespace Racer
             bool needsHelp=transform.up.y<.35f && motor.Body.linearVelocity.magnitude<5;
             overturned=needsHelp?overturned+Time.fixedDeltaTime:0;
             upright=transform.up.y>.7f && motor.GroundedWheels>=2?upright+Time.fixedDeltaTime:0;
-            if(overturned>1.2f && !WipedOut) Wipeout();
+            if(overturned>1.2f && !WipedOut && !(GetComponent<HighAssist>() is HighAssist high && high.On)) Wipeout(); // 1.2: no wrecks in HIGH MODE (it flips itself upright)
             if(upright>.35f && WipedOut) { Recover(); var flow=FindAnyObjectByType<RaceFlow>(); if(flow && flow.Race.vehicle==motor) flow.ClearRecoveryFeedback(); }
         }
         public int Wipeouts { get; private set; } // 0.109 Part C: counted for the results log

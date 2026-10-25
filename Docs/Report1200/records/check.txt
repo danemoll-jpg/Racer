@@ -1,0 +1,8 @@
+screen=1920x1080 kind=high1200 version=1.2.0-review1 park=on
+HIGH MODE check part records: save C:\Users\danmo\AppData\Local\Temp\report1200\records\save-copy, HIGH MODE saved off
+HIGH MODE race on Street Loop - Forward: category high-street-v14-discovery-drifter-race4-d0-tourer-drifter-roadster-traffic-laps3; lap rank 1, race rank 1; results title 'RESULTS   ·   HIGH MODE'
+  Top 10 file: normal entries 415 -> 415, HIGH entries 0 -> 4
+  campaign save unchanged True, stunt park save unchanged True, police progress unchanged True
+  #1 replays kept from it: HIGH · Street Loop Forward
+  RECORDS from the results: opens on tab Boards/, rows tab-LAP | tab-HIGH | tab-JUMPS | tab-COMBOS | tab-RACE | tab-GHOST | tab-SPEED TRAPS | tab-STUNTS | high-board | record-track | header | record-832fb40cb30a48e395ad4e235a8205b7/lap/3 | record-832fb40cb30a48e395ad4e235a8205b7/lap/2 | record-832fb40cb30a48e395ad4e235a8205b7/lap/1 | back
+  the normal LAP tab: 'Dan's Backyard Loop — Forward', table rows 10

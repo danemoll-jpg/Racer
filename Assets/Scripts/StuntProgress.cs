@@ -20,19 +20,21 @@ namespace Racer
         [Serializable] public sealed class Entry { public string name, vehicle, date; public int points, medal, bestCombo; }
         // 0.108 Part D: the Top 10 Best Combos (the Stunt event and Free Roam in the park, every human player; links 0: the old single best, links not kept)
         [Serializable] public sealed class Combo { public string name, vehicle, tricks, date; public int points, links; }
-        [Serializable] sealed class Data { public int version = 1; public bool goldEarned; public int bestCombo; public string bestComboVehicle, bestComboDate; public List<Entry> top = new(); public List<Combo> combos = new(); }
+        // 1.2: HIGH MODE's own Stunt event Top 10 and Top 10 Best Combos (never mixed with the normal ones; nothing unlocked from them)
+        [Serializable] sealed class Data { public int version = 1; public bool goldEarned; public int bestCombo; public string bestComboVehicle, bestComboDate; public List<Entry> top = new(); public List<Combo> combos = new(), highCombos = new(); public List<Entry> highTop = new(); }
         static Data data = new(); static string path;
         public static bool GoldEarned => data.goldEarned;
         public static int BestCombo => data.bestCombo;
         public static string BestComboVehicle => data.bestComboVehicle;
         public static string BestComboDate => data.bestComboDate;
         public static string BikeGoal => $"Win a Gold medal ({Targets[2]:N0} pts) in the Stunt event";
-        public static IReadOnlyList<Entry> Top => data.top;
+        public static IReadOnlyList<Entry> Top => HighMode.Now ? data.highTop : data.top;
+        public static IReadOnlyList<Entry> HighTop => data.highTop; // the Records' HIGH tab
         public static void Load(string root)
         {
             data = new Data(); path = root != null ? Path.Combine(root, File) : null;
             try { if (path != null && System.IO.File.Exists(path)) data = JsonUtility.FromJson<Data>(System.IO.File.ReadAllText(path)) ?? new Data(); } catch (Exception) { data = new Data(); }
-            data.top ??= new List<Entry>(); data.combos ??= new List<Combo>();
+            data.top ??= new List<Entry>(); data.combos ??= new List<Combo>(); data.highTop ??= new List<Entry>(); data.highCombos ??= new List<Combo>();
             // 0.108 Part D: a save from before the list starts it with what it kept: Free Roam's single best combo and each Stunt event Top 10
             // result's best combo (links and tricks were not kept). In memory; loading never writes.
             if (data.combos.Count == 0)
@@ -42,7 +44,7 @@ namespace Racer
                 var seeded = data.combos; data.combos = seeded.OrderByDescending(x => x.points).ThenBy(x => seeded.IndexOf(x)).Take(10).ToList();
             }
         }
-        public static IReadOnlyList<Combo> Combos => data.combos;
+        public static IReadOnlyList<Combo> Combos => HighMode.Now ? data.highCombos : data.combos;
         // 0.109 Part B: the entry the last banked combo made in the Top 10 (null: none), so the Stunt event results can highlight this event's entries
         public static Combo LastComboEntry { get; private set; }
         // a banked combo: its Top 10 place (0 = none)
@@ -51,9 +53,10 @@ namespace Racer
             LastComboEntry = null;
             if (points <= 0) return 0;
             var c = new Combo { name = name, vehicle = vehicle, points = points, links = links, tricks = tricks, date = DateTime.Now.ToString("yyyy-MM-dd") };
-            var all = data.combos.Append(c).ToList(); var top = all.OrderByDescending(x => x.points).ThenBy(x => all.IndexOf(x)).Take(10).ToList();
+            bool high = HighMode.Now;
+            var all = (high ? data.highCombos : data.combos).Append(c).ToList(); var top = all.OrderByDescending(x => x.points).ThenBy(x => all.IndexOf(x)).Take(10).ToList();
             int place = top.IndexOf(c) + 1; if (place == 0) return 0;
-            data.combos = top; LastComboEntry = c; Save(); return place;
+            if (high) data.highCombos = top; else data.combos = top; LastComboEntry = c; Save(); return place;
         }
         static void Save() { try { if (path != null) AtomicSave.Write(path, JsonUtility.ToJson(data, true)); } catch (Exception e) { Debug.LogWarning("Stunt park progress not saved: " + e.Message); } }
         public static bool RecordCombo(int points, string vehicle)
@@ -65,6 +68,7 @@ namespace Racer
         public static Entry Finish(int player, string name, string vehicle, int points, int bestCombo)
         {
             var e = new Entry { name = name, vehicle = vehicle, points = points, medal = MedalFor(points), bestCombo = bestCombo, date = DateTime.Now.ToString("yyyy-MM-dd") };
+            if (HighMode.Now) { data.highTop.Add(e); var high = data.highTop.OrderByDescending(x => x.points).ThenBy(x => data.highTop.IndexOf(x)).Take(10).ToList(); data.highTop = high; Save(); return e; } // 1.2: its own board; no unlock
             data.top.Add(e); var top = data.top.OrderByDescending(x => x.points).ThenBy(x => data.top.IndexOf(x)).Take(10).ToList(); data.top = top;
             if (player == 1 && e.medal >= 3 && !data.goldEarned)
             {
@@ -74,6 +78,6 @@ namespace Racer
             Save(); return e;
         }
         // 0.110 Part A: an entry's place in the Stunt event Top 10 now (0 = none, or pushed out)
-        public static int PlaceOf(Entry e) => e == null ? 0 : data.top.IndexOf(e) + 1;
+        public static int PlaceOf(Entry e) => e == null ? 0 : (data.highTop.Contains(e) ? data.highTop : data.top).IndexOf(e) + 1;
     }
 }

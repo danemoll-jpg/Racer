@@ -30,7 +30,10 @@ namespace Racer
         // tricks scored (a trick bonus off the race time, or Split score); its own records (RecordCourse). Set by RaceFlow (Race > Stunt Race),
         // CampaignRun (the Stunt chapter) or SplitScreen; false in every other race.
         [System.NonSerialized] public bool stunts, splitScore;
-        public string RecordCourse=>stunts?StuntRace.RecordPrefix+courseId+(splitScore?"-split":""):courseId;
+        public string RecordCourse=>(high?HighMode.RecordPrefix:"")+(stunts?StuntRace.RecordPrefix+courseId+(splitScore?"-split":""):courseId);
+        // 1.2: this race or Free Roam session is in HIGH MODE (set by RaceFlow at each start; a race keeps it until the next start): its own
+        // records ("high-" boards), the gutter bumpers (HighBumpers) and the forgiving driving (HighAssist)
+        [System.NonSerialized] public bool high;
         // 0.89 campaign: the player may choose only the vehicles the campaign has given them (plus the earned mower); the AI
         // keeps every eligible vehicle. Testing ("Unlock everything") lifts the campaign lock.
         public VehicleProfile[] PlayerVehicles => EligibleVehicles.Where(p=>!Campaign.VehicleLocked(p)).ToArray();
@@ -191,6 +194,7 @@ namespace Racer
             if (SplitScreen.Active) SplitScreen.Race?.PlayerTwo(); // 0.90 Part D: the rival slot becomes player 2
             StuntRaceScore.Prepare(this); // 0.119 Part B: a Stunt Race's tricks scored (removed in any other race)
             StuntBumps.Apply(this); // 0.120 Part C: a Stunt Race's bumps (removed in any other race)
+            HighBumpers.Apply(this); HighAssist.Attach(this); // 1.2: HIGH MODE races: the gutter bumpers (hidden otherwise); the players' forgiving driving
             ShowGrid();
             foreach (var r in Racers)
             {

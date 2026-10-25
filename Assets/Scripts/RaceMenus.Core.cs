@@ -13,7 +13,7 @@ namespace Racer
             if(pageStage==flow.State)return;
             if(flow.State==RaceFlow.Stage.Activities)recordTab=2;
             // 0.83 Part G: Records opens on the best laps of the track last raced, all vehicles
-            if(flow.State==RaceFlow.Stage.Boards){recordTab=0;recordTrack=-1;recordsVehicle="All vehicles";}
+            if(flow.State==RaceFlow.Stage.Boards){recordTab=flow.Race.high?HighTab:0;recordTrack=-1;recordsVehicle="All vehicles";} // 1.2: a HIGH MODE session opens on its HIGH boards
             stagePages[pageStage]=page;stageStacks[pageStage]=pages.Reverse().ToArray();
             pageStage=flow.State;page=stagePages.TryGetValue(pageStage,out var saved)?saved:"";
             pages.Clear();if(stageStacks.TryGetValue(pageStage,out var stack))foreach(var entry in stack)pages.Push(entry);
@@ -26,8 +26,8 @@ details.gameObject.SetActive(true);
             {
                 ClearCore(modalTitle,modalMessage);preview.gameObject.SetActive(false);swatchRow.gameObject.SetActive(false);
                 if(modalConfirmLabel==null){Row(0,"ok","OK",()=>{var seen=modalConfirm;modalConfirm=null;seen();Show();});return;} // 0.92: a notice (one button)
-                Row(0,"cancel","CANCEL",()=>{modalConfirm=null;Show();});
-                Row(1,"confirm",modalConfirmLabel,()=>{var commit=modalConfirm;modalConfirm=null;commit();Show();});return;
+                Row(0,"cancel",modalCancelLabel??"CANCEL",()=>{var no=modalCancel;modalConfirm=null;modalCancel=null;if(no!=null)no();Show();});
+                Row(1,"confirm",modalConfirmLabel,()=>{var commit=modalConfirm;modalConfirm=null;modalCancel=null;commit();Show();});return;
             }
             if(page=="keyboard"){RenderKeyboard();return;}
             if(page=="unlock"){RenderUnlock();return;} // 0.95 Part F
@@ -46,6 +46,7 @@ details.gameObject.SetActive(true);
             }
             if(page=="trailer"){RenderTrailer();return;}
             if(RenderReplayPages())return; // 1.1: REPLAYS (RaceMenus.Replays.cs)
+            if(RenderHighPages())return; // 1.2: HIGH MODE's pages and FREE ROAM's players (RaceMenus.High.cs)
             if(RenderLater())return;
             if(flow.State==RaceFlow.Stage.Ready)
             {
@@ -85,6 +86,7 @@ details.gameObject.SetActive(true);
                     Row(0,"explore","EXPLORE",flow.StartFreeRoam);Step(1,"roam-weather","Weather:   "+flow.RoamWeatherLabel,d=>flow.CycleRoamWeather(d));Row(2,"tracks","Tracks",flow.OpenCourses);Row(3,"garage","Garage",flow.OpenGarage);
                     Row(4,"police","POLICE CHASE…",()=>OpenPoliceSetup());Row(5,"stunt","STUNT EVENT…   ("+StuntPark.Title+")",()=>OpenStuntSetup());Row(6,"back","Back",()=>BackPage()); // 0.95 Part B, 0.106 Part D
                 }
+                else if(HighMode.On)RenderHighMain(); // 1.2: HIGH MODE's main menu (fewer choices)
                 else
                 {
                     ClearCore("WOODSTOCK RUSH","Version "+Application.version); // 1.0: the version under the title
@@ -93,7 +95,7 @@ details.gameObject.SetActive(true);
                     Row(10,"campaign","CAMPAIGN\n"+CampaignStatusLine,()=>OpenCampaign());buttons[10].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());
                     {var t=buttons[10].GetComponentInChildren<UnityEngine.UI.Text>(true);t.alignment=TextAnchor.MiddleCenter;buttons[10].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=62;var c=buttons[10].colors;c.normalColor=new(.1f,.38f,.35f);buttons[10].colors=c;}
                     // 0.90 Part A: Race Setup always opens on a course the campaign has opened
-                    Row(0,"race","RACE",()=>{int here=RacePlaylists.CourseOf(flow.gameObject.scene);if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else if(here>=0&&!Campaign.CourseOpen(here))flow.OpenRaceSetupOnOpenCourse();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));
+                    Row(0,"race","RACE",()=>{int here=RacePlaylists.CourseOf(flow.gameObject.scene);if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else if(here>=0&&!Campaign.CourseOpen(here))flow.OpenRaceSetupOnOpenCourse();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam-players")); // 1.2 Part A: 1 or 2 players
                     Row(11,"split","SPLIT SCREEN",()=>OpenSplitSetup());buttons[11].transform.SetSiblingIndex(buttons[1].transform.GetSiblingIndex()+1);Row(2,"garage","GARAGE",flow.OpenGarage);
                     // 0.95 Part B: POLICE CHASE after SPLIT SCREEN (from inside Free Roam it asks first); "New: Police Chase" once
                     Row(13,"police","POLICE CHASE",()=>OpenPoliceSetup());buttons[13].transform.SetSiblingIndex(buttons[11].transform.GetSiblingIndex()+1);
@@ -107,6 +109,9 @@ details.gameObject.SetActive(true);
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
                         if(CameraViews.Current){Step(9,"camera-view",CameraViewLabel,CycleCameraView);buttons[9].transform.SetSiblingIndex(buttons[8].transform.GetSiblingIndex()+1);}}
                     else{Row(7,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[7].transform.SetSiblingIndex(buttons[5].transform.GetSiblingIndex());}
+                    // 1.2 Part B: HIGH MODE: OFF, the top row (above CAMPAIGN / RESUME DRIVING); Part A: Free Roam's hint, once, for players who know the old menu
+                    HighRow(16);buttons[16].transform.SetSiblingIndex(details.transform.GetSiblingIndex()+1);
+                    if(Hints.AnySeen)Hints.Show("roam-main-menu","Free Roam is now on the main menu.",7);
                 }
             }
             else if(flow.State==RaceFlow.Stage.Paused)
@@ -123,6 +128,8 @@ details.gameObject.SetActive(true);
                 if(SplitScreen.Active){RenderSplitPause();return;}
                 ClearCore(flow.Race.FreeRoam?"FREE ROAM / PAUSED":"RACE PAUSED",flow.Race.FreeRoam?"":$"Elapsed {RaceHud.FormatTime(flow.Race.Progress.RaceTime(flow.Race.Clock))}  ·  +{flow.Race.Progress.PenaltySeconds:0}s penalties");
                 Row(0,"resume","RESUME",flow.Resume);
+                // 1.2 Part B: the switch here too (a race keeps its mode: it asks to restart); not in a campaign event or a playlist
+                if(CampaignRun.Active==null&&RacePlaylists.Active==null){HighRow(13);buttons[13].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex()+1);}
                 if(flow.Race.FreeRoam){Row(1,"map","MAP",()=>flow.GetComponent<ExplorationMap>()?.Open());Row(2,"activities","ACTIVITIES",()=>Navigate("activities"));}
                 else if(CampaignRun.Cup==null)Row(1,"restart","RESTART RACE",()=>Confirm("RESTART RACE?","This restarts the current event and clears its progress.",flow.StartRace));
                 // 0.91 Part C: a campaign jump event can be ended early, keeping its best scored jump
@@ -156,6 +163,7 @@ details.gameObject.SetActive(true);
                 // Free Roam starts (from its page) offers the whole world.
                 bool roamPick=RoamTrackPick;
                 ClearCore("TRACKS","Select to use a track. Highlighting does not change Race Setup. Difficulty: TBD."+(roamPick||Campaign.Testing?"":"\nLocked tracks open as the campaign reaches them."));int i=0;
+                if(!roamPick&&HighMode.On)details.text="HIGH MODE: pick a track and go ("+RaceFlow.HighLaps+" laps against 3 rivals, bumpers along the course)."; // 1.2
                 if(!roamPick&&flow.Race.stunts)details.text="STUNT RACE TRACKS. Select to use a track (stunt vehicles only). Race Setup > Race type goes back to every track."; // 0.119 Part B
                 foreach(int course in RacePlaylists.DisplayOrder.Where(c=>roamPick||!flow.Race.stunts||StuntRace.Course(c))){int choice=course;bool open=roamPick||Campaign.CourseOpen(course);
                     Row(i++,"course-"+course,RacePlaylists.Titles[course]+(open?"":"   ·   LOCKED: "+Campaign.CourseHowTo(course).Replace("Campaign: ","")),()=>{if(open)flow.SelectCourseEntry(choice);else{flow.Notify("LOCKED: "+RacePlaylists.Titles[choice]+" — "+Campaign.CourseHowTo(choice),5);flow.Click();Hints.LockedItem();}});
@@ -235,7 +243,7 @@ details.gameObject.SetActive(true);
             // 0.89: every course and vehicle in Race and Free Roam whatever the campaign has reached; the campaign save is
             // not written while it is on.
             // 0.110 Part E: development builds and the editor only (RaceFlow.UnlockEverythingOffered)
-            if(page=="settings-gameplay"&&RaceFlow.UnlockEverythingOffered)Toggle(5,"unlock-everything","Unlock everything (testing)",s.unlockEverything,()=>Adjust(()=>{s.unlockEverything=!s.unlockEverything;Campaign.Testing=flow.UnlockEverything;}));
+            if(page=="settings-gameplay"&&RaceFlow.UnlockEverythingOffered)Toggle(5,"unlock-everything","Unlock everything (testing)",s.unlockEverything,()=>Adjust(()=>{s.unlockEverything=!s.unlockEverything;Campaign.Testing=flow.UnlockEverything||HighMode.On;}));
             // 0.90 Part B: the new-player hints; Part D: the split-screen layout (also on the split-screen setup screen)
             if(page=="settings-gameplay"){Toggle(6,"hints","Hints",s.hints,()=>Adjust(()=>s.hints=!s.hints));
                 Row(7,"hints-again","Show hints again",()=>{Hints.Reset();flow.Notify("Hints will be shown again",3);flow.Click();Show();});

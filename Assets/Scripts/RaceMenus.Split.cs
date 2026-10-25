@@ -33,7 +33,7 @@ namespace Racer
         // colour (D-pad or arrow keys). Everything else on the screen answers player 1's device only.
         void UpdateSplitJoin()
         {
-            if (flow.State != RaceFlow.Stage.Ready || (page != "split" && page != "police" && page != "stunt") || modalConfirm != null) return;
+            if (flow.State != RaceFlow.Stage.Ready || (page != "split" && page != "police" && page != "stunt" && !HighPlayersPage) || modalConfirm != null) return;
             if (SplitScreen.P1Device != null && !SplitScreen.P1Device.added) { SplitScreen.P1Device = null; Show(); return; }
             if (SplitScreen.P2Device != null && !SplitScreen.P2Device.added) { SplitScreen.P2Device = null; SplitScreen.P2Ai = true; Show(); return; }
             foreach (var pad in Gamepad.all) if (!Assigned(pad) && (pad.buttonSouth.wasPressedThisFrame || pad.startButton.wasPressedThisFrame)) { Join(pad); return; }
@@ -42,7 +42,7 @@ namespace Racer
         }
         void Join(InputDevice d)
         {
-            if (SplitScreen.P1Device == null) SplitScreen.P1Device = d; else { SplitScreen.P2Device = d; SplitScreen.P2Ai = false; if (page == "police" || page == "stunt") SplitScreen.Solo = false; } // 0.95: a second player joining a Police Chase (0.106: or the Stunt event) makes it two players
+            if (SplitScreen.P1Device == null) SplitScreen.P1Device = d; else { SplitScreen.P2Device = d; SplitScreen.P2Ai = false; if (page == "police" || page == "stunt" || page == "high-chases") SplitScreen.Solo = false; } // 0.95: a second player joining a Police Chase (0.106: or the Stunt event) makes it two players
             MenuInput.ConsumeThroughRelease(); flow.Click(); flow.Notify((SplitScreen.P1Device == d ? "Player 1" : "Player 2") + " joined: " + SplitScreen.DeviceName(d), 3); Show();
         }
         // 0.110 Part D: each player's newest driven vehicle the setup allows (a player who has driven nothing keeps the default)
@@ -65,21 +65,21 @@ namespace Racer
         }
         // While the setup screen is up only player 1's device (and the mouse with the keyboard) works it.
         bool splitSetupDevices;
-        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police" || page == "stunt") && modalConfirm == null;
+        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police" || page == "stunt" || HighPlayersPage) && modalConfirm == null;
         void SplitSetupDevices()
         {
-            bool setup = flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police" || page == "stunt");
+            bool setup = flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police" || page == "stunt" || HighPlayersPage);
             if (setup) { var p1 = SplitScreen.P1Device; RestrictMenuDevices(p1 != null && p1.added ? p1 : null); splitSetupDevices = true; }
             else if (splitSetupDevices) { splitSetupDevices = false; if (!SplitScreen.Race) RestrictMenuDevices(); }
         }
         void RenderSplit()
         {
             // 0.95 Part B: Police Chase has its own setup (the Mode row sends it there); back here it is Race / Free Roam
-            if (SplitScreen.Mode == SplitScreen.Kind.Police || SplitScreen.Mode == SplitScreen.Kind.Stunt) SplitScreen.Mode = SplitScreen.Kind.Race;
+            if (SplitScreen.Mode == SplitScreen.Kind.Police || SplitScreen.Mode == SplitScreen.Kind.Stunt) SplitScreen.Mode = SplitScreen.Kind.FreeRoam; // 1.2 Part A: Free Roam is the first choice
             var mode = SplitScreen.Mode; bool race = mode == SplitScreen.Kind.Race;
             ClearCore("SPLIT SCREEN", (race ? "Two players, one race on this PC: everything is unlocked and every vehicle is stock." : "Two players in Free Roam: everything is unlocked, vehicles stock; nothing is recorded (acorns, activity records, discovery).") + "\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
             if (SplitScreen.P1Color > VehiclePaint.Count - 1) SplitScreen.P1Color = 2; if (SplitScreen.P2Color > VehiclePaint.Count - 1) SplitScreen.P2Color = 2;
-            details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
+            details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = race ? 54 : 76; // 1.2: Free Roam's longer line fits at 1280x800 (it is the first choice now)
             var vehicles = SplitScreen.Vehicles; int n = 0;
             string Vehicle(string id) { var p = VehicleProfile.Find(id); return $"{p.Name} ({p.Class})"; }
             string Joins(InputDevice d) => d is Gamepad ? "   (A on another controller joins it)" : "";
@@ -88,7 +88,9 @@ namespace Racer
             Toggle(n++, "split-ai", "Player 2: AI driver", SplitScreen.P2Ai, () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
             if (SplitScreen.P2Device != null && !SplitScreen.P2Ai) Row(n++, "split-swap", "Swap the players' devices", () => { (SplitScreen.P1Device, SplitScreen.P2Device) = (SplitScreen.P2Device, SplitScreen.P1Device); flow.Click(); Show(); });
             // 0.94 Parts B and C: what the two players do
-            Step(n++, "split-mode", "Mode:   " + (race ? "Race" : "Free Roam") + "   ·   Police Chase has its own setup", d => { var next = (SplitScreen.Kind)(((int)SplitScreen.Mode + d + 3) % 3); flow.Click(); if (next == SplitScreen.Kind.Police) { SplitToPolice(); return; } SplitScreen.Mode = next; SplitStuntVehicles(); Show(); });
+            // 1.2 Part A: the choices in the order Free Roam, Race, Police Chase
+            var modes = new[] { SplitScreen.Kind.FreeRoam, SplitScreen.Kind.Race, SplitScreen.Kind.Police };
+            Step(n++, "split-mode", "Mode:   " + (race ? "Race" : "Free Roam") + "   ·   Police Chase has its own setup", d => { var next = modes[(System.Array.IndexOf(modes, SplitScreen.Mode) + d + 3) % 3]; flow.Click(); if (next == SplitScreen.Kind.Police) { SplitToPolice(); return; } SplitScreen.Mode = next; SplitStuntVehicles(); Show(); });
             // 0.119 Part B: a split-screen Stunt Race (stunt vehicles only, on the Stunt Race courses) and its scoring
             if (race && StuntRace.Offered) Step(n++, "split-race-type", "Race type:   " + (SplitScreen.StuntRace ? "Stunt Race   (stunt vehicles only)" : "Normal race"), d => { SplitScreen.StuntRace = !SplitScreen.StuntRace; SplitStuntVehicles(); flow.Click(); Show(); });
             if (race && SplitScreen.StuntRace) Step(n++, "split-stunt-scoring", "Scoring:   " + (SplitScreen.SplitScore ? "Split score   (finish + stunt points)" : "Trick bonus   (time off for tricks)"), d => { SplitScreen.SplitScore = !SplitScreen.SplitScore; flow.Click(); Show(); });
@@ -161,6 +163,7 @@ namespace Racer
             var split = SplitScreen.Race; string missing = split ? split.MissingText : null;
             ClearCore(StuntEvent.Current ? "STUNT EVENT / PAUSED" : GetawayChase.Current ? "GETAWAY / PAUSED" : SpeedPatrol.Current ? "SPEED PATROL / PAUSED" : PoliceChase.Current ? "POLICE CHASE / PAUSED" : "SPLIT SCREEN / PAUSED", missing ?? (SplitScreen.OneView ? "" : $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu."));
             Row(0, "resume", "RESUME", flow.Resume); buttons[0].interactable = missing == null;
+            if (CampaignRun.Active == null) { HighRow(7); buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex() + 1); } // 1.2: the mode is shared by both players
             if (SplitScreen.Roaming)
             {
                 // 0.94 Parts B and C: the world map (travel brings both players), camera views, restart the chase, end

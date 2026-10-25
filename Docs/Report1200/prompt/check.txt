@@ -1,0 +1,11 @@
+screen=1920x1080 kind=high1200 version=1.2.0-review1 park=on
+HIGH MODE check part prompt: save C:\Users\danmo\AppData\Local\Temp\report1200\prompt\save-copy, HIGH MODE saved off
+  forced wreck 1: wrecked True, reset, state Racing, asked 0, page Racing/
+  forced wreck 2: wrecked True, reset, state Paused, asked 1, page Paused//modal
+the question: asked 1 time(s), state Paused, title 'WOULD YOU LIKE TO PLAY HIGH MODE?', rows cancel | confirm, focus cancel
+B (No): state Racing, HIGH MODE off, notice 'No problem. HIGH MODE is on the main menu any time.', not asked again this session True
+  forced wreck 4: wrecked True, reset, state Racing, asked 1, page Racing/
+  forced wreck 5: wrecked True, reset, state Racing, asked 1, page Racing/
+  forced wreck 6: wrecked True, reset, state Racing, asked 1, page Racing/
+  forced wreck 7: wrecked True, reset, state Racing, asked 1, page Racing/
+4 more forced wrecks after No: asked 0 more time(s), state Racing

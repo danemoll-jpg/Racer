@@ -21,8 +21,8 @@ namespace Racer
         RectTransform content;
         InputSystemUIInputModule uiModule;
         InputAction cancelAction,tabsAction,adjustAction,previousTab,deleteAction,spaceAction;
-        string modalTitle,modalMessage,modalConfirmLabel="CONFIRM";
-        Action modalConfirm;
+        string modalTitle,modalMessage,modalConfirmLabel="CONFIRM",modalCancelLabel;
+        Action modalConfirm,modalCancel; // 1.2: a question's No (B or its row) may do something (null: only closes it)
 
         GameObject lastFocus;
         bool mapWasOpen;GameObject mapCallerFocus;
@@ -36,11 +36,11 @@ namespace Racer
         public void SetSceneReturn(string target){sceneReturnPage=target;sceneMemory=null;}
         public void RestoreSceneReturn(){page=sceneReturnPage??"race";stagePages[RaceFlow.Stage.Ready]=page;if(sceneMemory!=null)foreach(var entry in sceneMemory)pageMemory[entry.Key]=entry.Value;sceneMemory=null;Show();}
         public void OpenSetup(){page="race";stagePages[RaceFlow.Stage.Ready]=page;Show();}
-        public void ResetPages(){page="";renderedKey="";pages.Clear();stagePages.Clear();stageStacks.Clear();modalConfirm=null;}
+        public void ResetPages(){page="";renderedKey="";pages.Clear();stagePages.Clear();stageStacks.Clear();modalConfirm=null;modalCancel=null;}
         void Navigate(string next){CapturePage();pages.Push(page);page=next;MenuInput.ConsumeThroughRelease();Show();}
         public bool BackPage()
         {
-            if(modalConfirm!=null){modalConfirm=null;MenuInput.ConsumeThroughRelease();Show();return true;}
+            if(modalConfirm!=null){var no=modalCancel;modalConfirm=null;modalCancel=null;MenuInput.ConsumeThroughRelease();if(no!=null)no();Show();return true;}
             if(page=="unlock"&&UnlockNotice.Showing!=null)return true; // 0.95 Part F: the unlock panel closes with A only
             if(SplitPickBack())return true;
             if(LaterBack())return true;
@@ -53,8 +53,8 @@ namespace Racer
             if(flow.State==RaceFlow.Stage.Ready&&page!=""){page="";Show();return true;}
             return false;
         }
-        void Confirm(string heading,string message,Action commit,string confirmLabel="CONFIRM")
-        {CapturePage();modalTitle=heading;modalMessage=message;modalConfirm=commit;modalConfirmLabel=confirmLabel;MenuInput.ConsumeThroughRelease();Show();}
+        void Confirm(string heading,string message,Action commit,string confirmLabel="CONFIRM",Action cancel=null,string cancelLabel=null)
+        {CapturePage();modalTitle=heading;modalMessage=message;modalConfirm=commit;modalConfirmLabel=confirmLabel;modalCancel=cancel;modalCancelLabel=cancelLabel;MenuInput.ConsumeThroughRelease();Show();}
         void CapturePage()
         {
             if(renderedKey==""||!scroll)return;

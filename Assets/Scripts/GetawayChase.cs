@@ -758,7 +758,8 @@ namespace Racer
         public static List<Entry> Top(int minutes) => Sorted(LoadBoard(), minutes).Take(10).ToList();
         void RecordTop10()
         {
-            Places.Clear(); var board = LoadBoard();
+            Places.Clear(); if (HighMode.Now) return; // 1.2: HIGH MODE runs are not put on the (normal) Top 10
+            var board = LoadBoard();
             foreach (var r in Runners.Where(x => x.human))
             {
                 var e = new Entry { name = SplitScreen.NameOf(r.player), seconds = Mathf.Round(r.freeSeconds * 10) / 10f, heat = r.topHeat, minutes = SplitScreen.PoliceMinutes, outcome = r.outcome, date = System.DateTime.Now.ToString("yyyy-MM-dd") };

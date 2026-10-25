@@ -55,6 +55,8 @@ namespace Racer
         // 0.119 Part B: a rival's air steering in a Stunt Race (RivalTricks): while AiAir holds, every axis is steered toward its stick value
         // (x tip, y spin, z roll, -1..1; 0 stops the turn about it) at the player's rates; off, the AI flies as before
         [System.NonSerialized] public bool AiAir; [System.NonSerialized] public Vector3 AiAirInput;
+        // 1.2 HIGH MODE (HighAssist): a flight levels itself more, so landings come down straighter
+        [System.NonSerialized] public bool Forgiving;
 
         void Awake()
         {
@@ -162,7 +164,7 @@ namespace Racer
             if (playerStep) input.AirActive = airControl > 0 && GroundedWheels == 0;
             float tip = air ? input.AirPitch : aiAir ? AiAirInput.x : 0, rollInput = air ? steering : aiAir ? AiAirInput.z : 0, spin = air ? input.AirSpin : aiAir ? AiAirInput.y : 0;
             AirSteering = aiAir || air && (Mathf.Abs(tip) > .1f || Mathf.Abs(rollInput) > .1f || Mathf.Abs(spin) > .1f);
-            float level = grounded ? 1 : AirSteering ? 0 : airStability;
+            float level = grounded ? 1 : AirSteering ? 0 : Forgiving ? Mathf.Max(airStability, .5f) : airStability;
             AlignmentTorque = ((tilt * uprightStrength - tiltVelocity * uprightDamping) * level).magnitude;
             Body.AddTorque((tilt * uprightStrength - tiltVelocity * uprightDamping) * level, ForceMode.Acceleration);
             if (AirSteering)

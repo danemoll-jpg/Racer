@@ -1,0 +1,29 @@
+screen=1280x800 kind=high1200 version=1.2.0-review1 park=on
+HIGH MODE check part pages: save C:\Users\danmo\AppData\Local\Temp\report1200\pages-1280x800\save-copy, HIGH MODE saved off
+  normal main menu: page Ready/, rows high-mode | campaign | race | roam | split | police | stunt | garage | records | replays | exploration | trailer | settings | quit; not reachable by the controller: none
+page 01-normal-main-menu: everything on screen, no text cut
+  normal FREE ROAM: page Ready/roam-players, rows roam-1p | roam-2p | back; not reachable by the controller: none
+page 02-normal-free-roam-players: everything on screen, no text cut
+  2 PLAYERS (normal): page Ready/split, mode row 'Mode:   Free Roam   ·   Police Chase has its own setup'
+page 03-normal-free-roam-2p-split-setup: everything on screen, no text cut
+  controller path to the switch: roam > split > police > stunt > garage > records > replays > exploration > trailer > settings > quit > high-mode
+  A on the switch: HIGH MODE ON, settings.json highMode true, unlock (campaign testing) True, race in HIGH True
+  HIGH MODE main menu: page Ready/, rows high-mode | roam | race | high-chases | high-vehicle | high-time | replays | settings | quit; not reachable by the controller: none
+page 04-high-main-menu: everything on screen, no text cut
+  HIGH FREE ROAM: page Ready/roam-players, rows roam-1p | roam-2p | back; not reachable by the controller: none
+page 05-high-free-roam-players: everything on screen, no text cut
+  HIGH FREE ROAM 2 players: page Ready/high-two, rows split-p1 | split-p2 | high-two-start | back; not reachable by the controller: none
+page 06-high-free-roam-2-players: everything on screen, no text cut
+  HIGH VEHICLE: page Ready/high-vehicle, rows high-vehicle-pick | back; not reachable by the controller: none
+page 07-high-vehicle: everything on screen, no text cut
+  VEHICLE: right then A on 'Turf Rocket  (Mower)   ·   11 / 20': page Ready/, saved vehicle mower, driving mower
+  HIGH TIME & WEATHER: page Ready/high-time, rows high-time-of-day | high-weather | back; not reachable by the controller: none
+page 08-high-time-weather: everything on screen, no text cut
+  TIME & WEATHER: right on the time row: 'Time of day:   Morning', saved highTime 0
+  HIGH RACE (tracks): page Courses/, rows course-6 | course-7 | course-2 | course-3 | course-8 | course-9 | course-4 | course-5 | course-0 | course-1 | back; not reachable by the controller: none
+page 09-high-race-tracks: everything on screen, no text cut
+  HIGH CHASES & STUNTS: page Ready/high-chases, rows high-players | high-getaway | high-cop | high-patrol | high-stunt | back; not reachable by the controller: none
+page 10-high-chases-stunts: everything on screen, no text cut
+  HIGH CHASES & STUNTS, 2 players: page Ready/high-chases, rows high-players | split-p2 | high-getaway | high-cop | high-patrol | high-stunt | back; not reachable by the controller: none
+page 11-high-chases-stunts-2p: everything on screen, no text cut
+  RUN FROM THE COPS: scene FreeRoamWorld, getaway running, difficulty 0, 5 min, vehicle mower, HIGH True

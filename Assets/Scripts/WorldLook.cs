@@ -186,7 +186,7 @@ namespace Racer
         public sealed class TrailerConditions { public float hour; public Weather weather; public float phase; public bool paused; }
         public TrailerConditions Trailer { get; set; }
         // The hour the sky shows now (the Trailer Mode hour while one is set).
-        public float LookHour => Trailer != null && Mode == "Free Roam" ? Trailer.hour : Hour;
+        public float LookHour => Trailer != null && Mode == "Free Roam" ? Trailer.hour : Mode == "Free Roam" && flow && flow.Race.high && !SplitScreen.Active && HighMode.FixedHour >= 0 ? HighMode.FixedHour : Hour;
         public static float PhaseOf(int day, float hour) => Mathf.Repeat((day - 1 + hour / 24f) / CalendarDays, 1);
         public static float Illumination(float phase) => (1 - Mathf.Cos(phase * 2 * Mathf.PI)) * .5f;
         public string Clock => $"{Mathf.FloorToInt(Hour) % 24:00}:{Mathf.FloorToInt(Hour * 60) % 60:00}";
@@ -234,6 +234,9 @@ namespace Racer
             // 0.94: the Free Roam weather setting again (0.92 left this assignment inside the comment above, so Free Roam was
             // always Clear)
             RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
+            // 1.2 HIGH MODE: its TIME & WEATHER (split screen and a campaign event keep their own)
+            bool high = flow.Race.high && campaign == null && !SplitScreen.Active;
+            if (high) { RaceTime = HighMode.RaceTime; RaceWeather = RoamWeather = HighMode.Weather; }
             var stage = flow.State;
             bool live = stage == RaceFlow.Stage.Countdown || stage == RaceFlow.Stage.Racing;
             string was = session;
@@ -255,6 +258,7 @@ namespace Racer
                 if (stage == RaceFlow.Stage.Racing && !Trailer.paused) Trailer.hour = Mathf.Repeat(Trailer.hour + Time.deltaTime / 60f * FreeRoamHoursPerRealMinute, 24);
                 Apply(Cycle(Trailer.hour, Trailer.weather, Trailer.phase)); applied = "Trailer";
             }
+            else if (Mode == "Free Roam" && high && HighMode.FixedHour >= 0) { Apply(Cycle(HighMode.FixedHour, RoamWeather, MoonPhase)); applied = "Free Roam"; } // its clock stands still and is not saved
             else if (Mode == "Free Roam")
             {
                 if (stage == RaceFlow.Stage.Racing)

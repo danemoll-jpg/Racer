@@ -24,11 +24,15 @@ namespace Racer
         }
         // ---------- Records: the Stunt Race tracks after the normal ones ----------
         static string StuntTitle(int course) => "Stunt Race · " + RacePlaylists.Titles[course];
-        static string RecordTitle(int i) => i < RacePlaylists.Titles.Length ? RacePlaylists.Titles[i] : StuntTitle(StuntRace.Courses[i - RacePlaylists.Titles.Length]);
-        static int RecordTracks => RacePlaylists.Titles.Length + StuntRace.Courses.Length;
+        // 1.2: then HIGH MODE's boards of every course (the Records' HIGH tab)
+        static int HighFirst => RacePlaylists.Titles.Length + StuntRace.Courses.Length;
+        static string RecordTitle(int i) => i < RacePlaylists.Titles.Length ? RacePlaylists.Titles[i] : i < HighFirst ? StuntTitle(StuntRace.Courses[i - RacePlaylists.Titles.Length]) : "HIGH · " + RacePlaylists.Titles[i - HighFirst];
+        static int RecordTracks => HighFirst + RacePlaylists.Titles.Length;
         static System.Collections.Generic.List<int> RecordOrder => RacePlaylists.DisplayOrder.Concat(Enumerable.Range(RacePlaylists.Titles.Length, StuntRace.Courses.Length)).ToList();
+        static System.Collections.Generic.List<int> HighOrder => RacePlaylists.DisplayOrder.Select(c => HighFirst + c).ToList();
         static int RecordIndex(string title) { for (int i = 0; i < RecordTracks; i++) if (RecordTitle(i) == title) return i; return -1; }
-        static bool StuntTrack(int i) => i >= RacePlaylists.Titles.Length;
+        static bool StuntTrack(int i) => i >= RacePlaylists.Titles.Length && i < HighFirst;
+        static bool HighTrack(int i) => i >= HighFirst;
         string StuntRecordLine(int i)
         {
             int course = StuntRace.Courses[i - RacePlaylists.Titles.Length]; string key = StuntRace.RecordPrefix + CourseIdOf(course);

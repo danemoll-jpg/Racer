@@ -241,20 +241,23 @@ namespace Racer
             if(!race||!race.FreeRoam)return false;
             MeasureClearance();
             if(!Supported(candidate,facing*Vector3.forward,out var position,out var rotation)||!Clear(position,rotation))return false;
-            CancelRecovery();Place(position,rotation);RecordRoaming();Respawned?.Invoke();return true;
+            CancelRecovery();Place(position,rotation);RecordRoaming();QuietReset=true;Respawned?.Invoke();QuietReset=false;return true;
         }
+        // 1.2: true while Respawned runs for a placement that is not a mishap (map travel, a campaign event's run-up): HighPrompt skips it
+        public bool QuietReset { get; private set; }
         // 0.91 Part C: in a campaign jump event the player's reset puts them back at the run-up to jump again.
         bool RunUp()
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
             if(!race||race.vehicle!=vehicle||!CampaignRun.RunUpStart(race,out var position,out var rotation))return false;
-            CancelRecovery();Place(position,rotation);SeedCoursePosition(position);LastRecovery="Back to the run-up";Respawned?.Invoke();
+            CancelRecovery();Place(position,rotation);SeedCoursePosition(position);LastRecovery="Back to the run-up";QuietReset=true;Respawned?.Invoke();QuietReset=false;
             FindAnyObjectByType<ChaseCamera>()?.Snap();return true;
         }
         public void ResetVehicle()
         {
             if(Pending)return;
-            Pending=true;nextAttempt=Time.time+.8f;LastRecovery="Recovering";
+            if(!race)race=FindAnyObjectByType<RaceDirector>();
+            Pending=true;nextAttempt=Time.time+(race&&race.high?.2f:.8f);LastRecovery="Recovering"; // 1.2: HIGH MODE resets quicker (same rules)
         }
         public bool TryRecoverLocal(bool preferRoad=false)
         {

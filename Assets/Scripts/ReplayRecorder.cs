@@ -47,7 +47,7 @@ namespace Racer
                 build = Application.version, courseId = race.courseId, courseName = race.courseName, scene = LeviathanCourse.KeyOf(race.gameObject.scene), course = course,
                 category = race.Category, date = DateTime.UtcNow.ToString("o"), laps = race.laps, stunt = race.stunts, split = SplitScreen.Active, kind = "last", t0 = -3.2f,
                 timeOfDay = (int)(look ? look.RaceTime : (TimeOfDay)Mathf.Clamp(flow.Save.Settings.timeOfDay, 0, 3)), weather = (int)(look ? look.RaceWeather : (Weather)Mathf.Clamp(flow.Save.Settings.weather, 0, 2)),
-                mode = campaign != null ? "Campaign: " + campaign.Name : SplitScreen.Active ? "Split screen" : race.stunts ? "Stunt Race" : RacePlaylists.Active != null ? "Playlist" : "Race"
+                mode = (race.high ? "HIGH · " : "") + (campaign != null ? "Campaign: " + campaign.Name : SplitScreen.Active ? "Split screen" : race.stunts ? "Stunt Race" : RacePlaylists.Active != null ? "Playlist" : "Race")
             };
             who.Clear(); cars.Clear(); gestureWas.Clear(); lapsSeen.Clear(); lapStart.Clear(); lapWas.Clear(); keep.Clear();
             var p2 = SplitScreen.Race ? SplitScreen.Race.P2 : null;

@@ -54,7 +54,7 @@ namespace Racer
             if(!race||!race.Flow)return;var p=race.vehicle.Body.position;
             if(!sampled){previous=p;sampled=true;return;}
             var delta=p-previous;bool valid=delta.magnitude<=Mathf.Max(3,race.vehicle.Body.linearVelocity.magnitude*Time.fixedDeltaTime*2+.3f);
-            if(race.FreeRoam&&race.Flow.State==RaceFlow.Stage.Racing&&valid&&error==null&&!SplitScreen.Active) // 0.94 Part B: no acorns from split-screen Free Roam
+            if(race.FreeRoam&&race.Flow.State==RaceFlow.Stage.Racing&&valid&&error==null&&!SplitScreen.Active&&!race.high) // 0.94 Part B: no acorns from split-screen Free Roam; 1.2: nor HIGH MODE (the acorns unlock the mower)
             for(int i=0;i<sites.Length;i++)
             {
                 if(data.found.Contains(sites[i].id))continue;

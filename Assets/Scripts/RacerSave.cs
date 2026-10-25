@@ -74,6 +74,9 @@ namespace Racer
             public string[] leviathanShortcutsOff = new string[0]; // 0.116 Part B: Leviathan Reverse shortcuts switched off (titles; F6 debug menu or by hand); all on by default
             // 0.119 Part B: Race > Race type: a Stunt Race (stunt vehicles only, its own records) and its scoring (false: the trick bonus; true: Split score)
             public bool stuntRace = false, stuntSplitScore = false; public string stuntVehicleId = "stuntbuggy";
+            // 1.2 HIGH MODE: the main menu's switch (missing in older saves = Off) and its TIME & WEATHER (time 0 Morning, 1 Day, 2 Sunset, 3 Night,
+            // 4 the day cycle; weather 0 Clear, 1 Rain, 2 Snow, 3 Random)
+            public bool highMode = false; public int highTime = 4, highWeather = 0;
             public bool hiddenPolice = true; public int hiddenPoliceDifficulty = 1; // 0.99 Part D: Settings > Gameplay > Hidden police in Free Roam (On / Off) and its chase difficulty (0 Easy, 1 Normal, 2 Hard)
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
