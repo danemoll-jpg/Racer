@@ -182,7 +182,7 @@ namespace Racer
             // 0.108 Part D: the Top 10 Best Combos (in the park; in the Stunt event only while the player's round still counts; human players only)
             int player = car == race.vehicle ? 1 : 2; LastComboPlace = 0;
             if (park && race.FreeRoam && CampaignRun.Active == null && !DeveloperLocationHud.Inspecting && StuntEvent.Counts(car) && (player == 1 || SplitScreen.Active && !SplitScreen.P2Ai))
-                LastComboPlace = StuntProgress.RecordComboTop(SplitScreen.Active ? SplitScreen.NameOf(player) : PlayerNames.Player, configuration.profileId, total, links, LastComboTricks);
+                LastComboPlace = StuntProgress.RecordComboTop(SplitScreen.Active ? SplitScreen.NameOf(player) : PlayerNames.Player, configuration.profileId, total, links, LastComboTricks, player);
             string top = LastComboPlace > 0 ? $"\nNEW TOP 10 COMBO — #{LastComboPlace}" : "";
             if (bail != null) StuntSay($"BAILED / {bail}\nCOMBO ENDED · x{links} · {total:N0} pts" + top, 4);
             else if (links > 1) StuntSay($"COMBO x{links} / {total:N0} pts" + top, 3.5f);

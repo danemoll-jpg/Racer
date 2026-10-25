@@ -36,12 +36,12 @@ namespace Racer
         // a runner escaped (the round limit counts): player 1 at heat 3 or more on Normal or Hard
         public static void Escaped(GetawayChase chase, GetawayChase.Runner runner)
         {
-            if (chase == null || runner == null || !runner.human || runner.player != 1 || chase.Mode != GetawayChase.Variant.Getaway || HighMode.Now) return; // 1.2: nothing unlocked from HIGH MODE
+            if (chase == null || runner == null || !runner.human || runner.player != 1 || chase.Mode != GetawayChase.Variant.Getaway || HighMode.ForPlayer(1)) return; // 1.2: nothing unlocked from HIGH MODE
             if (chase.Heat >= HeatNeeded && chase.Difficulty >= 1) Earn(true);
         }
         public static void SpeederCaught(int player)
         {
-            if (player != 1 || HighMode.Now) return; data.speedersCaught++; Save(); if (data.speedersCaught >= SpeedersNeeded) Earn(false);
+            if (player != 1 || HighMode.ForPlayer(1)) return; data.speedersCaught++; Save(); if (data.speedersCaught >= SpeedersNeeded) Earn(false);
         }
     }
 }

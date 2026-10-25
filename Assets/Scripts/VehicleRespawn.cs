@@ -257,7 +257,7 @@ namespace Racer
         {
             if(Pending)return;
             if(!race)race=FindAnyObjectByType<RaceDirector>();
-            Pending=true;nextAttempt=Time.time+(race&&race.high?.2f:.8f);LastRecovery="Recovering"; // 1.2: HIGH MODE resets quicker (same rules)
+            Pending=true;nextAttempt=Time.time+(HighAssist.For(vehicle)?.2f:.8f);LastRecovery="Recovering"; // 1.2: HIGH MODE resets quicker (same rules)
         }
         public bool TryRecoverLocal(bool preferRoad=false)
         {

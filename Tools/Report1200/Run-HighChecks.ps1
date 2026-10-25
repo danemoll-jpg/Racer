@@ -1,4 +1,4 @@
-# 1.2 HIGH MODE checks in the check build (Builds/Check1200), each on its own copy of Dan's save (Run-Player.ps1), windowed and minimized:
+﻿# 1.2 HIGH MODE checks in the check build (Builds/Check1200), each on its own copy of Dan's save (Run-Player.ps1), windowed and minimized:
 #   pages at 1280x800 and at 3840x2160 (the menus by the controller only, one shot of each HIGH MODE page, then RUN FROM THE COPS started),
 #   a HIGH MODE lap of each mountain course steering at the edges, a crooked landing (HIGH, then normal), a HIGH race's records, the wreck question.
 param([string[]]$Only=@())
@@ -11,3 +11,5 @@ if(Want 'mountain'){ foreach($c in 4,5){ & $run -Out "mountain-$c" -Width 1280 -
 if(Want 'landing'){ & $run -Out 'landing' -Width 1280 -Height 720 -PlayerArgs '-p106kind high1200 -p1200part landing' -Minutes 8 }
 if(Want 'records'){ & $run -Out 'records' -Width 1280 -Height 720 -PlayerArgs '-p106kind high1200 -p1200part records' -Minutes 15 }
 if(Want 'prompt'){ & $run -Out 'prompt' -Width 1280 -Height 720 -PlayerArgs '-p106kind high1200 -p1200part prompt' -Minutes 8 }
+# 1.2.0-review2: a split-screen race, player 1 normal and player 2 in HIGH MODE (the setup rows by controller at 1280x800)
+if(Want 'split'){ & $run -Out 'split' -Width 1280 -Height 800 -PlayerArgs '-p106kind high1200 -p1200part split -p106w 1280 -p106h 800' -Minutes 10 }

@@ -34,6 +34,8 @@ namespace Racer
         // 0.106 Part D: Stunt = the Stunt event at the stunt park (its own setup, like Police Chase)
         public enum Kind { Race, FreeRoam, Police, Stunt }
         public static Kind Mode = Kind.FreeRoam; // 1.2 Part A: the split-screen setup opens on Free Roam
+        // 1.2.0-review2: each player's own HIGH MODE (the setup screens' rows; each starts as the main menu's switch)
+        public static bool P1High, P2High;
         public static int CopFirst = 1, PoliceMinutes = 5;
         // 0.95 Parts A and B: Police Chase has its own setup (main menu / Free Roam > POLICE CHASE). Solo = one player against
         // the AI on a full screen (no split, one role kept, one round); two players = split-screen with the swap. SoloRole:
@@ -311,7 +313,7 @@ namespace Racer
         public string Category(int player)
         {
             var car = player == 1 ? race.vehicle : P2Car; var rivals = race.opponentRoster.Skip(1).ToArray();
-            return $"{race.RecordCourse}-{car.GetComponent<VehicleConfiguration>().profileId}-{(rivals.Length > 0 ? "race4-d" + race.difficulty + "-" + string.Join("-", rivals) : "solo")}-{(race.traffic ? "traffic" : "clear")}{WeatherGrip.RecordTag(SplitScreen.Weather)}-laps{race.laps}";
+            return $"{(race.HighFor(player) ? HighMode.RecordPrefix : "")}{race.BaseRecordCourse}-{car.GetComponent<VehicleConfiguration>().profileId}-{(rivals.Length > 0 ? "race4-d" + race.difficulty + "-" + string.Join("-", rivals) : "solo")}-{(race.traffic ? "traffic" : "clear")}{WeatherGrip.RecordTag(SplitScreen.Weather)}-laps{race.laps}";
         }
         void Record(int player)
         {

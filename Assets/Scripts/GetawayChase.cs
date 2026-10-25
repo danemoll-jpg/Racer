@@ -758,10 +758,11 @@ namespace Racer
         public static List<Entry> Top(int minutes) => Sorted(LoadBoard(), minutes).Take(10).ToList();
         void RecordTop10()
         {
-            Places.Clear(); if (HighMode.Now) return; // 1.2: HIGH MODE runs are not put on the (normal) Top 10
+            Places.Clear(); // 1.2: HIGH MODE runs are not put on the (normal) Top 10 (1.2.0-review2: per player)
             var board = LoadBoard();
             foreach (var r in Runners.Where(x => x.human))
             {
+                if (HighMode.ForPlayer(r.player)) { Places.Add(0); continue; }
                 var e = new Entry { name = SplitScreen.NameOf(r.player), seconds = Mathf.Round(r.freeSeconds * 10) / 10f, heat = r.topHeat, minutes = SplitScreen.PoliceMinutes, outcome = r.outcome, date = System.DateTime.Now.ToString("yyyy-MM-dd") };
                 board.entries.Add(e); var top = Sorted(board, e.minutes).Take(10).ToList(); Places.Add(top.IndexOf(e) + 1);
                 board.entries = board.entries.Where(x => x.minutes != e.minutes || top.Contains(x)).ToList();

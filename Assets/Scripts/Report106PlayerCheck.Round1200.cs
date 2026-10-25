@@ -27,6 +27,41 @@ namespace Racer
             if (part == "landing") yield return Landing1200();
             if (part == "records") yield return Records1200();
             if (part == "prompt") yield return Prompt1200();
+            if (part == "split") yield return Split1200();
+        }
+        // ---- 1.2.0-review2: a split-screen race, player 1 normal, player 2 in HIGH MODE
+        IEnumerator Split1200()
+        {
+            foreach (var m in InputSystem.devices.OfType<Mouse>().ToList()) InputSystem.DisableDevice(m);
+            Campaign.Testing = true; yield return QuickTo115(0); Conditions(); if (HighMode.On) flow.SetHighMode(false);
+            var pad2 = InputSystem.AddDevice<Gamepad>("Report1200Pad2");
+            // the setup by the controller: SPLIT SCREEN, Mode Race, player 2 joins, player 2's HIGH MODE on with A
+            Menu.ResetPages(); Menu.Show(); yield return new WaitForSecondsRealtime(1); var path = new List<string>();
+            yield return On1200("split", path); SplitScreen.Mode = SplitScreen.Kind.Race; Menu.Show(); yield return new WaitForSecondsRealtime(.6f);
+            InputSystem.QueueStateEvent(pad2, new GamepadState().WithButton(GamepadButton.South)); yield return new WaitForSecondsRealtime(.2f); InputSystem.QueueStateEvent(pad2, new GamepadState()); yield return new WaitForSecondsRealtime(1);
+            Reach1200("split-screen setup (race, player 2 joined)"); yield return Page1101("split-setup-per-player", 1.2f);
+            path.Clear(); yield return On1200("high-p2", path); Note($"  A on player 2's row: P1 HIGH {SplitScreen.P1High}, P2 HIGH {SplitScreen.P2High}; rows '{Btn("high-p1")?.GetComponentInChildren<UnityEngine.UI.Text>(true).text}' / '{Btn("high-p2")?.GetComponentInChildren<UnityEngine.UI.Text>(true).text}'");
+            yield return Page1101("split-setup-p2-high", 1f);
+            SplitScreen.Laps = 1; SplitScreen.Rivals = 0; SplitScreen.Traffic = false; SplitScreen.Course = 0; SplitScreen.P1Device = pad; SplitScreen.P2Device = pad2; SplitScreen.P2Ai = false;
+            flow.StartSplit(); yield return WaitRacing(); Bind(); AudioListener.volume = 0;
+            var split = SplitScreen.Race; var root = HighBumpers.Root(race.gameObject.scene); var c1 = race.vehicle; var c2 = split ? split.P2Car : null;
+            Note($"split race on {race.courseName}: session HIGH {race.high}, player 1 {race.high1}, player 2 {race.high2}; bumpers {(root && root.activeInHierarchy ? "built" : "MISSING")}, layer {(root && root.transform.childCount > 0 ? root.transform.GetChild(0).gameObject.layer : -1)} (player 1's view draws it: {(Camera.main.cullingMask & (1 << (root ? root.transform.GetChild(0).gameObject.layer : 0))) != 0}, player 2's: {split && split.Camera2 && (split.Camera2.cullingMask & (1 << root.transform.GetChild(0).gameObject.layer)) != 0})");
+            Note($"  record boards: player 1 '{split.Category(1)}', player 2 '{split.Category(2)}'");
+            yield return new WaitForSecondsRealtime(2); yield return Snap("split-race-halves");
+            // each vehicle pushed sideways at 14 m/s toward the road's edge on a straight
+            IEnumerator Push(ArcadeVehicle car, float s, string who)
+            {
+                var at = race.road.At(s, out var f); var right = Vector3.Cross(Vector3.up, Flat(f).normalized); float half = race.road.HalfWidth(s);
+                Put(car, at, Yaw(f), 0); var hits = car.gameObject.GetComponent<Bumps1200>() ?? car.gameObject.AddComponent<Bumps1200>(); int h0 = hits.Hits;
+                for (int k = 0; k < 20; k++) { car.Body.linearVelocity = right * 14; yield return new WaitForFixedUpdate(); }
+                yield return new WaitForSeconds(1.5f);
+                float lat = Vector3.Dot(Flat(car.Body.position - at), right);
+                Note($"  {who} pushed at the edge (s {s:F0}): ended {lat:F1} m from the centre (the bumper stands at about {half + 1.2f:F1}-{half + 2.2f:F1} m), bumper hits {hits.Hits - h0}, assist {(HighAssist.For(car) ? "on" : "off")} -> {(lat < half + 1.3f ? "STAYED ON" : "WENT PAST")}");
+            }
+            float s1 = race.Origin + 120, s2 = race.Origin + 220;
+            yield return Push(c1, s1, "player 1 (normal)"); yield return Push(c2, s2, "player 2 (HIGH)");
+            yield return Snap("split-race-pushed");
+            flow.Pause(); yield return new WaitForSecondsRealtime(1); Reach1200("split pause"); yield return Page1101("split-pause-per-player", .5f);
         }
         string Rows1200() => string.Join(" | ", FindObjectsByType<UnityEngine.UI.Button>(FindObjectsSortMode.None).Where(b => b.gameObject.activeInHierarchy && b.transform.IsChildOf(Menu.transform.root) && b.GetComponentInChildren<UnityEngine.UI.Text>(true) && b.name != "Previous value" && b.name != "Next value")
             .OrderBy(b => -b.transform.position.y).Select(b => b.name));
@@ -188,6 +223,6 @@ namespace Racer
     public sealed class Bumps1200 : MonoBehaviour
     {
         public int Hits;
-        void OnCollisionEnter(Collision c) { if (c.collider && c.collider.gameObject.layer == HighBumpers.Layer && c.collider.transform.parent && c.collider.transform.parent.name == "HIGH MODE bumpers") Hits++; }
+        void OnCollisionEnter(Collision c) { if (HighBumpers.IsBumper(c.collider)) Hits++; }
     }
 }

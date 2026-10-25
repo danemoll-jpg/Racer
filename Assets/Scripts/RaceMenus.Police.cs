@@ -27,7 +27,7 @@ namespace Racer
             if (!keepPlayers || SplitScreen.P1Device == null || !SplitScreen.P1Device.added) SplitScreen.P1Device = opener;
             if (SplitScreen.P2Device != null && (!SplitScreen.P2Device.added || SplitScreen.P2Device == SplitScreen.P1Device)) SplitScreen.P2Device = null;
             SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.P2Ai = SplitScreen.Solo;
-            if (!keepPlayers) PreselectVehicles(SplitScreen.Vehicles); // 0.110 Part D
+            if (!keepPlayers) { PreselectVehicles(SplitScreen.Vehicles); PlayersHighDefault(); } // 0.110 Part D; 1.2.0-review2
             if (!SplitScreen.Vehicles.Any(v => v.Id == SplitScreen.P1Vehicle)) SplitScreen.P1Vehicle = "original";
             if (!SplitScreen.Vehicles.Any(v => v.Id == SplitScreen.P2Vehicle)) SplitScreen.P2Vehicle = "atv";
             if (page != "police") Navigate("police"); else Show();

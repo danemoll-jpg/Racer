@@ -31,7 +31,7 @@ namespace Racer
             if (SplitScreen.P2Device != null && (!SplitScreen.P2Device.added || SplitScreen.P2Device == SplitScreen.P1Device)) SplitScreen.P2Device = null;
             SplitScreen.Mode = SplitScreen.Kind.Stunt; SplitScreen.P2Ai = SplitScreen.Solo;
             // 0.110 Part D: each player's newest driven vehicle the event allows; the stunt buggy for a player who has driven nothing yet
-            if (!keepPlayers) { SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id; SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id; PreselectVehicles(StuntVehicles); if (StuntVehicles.Any(v => v.Id == flow.Save.Settings.stuntVehicleId)) SplitScreen.P1Vehicle = flow.Save.Settings.stuntVehicleId; }
+            if (!keepPlayers) { PlayersHighDefault(); SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id; SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id; PreselectVehicles(StuntVehicles); if (StuntVehicles.Any(v => v.Id == flow.Save.Settings.stuntVehicleId)) SplitScreen.P1Vehicle = flow.Save.Settings.stuntVehicleId; }
             if (!StuntVehicles.Any(v => v.Id == SplitScreen.P1Vehicle)) SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id;
             if (!StuntVehicles.Any(v => v.Id == SplitScreen.P2Vehicle)) SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id;
             if (page != "stunt") { pageMemory[RaceFlow.Stage.Ready + "/stunt"] = ("stunt-players", 1f); Navigate("stunt"); } else Show(); // opens on its first row, scrolled to the top (the description and medals in view)

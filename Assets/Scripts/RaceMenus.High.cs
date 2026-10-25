@@ -24,6 +24,23 @@ namespace Racer
             label.color = HighMode.On ? HighMode.Colour : new Color(.82f, .88f, .88f);
             var c = buttons[index].colors; c.normalColor = HighMode.On ? new Color(.30f, .16f, .05f) : new Color(.10f, .20f, .25f); buttons[index].colors = c;
         }
+        // 1.2.0-review2: a split-screen player's own HIGH MODE (A or left / right); in a race it asks to restart (or applies from the next race)
+        void PlayerHighRow(int index, int player)
+        {
+            bool on = player == 1 ? SplitScreen.P1High : SplitScreen.P2High;
+            Step(index, "high-p" + player, SplitScreen.NameOf(player) + ":   HIGH MODE " + (on ? "ON   (bumpers, no wrecks)" : "OFF"), d => SwitchPlayerHigh(player), () => SwitchPlayerHigh(player)); listRows.Remove(index);
+            buttons[index].GetComponentInChildren<UnityEngine.UI.Text>(true).color = on ? HighMode.Colour : new Color(.82f, .88f, .88f);
+            var c = buttons[index].colors; c.normalColor = on ? new Color(.30f, .16f, .05f) : new Color(.10f, .20f, .25f); buttons[index].colors = c;
+        }
+        int PlayerHighRows(int n) { PlayerHighRow(n++, 1); if (!SplitScreen.P2Ai) PlayerHighRow(n++, 2); return n; }
+        void SwitchPlayerHigh(int player)
+        {
+            bool on = !(player == 1 ? SplitScreen.P1High : SplitScreen.P2High), midRace = SplitScreen.Active && flow.TrackBrowsingLocked;
+            flow.SetPlayerHigh(player, on); string who = SplitScreen.NameOf(player) + ": HIGH MODE " + (on ? "on" : "off");
+            if (midRace) Confirm("RESTART THE RACE?", who + ". Restart this race now, or keep racing as it is: the change applies from the next race.", flow.RestartForMode, "RESTART", () => flow.Notify(who + " from the next race", 4), "KEEP RACING");
+            else Show();
+        }
+        static void PlayersHighDefault() { SplitScreen.P1High = SplitScreen.P2High = HighMode.On; }
         void SwitchHigh()
         {
             bool on = !HighMode.On, midRace = flow.TrackBrowsingLocked;
@@ -43,10 +60,11 @@ namespace Racer
         bool HighPlayersPage => page == "high-chases" || page == "high-two";
         bool RenderHighPages()
         {
-            if (page.StartsWith("high-") || page == "roam-players") { if (renderedKey != PageKey) selections[flow.State] = 0; } // a page opens on its first row
+            if (page.StartsWith("high-") || page == "roam-players" || page == "race-players") { if (renderedKey != PageKey) selections[flow.State] = 0; } // a page opens on its first row
             switch (page)
             {
                 case "roam-players": RenderRoamPlayers(); return true;
+                case "race-players": RenderRacePlayers(); return true;
                 case "high-two": RenderHighTwo(); return true;
                 case "high-chases": RenderHighChases(); return true;
                 case "high-vehicle": RenderHighVehicle(); return true;
@@ -61,7 +79,7 @@ namespace Racer
             int n = 0; HighRow(n++);
             if (flow.RoamMenu) Row(n++, "resume", "RESUME DRIVING", flow.Resume);
             Row(n++, "roam", "FREE ROAM", () => Navigate("roam-players"));
-            Row(n++, "race", "RACE", flow.OpenCourses);
+            Row(n++, "race", "RACE", () => Navigate("race-players"));
             Row(n++, "high-chases", "CHASES & STUNTS", OpenHighChases);
             Row(n++, "high-vehicle", "VEHICLE   ·   " + VehicleProfile.Find(flow.Save.Settings.vehicleId).Name, () => Navigate("high-vehicle"));
             Row(n++, "high-time", "TIME & WEATHER   ·   " + TimeWeatherLine, () => Navigate("high-time"));
@@ -77,13 +95,21 @@ namespace Racer
             Row(1, "roam-2p", "2 PLAYERS   (split screen)", () => { if (HighMode.On) { PrepareHighPlayers(); SplitScreen.Mode = SplitScreen.Kind.FreeRoam; SplitScreen.Solo = false; SplitScreen.P2Ai = false; Navigate("high-two"); } else { SplitScreen.Mode = SplitScreen.Kind.FreeRoam; OpenSplitSetup(); } });
             Row(2, "back", "Back", () => BackPage());
         }
+        // 1.2.0-review2: HIGH MODE's RACE: 1 player (the track list, then go) or 2 (the split-screen race setup, each player's HIGH MODE on its own row)
+        void RenderRacePlayers()
+        {
+            ClearCore("RACE", "One player: pick a track and go. Two players: split screen, and each player chooses HIGH MODE or not.");
+            Row(0, "race-1p", "1 PLAYER", flow.OpenCourses);
+            Row(1, "race-2p", "2 PLAYERS   (split screen)", () => { SplitScreen.Mode = SplitScreen.Kind.Race; OpenSplitSetup(); });
+            Row(2, "back", "Back", () => BackPage());
+        }
         // ---------- HIGH MODE: two players ----------
         void PrepareHighPlayers()
         {
             var keyboard = (InputDevice)Keyboard.current; SplitScreen.P1Device = MenuInput.Controller && MenuInput.Pad != null ? MenuInput.Pad : keyboard;
             if (SplitScreen.P2Device != null && (!SplitScreen.P2Device.added || SplitScreen.P2Device == SplitScreen.P1Device)) SplitScreen.P2Device = null;
             if (HighMode.WeatherChoice == 3) HighMode.Roll();
-            SplitScreen.Time = HighMode.RaceTime; SplitScreen.Weather = HighMode.Weather; SplitScreen.Traffic = true; SplitScreen.P1Name = "";
+            SplitScreen.Time = HighMode.RaceTime; SplitScreen.Weather = HighMode.Weather; SplitScreen.Traffic = true; SplitScreen.P1Name = ""; PlayersHighDefault();
             int here = RacePlaylists.CourseOf(flow.gameObject.scene); SplitScreen.Course = Mathf.Clamp(flow.InRoamWorld ? RaceFlow.RoamCourse : here >= 0 ? here : 0, 0, RacePlaylists.Scenes.Length - 1);
         }
         // each player's vehicle for the game chosen: player 1's from VEHICLE (the stunt choice for the Stunt event), player 2's last driven
@@ -101,9 +127,10 @@ namespace Racer
             ClearCore("FREE ROAM   ·   2 PLAYERS", "Split screen, both players in HIGH MODE. Player 2: press A on another controller, or Enter on the keyboard.");
             Step(0, "split-p1", "Player 1:   " + JoinLine(SplitScreen.P1Device), d => CycleSlot(1, d));
             Step(1, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the AI drives   (A on another controller joins)" : JoinLine(SplitScreen.P2Device)), d => CycleSlot(2, d));
-            Row(2, "high-two-start", SplitScreen.Ready ? "START FREE ROAM" : "START FREE ROAM   (waiting for player 2)", () => { SplitScreen.Mode = SplitScreen.Kind.FreeRoam; HighVehicles(); flow.StartSplit(); });
-            StartColours(2, SplitScreen.Ready);
-            Row(3, "back", "Back", () => BackPage());
+            int n = PlayerHighRows(2);
+            Row(n, "high-two-start", SplitScreen.Ready ? "START FREE ROAM" : "START FREE ROAM   (waiting for player 2)", () => { SplitScreen.Mode = SplitScreen.Kind.FreeRoam; HighVehicles(); flow.StartSplit(); });
+            StartColours(n++, SplitScreen.Ready);
+            Row(n, "back", "Back", () => BackPage());
             DeviceGlyph(buttons[0], SplitScreen.P1Device); DeviceGlyph(buttons[1], SplitScreen.P2Ai ? null : SplitScreen.P2Device);
         }
         void StartColours(int i, bool ready)
@@ -120,7 +147,7 @@ namespace Racer
             int n = 0;
             Step(n++, "high-players", "Players:   " + (solo ? "1   (full screen)" : "2   (split screen)"), d => { SplitScreen.Solo = !SplitScreen.Solo; SplitScreen.P2Ai = SplitScreen.Solo; flow.Click(); Show(); });
             int p2 = -1;
-            if (!solo) { p2 = n; Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "press A on another controller (or Enter) to join" : JoinLine(SplitScreen.P2Device)), d => CycleSlot(2, d)); }
+            if (!solo) { p2 = n; Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "press A on another controller (or Enter) to join" : JoinLine(SplitScreen.P2Device)), d => CycleSlot(2, d)); n = PlayerHighRows(n); }
             string Wait(string s) => ready ? s : s + "   (waiting for player 2)";
             var games = new (string id, string label)[] { ("high-getaway", "RUN FROM THE COPS   ·   the police chase you"), ("high-cop", solo ? "BE THE COP   ·   catch the runner" : "BE THE COP   ·   one chases, one runs, then swap"),
                 ("high-patrol", "CATCH SPEEDERS   ·   clock them, pull them over"), ("high-stunt", "STUNT EVENT   ·   flips and jumps at " + StuntPark.Title) };

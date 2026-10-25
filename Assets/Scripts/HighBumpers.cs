@@ -29,8 +29,20 @@ namespace Racer
             var root = Root(race.gameObject.scene);
             if (!race.high || race.FreeRoam || !race.road) { if (root && root.activeSelf) { root.SetActive(false); Physics.SyncTransforms(); } return; }
             if (!root) root = Build(race);
-            root.SetActive(true); Physics.SyncTransforms();
+            root.SetActive(true); PerPlayer(race, root); Physics.SyncTransforms();
         }
+        // 1.2.0-review2: split screen with one player in HIGH MODE: the bumpers are drawn only in that player's half (the split views' own
+        // layers) and the other player's vehicle passes through them (its race is unchanged); one player, or both in HIGH MODE: as before
+        public static void PerPlayer(RaceDirector race, GameObject root)
+        {
+            bool split = SplitScreen.Active, h1 = race.HighFor(1), h2 = race.HighFor(2);
+            int layer = !split || (h1 && h2) ? Layer : h1 ? SplitRace.View1Layer : SplitRace.View2Layer;
+            foreach (Transform t in root.transform) t.gameObject.layer = layer;
+            var bumpers = root.GetComponentsInChildren<MeshCollider>(true);
+            void Pass(ArcadeVehicle car, bool through) { if (!car) return; foreach (var c in car.GetComponentsInChildren<Collider>(true)) foreach (var b in bumpers) Physics.IgnoreCollision(c, b, through); }
+            Pass(race.vehicle, split && !h1); Pass(SplitScreen.Race ? SplitScreen.Race.P2Car : null, split && !h2);
+        }
+        public static bool IsBumper(Collider c) => c && c.transform.parent && c.transform.parent.name == RootName;
 
         sealed class Line { public Func<float, (Vector3 p, Vector3 f)> at; public Func<float, float> half; public float length; public bool loop; public bool walls; }
         struct Band { public Vector3 p; public float half, s; public int line; }

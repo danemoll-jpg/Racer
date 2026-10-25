@@ -241,9 +241,9 @@ namespace Racer
             State = Phase.Done; foreach (var c in Cops) { c.siren = false; c.lights.Siren = false; Hold(c.car, false); }
             foreach (var s in Speeders.ToList()) Release(s);
             Places.Clear(); var board = LoadBoard();
-            if (HighMode.Now) { flow.CompleteResults(); return; } // 1.2: HIGH MODE patrols are not put on the (normal) Top 10
             foreach (var c in Cops)
             {
+                if (HighMode.ForPlayer(c.player)) { Places.Add(0); continue; } // 1.2: HIGH MODE patrols are not put on the (normal) Top 10 (1.2.0-review2: per player)
                 var e = new Entry { name = SplitScreen.NameOf(c.player), points = c.points, catches = c.catches, minutes = SplitScreen.PoliceMinutes, date = System.DateTime.Now.ToString("yyyy-MM-dd") };
                 board.entries.Add(e); var top = board.entries.Where(x => x.minutes == e.minutes).OrderByDescending(x => x.points).ThenBy(x => board.entries.IndexOf(x)).Take(10).ToList();
                 Places.Add(top.IndexOf(e) + 1);

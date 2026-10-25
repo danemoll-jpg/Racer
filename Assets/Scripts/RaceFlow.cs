@@ -328,6 +328,8 @@ namespace Racer
         void ModeSettings()
         {
             bool was=Race.high;Race.high=HighMode.On&&CampaignRun.Active==null;
+            // 1.2.0-review2: split screen: each player's own choice (the setup's rows); the session counts as HIGH when either is
+            if(SplitScreen.Active){Race.high1=SplitScreen.P1High&&CampaignRun.Active==null;Race.high2=SplitScreen.P2High&&!SplitScreen.P2Ai&&CampaignRun.Active==null;Race.high=Race.high1||Race.high2;}else Race.high1=Race.high2=false;
             if(HighMode.On)Campaign.Testing=true;else if(was)Campaign.Testing=UnlockEverything;
             if(Race.high&&HighMode.WeatherChoice==3)HighMode.Roll();
             if(SplitScreen.Active||CampaignRun.Active!=null||RacePlaylists.Active!=null||RacePlaylists.PendingStart)return;
@@ -353,10 +355,15 @@ namespace Racer
         // untouched)
         public void AcceptHighMode()
         {
+            // 1.2.0-review2: split screen: player 1's own HIGH MODE (player 2 keeps theirs)
+            if(SplitScreen.Active){SplitScreen.P1High=true;if(Race.FreeRoam){ModeSettings();ApplySplitHigh();Resume();Notify("HIGH MODE is on for "+SplitScreen.NameOf(1),4);}else StartRace();return;}
             if(Race.FreeRoam){SetHighMode(true);Resume();Notify("HIGH MODE is on",4);return;}
             if(CampaignRun.Active!=null||RacePlaylists.Active!=null)QuitRace();
             SetHighMode(true);StartRace();
         }
+        // 1.2.0-review2: a split-screen player's own row (setup screens; the split pause menu: Free Roam at once, a race from its next start)
+        public void SetPlayerHigh(int player,bool on){if(player==1)SplitScreen.P1High=on;else SplitScreen.P2High=on;Click();if(!SplitScreen.Active||TrackBrowsingLocked)return;ModeSettings();ApplySplitHigh();}
+        void ApplySplitHigh(){HighAssist.Attach(Race);var root=HighBumpers.Root(gameObject.scene);if(root&&root.activeSelf)HighBumpers.PerPlayer(Race,root);}
         public void DeclineHighMode(){HighMode.Declined=true;Resume();Notify("No problem. HIGH MODE is on the main menu any time.",6);}
         // HIGH MODE's VEHICLE page: pick and go (Free Roam at once; a race from its next start). The colors and rider stay as last used.
         public void ChooseVehicle(string id)

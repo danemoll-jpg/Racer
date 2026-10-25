@@ -28,7 +28,7 @@ namespace Racer
         public static string BestComboVehicle => data.bestComboVehicle;
         public static string BestComboDate => data.bestComboDate;
         public static string BikeGoal => $"Win a Gold medal ({Targets[2]:N0} pts) in the Stunt event";
-        public static IReadOnlyList<Entry> Top => HighMode.Now ? data.highTop : data.top;
+        public static IReadOnlyList<Entry> Top => HighMode.ForPlayer(1) ? data.highTop : data.top;
         public static IReadOnlyList<Entry> HighTop => data.highTop; // the Records' HIGH tab
         public static void Load(string root)
         {
@@ -44,16 +44,16 @@ namespace Racer
                 var seeded = data.combos; data.combos = seeded.OrderByDescending(x => x.points).ThenBy(x => seeded.IndexOf(x)).Take(10).ToList();
             }
         }
-        public static IReadOnlyList<Combo> Combos => HighMode.Now ? data.highCombos : data.combos;
+        public static IReadOnlyList<Combo> Combos => HighMode.ForPlayer(1) ? data.highCombos : data.combos;
         // 0.109 Part B: the entry the last banked combo made in the Top 10 (null: none), so the Stunt event results can highlight this event's entries
         public static Combo LastComboEntry { get; private set; }
         // a banked combo: its Top 10 place (0 = none)
-        public static int RecordComboTop(string name, string vehicle, int points, int links, string tricks)
+        public static int RecordComboTop(string name, string vehicle, int points, int links, string tricks, int player = 1)
         {
             LastComboEntry = null;
             if (points <= 0) return 0;
             var c = new Combo { name = name, vehicle = vehicle, points = points, links = links, tricks = tricks, date = DateTime.Now.ToString("yyyy-MM-dd") };
-            bool high = HighMode.Now;
+            bool high = HighMode.ForPlayer(player);
             var all = (high ? data.highCombos : data.combos).Append(c).ToList(); var top = all.OrderByDescending(x => x.points).ThenBy(x => all.IndexOf(x)).Take(10).ToList();
             int place = top.IndexOf(c) + 1; if (place == 0) return 0;
             if (high) data.highCombos = top; else data.combos = top; LastComboEntry = c; Save(); return place;
@@ -68,7 +68,7 @@ namespace Racer
         public static Entry Finish(int player, string name, string vehicle, int points, int bestCombo)
         {
             var e = new Entry { name = name, vehicle = vehicle, points = points, medal = MedalFor(points), bestCombo = bestCombo, date = DateTime.Now.ToString("yyyy-MM-dd") };
-            if (HighMode.Now) { data.highTop.Add(e); var high = data.highTop.OrderByDescending(x => x.points).ThenBy(x => data.highTop.IndexOf(x)).Take(10).ToList(); data.highTop = high; Save(); return e; } // 1.2: its own board; no unlock
+            if (HighMode.ForPlayer(player)) { data.highTop.Add(e); var high = data.highTop.OrderByDescending(x => x.points).ThenBy(x => data.highTop.IndexOf(x)).Take(10).ToList(); data.highTop = high; Save(); return e; } // 1.2: its own board; no unlock
             data.top.Add(e); var top = data.top.OrderByDescending(x => x.points).ThenBy(x => data.top.IndexOf(x)).Take(10).ToList(); data.top = top;
             if (player == 1 && e.medal >= 3 && !data.goldEarned)
             {

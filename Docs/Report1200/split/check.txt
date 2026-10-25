@@ -1,0 +1,12 @@
+screen=1280x800 kind=high1200 version=1.2.0-review2 park=on
+HIGH MODE check part split: save C:\Users\danmo\AppData\Local\Temp\report1200\split\save-copy, HIGH MODE saved off
+  split-screen setup (race, player 2 joined): page Ready/split, rows split-p1 | split-p2 | split-ai | split-swap | split-mode | split-race-type | split-p1-name | split-p2-name | high-p1 | high-p2 | split-vehicles | split-course | split-laps | split-rivals | split-time | split-weather | split-traffic | split-layout | split-start | split-back; not reachable by the controller: none
+page 01-split-setup-per-player: everything on screen, no text cut
+  A on player 2's row: P1 HIGH False, P2 HIGH True; rows 'Dan:   HIGH MODE OFF' / 'test:   HIGH MODE ON   (bumpers, no wrecks)'
+page 02-split-setup-p2-high: everything on screen, no text cut
+split race on Street Loop - Forward: session HIGH True, player 1 False, player 2 True; bumpers built, layer 30 (player 1's view draws it: False, player 2's: True)
+  record boards: player 1 'street-v14-discovery-drifter-solo-clear-laps1', player 2 'high-street-v14-discovery-atv-solo-clear-laps1'
+  player 1 (normal) pushed at the edge (s 159): ended 8.3 m from the centre (the bumper stands at about 5.7-6.7 m), bumper hits 0, assist off -> WENT PAST
+  player 2 (HIGH) pushed at the edge (s 259): ended 4.6 m from the centre (the bumper stands at about 5.7-6.7 m), bumper hits 1, assist on -> STAYED ON
+  split pause: page Paused/, rows resume | high-p1 | high-p2 | restart | settings | return | quit; not reachable by the controller: none
+page 03-split-pause-per-player: everything on screen, no text cut

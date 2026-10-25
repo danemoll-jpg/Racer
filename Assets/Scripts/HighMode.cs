@@ -15,6 +15,8 @@ namespace Racer
         public static void Set(bool on) => On = on;
         // the session now (race or Free Roam) is in HIGH MODE: its records and unlocks are kept apart
         public static bool Now => Hints.Flow && Hints.Flow.Race && Hints.Flow.Race.high;
+        // 1.2.0-review2: this player is in HIGH MODE now (split screen: their own choice; one player: Now)
+        public static bool ForPlayer(int player) => Hints.Flow && Hints.Flow.Race && Hints.Flow.Race.HighFor(player);
         // "No" to "Would you like to play HIGH MODE?": not asked again this session
         public static bool Declined;
         // TIME & WEATHER (applies to Free Roam and races in HIGH MODE)
@@ -42,15 +44,18 @@ namespace Racer
         ArcadeVehicle car; VehicleRespawn respawn; RaceDirector race;
         Vector3 lastVelocity, hitNormal; bool hit; float overturned;
         public static int Righted { get; private set; } // checks
-        public bool On => race && race.high && car && !car.Body.isKinematic && !car.Puppet;
+        int player = 1; // 1.2.0-review2: whose vehicle (split screen: each player's own choice)
+        public bool On => race && race.HighFor(player) && car && !car.Body.isKinematic && !car.Puppet;
         public static void Attach(RaceDirector race)
         {
-            foreach (var c in new[] { race.vehicle, SplitScreen.Race ? SplitScreen.Race.P2Car : null })
+            var cars = new[] { race.vehicle, SplitScreen.Race ? SplitScreen.Race.P2Car : null };
+            for (int i = 0; i < cars.Length; i++)
             {
-                if (!c) continue; var a = c.GetComponent<HighAssist>(); if (!a) a = c.gameObject.AddComponent<HighAssist>();
-                a.race = race;
+                var c = cars[i]; if (!c) continue; var a = c.GetComponent<HighAssist>(); if (!a) a = c.gameObject.AddComponent<HighAssist>();
+                a.race = race; a.player = i + 1;
             }
         }
+        public static bool For(ArcadeVehicle car) => car && car.GetComponent<HighAssist>() is HighAssist a && a.On;
         void Awake() { car = GetComponent<ArcadeVehicle>(); respawn = GetComponent<VehicleRespawn>(); }
         void FixedUpdate()
         {
@@ -109,7 +114,8 @@ namespace Racer
         {
             get
             {
-                if (!flow || flow.Save == null || HighMode.On || HighMode.Declined || flow.Race.high || flow.State != RaceFlow.Stage.Racing) return false;
+                if (!flow || flow.Save == null || HighMode.Declined || flow.Race.HighFor(1) || flow.State != RaceFlow.Stage.Racing) return false;
+                if (HighMode.On && !SplitScreen.Active) return false;
                 if (ReplayViewer.Active || TrailerMode.Active || DeveloperLocationHud.Inspecting) return false;
                 var e = CampaignRun.Active; if (CampaignRun.Cup != null) return false;
                 if (e != null && e.Kind is CampaignEventKind.SpeedTrap or CampaignEventKind.Jump or CampaignEventKind.Smash or CampaignEventKind.Trick or CampaignEventKind.Clean or CampaignEventKind.Park) return false;

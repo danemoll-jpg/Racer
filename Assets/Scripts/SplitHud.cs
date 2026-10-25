@@ -116,7 +116,7 @@ namespace Racer
                 h.gapsPanel.SetActive(gaps != ""); if (gaps != "") { h.gaps.text = gaps; ((RectTransform)h.gapsPanel.transform).sizeDelta = new Vector2(290, gaps.Contains("\n") ? 54 : 30); }
                 h.map.Focus = car;
                 var p = state.Progress; int position = race.Ordered(false).IndexOf(state) + 1;
-                h.tag.text = (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(i + 1);
+                h.tag.text = (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(i + 1) + (race.HighFor(i + 1) ? "   ·   HIGH" : ""); // 1.2.0-review2: this player's HIGH MODE
                 h.info.text = $"LAP {Mathf.Min(p.CompletedLaps + 1, p.TargetLaps)}/{p.TargetLaps}     POS {position}/{race.Racers.Count}\nLap   {RaceHud.FormatTime(p.Finished ? p.LastLap : p.LapTime(race.Clock))}\nRace  {RaceHud.FormatTime(p.RaceTime(race.Clock))}" + (p.PenaltySeconds > 0 ? $"   +{p.PenaltySeconds:0}s" : "");
                 // 0.119 Part B: a Stunt Race: the trick bonus or stunt points, and this player's last trick line (small, under the times)
                 // 0.120 Part A: the total stunt points always (the trick itself is on the trick panel, TrickHud)
@@ -150,7 +150,7 @@ namespace Racer
                 if (!car || !driving) continue;
                 h.map.Focus = car;
                 var cam = i == 0 ? Camera.main : split.Camera2;
-                h.tag.text = one ? "" : (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player);
+                h.tag.text = one ? "" : (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player) + (race.HighFor(player) ? "   ·   HIGH" : "");
                 var lines = new System.Collections.Generic.List<string>();
                 if (getaway != null && runner != null)
                 {

@@ -1,0 +1,4 @@
+screen=1920x1080 kind=high1200 version=1.2.0-review2 park=on
+HIGH MODE check part landing: save C:\Users\danmo\AppData\Local\Temp\report1200\landing\save-copy, HIGH MODE saved off
+HIGH MODE: moto dropped upside down from 3 m: wrecks 0, flipped upright 1, now up 0.97, wrecked False; 0.5s up -0.70; 1.0s up 1.00; 1.5s up 0.96; 2.1s up 0.97; 2.6s up 0.97; 3.1s up 0.97; 3.6s up 0.97; 4.1s up 0.97;
+normal mode: moto dropped upside down from 3 m: wrecks 1, flipped upright 0, now up -0.97, wrecked True; 0.5s up -0.97; 1.0s up -0.97 WRECKED; 1.5s up -0.97 WRECKED; 2.1s up -0.97 WRECKED; 2.6s up -0.97 WRECKED; 3.1s up -0.97 WRECKED; 3.6s up -0.97 WRECKED; 4.1s up -0.97 WRECKED;

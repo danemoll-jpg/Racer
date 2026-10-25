@@ -20,7 +20,7 @@ namespace Racer
             if (!keepPlayers || SplitScreen.P1Device == null || !SplitScreen.P1Device.added) SplitScreen.P1Device = opener;
             if (SplitScreen.P2Device != null && (!SplitScreen.P2Device.added || SplitScreen.P2Device == SplitScreen.P1Device)) SplitScreen.P2Device = null;
             if (SplitScreen.P2Device == null) SplitScreen.P2Ai = true;
-            if (!keepPlayers) PreselectVehicles(SplitScreen.Vehicles); // 0.110 Part D
+            if (!keepPlayers) { PreselectVehicles(SplitScreen.Vehicles); PlayersHighDefault(); } // 0.110 Part D; 1.2.0-review2: each player's HIGH MODE starts as the main menu's switch
             if (!SplitScreen.Vehicles.Any(v => v.Id == SplitScreen.P1Vehicle)) SplitScreen.P1Vehicle = "original";
             if (!SplitScreen.Vehicles.Any(v => v.Id == SplitScreen.P2Vehicle)) SplitScreen.P2Vehicle = "atv";
             if (page != "split") Navigate("split"); else Show();
@@ -105,6 +105,7 @@ namespace Racer
                 Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? "press A to enter it" : SplitScreen.P2Pick + "   (A: new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
                     () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
             }
+            n = PlayerHighRows(n); // 1.2.0-review2: each player's own HIGH MODE
             // 0.92 Part B: the vehicles and colours are chosen in each player's garage view; both are shown here
             Row(n, "split-vehicles", "VEHICLES AND COLORS…   (each player's garage)", () => OpenSplitPick()); int vehiclesRow = n++;
             var strip = PreviewStrip("Players' vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1);
@@ -163,7 +164,8 @@ namespace Racer
             var split = SplitScreen.Race; string missing = split ? split.MissingText : null;
             ClearCore(StuntEvent.Current ? "STUNT EVENT / PAUSED" : GetawayChase.Current ? "GETAWAY / PAUSED" : SpeedPatrol.Current ? "SPEED PATROL / PAUSED" : PoliceChase.Current ? "POLICE CHASE / PAUSED" : "SPLIT SCREEN / PAUSED", missing ?? (SplitScreen.OneView ? "" : $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu."));
             Row(0, "resume", "RESUME", flow.Resume); buttons[0].interactable = missing == null;
-            if (CampaignRun.Active == null) { HighRow(7); buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex() + 1); } // 1.2: the mode is shared by both players
+            // 1.2.0-review2: each player's own HIGH MODE (a race: from its restart or the next race; Free Roam: at once)
+            if (CampaignRun.Active == null) { PlayerHighRow(7, 1); buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex() + 1); if (!SplitScreen.P2Ai) { PlayerHighRow(8, 2); buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex() + 1); } }
             if (SplitScreen.Roaming)
             {
                 // 0.94 Parts B and C: the world map (travel brings both players), camera views, restart the chase, end
