@@ -1,0 +1,35 @@
+{
+    "freeAfter":  70612746240,
+    "buildsAfter":  8346784099,
+    "freeBefore":  66484314112,
+    "removed":  [
+                    {
+                        "bytes":  1848778276,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review1-Windows"
+                    },
+                    {
+                        "bytes":  431702875,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-1030000\\assets\\game.zip"
+                    },
+                    {
+                        "bytes":  0,
+                        "path":  "C:\\Users\\danmo\\Racer\\Temp\\Report1300-signature-check"
+                    },
+                    {
+                        "bytes":  1846944764,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300-build.txt"
+                    }
+                ],
+    "buildsBefore":  12474210056,
+    "buildsRecovered":  4127425957,
+    "retained":  [
+                     "Latest complete root runtime",
+                     "managed 1030000",
+                     "managed 1020100 (1.2.0-review2)",
+                     "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+                 ]
+}
