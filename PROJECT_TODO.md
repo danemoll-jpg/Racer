@@ -87,6 +87,12 @@ Main menu with HIGH MODE on: **HIGH MODE: ON**, **FREE ROAM**, **RACE**, **CHASE
 - One line per part with its check; local build only (no publish unless Dan asks).
 - **For Dan to check:** play HIGH MODE with a friend: Free Roam, a mountain race, a chase.
 
+### Addition (Dan, 2026-10-25, after the 1.2.0-review1 results) — HIGH MODE per player in split screen — target 1.2.0-review2 (local build)
+Dan: "RACE in HIGH MODE is one player only; I want each player to have a choice if possible. For example i am very familiar with the tracks and don't need it and my friend doesn't know the tracks at all. It would be cool if he can apply the high mode and me not."
+1. Split screen (race and Free Roam): a HIGH MODE On / Off row for each player on the setup (default: the main menu's switch); HIGH MODE's RACE asks 1 PLAYER / 2 PLAYERS (2: the split-screen race setup, both On).
+2. Per player: the bumpers are solid only for a HIGH player's vehicle and drawn only in that player's half; the forgiving driving is theirs only; each player's times go on their own boards (HIGH or normal). The other player's race is unchanged.
+3. Check: a split-screen race with player 1 normal and player 2 HIGH: player 2 bounces off a bumper, player 1 passes where it stands; each half's view; each player's record board; the setup rows by controller at 1280x800.
+
 ### Results (2026-10-25, Claude Code)
 - Checkpoint `1d1b09a6`. Evidence [Docs/Report1200/](Docs/Report1200/); check `-p106kind high1200 -p1200part pages|mountain|landing|records|prompt` ([Report106PlayerCheck.Round1200.cs](Assets/Scripts/Report106PlayerCheck.Round1200.cs)), run by [Run-HighChecks.ps1](Tools/Report1200/Run-HighChecks.ps1) on copies of Dan's save.
 - **A Free Roam:** main menu FREE ROAM (right after RACE) asks 1 PLAYER / 2 PLAYERS; 2 opens SPLIT SCREEN on Free Roam, whose Mode row is now Free Roam, Race, Police Chase; hint "Free Roam is now on the main menu." once ([RaceMenus.High.cs](Assets/Scripts/RaceMenus.High.cs), [RaceMenus.Split.cs](Assets/Scripts/RaceMenus.Split.cs)). Check: controller only, all reached ([pages-1280x800](Docs/Report1200/pages-1280x800/check.txt)).
