@@ -26,6 +26,8 @@ namespace Racer
         GameObject panel; UnityEngine.UI.RawImage picture; UnityEngine.UI.Text status,heading,waypointLabel;
         readonly List<UnityEngine.UI.Text> markers=new(); Texture2D texture; int selected=-1;
         readonly List<UnityEngine.UI.Text> acorns=new();
+        // 1.3: the Free Roam world's ramps, smash spots and flip ramps (RoamWorld), each with its number
+        readonly List<(UnityEngine.UI.Text text,Vector3 at)> roamIcons=new();
         // 0.93 Part C: the acorn areas drawn on the map (regions, their names and counts), the places their directions name, the
         // list of areas in the side column (the chosen one highlighted and centred); 0.93 Part D: a fixed north arrow
         WorldMapAreaOverlay areaOverlay;readonly List<(UnityEngine.UI.Text text,AcornAreas.Area area,AcornAreas.Region region)> areaLabels=new();
@@ -176,6 +178,9 @@ namespace Racer
             waypointLabel=Text("Waypoint",r,Vector2.zero,new(25,25),24);waypointLabel.color=Color.yellow;waypointLabel.text="+";
             foreach(var d in destinations){var t=Text(d.id,r,Vector2.zero,new(170,35),16);markers.Add(t);}
             foreach(var item in race.GetComponent<ExplorationCollection>().sites){var t=Text(item.id,r,Vector2.zero,new(16,16),15);t.text="●";t.color=new(1,.72f,.2f);acorns.Add(t);}
+            if(RoamWorld.Current)foreach(var (at,mark,id) in RoamWorld.Current.Icons){var t=Text("Free Roam "+mark+" "+id,r,Vector2.zero,new(44,20),13);t.supportRichText=true;t.alignment=TextAnchor.MiddleLeft;t.rectTransform.pivot=new(.18f,.5f);
+                t.text=(mark==RoamWorld.Mark.Ramp?"<color=#FF9A2E>▲</color>":mark==RoamWorld.Mark.Smash?"<color=#FF4A3A>■</color>":"<color=#D27BFF>▼</color>")+"<size=10>"+id+"</size>";var edge=t.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.9f);edge.effectDistance=new(1,-1);roamIcons.Add((t,at));}
+            if(roamIcons.Count>0){var key=Text("Free Roam key",r,new(-r.sizeDelta.x*.5f+8+150,-r.sizeDelta.y*.5f+14),new(300,20),13);key.supportRichText=true;key.alignment=TextAnchor.MiddleLeft;key.text="<color=#FF9A2E>▲</color> RAMP   <color=#FF4A3A>■</color> SMASH SPOT   <color=#D27BFF>▼</color> FLIP RAMP";var edge=key.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.9f);edge.effectDistance=new(1,-1);} // in the map's bottom-left corner
             Text("Cursor",r,Vector2.zero,new(25,25),20).text="+";
             northArrow=Text("North",r,Vector2.zero,new(40,52),18);northArrow.text="▲\nN";northArrow.fontStyle=FontStyle.Bold;northArrow.lineSpacing=.8f;
             {var edge=northArrow.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.9f);edge.effectDistance=new(1.2f,-1.2f);}
@@ -216,6 +221,7 @@ namespace Racer
             areaList.text=list.ToString();
             if(Waypoint.HasValue)Marker(waypointLabel,Waypoint.Value);else waypointLabel.gameObject.SetActive(false);
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
+            foreach(var (t,at) in roamIcons){Marker(t,at);if(!race.FreeRoam)t.gameObject.SetActive(false);} // 1.3
             for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
             string wpt=Waypoint.HasValue?"Waypoint "+DisplayUnits.Distance(Vector3.ProjectOnPlane(Waypoint.Value-race.vehicle.Body.position,Vector3.up).magnitude)+(race.FreeRoam?"":" (Free Roam only)")+"\n\n":"Mouse: click the map to set a waypoint, right-click to clear\n\n";
             status.text=wpt+RouteTitle+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+RouteLegend+"\n\n"+(collection?collection.Header:"")+"\n\n"+(error??errorMessage);

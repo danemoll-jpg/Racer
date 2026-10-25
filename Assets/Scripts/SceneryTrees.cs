@@ -109,22 +109,24 @@ namespace Racer
             return c;
         }
         void Grow(CellData c, Bounds b) { if (c.any) c.bounds.Encapsulate(b); else { c.bounds = b; c.any = true; } }
-        void AddCrown(int variant, Vector3 bottom, float radius, float height, float yaw)
+        Matrix4x4 AddCrown(int variant, Vector3 bottom, float radius, float height, float yaw)
         {
             var m = Matrix4x4.TRS(bottom, Quaternion.Euler(0, yaw, 0), new Vector3(radius, height, radius));
             var c = CellAt(bottom); c.crowns[variant].Add(m); var b = new Bounds(bottom + Vector3.up * height * .5f, new Vector3(radius * 2.4f, height * 1.2f, radius * 2.4f));
             Grow(c, b); var f = FarAt(bottom); (variant == Pine ? f.conifer : f.broad).Add(m); if (f.any) f.bounds.Encapsulate(b); else { f.bounds = b; f.any = true; }
+            return m;
         }
-        void AddTrunk(int variant, Vector3 bottom, Vector3 up, float width, float height, float yaw)
+        Matrix4x4 AddTrunk(int variant, Vector3 bottom, Vector3 up, float width, float height, float yaw)
         {
             var m = Matrix4x4.TRS(bottom, Quaternion.FromToRotation(Vector3.up, up) * Quaternion.Euler(0, yaw, 0), new Vector3(width, height, width));
             var c = CellAt(bottom); c.trunks[variant].Add(m); var b = new Bounds(bottom + up * height * .5f, new Vector3(width * 2, height, width * 2));
             Grow(c, b); var f = FarAt(bottom); f.trunks.Add(m); if (f.any) f.bounds.Encapsulate(b); else { f.bounds = b; f.any = true; }
+            return m;
         }
 
         // ---------------------------------------------------------------- reading the old forest
         struct Piece { public Bounds b; public Color c; public int verts; public bool bark; }
-        struct Trunk { public Vector3 bottom, up; public float width, height; public bool collider, cleared; public Bounds crown; public bool hasCrown; }
+        struct Trunk { public Vector3 bottom, up; public float width, height; public bool collider, cleared; public Bounds crown; public bool hasCrown; public BoxCollider box; }
         public static bool IsOldVegetation(Renderer r)
         {
             // never the ground: some terrain tiles share the vegetation shading (CR117 outer ravine); a crown batch has no collider
@@ -299,7 +301,7 @@ namespace Racer
             {
                 if (!IsTrunkCollider(box) || !box.gameObject.activeInHierarchy || !box.enabled) continue;
                 var t = box.transform; var size = Vector3.Scale(box.size, t.lossyScale); var up = t.up;
-                trunks.Add(new Trunk { bottom = t.TransformPoint(box.center - Vector3.up * box.size.y * .5f), up = up, width = Mathf.Min(Mathf.Abs(size.x), Mathf.Abs(size.z)), height = Mathf.Abs(size.y), collider = true });
+                trunks.Add(new Trunk { bottom = t.TransformPoint(box.center - Vector3.up * box.size.y * .5f), up = up, width = Mathf.Min(Mathf.Abs(size.x), Mathf.Abs(size.z)), height = Mathf.Abs(size.y), collider = true, box = box });
             }
             // trunks removed from FreeRoamWorld's drivable surfaces still take their crowns (which then go too)
             foreach (var c in Cleared) trunks.Add(new Trunk { bottom = c.bottom, up = Vector3.up, width = c.width, height = c.height, collider = true, cleared = true });
@@ -357,11 +359,12 @@ namespace Racer
                 float hash = Hash(t.bottom), yaw = hash * 360;
                 string clearedWhat = t.cleared ? Cleared.FirstOrDefault(c => (c.bottom - t.bottom).sqrMagnitude < .01f).what : null;
                 if (Skip(t.bottom, t.collider, t.collider ? "tree (trunk collider)" : "tree (bark box)", t.cleared, clearedWhat)) { DrivableSkipped++; continue; }
-                if (!t.hasCrown) { AddTrunk(Young, t.bottom, t.up, t.width, t.height, yaw); TrunkOnly++; Placements.Add(new Placement { bottom = t.bottom, radius = t.width * .5f, height = t.height, variant = Young, source = t.collider ? "trunk collider, no crown" : "bark box, no crown" }); continue; }
+                if (!t.hasCrown) { var tm0 = AddTrunk(Young, t.bottom, t.up, t.width, t.height, yaw); if (roam && t.box) Register(t.box, Young, t.bottom, t.width, t.height, tm0, null, default); TrunkOnly++; Placements.Add(new Placement { bottom = t.bottom, radius = t.width * .5f, height = t.height, variant = Young, source = t.collider ? "trunk collider, no crown" : "bark box, no crown" }); continue; }
                 int v = Species(t, hash); PerVariant[v]++; TreeCount++;
                 var cb = t.crown; float radius = Mathf.Max(cb.extents.x, cb.extents.z);
-                AddTrunk(v, t.bottom, t.up, t.width, Mathf.Max(t.height, cb.min.y - t.bottom.y + cb.size.y * .25f), yaw);
-                AddCrown(v, new Vector3(cb.center.x, cb.min.y, cb.center.z), radius, cb.size.y, yaw);
+                var tm = AddTrunk(v, t.bottom, t.up, t.width, Mathf.Max(t.height, cb.min.y - t.bottom.y + cb.size.y * .25f), yaw);
+                var crownBottom = new Vector3(cb.center.x, cb.min.y, cb.center.z); var cm = AddCrown(v, crownBottom, radius, cb.size.y, yaw);
+                if (roam && t.box) Register(t.box, v, t.bottom, t.width, cb.max.y - t.bottom.y, tm, cm, crownBottom);
                 Placements.Add(new Placement { bottom = t.bottom, radius = t.width * .5f, height = cb.max.y - t.bottom.y, variant = v, source = t.collider ? "trunk collider" : "bark box" });
             }
             // each crown without a trunk on its own (merging touching ones joined whole hillsides of overlapping mountain
@@ -447,6 +450,88 @@ namespace Racer
             return merged.Values.ToList();
         }
 
+        // ---------------------------------------------------------------- 1.3: breakable trees (Free Roam only)
+        // Every tree on a trunk collider in FreeRoamWorld is remembered (its collider, its two drawn instances). Broken (TreeBreaker, ahead of a fast
+        // enough vehicle): its collider goes, its instances leave their cells and the same tree is drawn falling over in the direction of the hit
+        // (about 1.5 s, then lying there, no collider: it never stops or wrecks anyone), with leaf and bark debris and the smash sounds. Only that one
+        // tree moves; no rigidbodies. It stands again, as it was, once every player is more than RegrowDistance away.
+        public const float RegrowDistance = 160;
+        sealed class TreeRef { public BoxCollider box; public int variant; public Vector3 bottom, crownBottom; public float width, height; public Matrix4x4 trunk; public Matrix4x4? crown; }
+        sealed class Faller { public TreeRef tree; public Vector3 axis; public float age; public bool thud; public Matrix4x4 trunk, crown; }
+        readonly Dictionary<BoxCollider, TreeRef> breakable = new();
+        readonly List<Faller> fallen = new();
+        readonly List<(Vector3 p, Vector3 v, Vector3 spin, float age, bool leaf, float size)> debris = new();
+        readonly List<Matrix4x4> scratch = new();
+        public bool Breakable => breakable.Count > 0;
+        public int BreakableCount => breakable.Count;
+        public int FallenCount => fallen.Count;
+        public IEnumerable<(BoxCollider box, Vector3 bottom, float width)> BreakableTrees => breakable.Values.Select(t => (t.box, t.bottom, t.width)); // checks
+        public static int Regrown { get; private set; } // checks
+        void Register(BoxCollider box, int variant, Vector3 bottom, float width, float height, Matrix4x4 trunk, Matrix4x4? crown, Vector3 crownBottom)
+            => breakable[box] = new TreeRef { box = box, variant = variant, bottom = bottom, width = width, height = height, trunk = trunk, crown = crown, crownBottom = crownBottom };
+        public bool IsTree(BoxCollider box, out float width) { width = 0; if (!breakable.TryGetValue(box, out var t) || !box.enabled) return false; width = t.width; return true; }
+        void Instances(TreeRef t, bool add)
+        {
+            var c = CellAt(t.bottom); var f = FarAt(t.bottom);
+            if (add) { c.trunks[t.variant].Add(t.trunk); f.trunks.Add(t.trunk); } else { c.trunks[t.variant].Remove(t.trunk); f.trunks.Remove(t.trunk); }
+            if (t.crown is Matrix4x4 m)
+            {
+                var cc = CellAt(t.crownBottom); var fc = FarAt(t.crownBottom); var list = t.variant == Pine ? fc.conifer : fc.broad;
+                if (add) { cc.crowns[t.variant].Add(m); list.Add(m); } else { cc.crowns[t.variant].Remove(m); list.Remove(m); }
+            }
+        }
+        public bool Break(BoxCollider box, Vector3 direction, float speed)
+        {
+            if (!breakable.TryGetValue(box, out var t) || !box.enabled) return false;
+            box.enabled = false; Instances(t, false);
+            var dir = Vector3.ProjectOnPlane(direction, Vector3.up).normalized; if (dir.sqrMagnitude < .5f) dir = Vector3.forward;
+            fallen.Add(new Faller { tree = t, axis = Vector3.Cross(Vector3.up, dir), trunk = t.trunk, crown = t.crown ?? default });
+            var at = t.bottom + Vector3.up * 1.2f; SmashAudio.Play(at, Mathf.Max(speed, 18), SmashAudio.Surface.Wood);
+            var rng = new System.Random(Mathf.RoundToInt(t.bottom.x * 31 + t.bottom.z * 17));
+            for (int i = 0; i < 9; i++)
+            {
+                float r() => (float)rng.NextDouble();
+                bool leaf = i >= 4; var v = dir * (speed * (.25f + .2f * r())) + Vector3.Cross(Vector3.up, dir) * ((r() - .5f) * 6) + Vector3.up * (2 + 4 * r());
+                debris.Add((at + Vector3.up * (leaf ? t.height * .5f * r() : .3f), v, new Vector3(r(), r(), r()) * 400, 0, leaf, leaf ? .6f + r() * .6f : Mathf.Clamp(t.width * .6f, .15f, .5f)));
+            }
+            return true;
+        }
+        void Regrow(Faller f) { var t = f.tree; Instances(t, true); t.box.enabled = true; Regrown++; }
+        float nextRegrow;
+        void Update()
+        {
+            float dt = Time.deltaTime;
+            for (int i = 0; i < fallen.Count; i++)
+            {
+                var f = fallen[i]; f.age += dt; float k = Mathf.Clamp01(f.age / 1.5f), angle = 6 + 82 * k * k;
+                if (k >= 1 && !f.thud) { f.thud = true; SmashAudio.Play(f.tree.bottom + Vector3.up, 12, SmashAudio.Surface.Wood); }
+                var pivot = Matrix4x4.Translate(f.tree.bottom) * Matrix4x4.Rotate(Quaternion.AngleAxis(angle, f.axis)) * Matrix4x4.Translate(-f.tree.bottom);
+                f.trunk = pivot * f.tree.trunk; if (f.tree.crown is Matrix4x4 m) f.crown = pivot * m;
+            }
+            for (int i = debris.Count - 1; i >= 0; i--)
+            {
+                var d = debris[i]; d.age += dt; d.v += Physics.gravity * dt; d.p += d.v * dt; if (d.age > 2.2f) { debris.RemoveAt(i); continue; } debris[i] = d;
+            }
+            if (fallen.Count == 0 || Time.time < nextRegrow) return; nextRegrow = Time.time + 1;
+            for (int i = fallen.Count - 1; i >= 0; i--) if (fallen[i].age > 3 && RoamWorld.Nearest(fallen[i].tree.bottom) > RegrowDistance) { Regrow(fallen[i]); fallen.RemoveAt(i); }
+        }
+        // all broken trees standing again (a new Free Roam start, map travel)
+        public void RegrowAll() { foreach (var f in fallen) Regrow(f); fallen.Clear(); debris.Clear(); }
+        void DrawBroken(ref int calls)
+        {
+            if (fallen.Count == 0 && debris.Count == 0) return;
+            var rp = new RenderParams(material) { shadowCastingMode = ShadowCastingMode.On, receiveShadows = true, layer = 0, worldBounds = new Bounds(Vector3.zero, Vector3.one * 100000) };
+            foreach (var f in fallen)
+            {
+                if (trunkNear[f.tree.variant] is Mesh tm) { scratch.Clear(); scratch.Add(f.trunk); calls += Draw(rp, tm, scratch); }
+                if (f.tree.crown.HasValue && crownNear[f.tree.variant] is Mesh cm) { scratch.Clear(); scratch.Add(f.crown); calls += Draw(rp, cm, scratch); }
+            }
+            scratch.Clear(); foreach (var d in debris) if (d.leaf) scratch.Add(Matrix4x4.TRS(d.p, Quaternion.Euler(d.spin * d.age), Vector3.one * d.size * (1 - d.age / 2.4f)));
+            if (scratch.Count > 0 && crownNear[Bush] is Mesh bm) calls += Draw(rp, bm, scratch);
+            scratch.Clear(); foreach (var d in debris) if (!d.leaf) scratch.Add(Matrix4x4.TRS(d.p, Quaternion.Euler(d.spin * d.age), new Vector3(d.size, d.size * 2.5f, d.size)));
+            if (scratch.Count > 0 && trunkNear[Young] is Mesh ym) calls += Draw(rp, ym, scratch);
+        }
+
         // ---------------------------------------------------------------- drawing
         readonly HashSet<Vector2Int> nearKeys = new();
         // instanced draws in batches of at most 1000
@@ -511,6 +596,7 @@ namespace Racer
                 }
                 else FarExcept(rp, pair.Key, ref calls);
             }
+            DrawBroken(ref calls); // 1.3
             DrawCalls = calls;
         }
     }

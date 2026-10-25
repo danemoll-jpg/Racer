@@ -111,9 +111,10 @@ namespace Racer
             // 0.115 Leviathan: the Mountain Loop's AI rules on its mountain part only (Mtn); the Street Loop's elsewhere
             bool Mtn(float at)=>mountainFlights&&(!leviathan||leviathan.Mountain(at));
             float driveHalfWidth=racing&&Mtn(s)?6:DriveRoad.HalfWidth(s);
-            if(HighwayTraffic && (DriveRoad.openHighway?(Direction>0?s>DriveRoad.Length-75:s<75):(Direction>0?s>4680 || s<3650:s<3650 || s>4680)))
+            float endMargin=HighwayTraffic&&DriveRoad.openHighway?RoamWorld.EndMargin(DriveRoad,Direction>0):0; // 1.3: a Free Roam flip ramp or turnaround at the road's end
+            if(HighwayTraffic && (DriveRoad.openHighway?(Direction>0?s>DriveRoad.Length-75-endMargin:s<75+endMargin):(Direction>0?s>4680 || s<3650:s<3650 || s>4680)))
             { TryRecycleHighway(); s=DriveRoad.Project(Car.Body.position,out lateral); }
-            if(HighwayTraffic&&DriveRoad.openHighway&&(Direction>0?s>DriveRoad.Length-35:s<35)){Car.Simulate(0,1,0,Time.fixedDeltaTime);return;}
+            if(HighwayTraffic&&DriveRoad.openHighway&&(Direction>0?s>DriveRoad.Length-35-endMargin:s<35+endMargin)){Car.Simulate(0,1,0,Time.fixedDeltaTime);return;}
             Car.GetComponent<VehicleRespawn>().RecordSafePosition();
             float speed = Mathf.Abs(Car.ForwardSpeed);
             DriveRoad.At(s, out var tangent);
@@ -494,7 +495,7 @@ namespace Racer
         }
         void TryRecycleHighway()
         {
-            float destination=DriveRoad.openHighway?(Direction>0?95:DriveRoad.Length-95):(Direction>0?3760:4600);
+            float destination=DriveRoad.openHighway?(Direction>0?95+RoamWorld.EndMargin(DriveRoad,false):DriveRoad.Length-95-RoamWorld.EndMargin(DriveRoad,true)):(Direction>0?3760:4600);
             float side=DriveRoad.TrafficLane(destination,Direction,pace>.955f);
             var p=DriveRoad.At(destination,out var f)+Vector3.Cross(Vector3.up,f).normalized*side;
             var camera=Camera.main;

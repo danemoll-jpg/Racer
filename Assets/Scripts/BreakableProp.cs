@@ -136,6 +136,8 @@ namespace Racer
                 prop.sensor.enabled = true; prop.IsBroken = false; prop.PendingRestore = false; prop.age = 0;
             }
         }
+        // 1.3: this one prop back where it stood (a Free Roam smash spot nobody is near any more); waits while a vehicle is in its place
+        public void Restore() { if (!initialized || (!IsBroken && !PendingRestore)) return; HideDebris(); PendingRestore = true; TryRestore(); }
         public static void RestoreRace()
         {
             Physics.SyncTransforms();

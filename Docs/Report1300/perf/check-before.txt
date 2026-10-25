@@ -1,0 +1,6 @@
+screen=1920x1080 kind=world1300 version=1.2.0-review2 park=on
+Free Roam world check part perf: items 0 (off: before), breakable trees 11948
+  forest-west: 11.94 ms per frame (335 frames in 4 s)
+  forest-middle: 10.38 ms per frame (386 frames in 4 s)
+  forest-north-east: 8.74 ms per frame (458 frames in 4 s)
+worst view: forest-west 11.94 ms; all views 10.36 ms (split-screen Free Roam 1920x1080, before (off))

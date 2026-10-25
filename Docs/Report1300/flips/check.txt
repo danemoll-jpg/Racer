@@ -1,0 +1,26 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+Free Roam world check part flips: items 18 (from C:\Users\danmo\Racer\Assets\Resources\RoamWorld.json), breakable trees 11757
+  1 table at -54,-202 facing 135: lip 7.5 m at 34 degrees, 13 m wide, 30 m to the landing
+  2 table at -126,314 facing 75: lip 6.5 m at 32 degrees, 12 m wide, 30 m to the landing
+  3 table at -198,2 facing 210: lip 6.0 m at 32 degrees, 12 m wide, 30 m to the landing
+  4 house at 467,-600 facing 75: lip 4.5 m at 32 degrees, 12 m wide, 36 m to the landing
+  5 house at -38,-379 facing 180: lip 4.5 m at 32 degrees, 12 m wide, 34 m to the landing
+  6 through at 126,-202 facing 285: kicker 2.6 m, barn 16 m long (deck 2.0 m), plank walls both ends
+  7 gap at 54,482 facing 90: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  8 gap at 210,-430 facing 300: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  9 kicker at 270,170 facing 105: lip 2.4 m at 26 degrees, 9 m wide
+  10 kicker at -294,146 facing 0: lip 2.4 m at 26 degrees, 9 m wide
+  11 kicker at -234,-166 facing 345: lip 2.4 m at 26 degrees, 9 m wide
+  12 smash at -14,38: 28 props (hay bales, crates, boxes, cones)
+  13 smash at 482,126: 28 props (hay bales, crates, boxes, cones)
+  14 smash at 314,-314: 28 props (hay bales, crates, boxes, cones)
+  15 smash at 418,262: 28 props (hay bales, crates, boxes, cones)
+  16 flip at -972,-548 facing 270: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  17 loop at -1208,541 (road coming in heading 270): a 22 m paved turnaround, banked 2.8 m round its rim
+  18 flip at 936,563 facing 90: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  built 18 items in 42 ms
+  cleared: 191 tree trunks and 529 old vegetation pieces where the 18 items, their run-ups and landings are
+  flip 16 normal: launched yes at -962.4,6.74,-548.0, apex 8.7 m over the lip, air 2.84 s, landed 29 m back down the road from the lip, no wipe-out, up 1.00, facing 180 degrees from the way in (back the way it came); touched: vehicle touched 'Decorative Road pavement' at (-945.8, 6.1, -548.3), impulse 16803
+  flip 16 HIGH: launched yes at -962.4,6.74,-548.0, apex 8.7 m over the lip, air 2.84 s, landed 29 m back down the road from the lip, no wipe-out, up 1.00, facing 180 degrees from the way in (back the way it came); touched: vehicle touched 'Decorative Road pavement' at (-945.8, 6.1, -548.3), impulse 16803
+  flip 18 normal: launched yes at 926.4,42.45,563.0, apex 8.7 m over the lip, air 2.84 s, landed 29 m back down the road from the lip, no wipe-out, up 1.00, facing 180 degrees from the way in (back the way it came); touched: nothing but ground
+  flip 18 HIGH: launched yes at 926.4,42.45,563.0, apex 8.7 m over the lip, air 2.82 s, landed 29 m back down the road from the lip, no wipe-out, up 1.00, facing 180 degrees from the way in (back the way it came); touched: nothing but ground

@@ -65,10 +65,11 @@ namespace Racer
             Hwy92Roadside.Clear(gameObject.scene); // 0.104: the old Hwy 92 placeholder roadside, and the trees where today's lots are
             LeviathanCourse.ClearTrunks(gameObject.scene); // 0.115: in a Leviathan race, the trunks standing on its lake trails (as Free Roam clears them)
             StuntPark.Clear(gameObject.scene); // 0.106: the trees where the stunt park, its banks and its drive are
+            RoamWorld.Clear(gameObject.scene); // 1.3: the trees where Free Roam's ramps, smash spots and dead-end turnarounds are
             LoadingScreen.Report("People", done++, steps); yield return null;
             ScenePeople.DressCamp(gameObject.scene);
             if (Scenery.New && !built) { var e = BuildSteps(); while (e.MoveNext()) { LoadingScreen.Report(e.Current, done++, steps); yield return null; } }
-            LoadingScreen.Report("Hwy 92", done++, steps); Roadside = Hwy92Roadside.Attach(gameObject); TrickumRoadside = Hwy92Roadside.Attach(gameObject, Hwy92Roadside.Trickum); /* 0.113 Part C */ Park = StuntPark.Attach(gameObject); yield return null; // 0.104, 0.106 (any Scenery setting)
+            LoadingScreen.Report("Hwy 92", done++, steps); Roadside = Hwy92Roadside.Attach(gameObject); TrickumRoadside = Hwy92Roadside.Attach(gameObject, Hwy92Roadside.Trickum); /* 0.113 Part C */ Park = StuntPark.Attach(gameObject); RoamWorld.Attach(gameObject); /* 1.3 */ yield return null; // 0.104, 0.106 (any Scenery setting)
             LoadingScreen.Report("Street signs", done++, steps); Signs = StreetSigns.Attach(gameObject); yield return null;
             LoadingScreen.Report("Road paint", done++, steps); Paint = JunctionPaint.Attach(gameObject); yield return null;
             LoadingScreen.Report("World edge", done++, steps); WorldEdge.Attach(gameObject); yield return null;

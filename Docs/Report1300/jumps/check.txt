@@ -1,0 +1,44 @@
+screen=1280x720 kind=world1300 version=1.2.0-review2 park=on
+Free Roam world check part jumps: items 18 (from C:\Users\danmo\Racer\Assets\Resources\RoamWorld.json), breakable trees 11757
+  1 table at -54,-202 facing 135: lip 7.5 m at 34 degrees, 13 m wide, 30 m to the landing
+  2 table at -126,314 facing 75: lip 6.5 m at 32 degrees, 12 m wide, 30 m to the landing
+  3 table at -198,2 facing 210: lip 6.0 m at 32 degrees, 12 m wide, 30 m to the landing
+  4 house at 467,-600 facing 75: lip 4.5 m at 32 degrees, 12 m wide, 36 m to the landing
+  5 house at -38,-379 facing 180: lip 4.5 m at 32 degrees, 12 m wide, 34 m to the landing
+  6 through at 126,-202 facing 285: kicker 2.6 m, barn 16 m long (deck 2.0 m), plank walls both ends
+  7 gap at 54,482 facing 90: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  8 gap at 210,-430 facing 300: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  9 kicker at 270,170 facing 105: lip 2.4 m at 26 degrees, 9 m wide
+  10 kicker at -294,146 facing 0: lip 2.4 m at 26 degrees, 9 m wide
+  11 kicker at -234,-166 facing 345: lip 2.4 m at 26 degrees, 9 m wide
+  12 smash at -14,38: 25 props (hay bales, crates, boxes, cones)
+  13 smash at 482,126: 25 props (hay bales, crates, boxes, cones)
+  14 smash at 314,-314: 25 props (hay bales, crates, boxes, cones)
+  15 smash at 418,262: 25 props (hay bales, crates, boxes, cones)
+  16 flip at -972,-548 facing 270: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  17 loop at -1226,541 (road coming in heading 270): a 22 m paved turnaround, banked 2.8 m round its rim
+  18 flip at 957,563 facing 90: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  built 18 items in 43 ms
+  cleared: 191 tree trunks and 529 old vegetation pieces where the 18 items, their run-ups and landings are
+  jump 1 (table) normal original: takeoff 34.2 m/s, air 4.26 s, 115 m, apex 17.2 m over the lip, landed yes upright (up 0.80); touched: nothing but ground
+  jump 1 (table) HIGH original: takeoff 34.2 m/s, air 4.10 s, 115 m, apex 17.2 m over the lip, landed yes upright (up 0.95); touched: nothing but ground
+  jump 2 (table) normal original: takeoff 34.2 m/s, air 3.86 s, 110 m, apex 16.2 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 2 (table) HIGH original: takeoff 34.2 m/s, air 3.86 s, 110 m, apex 16.2 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 3 (table) normal original: takeoff 34.5 m/s, air 3.84 s, 106 m, apex 15.2 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 3 (table) HIGH original: takeoff 34.5 m/s, air 3.86 s, 112 m, apex 15.2 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 4 (house over Remembered house behind southern hairpin) normal original: takeoff 34.6 m/s, air 3.48 s, 105 m, apex 11.0 m over the lip, landed yes upright (up 1.00); touched: nothing but ground
+  jump 4 (house over Remembered house behind southern hairpin) HIGH original: takeoff 34.6 m/s, air 3.48 s, 105 m, apex 11.0 m over the lip, landed yes upright (up 1.00); touched: nothing but ground
+  jump 5 (house over Approximate older residence (-38, -396)) normal original: takeoff 33.7 m/s, air 5.10 s, 107 m, apex 11.9 m over the lip, landed yes upright (up 1.00); touched: nothing but ground
+  jump 5 (house over Approximate older residence (-38, -396)) HIGH original: takeoff 33.7 m/s, air 5.48 s, 107 m, apex 12.0 m over the lip, landed yes upright (up 1.00); touched: nothing but ground
+  jump 6 (through) normal original: takeoff 36.5 m/s, air 1.70 s, 17 m, apex 4.0 m over the lip, landed yes upright (up 0.97); touched: nothing but ground
+  jump 6 (through) HIGH original: takeoff 36.5 m/s, air 1.70 s, 17 m, apex 4.0 m over the lip, landed yes upright (up 0.97); touched: nothing but ground
+  jump 7 (gap) normal original: takeoff 34.0 m/s, air 3.34 s, 98 m, apex 12.8 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 7 (gap) HIGH original: takeoff 34.0 m/s, air 3.34 s, 98 m, apex 12.8 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 8 (gap) normal original: takeoff 34.0 m/s, air 7.30 s, 101 m, apex 12.9 m over the lip, landed yes upright (up 1.00); touched: nothing but ground
+  jump 8 (gap) HIGH original: takeoff 34.0 m/s, air 7.12 s, 102 m, apex 12.9 m over the lip, landed yes upright (up 1.00); touched: nothing but ground
+  jump 9 (kicker) normal original: takeoff 33.9 m/s, air 3.24 s, 94 m, apex 14.3 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 9 (kicker) HIGH original: takeoff 33.9 m/s, air 3.26 s, 95 m, apex 14.3 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 10 (kicker) normal original: takeoff 34.1 m/s, air 2.90 s, 89 m, apex 9.1 m over the lip, landed yes upright (up 1.00); touched: vehicle touched 'CR014 trunk 00911' at (-295.1, 23.8, 208.6), impulse 7
+  jump 10 (kicker) HIGH original: takeoff 34.1 m/s, air 2.90 s, 89 m, apex 9.1 m over the lip, landed yes upright (up 1.00); touched: vehicle touched 'CR014 trunk 00911' at (-295.1, 23.8, 208.6), impulse 6
+  jump 11 (kicker) normal original: takeoff 34.6 m/s, air 3.10 s, 96 m, apex 9.4 m over the lip, landed yes upright (up 0.99); touched: nothing but ground
+  jump 11 (kicker) HIGH original: takeoff 34.6 m/s, air 3.10 s, 96 m, apex 9.5 m over the lip, landed yes upright (up 0.99); touched: nothing but ground

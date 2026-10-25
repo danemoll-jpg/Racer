@@ -24,6 +24,7 @@ namespace Racer
         public const float AheadMetres = 400;
         static readonly Color Ahead = new(1, 1, 1);
         public const string RoamKey = "<color=#D6DBE0>ROADS</color>  <color=#CC9957>TRAILS</color>  <color=#FFB02B>◆</color>SITES  <color=#FFD633>◆</color>WAYPOINT";
+        static readonly Color RampMark = new(1, .6f, .18f), SmashMark = new(1, .29f, .23f), FlipMark = new(.82f, .48f, 1); // 1.3
         UnityEngine.InputSystem.InputAction toggle;
         public UnityEngine.InputSystem.InputAction ToggleAction => toggle;
         public static RacingMiniMap Instance { get; private set; }
@@ -194,6 +195,13 @@ namespace Racer
                 // activity sites, then the waypoint (kept at the edge of the window when it is further away)
                 var sites = race.Flow.Activities?.Sites;
                 if (sites != null) foreach (var site in sites) { if (!site) continue; var p = Project(site.transform.position); if (!bounds.Contains(p)) continue; Diamond(vh, p, 5.5f, new(.03f,.06f,.08f)); Diamond(vh, p, 4, Optional); }
+                // 1.3: the Free Roam world's ramps (orange), smash spots (red) and flip ramps (purple)
+                if (RoamWorld.Current) foreach (var (at, mark, _) in RoamWorld.Current.Icons)
+                {
+                    var p = Project(at); if (!bounds.Contains(p)) continue; var dark = new Color(.03f, .06f, .08f);
+                    if (mark == RoamWorld.Mark.Smash) { Triangle(vh, p + new Vector2(-6, -6), p + new Vector2(-6, 6), p + new Vector2(6, 6), dark); Triangle(vh, p + new Vector2(-6, -6), p + new Vector2(6, 6), p + new Vector2(6, -6), dark); Triangle(vh, p + new Vector2(-4, -4), p + new Vector2(-4, 4), p + new Vector2(4, 4), SmashMark); Triangle(vh, p + new Vector2(-4, -4), p + new Vector2(4, 4), p + new Vector2(4, -4), SmashMark); }
+                    else { float u = mark == RoamWorld.Mark.Flip ? -1 : 1; Triangle(vh, p + new Vector2(0, 8 * u), p + new Vector2(-8, -6 * u), p + new Vector2(8, -6 * u), dark); Triangle(vh, p + new Vector2(0, 5.5f * u), p + new Vector2(-5, -4 * u), p + new Vector2(5, -4 * u), mark == RoamWorld.Mark.Flip ? FlipMark : RampMark); }
+                }
                 var map = race.Flow.GetComponent<ExplorationMap>();
                 if (map && map.Waypoint.HasValue)
                 {

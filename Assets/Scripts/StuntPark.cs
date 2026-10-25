@@ -128,7 +128,7 @@ namespace Racer
         void Start() { if (!Disabled && IsWorld(gameObject.scene)) Build(gameObject.scene); }
         void OnDestroy() { if (Current == this) { Current = null; loops.Clear(); } }
 
-        sealed class Mb
+        internal sealed class Mb
         {
             public readonly List<Vector3> v = new(); public readonly List<Vector3> n = new(); public readonly List<Color> c = new(); public readonly List<int> t = new();
             public void Tri(Vector3 a, Vector3 b, Vector3 d, Color col)
@@ -175,7 +175,7 @@ namespace Racer
         }
 
         // ---------------------------------------------------------------- profiles: a turtle in (along, up), so every ramp is one smooth line
-        sealed class Prof
+        internal sealed class Prof
         {
             public readonly List<Vector2> pts = new(); public float s, y, a; // a: heading in degrees (0 flat, + up)
             public Prof(float s0 = 0, float y0 = 0) { s = s0; y = y0; pts.Add(new Vector2(s, y)); }

@@ -1,0 +1,20 @@
+{"items":[
+{"id": "1", "kind": "table", "title": "Huge table, south-west of the middle", "pos": [-54.0, -202.0], "yaw": 135, "height": 7.5, "angle": 34, "width": 13, "gap": 30},
+{"id": "2", "kind": "table", "title": "Huge table, north woods", "pos": [-126.0, 314.0], "yaw": 75, "height": 6.5, "angle": 32, "width": 12, "gap": 30},
+{"id": "3", "kind": "table", "title": "Huge table, west of the middle", "pos": [-198.0, 2.0], "yaw": 210, "height": 6.0, "angle": 32, "width": 12, "gap": 30},
+{"id": "4", "kind": "house", "title": "House jump over the house behind the southern hairpin", "house": "Remembered house behind southern hairpin", "pos": [466.9, -600.3], "yaw": 75, "height": 4.5, "angle": 32, "width": 12, "gap": 36.4},
+{"id": "5", "kind": "house", "title": "House jump over the older house south of the middle", "house": "Approximate older residence (-38, -396)", "pos": [-38.2, -379.3], "yaw": 180, "height": 4.5, "angle": 32, "width": 12, "gap": 34.4},
+{"id": "6", "kind": "through", "title": "Barn jump: through the barn", "pos": [126.0, -202.0], "yaw": 285},
+{"id": "7", "kind": "gap", "title": "Gap jump south of Hwy 92", "pos": [54.0, 482.0], "yaw": 90, "height": 3.6, "angle": 30, "width": 10, "gap": 30},
+{"id": "8", "kind": "gap", "title": "Gap jump, south woods", "pos": [210.0, -430.0], "yaw": 300, "height": 3.6, "angle": 30, "width": 10, "gap": 30},
+{"id": "9", "kind": "kicker", "title": "Kicker east of the middle", "pos": [270.0, 170.0], "yaw": 105, "height": 2.4, "angle": 26, "width": 9},
+{"id": "10", "kind": "kicker", "title": "Kicker, north-west woods", "pos": [-294.0, 146.0], "yaw": 0, "height": 2.4, "angle": 26, "width": 9},
+{"id": "11", "kind": "kicker", "title": "Kicker, west woods", "pos": [-234.0, -166.0], "yaw": 345, "height": 2.4, "angle": 26, "width": 9},
+{"id": "12", "kind": "smash", "title": "Smash spot in the middle", "pos": [-14.0, 38.0], "yaw": 315},
+{"id": "13", "kind": "smash", "title": "Smash spot north-east of Dan's", "pos": [482.0, 126.0], "yaw": 45},
+{"id": "14", "kind": "smash", "title": "Smash spot, south woods", "pos": [314.0, -314.0], "yaw": 180},
+{"id": "15", "kind": "smash", "title": "Smash spot, north-east woods", "pos": [418.0, 262.0], "yaw": 270},
+{"id": "16", "kind": "flip", "title": "Flip ramp at the west end of the south-west road", "pos": [-972.0, -548.0], "yaw": 270, "height": 4.5, "angle": 56, "width": 9},
+{"id": "17", "kind": "loop", "title": "Turnaround at the west end of Hwy 92", "pos": [-1208.0, 541.0], "yaw": 270, "radius": 11},
+{"id": "18", "kind": "flip", "title": "Flip ramp at the east end of Hwy 92", "pos": [936.0, 563.0], "yaw": 90, "height": 4.5, "angle": 56, "width": 16}
+]}
