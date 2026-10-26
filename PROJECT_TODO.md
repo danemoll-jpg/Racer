@@ -48,6 +48,12 @@ Free Roam world only (one-player and split-screen Free Roam, and chases/stunts p
 - **Check:** a numbered map picture of every new ramp, smash spot and blocked-road change, one in-game shot of each; jump a few including a huge one and a house jump, and one flip ramp in each mode, in the built player.
 - **Results:** each item listed by number with its spot so Dan can say "remove 4".
 
+### Addition (Dan, 2026-10-25, after trying 1.3.0-review1) — target 1.3.0-review2 (publish)
+Dan: "1) want it to be easier to break trees in High Mode 2) In jumps for races (Mountain for example) The lanes on the landing are too narrows and users end up outside the track"; asked: HIGH MODE, "specifically about the bumpers"; publish when done ("Yes, publish").
+1. HIGH MODE: trees break at a much lower speed (Free Roam).
+2. HIGH MODE races: at jump landings the lane between the gutter bumpers is too narrow; vehicles land outside it and end up off the track. Give the landings a wider lane between the bumpers. Normal races unchanged.
+3. Check: a tree broken slowly in HIGH MODE; each mountain jump's landing (Mountain Loop both ways, Leviathan) seen from above with its bumpers, and jumped off-line in HIGH MODE: lands inside the bumpers. Then publish.
+
 ### Results (2026-10-25, Claude Code)
 - Checkpoint `b7ba20f1`. Evidence [Docs/Report1300/](Docs/Report1300/): numbered map [items-map.png](Docs/Report1300/items-map.png), one shot per item [items/](Docs/Report1300/items/); checks `-p106kind world1300 -p1300part survey|shots|jumps|flips|loops|trees|smash|perf` ([Report106PlayerCheck.Round1300.cs](Assets/Scripts/Report106PlayerCheck.Round1300.cs), [Run-WorldChecks.ps1](Tools/Report1300/Run-WorldChecks.ps1)); placement from an in-game survey by [place.py](Tools/Report1300/py/place.py).
 - **Items** ([RoamWorld.cs](Assets/Scripts/RoamWorld.cs), [RoamWorld.json](Assets/Resources/RoamWorld.json): delete an entry to remove it), built in FreeRoamWorld only and shown only in Free Roam; all 35 m+ from every race line, 150 m+ from the edge, clear of Dan's and Kyle's houses, the stunt park and existing jumps; trees on each run-up and landing cleared (191 trunks):
