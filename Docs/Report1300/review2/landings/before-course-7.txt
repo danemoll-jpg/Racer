@@ -1,0 +1,22 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+== HIGH MODE Dan's Backyard Loop - Reverse (backyard-reverse-v4-continuous-shortcuts): race HIGH True, 5 jumps found (gaps in the line), bumpers 1454 stations, 54 open
+  jump 0 on the main: lip 128.3,61.16,80.7, lands 68.3,45.87,80.7, gap 62 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:6.2|6.2 4:6.2|6.2 8:6.2|6.2 12:6.2|6.2 16:6.2|6.2 20:4.8|4.8 24:4.8|4.8 28:4.8|4.8 32:4.8|4.8 36:4.8|4.8 40:4.8|4.8 44:4.8|4.8 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: landed -9 m past the landing's start, 1.3 m from the line (bumper on that side at none m) -> inside; bumper hits 4; 2 s later -0.4 m from the line
+    -3 m off the line at 24 m/s: no landing seen; bumper hits 6; 2 s later 2.0 m from the line
+    +3 m off the line at 24 m/s: landed -10 m past the landing's start, -1.1 m from the line (bumper on that side at none m) -> inside; bumper hits 5; 2 s later 0.4 m from the line
+  jump 1 on the main: lip 71.0,43.49,-94.1, lands 118.8,42.45,-94.0, gap 48 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:4.8|4.8 4:4.8|4.8 8:4.8|4.8 12:4.8|4.8 16:4.8|4.8 20:4.8|4.8 24:4.8|4.8 28:4.8|4.8 32:4.8|4.8 36:4.8|4.8 40:4.8|4.8 44:4.8|4.8 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: landed 9 m past the landing's start, -6.4 m from the line (bumper on that side at 4.8 m) -> OUTSIDE the bumpers; bumper hits 10; 2 s later -5.8 m from the line
+    -3 m off the line at 24 m/s: landed -2 m past the landing's start, -1.0 m from the line (bumper on that side at 4.8 m) -> inside; bumper hits 7; 2 s later -1.1 m from the line
+    +3 m off the line at 24 m/s: landed 20 m past the landing's start, 6.9 m from the line (bumper on that side at 4.8 m) -> OUTSIDE the bumpers; bumper hits 17; 2 s later 5.9 m from the line
+  jump 2 on the main: lip 389.8,85.98,-2.9, lands 417.2,83.61,2.5, gap 28 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:2.2|4.8 4:4.8|4.8 8:4.8|4.8 12:4.8|4.8 16:4.8|4.8 20:4.8|4.8 24:4.8|4.8 28:6.1|5.3 32:5.2|7.2 36:5.2|7.2 40:5.5|7.2 44:5.7|7.2 48:6.2|7.2 52:6.5|7.2
+    0 m off the line at 24 m/s: landed -8 m past the landing's start, 0.2 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later 7.9 m from the line
+    -3 m off the line at 24 m/s: landed 4 m past the landing's start, 2.4 m from the line (bumper on that side at 1.1 m) -> OUTSIDE the bumpers; bumper hits 4; 2 s later 2.9 m from the line
+    +3 m off the line at 24 m/s: landed 21 m past the landing's start, -1.5 m from the line (bumper on that side at 4.8 m) -> inside; bumper hits 4; 2 s later -3.7 m from the line
+  jump 3 on the shortcut 'Storm Drain / Gully Jump': lip 95.0,36.20,-66.1, lands 83.0,37.61,-66.3, gap 12 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:3.9|3.9 4:-|- 8:3.9|3.9 12:3.8|3.9 16:3.8|3.9 20:3.9|3.8 24:3.8|3.8 28:3.9|3.8 32:3.9|3.8 36:3.9|3.9 40:3.9|3.8 44:3.8|3.9 48:3.9|3.9 52:3.8|3.8
+    0 m off the line at 24 m/s: landed -12 m past the landing's start, -2.9 m from the line (bumper on that side at 3.8 m) -> inside; bumper hits 5; 2 s later 3.0 m from the line
+    -3 m off the line at 24 m/s: landed -5 m past the landing's start, -11.7 m from the line (bumper on that side at none m) -> inside; bumper hits 1; 2 s later -7.0 m from the line
+    +3 m off the line at 24 m/s: landed -12 m past the landing's start, -0.3 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later 1.6 m from the line
+  jump 4 on the shortcut 'Storm Drain / Gully Jump': lip 83.0,37.61,-66.3, lands 73.0,37.92,-66.5, gap 10 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:3.9|3.8 4:3.9|3.9 8:3.9|3.8 12:3.9|3.9 16:3.8|3.9 20:3.9|3.9 24:3.9|3.8 28:3.8|3.8 32:3.8|3.8 36:3.9|3.9 40:3.9|3.9 44:3.9|3.9 48:-|3.9 52:-|-
+    0 m off the line at 24 m/s: no landing seen; bumper hits 0; 2 s later 0.2 m from the line
+    -3 m off the line at 24 m/s: no landing seen; bumper hits 0; 2 s later 0.2 m from the line
+    +3 m off the line at 24 m/s: landed -13 m past the landing's start, 0.2 m from the line (bumper on that side at none m) -> inside; bumper hits 1; 2 s later 2.7 m from the line

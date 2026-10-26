@@ -459,19 +459,22 @@ namespace Racer
         }
         // the speed a trunk of this width needs (m/s): about 16 mph for the thinnest, about 54 mph for a trunk a metre thick
         public static float Needed(float width) => Mathf.Lerp(7, 24, Mathf.InverseLerp(.5f, 1f, width)); // the trunks are 0.52-1.0 m wide
+        // 1.3.0-review2 (Dan: "easier to break trees in High Mode"): in HIGH MODE 45% of that (about 8 mph for the thinnest, 24 mph for the biggest)
+        public const float HighFactor = .45f, HighFloor = 3.5f;
+        public static float Needed(float width, bool high) => high ? Mathf.Max(HighFloor, Needed(width) * HighFactor) : Needed(width);
         void FixedUpdate()
         {
             if (!car || !race || !race.FreeRoam || !Scenery.New || car.Body.isKinematic) return;
             var trees = SceneryWorld.Current ? SceneryWorld.Current.Trees : null; if (!trees || !trees.Breakable) return;
-            var v = car.Body.linearVelocity; var flat = Vector3.ProjectOnPlane(v, Vector3.up); float speed = flat.magnitude; if (speed < 5.5f) return;
-            var dir = flat / speed; float reach = speed * Time.fixedDeltaTime * 2 + 2.6f;
+            var v = car.Body.linearVelocity; var flat = Vector3.ProjectOnPlane(v, Vector3.up); float speed = flat.magnitude; if (speed < HighFloor) return;
+            bool high = race.HighFor(player); var dir = flat / speed; float reach = speed * Time.fixedDeltaTime * 2 + 2.6f;
             int n = Physics.SphereCastNonAlloc(car.Body.position + Vector3.up * .5f, .9f, dir, hits, reach, ~0, QueryTriggerInteraction.Ignore);
             for (int i = 0; i < n; i++)
             {
                 if (!(hits[i].collider is BoxCollider box) || !trees.IsTree(box, out float width)) continue;
-                float need = Needed(width); if (speed < need) continue;
+                float need = Needed(width, high); if (speed < need) continue;
                 if (!trees.Break(box, dir, speed)) continue;
-                float size = Mathf.InverseLerp(.5f, 1f, width), loss = (.15f + .3f * size) * (race.HighFor(player) ? .5f : 1);
+                float size = Mathf.InverseLerp(.5f, 1f, width), loss = (.15f + .3f * size) * (high ? .5f : 1);
                 car.Body.linearVelocity = v - flat * loss; Broken++; Last = $"player {player} broke a trunk {width:F2} m wide at {speed:F1} m/s (needs {need:F1}), speed -{loss * 100:F0}%";
             }
         }

@@ -146,7 +146,7 @@ namespace Racer
             panel.anchorMin = panel.anchorMax = panel.pivot = tt ? new Vector2(.5f, 1) : new Vector2(0, 1); panel.anchoredPosition = tt ? new Vector2(0, -24) : new Vector2(24, -24);
             panel.sizeDelta = new Vector2(tt ? 560 : 560, 0);
             title.text = e.Name.ToUpperInvariant();
-            kind.text = e.Kind switch { CampaignEventKind.Trick => $"TRICKS  ·  your best combo in {e.Tries} tries ({TrapWatch?.Tries ?? 0} flown)", CampaignEventKind.Clean => $"LAND IT CLEAN  ·  {TrapWatch?.Streak ?? 0} in a row now", CampaignEventKind.Jump => "JUMP  ·  go again as often as you like", CampaignEventKind.SpeedTrap => "SPEED TRAP  ·  hit the trap as fast as you can", CampaignEventKind.Smash => $"SMASH  ·  {Mathf.Max(SmashArea, 0)} marked props to smash", _ => "TIME TRIAL  ·  one flying lap" };
+            kind.text = e.Kind switch { CampaignEventKind.Trick => $"TRICKS  ·  your best combo in {e.Tries} tries ({TrapWatch?.Tries ?? 0} flown)", CampaignEventKind.Clean => $"LAND IT CLEAN  ·  {TrapWatch?.Streak ?? 0} in a row now", CampaignEventKind.Jump => "JUMP  ·  go again as often as you like", CampaignEventKind.SpeedTrap => "SPEED TRAP  ·  hit the trap as fast as you can", CampaignEventKind.Smash => "SMASH  ·  every fence and prop you smash counts", _ => "TIME TRIAL  ·  one flying lap" };
             int shownMedal = CampaignRun.RunBestMedal; RebuildTargets(e, shownMedal);
             bool lapClock = tt; runHolder.gameObject.SetActive(!lapClock); if (!lapClock) RebuildRun(e);
             RebuildRecord(e);
@@ -172,7 +172,7 @@ namespace Racer
         string SmashGoal(CampaignEvent e, float left)
         {
             int count = CampaignRun.LiveCount; var t = e.Targets ?? new[] { 0f, 0f, 0f };
-            return $"{count} of {SmashArea} smashed  ·  {left:0} s left\n<size=22>{ArcadeActivities.NextMedal(count, t[0], t[1], t[2])}</size>";
+            return $"{count} smashed  ·  {left:0} s left\n<size=22>{ArcadeActivities.NextMedal(count, t[0], t[1], t[2])}</size>";
         }
         void OnDestroy() { foreach (var c in clips) if (c) Destroy(c); if (Current == this) Current = null; }
     }

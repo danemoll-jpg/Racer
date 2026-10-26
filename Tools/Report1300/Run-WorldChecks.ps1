@@ -14,3 +14,7 @@ $views='-p1300views "forest-west|-370|50|90;forest-middle|-70|-10|45;forest-nort
 if(Want 'perf'){ & $run -Out "perf-before$Tag" -Width 1920 -Height 1080 -PlayerArgs "-p106kind world1300 -p1300part perf -p1300off $views -p106w 1920 -p106h 1080" -Minutes 8
                  & $run -Out "perf-after$Tag" -Width 1920 -Height 1080 -PlayerArgs "-p106kind world1300 -p1300part perf $views -p106w 1920 -p106h 1080 $d" -Minutes 8 }
 if(Want 'smash'){ & $run -Out "smash$Tag" -Width 1280 -Height 720 -PlayerArgs "-p106kind world1300 -p1300part smash -p1300spots 4 -p106w 1280 -p106h 720 $d" -Minutes 10 }
+# 1.3.0-review2: HIGH MODE race jump landings (Mountain Loop both ways, Leviathan both ways)
+if(Want 'landings'){ foreach($c in $(if($env:COURSES){$env:COURSES -split ","}else{0..9})){ & $run -Out "landings-$c$Tag" -Width 1280 -Height 720 -PlayerArgs "-p106kind world1300 -p1300part landings -p1300course $c -p106w 1280 -p106h 720" -Minutes 15 } }
+# 1.3.0-review2: Fence Line Smash in Free Roam (-Build: another check build while one is in use)
+if(Want 'fence'){ & $run -Build $(if($env:CHECK_BUILD){$env:CHECK_BUILD}else{'Builds/Check1300'}) -Out "fence$Tag" -Width 1280 -Height 720 -PlayerArgs "-p106kind world1300 -p1300part fence -p106w 1280 -p106h 720" -Minutes 8 }

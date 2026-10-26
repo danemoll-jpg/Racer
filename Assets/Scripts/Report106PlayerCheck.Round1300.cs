@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -24,6 +25,8 @@ namespace Racer
         IEnumerator World1300()
         {
             string part = Arg("-p1300part", "survey");
+            if (part == "campfence") { yield return CampFence1300(); yield break; } // 1.3.0-review2: the campaign's Fence Line Smash, driven
+            if (part == "landings") { yield return Landings1300(int.Parse(Arg("-p1300course", "4"))); yield break; } // 1.3.0-review2: a HIGH MODE race, not Free Roam
             yield return ToFreeRoam(Arg("-p106vehicle", "original")); Campaign.Testing = true; Conditions(); HighMode.Declined = true; // the checks' resets never bring up the HIGH MODE question
             var rw = RoamWorld.Current; var trees = SceneryWorld.Current ? SceneryWorld.Current.Trees : null;
             Note($"Free Roam world check part {part}: items {(rw ? rw.Items.Length : 0)} ({(RoamWorld.Disabled ? "off: before" : RoamWorld.Override != "" ? "from " + RoamWorld.Override : "built-in")}), breakable trees {(trees ? trees.BreakableCount : 0)}");
@@ -37,6 +40,7 @@ namespace Racer
             if (part == "smash") yield return Smash1300();
             if (part == "perf") yield return Perf1300();
             if (part == "loops") yield return Loops1300();
+            if (part == "fence") yield return Fence1300();
         }
         // the top static surface under a point, anywhere from 600 m down (TopAt only looks 30 m up and 50 m down from the point it is given)
         static float Top1300(Vector3 p) { float best = float.NaN; foreach (var h in Physics.RaycastAll(new Vector3(p.x, 600, p.z), Vector3.down, 1200, ~0, QueryTriggerInteraction.Ignore)) { if (h.collider.attachedRigidbody || h.collider.isTrigger) continue; if (float.IsNaN(best) || h.point.y > best) best = h.point.y; } return float.IsNaN(best) ? p.y : best; }
@@ -232,6 +236,122 @@ namespace Racer
             High1300(false);
         }
 
+        // ---------------------------------------------------------------- 1.3.0-review2: HIGH MODE race jumps: the lane between the bumpers on each landing
+        // (measured from the course line out to the bumper on each side, every 4 m from the lip to 60 m past it), a top-down picture of it, and the jump
+        // driven by the pad on the line and 3 m either side of it: where it landed and whether it stayed between the bumpers
+        // every jump of the course: a stretch of the main line or of a shortcut with no road under it (as the bumpers find it: they leave such a gap open)
+        sealed class Jump1300 { public string line; public Func<float, (Vector3 p, Vector3 f)> at; public Func<Vector3, float> project; public float lip, land, length; public bool loop; }
+        List<Jump1300> FindJumps1300()
+        {
+            var list = new List<Jump1300>(); var mask = race.vehicle.groundMask.value; var hits = new RaycastHit[16];
+            bool Road(Vector3 p) { int n = Physics.RaycastNonAlloc(p + Vector3.up * 2.5f, Vector3.down, hits, 6, mask, QueryTriggerInteraction.Ignore); for (int i = 0; i < n; i++) { var h = hits[i]; if (h.collider.attachedRigidbody || h.normal.y < .5f || h.collider.gameObject.layer == HighBumpers.Layer) continue; if (Mathf.Abs(h.point.y - p.y) < 1.6f) return true; } return false; }
+            void Scan(string name, Func<float, (Vector3, Vector3)> at, Func<Vector3, float> project, float length, bool loop)
+            {
+                float start = -1;
+                for (float s = 0; s <= length; s += 2)
+                {
+                    var (p, _) = at(s); bool gap = !Road(p);
+                    if (gap && start < 0) start = s;
+                    if ((!gap || s + 2 > length) && start >= 0) { if (s - start >= 4) list.Add(new Jump1300 { line = name, at = at, project = project, lip = start - 2, land = s + 2, length = length, loop = loop }); start = -1; }
+                }
+            }
+            var road = race.road; road.Initialize(); Scan("main", x => { var p = road.At(x, out var f); return (p, f); }, q => road.Project(q, out _), road.Length, !road.openHighway);
+            foreach (var w in race.Branches ?? new WoodlandRoute[0]) { if (!w || !w.isActiveAndEnabled || w.points == null || w.points.Length < 2) continue; var r = w; Scan("shortcut '" + r.title + "'", x => { var p = r.At(x, out var f); return (p, f); }, q => r.Project(q, out _), r.Length, false); }
+            return list;
+        }
+        IEnumerator Landings1300(int course)
+        {
+            Campaign.Testing = true; yield return QuickTo115(course); Conditions(); HighMode.Declined = true;
+            flow.Save.Settings.vehicleId = Arg("-p106vehicle", "original"); flow.Save.SaveSettings(); flow.SetHighMode(true);
+            flow.StartRace(); yield return WaitRacing(); Bind(); BindPad(); AudioListener.volume = 0;
+            var car = race.vehicle; var flights = race.GetComponent<MountainFlights>()?.flights ?? new MountainFlights.Flight[0]; var jumps = FindJumps1300();
+            Note($"== HIGH MODE {RacePlaylists.Titles[course]} ({race.courseId}): race HIGH {race.high}, {jumps.Count} jumps found (gaps in the line), bumpers {HighBumpers.Samples} stations, {HighBumpers.Openings} open, {HighBumpers.LandingStations} set wider on landings");
+            var bumps = car.GetComponent<Bumps1200>() ?? car.gameObject.AddComponent<Bumps1200>();
+            float Lane(Vector3 p, Vector3 dir) { return Physics.Raycast(p + Vector3.up * .8f, dir, out var h, 25, 1 << HighBumpers.Layer, QueryTriggerInteraction.Ignore) ? h.distance : 99; }
+            for (int k = 0; k < jumps.Count; k++)
+            {
+                var j = jumps[k]; float S(float x) => j.loop ? Mathf.Repeat(x, j.length) : Mathf.Clamp(x, 0, j.length);
+                var (lipP, lipF) = j.at(S(j.lip)); var (landP, _) = j.at(S(j.land));
+                var fl = flights.FirstOrDefault(x => Vector3.Distance(Flat(x.lip), Flat(lipP)) < 40);
+                var rows = new List<string>();
+                for (float d = -4; d <= 52; d += 4) { var (p, fw) = j.at(S(j.land + d)); var right = Vector3.Cross(Vector3.up, Flat(fw).normalized); float l = Lane(p, -right), r = Lane(p, right); rows.Add($"{d:F0}:{(l < 99 ? l.ToString("F1") : "-")}|{(r < 99 ? r.ToString("F1") : "-")}"); }
+                Note($"  jump {k} on the {j.line}{(fl != null ? $" ('{fl.name}')" : "")}: lip {V(lipP)}, lands {V(landP)}, gap {j.land - j.lip:F0} m; lane left|right of the line, metres past the landing's start: {string.Join(" ", rows)}");
+                var mid = (lipP + landP) * .5f; car.Body.isKinematic = true; car.Body.position = mid + Vector3.up * 40; car.transform.position = car.Body.position; Physics.SyncTransforms();
+                HideUi1300(true); yield return Live1300($"landing-{course}-{k}", mid + Vector3.up * 80, null, 1400, 1400, Mathf.Max(30, Vector3.Distance(lipP, landP) * .5f + 30)); HideUi1300(false); car.Body.isKinematic = false;
+                float speed = fl != null && fl.aiTakeoffSpeed > 0 ? fl.aiTakeoffSpeed : 24;
+                foreach (float off in new[] { 0f, -3f, 3f })
+                {
+                    float s0 = j.loop ? j.lip - 70 : Mathf.Max(0, j.lip - 70); var (fs, f0) = j.at(S(s0)); var right0 = Vector3.Cross(Vector3.up, Flat(f0).normalized);
+                    Put1300(car, fs + right0 * off, Yaw(f0), speed * .9f); FindAnyObjectByType<ChaseCamera>()?.Snap(); int b0 = bumps.Hits; float t0 = Time.time; bool air = false, landed = false; Vector3 land = default; bool shot = false;
+                    while (Time.time - t0 < 14)
+                    {
+                        float s = j.project(car.Body.position); var (tgt, tf) = j.at(S(s + 25)); tgt += Vector3.Cross(Vector3.up, Flat(tf).normalized) * off;
+                        Drive(car, tgt, speed); yield return new WaitForFixedUpdate();
+                        float rel = j.loop ? Mathf.Repeat(s - j.lip, j.length) : s - j.lip;
+                        if (!air && car.GroundedWheels == 0 && rel > -6 && rel < j.land - j.lip + 10) air = true;
+                        if (air && !shot && car.GroundedWheels == 0 && Time.time - t0 > 1) { shot = true; StartCoroutine(Snap($"landing-{course}-{k}-off{off:+0;-0;0}")); }
+                        if (air && !landed && car.GroundedWheels >= 2) { landed = true; land = car.Body.position; t0 = Time.time - 11; }
+                    }
+                    Release(); float sl = j.project(land); var (lp, lf) = j.at(S(sl)); var lr = Vector3.Cross(Vector3.up, Flat(lf).normalized);
+                    float lat = Vector3.Dot(Flat(land - lp), lr), lane = lat < 0 ? Lane(lp, -lr) : Lane(lp, lr);
+                    var (ep, _) = j.at(S(j.project(car.Body.position))); float endLat = Vector3.Dot(Flat(car.Body.position - ep), lr);
+                    Note($"    {off:+0;-0;0} m off the line at {speed:F0} m/s: {(landed ? $"landed {sl - j.land:F0} m past the landing's start, {lat:F1} m from the line (bumper on that side at {(lane < 99 ? lane.ToString("F1") : "none")} m) -> {(lane < 99 && Mathf.Abs(lat) > lane ? "OUTSIDE the bumpers" : "inside")}" : "no landing seen")}; bumper hits {bumps.Hits - b0}; 2 s later {endLat:F1} m from the line");
+                }
+            }
+        }
+
+        // ---------------------------------------------------------------- 1.3.0-review2: Fence Line Smash in Free Roam (Dan: "I break fences it should count. Cleared
+        // almost the whole area didn't even get one point"): smashed without an attempt, with one started from the pause menu's Start, and in HIGH MODE
+        IEnumerator Fence1300()
+        {
+            var act = flow.Activities; var props = SmashProps(out var site); var car = race.vehicle;
+            Note($"  site {site?.id} '{site?.title}' at {V(site.transform.position)} radius {site.radius}: {props.Length} props, {site.Seconds} s; selected now {act.Selected?.id}");
+            int broken(IEnumerable<BreakableProp> ps) => ps.Count(p => p.IsBroken);
+            IEnumerator Run(string tag, int from, int n)
+            {
+                for (int i = from; i < from + n && i < props.Length; i++) yield return Through(props[i], site, 0);
+                yield return new WaitForSeconds(.5f);
+                Note($"  {tag}: {n} props driven through: {broken(props)} broken; counted {act.SmashCount}; attempt {(act.AttemptActive ? "running" : "not running")}, selected {act.Selected?.id}; HUD '{act.Hud.Replace('\n', '/')}'");
+                yield return Snap("fence-" + tag);
+            }
+            // A: just smashing (no attempt)
+            Put1300(car, site.transform.position, 0, 0); yield return new WaitForSeconds(1); Note($"  at the site: HUD '{act.Hud.Replace('\n', '/')}'");
+            yield return Run("no-attempt", 0, 3);
+            // B: the pause menu's Activities > Start / Retry (its own action: BeginAttempt, then resume)
+            flow.Pause(); flow.OpenActivities(); yield return new WaitForSecondsRealtime(.5f); act.BeginAttempt(); flow.Resume(); yield return new WaitForSeconds(.5f);
+            Note($"  START from the pause menu: attempt {(act.AttemptActive ? "running" : "NOT running")}, selected {act.Selected?.id}, counted {act.SmashCount}, standing {props.Count(p => !p.IsBroken)}");
+            yield return Run("attempt-normal", 3, 5);
+            // C: HIGH MODE
+            act.Cancel(); High1300(true); act.BeginAttempt(); yield return new WaitForSeconds(.5f);
+            yield return Run("attempt-high", 8, 5);
+            High1300(false);
+        }
+
+        // the campaign's Fence Line Smash (Dan: "this in particular was during the campaign where you had to smash fences"), started from the campaign page and
+        // driven by the pad from the event's own start into each marked prop in turn (no teleports), the count logged as it goes
+        IEnumerator CampFence1300()
+        {
+            Conditions(); yield return PanelLoop("campfence-start"); yield return ToCampaign(); Note($"slot {Campaign.SlotName}");
+            yield return StartSmash(Arg("-p106vehicle", "original")); BindPad();
+            var act = flow.Activities; var props = SmashProps(out var site); var car = race.vehicle; int hits = 0; void Count(BreakableProp p, ArcadeVehicle v) { hits++; } BreakableProp.BrokenByVehicle += Count;
+            Note($"  site {site?.id}: {props.Length} props; car {car.name} at {V(car.Body.position)}, activities' car is the race vehicle: {act.PlayerObject == car.gameObject}; selected {act.Selected?.id}, attempt {act.AttemptActive}, area {act.SmashArea}");
+            yield return Snap("campfence-go");
+            // 1.3.0-review2: any prop counts: the pad goes for the nearest standing prop (fence panels near the start first, not the old 14)
+            var all = FindObjectsByType<BreakableProp>(FindObjectsSortMode.None).Where(x => Vector3.Distance(x.transform.position, car.Body.position) < 220).ToList();
+            Note($"  {all.Count} breakable props within 220 m of the start; nearest {(all.Count > 0 ? all.Min(x => Vector3.Distance(x.transform.position, car.Body.position)) : 0):F0} m");
+            float t0 = Time.time, next = 0; int target = 0; BreakableProp p = null; float chosen = 0;
+            while (Time.time - t0 < 44 && flow.State == RaceFlow.Stage.Racing)
+            {
+                if (!p || p.IsBroken || Time.time - chosen > 6) { var cand = all.Where(x => x && !x.IsBroken && x != p).OrderBy(x => Vector3.Distance(Flat(x.transform.position), Flat(car.Body.position))).FirstOrDefault(); if (!cand) break; p = cand; chosen = Time.time; target++; }
+                Drive(car, p.transform.position, 12); yield return new WaitForFixedUpdate();
+                if (Time.time - t0 >= next) { next += 2; Note($"    t {Time.time - t0:F0}: at {V(car.Body.position)} {Flat(car.Body.linearVelocity).magnitude:F1} m/s, heading for '{p.name}' ({Vector3.Distance(Flat(car.Body.position), Flat(p.transform.position)):F0} m); broken {all.Count(x => x.IsBroken)} (of the old 14: {props.Count(x => x.IsBroken)}), any prop broken by a vehicle {hits}, counted {act.SmashCount}, live {CampaignRun.LiveCount}, attempt {act.AttemptActive}"); }
+                if (Time.time - t0 > 12 && Mathf.Abs(Time.time - t0 - 12) < .03f) yield return Snap("campfence-mid");
+            }
+            Release(); BreakableProp.BrokenByVehicle -= Count;
+            Note($"  end: broken {all.Count(x => x.IsBroken)} (of the old 14: {props.Count(x => x.IsBroken)}), counted {act.SmashCount}, live {CampaignRun.LiveCount}, state {flow.State}, panel '{CampaignEventUi.Current?.PanelText?.Replace('\n', '/')}'");
+            yield return Snap("campfence-end");
+        }
+
         // ---------------------------------------------------------------- the turnarounds: driven in from 70 m up the road, round the loop, back up the road
         IEnumerator Loops1300()
         {
@@ -289,7 +409,7 @@ namespace Racer
                 if (!shot) yield return Snap("tree-" + name);
                 Note($"    vehicle ended {Vector3.Dot(Flat(car.Body.position - t.bottom), t.dir):F1} m past the trunk, {Vector3.Distance(Flat(car.Body.position), Flat(t.bottom)):F1} m from it");
                 bool down = TreeBreaker.Broken != broken;
-                Note($"  {name}: trunk {t.width:F2} m wide at {V(t.bottom)} (needs {TreeBreaker.Needed(t.width):F1} m/s), hit at {before:F1} m/s {(high ? "in HIGH MODE" : "in normal mode")}: {(down ? $"BROKE, speed {before:F1} -> {after:F1} m/s ({(1 - after / before) * 100:F0}% lost)" : $"stood (vehicle now {Flat(car.Body.linearVelocity).magnitude:F1} m/s)")}, collider {(t.box.enabled ? "on" : "off")}, fallen trees {trees.FallenCount}, wipe-outs {cfg.Wipeouts - w0}; {TreeBreaker.Last}");
+                Note($"  {name}: trunk {t.width:F2} m wide at {V(t.bottom)} (needs {TreeBreaker.Needed(t.width, high):F1} m/s), hit at {before:F1} m/s {(high ? "in HIGH MODE" : "in normal mode")}: {(down ? $"BROKE, speed {before:F1} -> {after:F1} m/s ({(1 - after / before) * 100:F0}% lost)" : $"stood (vehicle now {Flat(car.Body.linearVelocity).magnitude:F1} m/s)")}, collider {(t.box.enabled ? "on" : "off")}, fallen trees {trees.FallenCount}, wipe-outs {cfg.Wipeouts - w0}; {TreeBreaker.Last}");
                 car.Body.linearVelocity = Vector3.zero; yield return new WaitForSeconds(.5f);
             }
             var thin = Pick(.5f, .6f); var big = Pick(.95f, 2f); var thin2 = thin.HasValue ? Pick(.5f, .6f, thin.Value.box) : null;
@@ -298,6 +418,10 @@ namespace Racer
             yield return Hit("big-12ms-normal", big.Value, 12, false);
             yield return Hit("big-30ms-normal", big.Value, 30, false);
             if (thin2.HasValue) yield return Hit("thin-12ms-high", thin2.Value, 12, true);
+            // 1.3.0-review2: HIGH MODE breaks trees much more easily: a thin one at 5 m/s, a big one at 12 m/s (both stand in normal mode)
+            var thin3 = Pick(.5f, .6f, thin2?.box); var big2 = Pick(.95f, 2f, big.Value.box);
+            if (thin3.HasValue) yield return Hit("thin-5ms-high", thin3.Value, 5, true);
+            if (big2.HasValue) yield return Hit("big-12ms-high", big2.Value, 12, true);
             High1300(false);
             int fallen = trees.FallenCount; Put1300(car, thin.Value.bottom + Vector3.right * 400, 0, 0); yield return new WaitForSeconds(5);
             Note($"  then 400 m away for 5 s: fallen trees {fallen} -> {trees.FallenCount}, regrown {SceneryTrees.Regrown}, colliders back: thin {thin.Value.box.enabled}, big {big.Value.box.enabled}");

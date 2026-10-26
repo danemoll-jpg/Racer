@@ -1,0 +1,10 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+== HIGH MODE Leviathan - Reverse (leviathan-reverse-v4): race HIGH True, 2 jumps found (gaps in the line), bumpers 6627 stations, 422 open, 100 set wider on landings
+  jump 0 on the main ('South Face Summit Flight'): lip 990.0,176.64,66.4, lands 990.0,157.00,-87.7, gap 156 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:9.0|9.0 4:9.0|9.0 8:9.0|9.0 12:9.0|9.0 16:9.0|9.0 20:9.0|9.0 24:9.0|9.0 28:9.0|9.0 32:8.3|8.3 36:7.7|7.7 40:7.0|7.0 44:6.4|6.4 48:5.7|5.7 52:5.7|5.7
+    0 m off the line at 24 m/s: no landing seen; bumper hits 10; 2 s later -5.2 m from the line
+    -3 m off the line at 24 m/s: no landing seen; bumper hits 7; 2 s later 4.5 m from the line
+    +3 m off the line at 24 m/s: no landing seen; bumper hits 3; 2 s later -6.5 m from the line
+  jump 1 on the main ('Downhill Ridge Cut drop'): lip 739.8,92.73,-145.8, lands 723.1,87.51,-129.4, gap 24 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:9.0|9.0 4:9.0|9.0 8:9.0|9.0 12:9.0|9.0 16:9.0|9.0 20:5.7|7.7 24:6.2|7.7 28:6.2|7.7 32:6.2|7.7 36:6.2|7.7 40:6.2|7.0 44:6.4|6.4 48:5.7|5.7 52:5.7|5.7
+    0 m off the line at 28 m/s: no landing seen; bumper hits 0; 2 s later 9.8 m from the line
+    -3 m off the line at 28 m/s: landed -13 m past the landing's start, -14.3 m from the line (bumper on that side at none m) -> inside; bumper hits 2; 2 s later -11.1 m from the line
+    +3 m off the line at 28 m/s: no landing seen; bumper hits 0; 2 s later 6.3 m from the line

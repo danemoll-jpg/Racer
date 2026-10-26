@@ -1,0 +1,18 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+== HIGH MODE Mountain Loop - Reverse (mountain-reverse-v4-natural-summit-merge): race HIGH True, 4 jumps found (gaps in the line), bumpers 3381 stations, 34 open
+  jump 0 on the main ('South Face Summit Flight'): lip 990.0,177.41,65.4, lands 990.0,157.56,-86.9, gap 154 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:4.8|4.8 4:4.8|4.8 8:4.8|4.8 12:4.8|4.8 16:4.8|4.8 20:4.8|4.8 24:4.8|4.8 28:4.8|4.8 32:4.8|4.8 36:4.8|4.8 40:4.8|4.8 44:4.8|4.8 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: no landing seen; bumper hits 6; 2 s later -3.3 m from the line
+    -3 m off the line at 24 m/s: no landing seen; bumper hits 15; 2 s later 1.2 m from the line
+    +3 m off the line at 24 m/s: no landing seen; bumper hits 2; 2 s later 0.4 m from the line
+  jump 1 on the main ('Westbound Gully Flight'): lip 1005.4,131.09,-300.0, lands 901.9,123.07,-300.0, gap 104 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:4.8|4.8 4:4.8|4.8 8:4.8|4.8 12:4.8|4.8 16:4.8|4.8 20:4.8|4.8 24:4.8|4.8 28:4.8|4.8 32:4.8|4.8 36:6.2|6.2 40:6.2|6.2 44:6.2|6.2 48:6.2|6.2 52:6.2|6.2
+    0 m off the line at 24 m/s: landed -1208 m past the landing's start, -49.6 m from the line (bumper on that side at 4.8 m) -> OUTSIDE the bumpers; bumper hits 0; 2 s later -49.5 m from the line
+    -3 m off the line at 24 m/s: landed -1210 m past the landing's start, -53.3 m from the line (bumper on that side at 4.8 m) -> OUTSIDE the bumpers; bumper hits 0; 2 s later -53.3 m from the line
+    +3 m off the line at 24 m/s: landed -1207 m past the landing's start, -47.0 m from the line (bumper on that side at 4.8 m) -> OUTSIDE the bumpers; bumper hits 0; 2 s later -46.8 m from the line
+  jump 2 on the shortcut 'Summit Traverse': lip 864.9,111.72,-81.5, lands 885.6,115.16,-98.8, gap 28 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:4.7|5.1 4:4.9|4.7 8:5.0|4.6 12:5.0|4.6 16:5.0|4.6 20:4.9|4.7 24:4.9|4.7 28:4.9|4.7 32:4.8|4.8 36:4.8|4.8 40:4.8|4.8 44:4.8|4.8 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: landed -12 m past the landing's start, 2.6 m from the line (bumper on that side at none m) -> inside; bumper hits 3; 2 s later 0.7 m from the line
+    -3 m off the line at 24 m/s: landed -14 m past the landing's start, 2.6 m from the line (bumper on that side at none m) -> inside; bumper hits 1; 2 s later -1.6 m from the line
+    +3 m off the line at 24 m/s: landed -12 m past the landing's start, 3.4 m from the line (bumper on that side at none m) -> inside; bumper hits 3; 2 s later -2.9 m from the line
+  jump 3 on the shortcut 'Downhill Ridge Cut': lip 740.3,92.78,-146.2, lands 723.1,87.52,-129.5, gap 24 m; lane left|right of the line, metres past the landing's start: -4:14.7|- 0:5.4|5.4 4:5.4|5.4 8:5.4|5.4 12:5.4|5.4 16:5.4|5.4 20:5.4|5.4 24:5.4|5.4 28:5.4|5.4 32:5.4|5.4 36:5.4|5.4 40:5.4|5.4 44:5.4|5.4 48:5.4|5.4 52:5.4|5.4
+    0 m off the line at 24 m/s: landed 28 m past the landing's start, 4.0 m from the line (bumper on that side at 5.4 m) -> inside; bumper hits 8; 2 s later -0.1 m from the line
+    -3 m off the line at 24 m/s: landed 30 m past the landing's start, -3.3 m from the line (bumper on that side at 5.4 m) -> inside; bumper hits 6; 2 s later -0.4 m from the line
+    +3 m off the line at 24 m/s: no landing seen; bumper hits 2; 2 s later -5.5 m from the line

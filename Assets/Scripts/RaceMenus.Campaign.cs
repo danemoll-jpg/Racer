@@ -194,7 +194,7 @@ namespace Racer
             if (e.Kind == CampaignEventKind.Race && e.Rivals.Length > 0) lines.Add("Rivals: " + CampaignData.CastLine(e.Rivals)); // 0.94 Part A
             if (e.Kind == CampaignEventKind.SpeedTrap) lines.Add($"Standing start {DisplayUnits.Distance(e.RunUp)} before the trap; {e.TimeLimit:0} s to reach it.");
             if (e.Kind == CampaignEventKind.Jump) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump; jump as often as you like in {e.TimeLimit:0} s: your best counts. Reset takes you back to the run-up; Pause > End event keeps your best. Land it on your wheels to score.");
-            if (e.Kind == CampaignEventKind.Smash) lines.Add($"Smash as many fence panels as you can in {e.TimeLimit:0} s: {e.Targets[0]:0} bronze, {e.Targets[1]:0} silver, {e.Targets[2]:0} gold. {e.Props} to smash, marked in orange; in the air counts; a reset keeps the count."); // 0.111 Part B
+            if (e.Kind == CampaignEventKind.Smash) lines.Add($"Smash as many fence panels as you can in {e.TimeLimit:0} s: {e.Targets[0]:0} bronze, {e.Targets[1]:0} silver, {e.Targets[2]:0} gold. Every fence and prop you smash counts, anywhere; in the air counts; a reset keeps the count."); // 0.111 Part B; 1.3.0-review2: any prop
             if (e.Kind == CampaignEventKind.TimeTrial) lines.Add("Flying start: the lap clock starts at the START line.");
             // 0.119 Part C: the Stunt chapter's events
             if (e.Stunt) lines.Add(StuntRace.Rules);

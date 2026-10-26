@@ -1,0 +1,14 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+== HIGH MODE Forest Loop - Forward (lake-v8-summit-climb): race HIGH True, 3 jumps found (gaps in the line), bumpers 2693 stations, 109 open, 150 set wider on landings
+  jump 0 on the main: lip 343.7,77.07,245.2, lands 316.1,77.61,261.3, gap 32 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:9.0|- 4:9.0|9.0 8:9.0|9.0 12:9.0|9.0 16:9.0|9.0 20:9.0|9.0 24:9.0|9.0 28:9.0|9.0 32:8.2|8.2 36:7.3|7.3 40:6.5|6.5 44:5.6|5.6 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: landed -25 m past the landing's start, 2.7 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later -0.8 m from the line
+    -3 m off the line at 24 m/s: landed -29 m past the landing's start, -2.6 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later -5.6 m from the line
+    +3 m off the line at 24 m/s: landed -23 m past the landing's start, 6.1 m from the line (bumper on that side at none m) -> inside; bumper hits 2; 2 s later 2.0 m from the line
+  jump 1 on the main: lip 117.1,47.74,275.8, lands 111.5,37.35,274.0, gap 12 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:-|9.0 4:9.0|9.0 8:9.0|9.0 12:9.0|9.0 16:9.0|9.0 20:9.0|9.0 24:9.0|9.0 28:9.0|9.0 32:8.2|8.2 36:7.3|7.3 40:6.5|6.5 44:5.6|5.6 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: landed 44 m past the landing's start, 4.1 m from the line (bumper on that side at 5.6 m) -> inside; bumper hits 2; 2 s later -2.3 m from the line
+    -3 m off the line at 24 m/s: no landing seen; bumper hits 3; 2 s later 0.4 m from the line
+    +3 m off the line at 24 m/s: landed 59 m past the landing's start, 2.9 m from the line (bumper on that side at 4.8 m) -> inside; bumper hits 9; 2 s later 4.0 m from the line
+  jump 2 on the main: lip 97.7,37.54,-149.0, lands 101.6,30.63,-149.8, gap 8 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:-|- 4:9.0|9.0 8:9.0|9.0 12:9.0|9.0 16:9.0|9.0 20:9.0|9.0 24:9.0|9.0 28:9.0|9.0 32:8.2|8.2 36:7.3|7.3 40:6.5|6.5 44:5.6|5.6 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: landed 43 m past the landing's start, -1.3 m from the line (bumper on that side at 5.9 m) -> inside; bumper hits 0; 2 s later -1.4 m from the line
+    -3 m off the line at 24 m/s: landed 37 m past the landing's start, -2.4 m from the line (bumper on that side at 7.2 m) -> inside; bumper hits 2; 2 s later -3.6 m from the line
+    +3 m off the line at 24 m/s: landed 44 m past the landing's start, 1.8 m from the line (bumper on that side at 5.7 m) -> inside; bumper hits 0; 2 s later 1.5 m from the line

@@ -15,6 +15,10 @@ namespace Racer
     // - Openings are left wherever another drivable line crosses or joins (a shortcut's mouth, a junction, the same course passing again,
     //   the rivals' own lines, the traffic roads), so no road, shortcut or crossing is ever closed.
     // - None over a gap (no road under the line: a jump's flight), so a jump flies as before.
+    // - 1.3.0-review2 (Dan: "The lanes on the landing are too narrow and users end up outside the track"): on a jump's landing the bumpers stand
+    //   wider apart, at least LandingHalf from the line on each side for the first LandingFull metres past the gap, closing back to the road's edge over
+    //   the next LandingTaper metres (a funnel), so a vehicle that comes down off the line lands between them. Where the ground drops away nearer
+    //   than that, the bumper stays at the drop as before.
     // - On the "Ignore Raycast" layer: the suspension, the cameras and the reset search do not take it for ground.
     public static class HighBumpers
     {
@@ -22,6 +26,7 @@ namespace Racer
         public const int Layer = 2;
         public static int Samples { get; private set; } // checks: bumper stations built
         public static int Openings { get; private set; } // checks: stations left open for a crossing line
+        public static int LandingStations { get; private set; } // checks: stations on a landing, set wider apart
         static PhysicsMaterial bounce;
         public static GameObject Root(Scene scene) => scene.GetRootGameObjects().FirstOrDefault(g => g.name == RootName);
         public static void Apply(RaceDirector race)
@@ -47,11 +52,12 @@ namespace Racer
         sealed class Line { public Func<float, (Vector3 p, Vector3 f)> at; public Func<float, float> half; public float length; public bool loop; public bool walls; }
         struct Band { public Vector3 p; public float half, s; public int line; }
         const float Cell = 16, Step = 2;
+        public const float LandingHalf = 11, LandingFull = 35, LandingTaper = 20;
         static long Key(int x, int z) => ((long)x << 32) ^ (uint)z;
 
         static GameObject Build(RaceDirector race)
         {
-            var scene = race.gameObject.scene; Samples = Openings = 0;
+            var scene = race.gameObject.scene; Samples = Openings = LandingStations = 0;
             var root = new GameObject(RootName) { layer = Layer }; SceneManager.MoveGameObjectToScene(root, scene);
             var lines = new List<Line>();
             RaceRoad Road(RaceRoad r) { r.Initialize(); return r; }
@@ -121,6 +127,27 @@ namespace Racer
             }
             void Place(Vector3 w, int owner, float s) { long k = Key(Mathf.FloorToInt(w.x / 4), Mathf.FloorToInt(w.z / 4)); if (!placed.TryGetValue(k, out var l)) placed[k] = l = new List<(Vector3, int, float)>(); l.Add((w, owner, s)); }
 
+            // each walled line's jump gaps (no road under the line for 4 m or more): how far past the last gap's end each station is
+            var pastLanding = new Dictionary<int, float[]>();
+            for (int li = 0; li < lines.Count; li++)
+            {
+                var l = lines[li]; if (!l.walls || l.length <= 0) continue; int count = Mathf.FloorToInt(l.length / Step) + 1; var past = new float[count]; var gap = new bool[count];
+                for (int i = 0; i < count; i++) { var (p, _) = l.at(Mathf.Min(i * Step, l.length - .01f)); gap[i] = !Surface(p, p.y, out float gy) || Mathf.Abs(gy - p.y) > 1.6f; }
+                float since = float.MaxValue; int run = 0;
+                for (int pass = 0; pass < (l.loop ? 2 : 1); pass++)
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (gap[i]) { run++; since = float.MaxValue; continue; }
+                        if (run * Step >= 4) since = 0; else if (since < float.MaxValue) since += Step;
+                        run = 0; past[i] = since;
+                    }
+                pastLanding[li] = past;
+            }
+            float Widen(int line, float s)
+            {
+                if (!pastLanding.TryGetValue(line, out var past)) return 0; int i = Mathf.Clamp(Mathf.FloorToInt(s / Step), 0, past.Length - 1); float d = past[i];
+                return d <= LandingFull ? 1 : d <= LandingFull + LandingTaper ? 1 - (d - LandingFull) / LandingTaper : 0;
+            }
             var material = Resources.Load<Material>("Scenery/Building");
             if (!bounce) bounce = new PhysicsMaterial("HIGH MODE bumper") { bounciness = .3f, bounceCombine = PhysicsMaterialCombine.Maximum, dynamicFriction = .05f, staticFriction = .05f, frictionCombine = PhysicsMaterialCombine.Minimum };
             int chunk = 0;
@@ -148,8 +175,9 @@ namespace Racer
             {
                 w = outward = default; var (p, f) = l.at(s); f = Vector3.ProjectOnPlane(f, Vector3.up); if (f.sqrMagnitude < 1e-4f) return false; f.Normalize();
                 if (!Surface(p, p.y, out float roadY) || Mathf.Abs(roadY - p.y) > 1.6f) return false; // no road under the line: a jump's gap
-                outward = Vector3.Cross(Vector3.up, f) * side; float half = l.half(s), edge = half + 1.2f;
-                for (float d = 2.5f; d <= half + 1.2f; d += .5f)
+                outward = Vector3.Cross(Vector3.up, f) * side; float half = l.half(s), wide = Widen(line, s), reach = Mathf.Lerp(half + 1.2f, Mathf.Max(half + 1.2f, LandingHalf), wide), edge = reach;
+                if (reach > half + 1.25f) LandingStations++;
+                for (float d = 2.5f; d <= reach; d += .5f)
                     if (!Surface(p + outward * d, roadY, out float y) || y < roadY - 1f) { edge = Mathf.Max(2.2f, d - .3f); break; } // the ground drops away here
                 w = p + outward * edge; w.y = roadY;
                 if (Open(w, line, s, p, outward)) { Openings++; return false; }

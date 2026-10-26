@@ -1,0 +1,18 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+== HIGH MODE Dan's Backyard Loop - Forward (backyard-forward-v3-forest-shortcuts): race HIGH True, 4 jumps found (gaps in the line), bumpers 1328 stations, 43 open
+  jump 0 on the main: lip 309.3,80.36,15.7, lands 259.4,67.89,8.3, gap 52 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:4.8|4.8 4:4.8|4.8 8:4.8|4.8 12:4.8|4.8 16:4.8|4.8 20:4.8|4.8 24:4.8|4.8 28:4.8|4.8 32:4.8|4.8 36:4.8|4.8 40:4.8|4.8 44:2.8|6.2 48:3.8|2.0 52:3.9|1.8
+    0 m off the line at 24 m/s: landed -4 m past the landing's start, 3.1 m from the line (bumper on that side at none m) -> inside; bumper hits 1; 2 s later -1.1 m from the line
+    -3 m off the line at 24 m/s: landed -4 m past the landing's start, -0.1 m from the line (bumper on that side at none m) -> inside; bumper hits 2; 2 s later -3.2 m from the line
+    +3 m off the line at 24 m/s: landed -5 m past the landing's start, 1.0 m from the line (bumper on that side at none m) -> inside; bumper hits 1; 2 s later -1.5 m from the line
+  jump 1 on the main: lip 120.4,45.65,-108.6, lands 75.3,37.39,-108.6, gap 46 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:4.8|4.8 4:4.8|4.8 8:4.8|4.8 12:4.8|4.8 16:4.8|4.8 20:6.2|6.2 24:6.2|6.2 28:6.2|6.2 32:6.2|6.2 36:6.2|6.2 40:6.2|6.2 44:6.2|6.2 48:6.2|6.2 52:6.2|6.2
+    0 m off the line at 24 m/s: landed 2 m past the landing's start, -3.3 m from the line (bumper on that side at 4.8 m) -> inside; bumper hits 1; 2 s later -0.1 m from the line
+    -3 m off the line at 24 m/s: landed 2 m past the landing's start, -0.9 m from the line (bumper on that side at 4.8 m) -> inside; bumper hits 2; 2 s later 0.0 m from the line
+    +3 m off the line at 24 m/s: no landing seen; bumper hits 1; 2 s later -0.3 m from the line
+  jump 2 on the main: lip 91.0,51.61,60.7, lands 123.0,53.52,60.7, gap 32 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:6.2|6.2 4:6.2|6.2 8:6.2|6.2 12:6.2|6.2 16:6.2|6.2 20:6.2|6.2 24:6.2|6.2 28:4.8|4.8 32:4.8|4.8 36:4.8|4.8 40:4.8|4.8 44:3.7|4.8 48:4.8|4.8 52:4.8|4.8
+    0 m off the line at 24 m/s: landed 1 m past the landing's start, -3.2 m from the line (bumper on that side at 6.2 m) -> inside; bumper hits 0; 2 s later 6.0 m from the line
+    -3 m off the line at 24 m/s: landed 3 m past the landing's start, -0.5 m from the line (bumper on that side at 6.2 m) -> inside; bumper hits 5; 2 s later -1.2 m from the line
+    +3 m off the line at 24 m/s: no landing seen; bumper hits 2; 2 s later 0.9 m from the line
+  jump 3 on the shortcut 'Tree-Top Trail': lip 207.0,60.06,-30.9, lands 204.5,60.30,-38.5, gap 8 m; lane left|right of the line, metres past the landing's start: -4:24.4|- 0:2.8|2.8 4:2.9|2.9 8:2.9|2.9 12:2.2|2.2 16:2.2|2.2 20:2.2|2.2 24:2.2|2.2 28:2.2|2.2 32:2.2|2.2 36:2.2|2.2 40:2.2|2.2 44:2.2|2.2 48:2.2|2.2 52:2.2|2.2
+    0 m off the line at 24 m/s: no landing seen; bumper hits 3; 2 s later -1.9 m from the line
+    -3 m off the line at 24 m/s: landed -4 m past the landing's start, 1.5 m from the line (bumper on that side at none m) -> inside; bumper hits 6; 2 s later -1.1 m from the line
+    +3 m off the line at 24 m/s: no landing seen; bumper hits 8; 2 s later 4.9 m from the line

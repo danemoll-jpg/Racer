@@ -1,0 +1,14 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+== HIGH MODE Street Loop - Reverse (street-reverse-local-laurel-v6): race HIGH True, 3 jumps found (gaps in the line), bumpers 5626 stations, 154 open
+  jump 0 on the shortcut 'Laurel Switchbacks': lip 287.5,54.59,-281.1, lands 295.2,54.50,-279.0, gap 8 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:-|- 4:-|- 8:-|- 12:-|- 16:-|- 20:-|- 24:2.2|5.7 28:5.7|5.7 32:5.7|5.7 36:5.7|5.7 40:5.7|5.7 44:5.7|5.7 48:5.7|5.7 52:5.7|5.7
+    0 m off the line at 24 m/s: landed 56 m past the landing's start, -9.2 m from the line (bumper on that side at 5.7 m) -> OUTSIDE the bumpers; bumper hits 0; 2 s later 0.7 m from the line
+    -3 m off the line at 24 m/s: landed 69 m past the landing's start, -7.0 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later 1.6 m from the line
+    +3 m off the line at 24 m/s: landed 21 m past the landing's start, 1.4 m from the line (bumper on that side at none m) -> inside; bumper hits 5; 2 s later 3.8 m from the line
+  jump 1 on the shortcut 'Laurel Switchbacks': lip 293.2,54.72,-279.5, lands 319.0,35.26,-277.4, gap 26 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:2.2|5.7 4:5.7|5.7 8:5.7|5.7 12:5.7|5.7 16:5.7|5.7 20:5.7|5.7 24:5.7|5.7 28:5.7|5.7 32:5.7|5.7 36:5.7|5.7 40:-|5.7 44:-|5.7 48:-|5.7 52:-|5.7
+    0 m off the line at 24 m/s: landed 33 m past the landing's start, -9.3 m from the line (bumper on that side at 5.7 m) -> OUTSIDE the bumpers; bumper hits 0; 2 s later 0.7 m from the line
+    -3 m off the line at 24 m/s: landed 44 m past the landing's start, -6.9 m from the line (bumper on that side at none m) -> inside; bumper hits 2; 2 s later -0.4 m from the line
+    +3 m off the line at 24 m/s: landed -3 m past the landing's start, 0.8 m from the line (bumper on that side at none m) -> inside; bumper hits 5; 2 s later 3.5 m from the line
+  jump 2 on the shortcut 'Laurel Switchbacks': lip 499.7,62.74,-170.6, lands 498.1,88.15,-109.1, gap 62 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:5.7|- 4:5.7|10.0 8:5.7|8.5 12:5.2|7.0 16:5.7|5.7 20:5.7|5.7 24:5.7|5.7 28:5.7|5.7 32:5.7|5.7 36:5.7|5.7 40:5.7|5.7 44:5.7|5.7 48:5.7|5.7 52:5.7|5.7
+    0 m off the line at 24 m/s: no landing seen; bumper hits 4; 2 s later -0.1 m from the line
+    -3 m off the line at 24 m/s: landed -66 m past the landing's start, 1.4 m from the line (bumper on that side at 5.7 m) -> inside; bumper hits 3; 2 s later -3.4 m from the line
+    +3 m off the line at 24 m/s: landed -26 m past the landing's start, 3.9 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later 1.4 m from the line

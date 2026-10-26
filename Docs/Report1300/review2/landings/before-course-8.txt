@@ -1,0 +1,10 @@
+screen=1280x720 kind=world1300 version=1.3.0-review1 park=on
+== HIGH MODE Leviathan - Forward (leviathan-forward-v4): race HIGH True, 2 jumps found (gaps in the line), bumpers 7506 stations, 776 open
+  jump 0 on the main ('Homeward Summit Flight'): lip 981.2,176.98,147.5, lands 871.6,177.77,116.4, gap 114 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:5.7|5.7 4:5.7|5.7 8:5.7|5.7 12:5.7|5.7 16:5.7|5.7 20:5.7|5.7 24:5.7|5.7 28:5.7|5.7 32:5.7|5.7 36:5.7|5.7 40:5.7|5.7 44:5.7|5.7 48:5.7|5.7 52:5.7|5.7
+    0 m off the line at 30 m/s: landed -20 m past the landing's start, 0.0 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later -0.5 m from the line
+    -3 m off the line at 30 m/s: landed -20 m past the landing's start, -2.8 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later -2.2 m from the line
+    +3 m off the line at 30 m/s: landed -20 m past the landing's start, 3.1 m from the line (bumper on that side at none m) -> inside; bumper hits 0; 2 s later 3.7 m from the line
+  jump 1 on the shortcut 'Pine Ridge': lip -342.6,29.16,-488.1, lands -348.1,19.03,-482.3, gap 8 m; lane left|right of the line, metres past the landing's start: -4:-|- 0:10.2|10.2 4:10.2|10.2 8:10.2|10.2 12:10.2|10.2 16:10.2|10.2 20:10.2|10.2 24:10.2|10.2 28:10.2|10.2 32:10.2|10.2 36:10.2|10.2 40:10.2|10.2 44:10.2|10.2 48:10.2|10.2 52:10.2|10.2
+    0 m off the line at 24 m/s: landed 33 m past the landing's start, -2.8 m from the line (bumper on that side at 10.2 m) -> inside; bumper hits 0; 2 s later -0.4 m from the line
+    -3 m off the line at 24 m/s: landed 33 m past the landing's start, -5.8 m from the line (bumper on that side at 10.2 m) -> inside; bumper hits 0; 2 s later -3.5 m from the line
+    +3 m off the line at 24 m/s: landed 34 m past the landing's start, 0.2 m from the line (bumper on that side at 10.2 m) -> inside; bumper hits 0; 2 s later 3.5 m from the line

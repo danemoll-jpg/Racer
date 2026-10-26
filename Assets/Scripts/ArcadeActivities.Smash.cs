@@ -14,7 +14,7 @@ namespace Racer
         // the moment of the last counted smash (the event panel's "+1" pop)
         public float SmashPop { get; private set; } = -10;
         // Free Roam's attempt line: "7 of 14 smashed  ·  3 more for gold"
-        string SmashLine { get { if (!Selected || !car) return SmashCount + " smashed"; Selected.Targets(configuration.profileId, out float b, out float s, out float g); return $"{SmashCount} of {SmashArea} smashed  ·  {NextMedal(SmashCount, b, s, g)}"; } }
+        string SmashLine { get { if (!Selected || !car) return SmashCount + " smashed"; Selected.Targets(configuration.profileId, out float b, out float s, out float g); return $"{SmashCount} smashed  ·  {NextMedal(SmashCount, b, s, g)}"; } } // 1.3.0-review2: every prop counts
         public static string NextMedal(int count, float bronze, float silver, float gold)
         {
             if (count >= gold) return "GOLD: keep going";
@@ -24,7 +24,8 @@ namespace Racer
         readonly Dictionary<BreakableProp, Transform> markers = new(); static Material markerMaterial; static Mesh markerMesh;
         void LateUpdate()
         {
-            bool on = AttemptActive && Selected && Selected.kind == ActivitySite.Kind.Smash && Selected.props != null && race && race.Flow && race.Flow.State == RaceFlow.Stage.Racing;
+            // 1.3.0-review2: every prop counts now, so the 14 are no longer marked (the markers stay off)
+            bool on = false && AttemptActive && Selected && Selected.kind == ActivitySite.Kind.Smash && Selected.props != null && race && race.Flow && race.Flow.State == RaceFlow.Stage.Racing;
             if (!on) { if (markers.Count > 0) ClearMarkers(); return; }
             foreach (var prop in Selected.props)
             {

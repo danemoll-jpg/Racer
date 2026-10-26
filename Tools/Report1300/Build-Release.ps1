@@ -1,4 +1,4 @@
-﻿# 1.3.0-review1: the fresh Windows build from the pushed completion source (Build-Report1300.cs.txt as a temporary editor script; removed afterwards)
+﻿# 1.3.0-review2: the fresh Windows build from the pushed completion source (Build-Report1300.cs.txt as a temporary editor script; removed afterwards)
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $editor=Join-Path $root 'Assets/Editor/Report1300Release'
