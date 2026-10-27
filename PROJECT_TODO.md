@@ -62,6 +62,33 @@ The ramp numbers (orange ▲ with number), smash (■) and flip (▼) icons on t
 ### Release
 Version 1.3.0-review3, **publish** as Latest (Dan plays it on the Steam Deck), earlier releases kept, hosted check as for review2. `Play-Racer.cmd` launches it; Dan's settings and saves byte for byte. Close everything started. Short results (at most about 20 lines, the ramp table linked, not pasted), with "For Dan to check".
 
+## QUEUED NEXT — Stunt chapter starts at the stunt park (high score, then a park competition); Mountain Loop Stunt Races with the shortcuts closed — target 1.3.0-review4 (publish) — NOT STARTED (start after 1.3.0-review3 lands)
+
+Dan (2026-10-26, 23:02): "Stunt campaign - Why is the actual stunt course not included. It should start with needing to reach a high score on the stunt course then a stunt course competition. Then we can use some of the tracks. Also want to implement blocking off the shortcuts on the mountain tracks on the Mountain forward and mountain reverse stunt races."
+
+Standing rules apply (controller first, verification budget, signs, American spelling, background running). Normal races, normal chapters and their records do not change. Leviathan Stunt Races keep their shortcuts.
+
+### Part A — The Stunt chapter opens at the stunt park
+Today the park is the chapter's 3rd event ("Red Clay Session", `c5-park-session`), after two races. Dan did not see the stunt course in the chapter.
+1. **First say in one line** whether Red Clay Session shows in the chapter's event list and starts for a player (a bug if not), or only comes after the first two events.
+2. **New order** (8 events):
+   1. **Red Clay Session**: reach a high score at the stunt park (the existing 10-minute event; passing = its bronze target). First event, open at the chapter's start.
+   2. **Park competition (new)**: a stunt competition at the park against the chapter's rivals on stunt vehicles. Everyone rides the park at the same time for a set time (about 5 minutes); standings by stunt points, shown live (your place and the leader's score); results 1st–6th; passing = top 3, as in other campaign events. Rivals ride the park's ramps and trick with the same scoring as the player (0.120's one scoring system), more and bigger combos on Hard. If the AI can't drive the park well enough, say why in one line and use the closest thing that still has visible rivals riding and scoring; don't fall back to invisible numbers without saying so.
+   3. Stunt Opener (Mountain Loop Forward), 4. Summit Tricks, 5. Upside Down Under (Mountain Loop Reverse), 6. Land It Clean, 7. Leviathan Stunts, 8. Stunt Final, as now.
+3. Events unlock in order as now. Dan's campaign save keeps everything already passed; the new competition shows as open for him (not locked behind events he has already done). Pay for the competition in line with the chapter's others; say the numbers.
+4. **Check:** controller only, from a copy of Dan's save and from a fresh chapter-5 test save: the list shows the park first and the competition second; the competition starts, rivals are seen riding and tricking, the standings update, the results screen shows places; B back.
+
+### Part B — Mountain Loop Stunt Races with the shortcuts closed
+1. In **Stunt Races on Mountain Loop Forward and Mountain Loop Reverse** (Quick Race, split screen and the Stunt chapter's races on them), **every shortcut is closed**: a solid barrier at each end of each shortcut (fits the place: rocks, logs or a timber barricade; a ROAD CLOSED sign only if Dan's sign rule allows it), the guide arrows and minimap no longer show them, and the gates keep you on the main route (the in-order rule holds).
+2. Rivals never try a closed shortcut; none gets stuck or reset at a barrier.
+3. Normal races on those courses, Leviathan, HIGH MODE races and Free Roam keep every shortcut open; the barriers exist only in those two Stunt Races.
+4. These two Stunt Race courses change, so their stunt records, ghosts and best combos start again under new ids; the old ones stay saved, not shown. Say the ids.
+5. List each shortcut closed (name and where) in the results.
+6. **Check:** one shot of each barrier from the driver's view; one AI Stunt Race on each of the two courses (3 rivals): no rival tries a shortcut, none stuck or reset at a barrier; one normal Mountain Loop Forward race: shortcuts still open.
+
+### Release
+Version 1.3.0-review4, **publish** as Latest (Dan plays on the Steam Deck), earlier releases kept, hosted check as before. `Play-Racer.cmd` launches it; Dan's settings and saves byte for byte. Close everything started. Short results (at most about 20 lines) with "For Dan to check".
+
 ## Previous delivery — Free Roam world: big ramps (also over and through houses), breakable trees, smash spots, blocked roads that loop or flip you back — both modes — target 1.3.0-review1 (local build) — DELIVERED as 1.3.0-review1, PUBLISHED as Latest at Dan's request (game-1030000) — 1.3.0-review2 PUBLISHED (game-1030100) — REVIEWED BY DAN (2026-10-26: ramps 4 and 8 entrances, every ramp to be checked, map numbers; in 1.3.0-review3)
 
 Dan (2026-10-24/25): "make trees breakable in freeroam and more big ramps spread across the map and stuff to drive people from the edge of map"; "we can put these ramps where they don't interfere with any tracks and it is ok to have ones that jump over or through houses"; "the blocked roads that they circle around or they have a large ramp that flips you high in the air but spins you back to the proper direction". His answers: draw people **inward** (not walls at the edge); **Code places the ramps** and he removes any he doesn't like; **all trees** break; all of this in **both** modes, HIGH MODE more forgiving.
