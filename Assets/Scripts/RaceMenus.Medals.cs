@@ -36,7 +36,7 @@ namespace Racer
         RectTransform medalOverlay;
         void ShowMedalOverlay(CampaignEvent e)
         {
-            bool show = e != null && e.Kind != CampaignEventKind.Race && courseView && flow.State == RaceFlow.Stage.Ready && page == "campaign";
+            bool show = e != null && !e.Placed && courseView && flow.State == RaceFlow.Stage.Ready && page == "campaign";
             if (medalOverlay) { for (int i = medalOverlay.childCount - 1; i >= 0; i--) { var c = medalOverlay.GetChild(i).gameObject; c.SetActive(false); Destroy(c); } }
             if (!show) { if (medalOverlay) medalOverlay.gameObject.SetActive(false); return; }
             if (!medalOverlay)

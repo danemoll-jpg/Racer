@@ -85,7 +85,7 @@ namespace Racer
             if (human && CampaignRun.Active == null && race.Flow && !race.Flow.DebugMovementUsed)
             {
                 var car = r.Car; string name = SplitScreen.Active ? SplitScreen.NameOf(r == race.Racers[0] ? 1 : 2) : PlayerNames.Player;
-                StuntRaceRecords.Record(StuntRace.RecordPrefix + race.courseId, points, car.GetComponent<VehicleConfiguration>().profileId, name, (links > 1 ? "×" + links + " " : "") + tricks);
+                StuntRaceRecords.Record(StuntRace.RecordPrefix + race.courseId + (StuntShortcuts.Closed(race) ? StuntShortcuts.RecordSuffix : ""), points, car.GetComponent<VehicleConfiguration>().profileId, name, (links > 1 ? "×" + links + " " : "") + tricks);
             }
         }
         // the end of a racer's race: its open combo counts now (before its time is recorded), then nothing more
@@ -169,6 +169,9 @@ namespace Racer
         // checks only (Report106PlayerCheck stunt119): the player's own vehicle driven by the road AI turns its tricks with this, and the player's
         // own trick scoring (ArcadeActivities) counts them; nothing is banked here. Never set in play.
         [System.NonSerialized] public bool SteerOnly;
+        // 1.3.0-review3: a Park Competition rival (ParkRival): no race and no racer, its own scoring (ArcadeActivities) counts the tricks (SteerOnly);
+        // Difficulty: the event's (else the race's)
+        [System.NonSerialized] public bool Park; [System.NonSerialized] public int Difficulty = -1;
         // by difficulty (Easy, Normal, Hard): the chance to try a trick on a flight that allows one, and to bail it
         static readonly float[] TryChance = { .6f, .82f, .95f }, BailChance = { .22f, .1f, .04f };
         sealed class Trick { public string name; public (int axis, float degrees)[] steps; public float seconds; }
@@ -194,8 +197,8 @@ namespace Racer
         void Say(string line, bool bailed) { LastLine = line; LineUntil = Time.time + 2.2f; LastBail = bailed; }
         void FixedUpdate()
         {
-            if (!race || !car || racer == null) return;
-            if (!race.Flow || race.Flow.State != RaceFlow.Stage.Racing || racer.Progress.Finished || racer.Dnf) { car.AiAir = false; if (racer.Progress.Finished && links > 0) Bank(); return; }
+            if (!race || !car || (racer == null && !Park)) return;
+            if (!race.Flow || race.Flow.State != RaceFlow.Stage.Racing || racer != null && (racer.Progress.Finished || racer.Dnf)) { car.AiAir = false; if (racer != null && racer.Progress.Finished && links > 0) Bank(); return; }
             float dt = Time.fixedDeltaTime; bool any = car.GroundedWheels > 0, grounded = car.GroundedWheels >= 2;
             var cfg = car.GetComponent<VehicleConfiguration>();
             if (!flying)
@@ -238,7 +241,7 @@ namespace Racer
         void Plan()
         {
             planned = true; Flights++;
-            float toLand = TimeToLand(), total = air + toLand, left = toLand - .5f; int d = Mathf.Clamp(race.difficulty, 0, 2); landAt = Time.time + toLand;
+            float toLand = TimeToLand(), total = air + toLand, left = toLand - (Park ? 0 : .5f) /* 1.3.0-review3: the park's flights are short */; int d = Mathf.Clamp(Difficulty >= 0 ? Difficulty : race.difficulty, 0, 2); landAt = Time.time + toLand;
             var fit = Menu.Where(m => m.seconds <= left).ToList();
             if (fit.Count == 0 || car.airControl <= 0) { Log += $"flight {Flights}: {total:0.0} s, no trick\n"; return; }
             if (rng.NextDouble() > TryChance[d]) { Log += $"flight {Flights}: {total:0.0} s, chose none\n"; return; }

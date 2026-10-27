@@ -1,0 +1,49 @@
+screen=1280x720 kind=world1300 version=1.3.0-review3 park=on
+Free Roam world check part jumps3: items 18 (built-in), breakable trees 11757
+  1 table at -54,-202 facing 135: lip 7.5 m at 34 degrees, 13 m wide, 30 m to the landing
+  2 table at -126,314 facing 75: lip 6.5 m at 32 degrees, 12 m wide, 30 m to the landing
+  3 table at -198,2 facing 210: lip 6.0 m at 32 degrees, 12 m wide, 30 m to the landing
+  4 house at 467,-600 facing 75: lip 4.5 m at 32 degrees, 12 m wide, 36 m to the landing
+  5 house at -38,-379 facing 180: lip 4.5 m at 32 degrees, 12 m wide, 34 m to the landing
+  6 through at 126,-202 facing 285: kicker 2.6 m, barn 16 m long (deck 2.0 m), plank walls both ends
+  7 gap at 54,482 facing 90: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  8 gap at 210,-430 facing 300: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  9 kicker at 270,170 facing 105: lip 2.4 m at 26 degrees, 9 m wide
+  10 kicker at -294,146 facing 0: lip 2.4 m at 26 degrees, 9 m wide
+  11 kicker at -234,-166 facing 345: lip 2.4 m at 26 degrees, 9 m wide
+  12 smash at -14,38: 28 props (hay bales, crates, boxes, cones)
+  13 smash at 482,126: 28 props (hay bales, crates, boxes, cones)
+  14 smash at 314,-314: 28 props (hay bales, crates, boxes, cones)
+  15 smash at 418,262: 28 props (hay bales, crates, boxes, cones)
+  16 flip at -972,-548 facing 270: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  17 loop at -1208,541 (road coming in heading 270): a 22 m paved turnaround, banked 2.8 m round its rim
+  18 flip at 936,563 facing 90: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  built 18 items in 178 ms
+  cleared: 191 tree trunks and 529 old vegetation pieces where the 18 items, their run-ups and landings are
+== jumps at the sensible speed and 20% slower, vehicle original
+  1 table: the clearing speed by trying: 22.4 m/s: 37 m
+  1 table at 22.4 m/s (clears it): takeoff 19.6 m/s, apex 6.2 m over the lip, on the landing slope or past it (42 m from the lip), upright (up 0.95); touched in the air: nothing but ground; faces: 'CR014 trunk 05380' (normal -0.7,0.0,0.7, impulse 11526, at +0.0 m along from the toe, +0.0 m right, -7.74 m over the ground); 'CR014 trunk 05380' (normal -0.7,0.0,0.7, impulse 103, at +0.0 m along from the toe, +0.0 m right, -7.73 m over the ground); came to rest on the ramp, then drove 39 m away -> not trapped
+  1 table at 17.9 m/s (20% slower): takeoff 11.5 m/s, apex 2.7 m over the lip, on the table (14 m from the lip, the slope starts at 30 m), upright (up 1.00); touched in the air: nothing but ground; came to rest on the ramp, then drove 50 m away -> not trapped
+  2 table: the clearing speed by trying: 22.4 m/s: 33 m
+  2 table at 22.4 m/s (clears it): takeoff 18.4 m/s, apex 5.7 m over the lip, on the landing slope or past it (33 m from the lip), upright (up 0.94); touched in the air: nothing but ground; came to rest on the ramp, then drove 49 m away -> not trapped
+  2 table at 17.9 m/s (20% slower): takeoff 13.0 m/s, apex 3.5 m over the lip, on the table (17 m from the lip, the slope starts at 30 m), upright (up 1.00); touched in the air: nothing but ground; came to rest on the ramp, then drove 47 m away -> not trapped
+  3 table: the clearing speed by trying: 21.8 m/s: 40 m
+  3 table at 21.8 m/s (clears it): takeoff 17.8 m/s, apex 4.8 m over the lip, on the landing slope or past it (32 m from the lip), upright (up 0.93); touched in the air: nothing but ground; came to rest on the ramp, then drove 48 m away -> not trapped
+  3 table at 17.5 m/s (20% slower): takeoff 13.6 m/s, apex 3.0 m over the lip, on the table (18 m from the lip, the slope starts at 30 m), upright (up 1.00); touched in the air: nothing but ground; came to rest on the ramp, then drove 47 m away -> not trapped
+  4 house: the clearing speed by trying: 21.5 m/s: 16 m; 23.0 m/s: 20 m, hit the roof; 24.5 m/s: 45 m
+  4 house at 24.5 m/s (clears it): takeoff 21.6 m/s, apex 3.6 m over the lip, on the landing (45 m from the lip), upright (up 1.00); touched in the air: nothing but ground; came to rest on Ground_640_80, then drove 48 m away -> not trapped
+  4 house at 19.6 m/s (20% slower): takeoff 16.2 m/s, apex 1.8 m over the lip, SHORT, came down 10 m from the lip (the landing starts at 36 m), upright (up 0.93); touched in the air: vehicle touched 'Pitched roof' at (483.6, 32.1, -596.2), impulse 0; vehicle touched 'Pitched roof' at (480.8, 32.1, -596.0), impulse 0; faces: 'Ground_Free Roam ramp 4 (house) surface' (normal -1.0,0.0,-0.3, impulse 11530, at +0.0 m along from the toe, +0.0 m right, +1.65 m over the ground); 'Ground_Free Roam ramp 4 (house) surface' (normal -1.0,0.0,-0.3, impulse 1093, at +0.0 m along from the toe, +0.0 m right, +1.72 m over the ground); came to rest on Pitched roof, then drove 18 m away -> not trapped
+  5 house: the clearing speed by trying: 20.4 m/s: 17 m, hit the roof; 21.9 m/s: 25 m; 23.4 m/s: 48 m
+  5 house at 23.4 m/s (clears it): takeoff 20.1 m/s, apex 3.9 m over the lip, on the landing (46 m from the lip), upright (up 0.99); touched in the air: nothing but ground; faces: 'CR014 trunk 00190' (normal 0.0,0.0,1.0, impulse 10747, at +0.0 m along from the toe, +0.0 m right, -7.62 m over the ground); 'CR014 trunk 00190' (normal 0.0,-0.1,1.0, impulse 746, at +0.0 m along from the toe, +0.0 m right, -7.63 m over the ground); came to rest on Ground_320_80, then drove 40 m away -> not trapped
+  5 house at 18.7 m/s (20% slower): takeoff 15.3 m/s, apex 2.2 m over the lip, SHORT, came down 11 m from the lip (the landing starts at 34 m), upright (up 1.00); touched in the air: vehicle touched 'Pitched roof' at (-38.4, 44.7, -395.0), impulse 0; came to rest on Pitched roof, then drove 50 m away -> not trapped
+  6 through: the clearing speed by trying: 34.0 m/s: 19 m, hit the barn; 32.5 m/s: 49 m
+  6 through at 32.5 m/s (clears it): takeoff 30.7 m/s, apex 3.0 m over the lip, 20 m from the lip, upright (up 1.00); touched in the air: nothing but ground; came to rest on the ramp, then drove 47 m away -> not trapped
+  7 gap: the clearing speed by trying: 20.8 m/s: 28 m; 22.3 m/s: 32 m
+  7 gap at 22.3 m/s (clears it): takeoff 18.9 m/s, apex 4.3 m over the lip, on the landing (31 m from the lip), upright (up 0.97); touched in the air: nothing but ground; came to rest on the ramp, then drove 48 m away -> not trapped
+  7 gap at 17.9 m/s (20% slower): takeoff 13.9 m/s, apex 2.5 m over the lip, SHORT, came down 22 m from the lip (the landing starts at 30 m), upright (up 1.00); touched in the air: nothing but ground; faces: 'Ground_Free Roam ramp 7 (gap) surface' (normal -1.0,0.0,0.0, impulse 11238, at +0.0 m along from the toe, +0.0 m right, +0.36 m over the ground); 'Ground_Free Roam ramp 7 (gap) surface' (normal -1.0,0.0,0.0, impulse 567, at +0.0 m along from the toe, +0.0 m right, +0.36 m over the ground); came to rest on Ground_400_560, then drove 15 m away -> not trapped
+  8 gap: the clearing speed by trying: 20.9 m/s: 28 m; 22.4 m/s: 30 m; 23.9 m/s: 38 m
+  8 gap at 23.9 m/s (clears it): takeoff 20.9 m/s, apex 5.5 m over the lip, on the landing (43 m from the lip), upright (up 0.99); touched in the air: nothing but ground; came to rest on Ground_480_160, then drove 47 m away -> not trapped
+  8 gap at 19.1 m/s (20% slower): takeoff 14.9 m/s, apex 3.1 m over the lip, SHORT, came down 24 m from the lip (the landing starts at 30 m), upright (up 1.00); touched in the air: nothing but ground; faces: 'Ground_Free Roam ramp 8 (gap) surface' (normal 0.9,0.0,-0.5, impulse 3735, at +0.0 m along from the toe, +0.0 m right, +0.37 m over the ground); 'Ground_Free Roam ramp 8 (gap) surface' (normal 0.9,0.0,-0.5, impulse 409, at +0.0 m along from the toe, +0.0 m right, +0.37 m over the ground); came to rest on Ground_480_160, then drove 18 m away -> not trapped
+  9 kicker at 18.0 m/s (clears it): takeoff 14.0 m/s, apex 3.9 m over the lip, 18 m from the lip, upright (up 1.00); touched in the air: nothing but ground; came to rest on Ground_480_400, then drove 47 m away -> not trapped
+  10 kicker at 18.0 m/s (clears it): takeoff 15.2 m/s, apex 2.5 m over the lip, 22 m from the lip, upright (up 1.00); touched in the air: nothing but ground; faces: 'Tree trunk' (normal 0.0,0.0,-1.0, impulse 11744, at +0.0 m along from the toe, +0.0 m right, -6.15 m over the ground); 'Tree trunk' (normal 0.0,0.0,-1.0, impulse 687, at +0.0 m along from the toe, +0.0 m right, -6.16 m over the ground); came to rest on Ground_240_400, then drove 24 m away -> not trapped
+  11 kicker at 18.0 m/s (clears it): takeoff 15.6 m/s, apex 2.4 m over the lip, 23 m from the lip, upright (up 0.99); touched in the air: nothing but ground; came to rest on Ground_240_240, then drove 47 m away -> not trapped

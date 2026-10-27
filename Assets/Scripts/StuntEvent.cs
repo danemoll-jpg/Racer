@@ -19,6 +19,8 @@ namespace Racer
     // That player is done when the combo ends (the 5 s pass on the ground, a bail, a reset: banked as always), or a flight in the air at 0:00
     // lands with no trick; a player with nothing going at 0:00 is done then. The only safety: stopped for StillLimit seconds ends it. The results
     // wait for everyone; a player who is done sees "WAITING FOR P2" and their final score. Part B: each player's next medal (SplitHud).
+    // 1.3.0-review3: the Stunt chapter's Park Competition (a campaign Park event with rivals): the event's rivals ride the park too (ParkRival, riders 3
+    // and up), for the event's time (5 minutes); everyone is placed by points (Standings), shown live on the HUD and on the campaign results.
     public sealed class StuntEvent : MonoBehaviour
     {
         public const float StartPause = 3;
@@ -37,7 +39,14 @@ namespace Racer
         public Phase State { get; private set; }
         public int Round { get; private set; } // 0.109 Part B: each round's results open on the combos list
         public float Clock { get; private set; }
-        public float Limit => StuntProgress.Minutes * 60;
+        public float Limit => Competition is { } c && c.TimeLimit > 0 ? c.TimeLimit : StuntProgress.Minutes * 60;
+        // 1.3.0-review3: the Park Competition running (the campaign's park event with rivals), its rivals, and everyone by points
+        public static CampaignEvent Competition => CampaignRun.Active is { IsCompetition: true } e ? e : null;
+        readonly List<ParkRival> rivals = new();
+        public List<Rider> Standings => Riders.OrderByDescending(r => r.points).ThenBy(r => r.player).ToList();
+        public int PlaceOf(Rider r) => Standings.IndexOf(r) + 1;
+        public string NameOf(Rider r) => r.player >= 3 ? ParkRival.NameFor(r.player - 3) : SplitScreen.NameOf(r.player);
+        void ClearRivals() { foreach (var p in rivals) if (p) { p.gameObject.SetActive(false); Destroy(p.gameObject); } rivals.Clear(); }
         public float Left => Mathf.Max(0, RoundLimit - Clock);
         public const float StillLimit = 5, MedalMoment = 2.5f;
         // 0.107 Part E / 0.108 Part A: past 0:00, players still going (a flight or a combo)
@@ -53,7 +62,7 @@ namespace Racer
         public static float TestLimit = -1;
 
         public void Initialize(RaceFlow owner) { flow = owner; race = owner.Race; Current = this; }
-        void OnDestroy() { Unhook(); foreach (var c in held.ToList()) Hold(c, false); if (Current == this) Current = null; }
+        void OnDestroy() { Unhook(); foreach (var c in held.ToList()) Hold(c, false); ClearRivals(); if (Current == this) Current = null; }
         public Rider Of(int player) => Riders.FirstOrDefault(r => r.player == player);
         public bool Holds(ArcadeVehicle car) => held.Contains(car);
         // RaceDirector.RestartRace (via SplitRace.PlayerTwo): player 1 in their chosen vehicle and colour
@@ -68,6 +77,7 @@ namespace Racer
             Add(1, p1, flow.Activities);
             var roam = SplitRoam.Current;
             if (!SplitScreen.Solo && roam && roam.Car) { roam.BringBeside(StuntPark.StartPos, StuntPark.StartRot); Add(2, roam.Car, roam.Activities2); }
+            ClearRivals(); if (Competition is { } comp) for (int i = 0; i < comp.Rivals.Length; i++) { var pr = ParkRival.Create(flow, comp.Rivals[i], i, comp.Difficulty); rivals.Add(pr); Add(3 + i, pr.Car, pr.Acts); }
             foreach (var r in Riders) { r.acts.NewSession(); Hold(r.car, true); }
         }
         void Add(int player, ArcadeVehicle car, ArcadeActivities acts)
@@ -90,8 +100,8 @@ namespace Racer
         {
             if (!car) return;
             if (on) { held.Add(car); car.Body.linearVelocity = car.Body.angularVelocity = Vector3.zero; car.Body.isKinematic = true; car.enabled = false; }
-            else { held.Remove(car); car.Body.isKinematic = false; car.enabled = true; }
-            var input = car.GetComponent<VehicleInput>(); if (input) input.enabled = !on;
+            else { held.Remove(car); car.Body.isKinematic = false; car.enabled = !car.GetComponent<ParkRival>(); } // a rival is driven by ParkRival (Simulate)
+            var input = car.GetComponent<VehicleInput>(); if (input) input.enabled = !on && !car.GetComponent<ParkRival>();
         }
         float RoundLimit => TestLimit > 0 ? TestLimit : Limit;
         void Update()
@@ -116,7 +126,7 @@ namespace Racer
             if (Riders.All(r => r.closed)) Finish();
         }
         float overtime;
-        public int Winner => Riders.Count < 2 ? 0 : Riders[0].points > Riders[1].points ? 1 : Riders[1].points > Riders[0].points ? 2 : 0;
+        public int Winner => Riders.Count < 2 || rivals.Count > 0 ? 0 : Riders[0].points > Riders[1].points ? 1 : Riders[1].points > Riders[0].points ? 2 : 0;
         void Finish()
         {
             foreach (var r in Riders) if (!r.closed) { r.acts.EndStuntCombo(); r.closed = true; } // the open combos count

@@ -31,7 +31,7 @@ namespace Racer
         // CampaignRun (the Stunt chapter) or SplitScreen; false in every other race.
         [System.NonSerialized] public bool stunts, splitScore;
         public string RecordCourse=>(high?HighMode.RecordPrefix:"")+BaseRecordCourse;
-        public string BaseRecordCourse=>stunts?StuntRace.RecordPrefix+courseId+(splitScore?"-split":""):courseId;
+        public string BaseRecordCourse=>stunts?StuntRace.RecordPrefix+courseId+(StuntShortcuts.Closed(this)?StuntShortcuts.RecordSuffix:"")+(splitScore?"-split":""):courseId; // 1.3.0-review3: the Mountain Loop Stunt Races with their shortcuts closed start new boards
         // 1.2: this race or Free Roam session is in HIGH MODE (set by RaceFlow at each start; a race keeps it until the next start): its own
         // records ("high-" boards), the gutter bumpers (HighBumpers) and the forgiving driving (HighAssist).
         // 1.2.0-review2: in split screen each player chooses: high1 / high2 (high = either of them: the bumpers are built, for the HIGH player only)
@@ -72,6 +72,9 @@ namespace Racer
         float origin;
         float[] gateS;
         public WoodlandRoute[] Branches { get; private set; }
+        // 1.3.0-review3: every shortcut of the course, and a Mountain Loop Stunt Race's closing of them (StuntShortcuts: Branches empty)
+        public WoodlandRoute[] AllBranches { get; private set; }
+        public void CloseBranches(bool closed) { if (AllBranches != null) Branches = closed ? System.Array.Empty<WoodlandRoute>() : AllBranches; }
         public float Origin => origin;
         double startedAt, firstFinish = -1; bool winnerCelebrated;
         double debugTimeoutOffset, debugGraceOffset;
@@ -108,7 +111,7 @@ namespace Racer
             if (road)
             {
                 road.Initialize();
-                Branches = Leviathan ? Leviathan.Branches : FindObjectsByType<WoodlandRoute>();
+                Branches = AllBranches = Leviathan ? Leviathan.Branches : FindObjectsByType<WoodlandRoute>();
                 origin = road.Project(gates[0].transform.position, out _);
                 // 0.115: on a line that passes the same ground twice (Leviathan's stem and lake shore), each gate at its own pass
                 gateS = gates.Select((g, i) => road.Relative(Leviathan ? road.ProjectNear(g.transform.position, Leviathan.GateHints[i], 30, out _) : road.Project(g.transform.position, out _), origin)).ToArray();
@@ -197,6 +200,7 @@ namespace Racer
             if (SplitScreen.Active) SplitScreen.Race?.PlayerTwo(); // 0.90 Part D: the rival slot becomes player 2
             StuntRaceScore.Prepare(this); // 0.119 Part B: a Stunt Race's tricks scored (removed in any other race)
             StuntBumps.Apply(this); // 0.120 Part C: a Stunt Race's bumps (removed in any other race)
+            StuntShortcuts.Apply(this); // 1.3.0-review3: a Mountain Loop Stunt Race's shortcuts closed (open in any other race)
             HighBumpers.Apply(this); HighAssist.Attach(this); // 1.2: HIGH MODE races: the gutter bumpers (hidden otherwise); the players' forgiving driving
             ShowGrid();
             foreach (var r in Racers)

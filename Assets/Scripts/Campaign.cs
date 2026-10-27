@@ -153,6 +153,8 @@ namespace Racer
             if (!ChapterOpen(e.Chapter)) return false;
             var list = CampaignData.InChapter(e.Chapter); int i = Array.IndexOf(list, e);
             if (i <= 0 || Passed(list[i - 1])) return true;
+            // 1.3.0-review3 (the Stunt chapter reordered, a new event added): an event already passed, or one before an event already passed, stays open
+            if (Passed(e) || list.Skip(i + 1).Any(Passed)) return true;
             return Current.legacyOrder && LegacyAvailable(e, list, i);
         }
         // 0.96 Part C: open the way it was open before the practice laps (the event before it in the old order is passed); a
@@ -229,7 +231,7 @@ namespace Racer
             public double RaceSeconds; public int[] Places; public bool CupFinished, Forfeit; public int CupPosition;
             // 0.92 Part D: the prize vehicle this run won (shown revealed on the results), or the champion's paint scheme.
             public string PrizeWon; public bool ChampionPaint;
-            public string Headline => Debug ? "DEBUG RUN — no result or payout" : Event.Kind == CampaignEventKind.Race
+            public string Headline => Debug ? "DEBUG RUN — no result or payout" : Event.Placed
                 ? (Dnf ? "Did not finish" : $"{Ordinal(Place)} of {Field}")
                 : (Dnf ? "No result" : MedalUi.Name(Medal) + "  ·  " + MedalUi.Value(Event.Kind, Event.Kind == CampaignEventKind.TimeTrial ? (float)Time : Score));
         }
@@ -245,7 +247,7 @@ namespace Racer
             return value >= e.Targets[2] ? 3 : value >= e.Targets[1] ? 2 : value >= e.Targets[0] ? 1 : 0;
         }
         public static string TargetsText(CampaignEvent e) => e.Targets == null ? "" : $"Bronze {Measure(e, e.Targets[0])} · silver {Measure(e, e.Targets[1])} · gold {Measure(e, e.Targets[2])}";
-        public static string PayText(CampaignEvent e) => e.Kind == CampaignEventKind.Race
+        public static string PayText(CampaignEvent e) => e.Placed
             ? $"1st {Money(e.Pay)}, then {string.Join(", ", Enumerable.Range(1, e.Rivals.Length).Select(i => Money(Share(e.Pay, CampaignData.PlaceShare[Mathf.Min(i, CampaignData.PlaceShare.Length - 1)]))))}" + $" · first win +{Money(e.Bonus)}"
             : $"by medal (shown beside) · first gold +{Money(e.Bonus)}"; // 0.96 Part B: the medals are drawn, not written
         // 0.96 Part B: what a medal pays (the medal rows on the event page and the campaign screen)
@@ -254,7 +256,7 @@ namespace Racer
         public static string BestText(CampaignEvent e)
         {
             var r = ResultOf(e.Id); if (r == null || r.runs == 0) return "Not run yet";
-            if (e.Kind == CampaignEventKind.Race) return r.bestPlace > 0 ? $"Best {Ordinal(r.bestPlace)} of {r.field}" + (r.bestTime > 0 ? " · " + RaceHud.FormatTime(r.bestTime) : "") : "Best: did not finish";
+            if (e.Placed) return r.bestPlace > 0 ? $"Best {Ordinal(r.bestPlace)} of {r.field}" + (r.bestTime > 0 ? " · " + RaceHud.FormatTime(r.bestTime) : "") : "Best: did not finish";
             return r.bestMedal > 0 || r.bestScore > 0 || r.bestTime > 0 ? "Best: " + MedalUi.Value(e.Kind, e.Kind == CampaignEventKind.TimeTrial ? (float)r.bestTime : r.bestScore) : "Best: no result"; // 0.96 Part B: the medal itself is drawn beside it
         }
 
@@ -264,17 +266,17 @@ namespace Racer
         {
             var e = o.Event; o.Testing = Testing;
             if (o.Debug) return o;
-            if (e.Kind == CampaignEventKind.Race) { o.Passed = !o.Dnf && o.Place <= 3; o.Won = !o.Dnf && o.Place == 1; }
+            if (e.Placed) { o.Passed = !o.Dnf && o.Place <= 3; o.Won = !o.Dnf && o.Place == 1; }
             else { o.Medal = o.Dnf ? 0 : MedalFor(e, e.Kind == CampaignEventKind.TimeTrial ? (float)o.Time : o.Score); o.Passed = o.Medal >= 1; o.Won = o.Medal == 3; }
             var keep = JsonUtility.ToJson(Current);
             var r = ResultOf(e.Id); if (r == null) { r = new Result { id = e.Id }; Current.results.Add(r); }
             o.Replay = r.runs > 0;
-            float share = o.Dnf ? 0 : e.Kind == CampaignEventKind.Race ? CampaignData.PlaceShare[Mathf.Clamp(o.Place - 1, 0, CampaignData.PlaceShare.Length - 1)] : CampaignData.MedalShare[o.Medal];
+            float share = o.Dnf ? 0 : e.Placed ? CampaignData.PlaceShare[Mathf.Clamp(o.Place - 1, 0, CampaignData.PlaceShare.Length - 1)] : CampaignData.MedalShare[o.Medal];
             o.Pay = Share(e.Pay, share * (o.Replay ? CampaignData.ReplayShare : 1));
             if (o.Won && !r.bonusPaid) { o.Bonus = e.Bonus; r.bonusPaid = true; }
             int nextBefore = CampaignData.Events.Count(Available); int chapterBefore = Current.chapter;
             r.runs++; r.passed |= o.Passed; r.won |= o.Won;
-            if (e.Kind == CampaignEventKind.Race)
+            if (e.Placed)
             {
                 if (!o.Dnf && (r.bestPlace == 0 || o.Place < r.bestPlace || (o.Place == r.bestPlace && (r.bestTime <= 0 || o.Time < r.bestTime)))) { r.bestPlace = o.Place; r.field = o.Field; r.bestTime = o.Time; }
             }
@@ -414,7 +416,7 @@ namespace Racer
             var e = CampaignData.Find(Selected) ?? Next; if (e == null) return "No event";
             var r = ResultOf(e.Id); if (r == null) Current.results.Add(r = new Result { id = e.Id });
             r.passed = r.won = true; r.runs = Mathf.Max(1, r.runs);
-            if (e.Kind == CampaignEventKind.Race) { r.bestPlace = 1; r.field = e.Rivals.Length + 1; } else r.bestMedal = 3;
+            if (e.Placed) { r.bestPlace = 1; r.field = e.Rivals.Length + 1; } else r.bestMedal = 3;
             if (e.Prize != null && !Owns(e.Prize)) Current.owned.Add(e.Prize);
             string scene = RacePlaylists.Scenes[e.Course]; if (!Current.courses.Contains(scene)) Current.courses.Add(scene);
             if (e.Final && Current.chapter == e.Chapter && e.Chapter < CampaignData.Chapters.Length) Current.chapter++;

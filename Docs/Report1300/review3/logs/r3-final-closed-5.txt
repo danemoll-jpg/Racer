@@ -1,0 +1,13 @@
+screen=1280x720 kind=closed1300r3 version=1.3.0-review3 park=on
+== Stunt Race on Mountain Loop - Reverse (MountainLoopReverse): stunts True, record course stunt-mountain-reverse-v4-natural-summit-merge-closed; shortcuts in the race 0, of 2: Downhill Ridge Cut (closed), Summit Traverse (closed); barricades 17 panels
+  closed: Downhill Ridge Cut: closed at its start (803, 96, -188) and its end (704, 79, -74)
+  closed: Summit Traverse: closed at its start (1004, 162, 101) and its end (869, 112, -88)
+  Leviathan road closed (Downhill Ridge Cut start): 13.6 m from the main road's line (its half width 3.6 m)
+  Leviathan road closed (Downhill Ridge Cut end): 13.2 m from the main road's line (its half width 3.6 m)
+  Leviathan road closed (Summit Traverse start): 15.3 m from the main road's line (its half width 3.6 m)
+  Leviathan road closed (Summit Traverse end): 13.2 m from the main road's line (its half width 3.6 m)
+  barricade panels after the restart: 17
+  rival stuntbuggy: finished, resets 1, on a closed shortcut: never
+  rival stuntbike: finished, resets 0, on a closed shortcut: never
+  rival stuntbuggy: finished, resets 0, on a closed shortcut: never
+  resets: reset at 938.2,125.70,-99.6, 69 m from the nearest barricade; player finished, missed gates 0

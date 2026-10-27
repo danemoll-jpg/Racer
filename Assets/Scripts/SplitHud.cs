@@ -184,7 +184,8 @@ namespace Racer
                 {
                     // 0.106 Part D: the clock, the points, the last combo banked
                     var r = stunt.Of(player); int sec = Mathf.CeilToInt(stunt.State == StuntEvent.Phase.Starting ? stunt.Limit : stunt.Left);
-                    lines.Add($"<b>STUNT EVENT</b>   {sec / 60}:{sec % 60:00} left   <b>{(r != null ? r.points : 0):N0}</b> pts");
+                    lines.Add($"<b>{(StuntEvent.Competition != null ? "PARK COMPETITION" : "STUNT EVENT")}</b>   {sec / 60}:{sec % 60:00} left   <b>{(r != null ? r.points : 0):N0}</b> pts");
+                    if (r != null && StuntEvent.Competition != null) { var top = stunt.Standings[0]; lines.Add($"<b>{Campaign.Ordinal(stunt.PlaceOf(r))}</b> of {stunt.Riders.Count}   " + (top == r ? "<color=#9CFFB0>LEADING</color>" : $"leader {stunt.NameOf(top)} <b>{top.points:N0}</b>")); } // 1.3.0-review3: your place and the leader
                     if (stunt.Finishing(player)) lines.Add(r.acts.ComboLinks > 0 ? "<color=#FFC747><b>COMBO OVERTIME</b></color>" : "<color=#FFC747><b>FINISH THE TRICK!</b></color>"); // 0.107 Part E, 0.108 Part A
                     if (r != null && Time.unscaledTime < r.lineUntil) lines.Add(r.line.StartsWith("+") ? "<color=#9CFFB0>" + r.line + "</color>" : "<color=#FFC747>" + r.line + "</color>");
                 }
@@ -212,7 +213,7 @@ namespace Racer
                 // 0.107 Part E: the Stunt event's line (five-figure points) no longer wraps, so "FINISH THE TRICK!" below it is not cut off
                 ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(stunt ? Mathf.Max(330, h.info.preferredWidth + 24) : 330, 22 + 25 * lines.Count);
                 // 0.108 Part B: the next medal and the points still needed; its name for a moment when reached; after gold, the margin over it
-                var sr = stunt ? stunt.Of(player) : null; h.goalPanel.SetActive(sr != null && stunt.State != StuntEvent.Phase.Done);
+                var sr = stunt ? stunt.Of(player) : null; h.goalPanel.SetActive(sr != null && stunt.State != StuntEvent.Phase.Done && StuntEvent.Competition == null) /* 1.3.0-review3: the Park Competition is placed, not medalled */;
                 if (h.goalPanel.activeSelf)
                 {
                     int have = StuntProgress.MedalFor(sr.points), shown; var t = StuntProgress.Targets;
@@ -252,7 +253,8 @@ namespace Racer
                 }
                 else if (stunt)
                 {
-                    if (stunt.State == StuntEvent.Phase.Starting) centre = "<size=26>STUNT EVENT</size>\n<size=20>" + StuntProgress.Minutes + " minutes · land on your wheels · chain tricks within " + ArcadeActivities.ComboGap.ToString("0.#") + " s</size>";
+                    if (stunt.State == StuntEvent.Phase.Starting && StuntEvent.Competition is { } comp) centre = "<size=26>PARK COMPETITION</size>\n<size=20>" + (comp.TimeLimit / 60).ToString("0") + " minutes · " + comp.Rivals.Length + " rivals ride the park with you · most stunt points wins · top three pass</size>"; // 1.3.0-review3
+                    else if (stunt.State == StuntEvent.Phase.Starting) centre = "<size=26>STUNT EVENT</size>\n<size=20>" + StuntProgress.Minutes + " minutes · land on your wheels · chain tricks within " + ArcadeActivities.ComboGap.ToString("0.#") + " s</size>";
                     else if (stunt.State == StuntEvent.Phase.Running && stunt.Clock < 1.5f) centre = "GO!";
                     else if (stunt.State == StuntEvent.Phase.Done) centre = "TIME!";
                     else if (stunt.Overtime && stunt.Of(player) is { } ov)

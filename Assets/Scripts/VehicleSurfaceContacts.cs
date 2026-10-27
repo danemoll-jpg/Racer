@@ -63,6 +63,23 @@ namespace Racer
             copy[box.GetEntityId()]=new Box{Center=Vector3.Scale(box.center,box.transform.lossyScale),Half=Vector3.Scale(box.size*.5f,box.transform.lossyScale)};
             vehicles=copy;
         }
+        // 1.3.0-review3 (Dan: "jumps 4 and 8 have entrances that stop momentum"): surfaces built after the first vehicle registered in the scene (the
+        // Free Roam world's ramps, RoamWorld, built at its Start) were never in the faces above, so a motorcycle's speculative contacts on their seams
+        // kept their sideways normals and stopped it on the ramp's face. They are added here once built.
+        public static void AddSurfaces(IEnumerable<MeshCollider> meshes)
+        {
+            var next=new Dictionary<EntityId,Face[]>(surfaces);
+            foreach(var mesh in meshes)
+            {
+                if(!mesh || mesh.attachedRigidbody || !mesh.sharedMesh || !mesh.sharedMesh.isReadable) continue;
+                var vertices=mesh.sharedMesh.vertices; var indices=mesh.sharedMesh.triangles; var t=mesh.transform;
+                for(int v=0;v<vertices.Length;v++) vertices[v]=t.TransformPoint(vertices[v]);
+                var faces=new Face[indices.Length/3];
+                for(int i=0;i<faces.Length;i++){var a=vertices[indices[i*3]];var b=vertices[indices[i*3+1]];var c=vertices[indices[i*3+2]];faces[i]=new Face{Normal=Vector3.Cross(b-a,c-a).normalized,Point=a};}
+                next[mesh.GetEntityId()]=faces;
+            }
+            surfaces=next;
+        }
         public static void Unregister(BoxCollider box)
         { var copy=new Dictionary<EntityId,Box>(vehicles); copy.Remove(box.GetEntityId()); vehicles=copy; }
         static void Correct(PhysicsScene scene,NativeArray<ModifiableContactPair> pairs)

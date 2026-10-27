@@ -40,6 +40,7 @@ namespace Racer
             if (Array.IndexOf(a, "-p113off") >= 0) Hwy92Roadside.TrickumOff = true; // 0.113 Part C: the "before" (checks only)
             if (Array.IndexOf(a, "-p1300off") >= 0) RoamWorld.Disabled = true; // 1.3: the Free Roam world before this round (checks only)
             RoamWorld.Override = Arg("-p1300data", ""); // 1.3: items being placed (checks only)
+            RoamWorld.ArcStep = F(Arg("-p1300arc", "3")); RoamWorld.StripWidth = F(Arg("-p1300strip", "1.5")); // 1.3.0-review3: the 1.3 surface for comparison (checks only)
             var g = new GameObject("Report106 player check"); DontDestroyOnLoad(g); g.AddComponent<Report106PlayerCheck>().outDir = a[i + 1];
         }
         static string Arg(string key, string fallback) { var a = Environment.GetCommandLineArgs(); int i = Array.IndexOf(a, key); return i >= 0 && i + 1 < a.Length ? a[i + 1] : fallback; }
@@ -177,6 +178,8 @@ namespace Racer
                 case "display1101": yield return Display1101(); break; // 1.1.0 (Report106PlayerCheck.Round1101.cs)
                 case "high1200": yield return High1200(); break; // 1.2 (Report106PlayerCheck.Round1200.cs)
                 case "world1300": yield return World1300(); break; // 1.3 (Report106PlayerCheck.Round1300.cs)
+                case "comp1300r3": yield return Comp1300r3(); break; // 1.3.0-review3 Parts D and E (Report106PlayerCheck.Round1300r3b.cs)
+                case "closed1300r3": yield return Closed1300r3(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

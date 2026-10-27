@@ -1,0 +1,13 @@
+screen=1280x720 kind=closed1300r3 version=1.3.0-review3 park=on
+== Stunt Race on Mountain Loop - Forward (MountainLoop): stunts True, record course stunt-mountain-forward-v5-supported-closed; shortcuts in the race 0, of 2: Climbing Ridge Cut (closed), Summit Traverse (closed); barricades 18 panels
+  closed: Climbing Ridge Cut: closed at its start (759, 87, -114) and its end (1007, 138, -55)
+  closed: Summit Traverse: closed at its start (999, 161, 103) and its end (699, 87, 31)
+  Leviathan road closed (Climbing Ridge Cut start): 14.2 m from the main road's line (its half width 6.0 m)
+  Leviathan road closed (Climbing Ridge Cut end): 14.3 m from the main road's line (its half width 3.6 m)
+  Leviathan road closed (Summit Traverse start): 12.2 m from the main road's line (its half width 5.0 m)
+  Leviathan road closed (Summit Traverse end): 14.2 m from the main road's line (its half width 3.6 m)
+  barricade panels after the restart: 18
+  rival stuntbuggy: finished, resets 0, on a closed shortcut: never
+  rival stuntbike: finished, resets 0, on a closed shortcut: never
+  rival stuntbuggy: finished, resets 0, on a closed shortcut: never
+  resets: none; player finished, missed gates 0

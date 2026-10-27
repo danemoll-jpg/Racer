@@ -1,0 +1,233 @@
+screen=1280x720 kind=world1300 version=1.3.0-review2 park=on
+Free Roam world check part entrances: items 18 (built-in), breakable trees 11757
+  1 table at -54,-202 facing 135: lip 7.5 m at 34 degrees, 13 m wide, 30 m to the landing
+  2 table at -126,314 facing 75: lip 6.5 m at 32 degrees, 12 m wide, 30 m to the landing
+  3 table at -198,2 facing 210: lip 6.0 m at 32 degrees, 12 m wide, 30 m to the landing
+  4 house at 467,-600 facing 75: lip 4.5 m at 32 degrees, 12 m wide, 36 m to the landing
+  5 house at -38,-379 facing 180: lip 4.5 m at 32 degrees, 12 m wide, 34 m to the landing
+  6 through at 126,-202 facing 285: kicker 2.6 m, barn 16 m long (deck 2.0 m), plank walls both ends
+  7 gap at 54,482 facing 90: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  8 gap at 210,-430 facing 300: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  9 kicker at 270,170 facing 105: lip 2.4 m at 26 degrees, 9 m wide
+  10 kicker at -294,146 facing 0: lip 2.4 m at 26 degrees, 9 m wide
+  11 kicker at -234,-166 facing 345: lip 2.4 m at 26 degrees, 9 m wide
+  12 smash at -14,38: 28 props (hay bales, crates, boxes, cones)
+  13 smash at 482,126: 28 props (hay bales, crates, boxes, cones)
+  14 smash at 314,-314: 28 props (hay bales, crates, boxes, cones)
+  15 smash at 418,262: 28 props (hay bales, crates, boxes, cones)
+  16 flip at -972,-548 facing 270: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  17 loop at -1208,541 (road coming in heading 270): a 22 m paved turnaround, banked 2.8 m round its rim
+  18 flip at 936,563 facing 90: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  built 18 items in 64 ms
+  cleared: 191 tree trunks and 529 old vegetation pieces where the 18 items, their run-ups and landings are
+== entrances, vehicle moto
+  1 table toe -71.3,0.00,-184.7: ramp edge minus ground across the toe (left to right): -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -6.0: rise -0.44 m, biggest 0.25 m step 0.04 at +7.5 (ramp), hump 0.00 dip 0.00 | -3.3: rise -0.42 m, biggest 0.25 m step 0.04 at +7.8 (ramp), hump 0.00 dip 0.00 | 0: rise -0.40 m, biggest 0.25 m step 0.04 at +8.0 (ramp), hump 0.00 dip 0.00 | +3.3: rise -0.37 m, biggest 0.25 m step 0.04 at +8.5 (ramp), hump 0.00 dip 0.00 | +6.0: rise -0.34 m, biggest 0.25 m step 0.04 at +8.3 (ramp), hump 0.00 dip 0.00
+    standing on the run-up and entrance: 'Tree trunk' at -14 m
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 10.0 m/s, on the face 10.1 m/s (climb 0.54 m, 9.5 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.1 m/s, on the face 10.1 m/s (climb 0.55 m, 9.5 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.2 m/s, on the face 10.3 m/s (climb 0.52 m, 9.7 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 17.9 m/s (climb 0.56 m, 17.7 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 18.0 m/s, on the face 18.2 m/s (climb 0.51 m, 17.7 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.0 m/s, on the face 18.2 m/s (climb 0.48 m, 17.7 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.8 m/s, on the face 26.0 m/s (climb 0.54 m, 25.6 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.1 m/s, on the face 26.0 m/s (climb 0.54 m, 25.9 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 25.8 m/s, on the face 26.0 m/s (climb 0.52 m, 25.6 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.2 m/s, on the face 18.0 m/s (climb 0.54 m, 17.9 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  1 table moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 0%, 26 m/s centre 0%, 26 m/s -3 m 0%, 26 m/s +3 m 0%, 18 m/s 15 deg off-line 0%
+  2 table toe -147.9,0.00,308.1: ramp edge minus ground across the toe (left to right): -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -5.5: rise -0.06 m, biggest 0.25 m step 0.05 at +7.5 (ramp), hump 0.00 dip 0.02 | -3.0: rise -0.01 m, biggest 0.25 m step 0.05 at +6.8 (ramp), hump 0.00 dip 0.02 | 0: rise +0.06 m, biggest 0.25 m step 0.05 at +7.8 (ramp), hump 0.00 dip 0.02 | +3.0: rise +0.12 m, biggest 0.25 m step 0.04 at +6.8 (ramp), hump 0.00 dip 0.02 | +5.5: rise +0.18 m, biggest 0.25 m step 0.04 at +6.8 (ramp), hump 0.00 dip 0.02
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 10.0 m/s, on the face 10.1 m/s (climb 0.72 m, 9.3 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.1 m/s, on the face 10.2 m/s (climb 0.74 m, 9.4 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.3 m/s, on the face 10.0 m/s (climb 0.71 m, 9.6 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.2 m/s, on the face 17.9 m/s (climb 0.75 m, 17.8 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 17.9 m/s, on the face 18.0 m/s (climb 0.76 m, 17.4 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.0 m/s, on the face 17.8 m/s (climb 0.72 m, 17.6 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 26.0 m/s, on the face 26.0 m/s (climb 0.77 m, 25.7 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.1 m/s, on the face 26.1 m/s (climb 0.78 m, 25.8 m/s expected from the climb alone, lowest 25.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 25.8 m/s, on the face 25.9 m/s (climb 0.75 m, 25.5 m/s expected from the climb alone, lowest 25.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 17.8 m/s, on the face 17.8 m/s (climb 0.77 m, 17.4 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  2 table moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 0%, 26 m/s centre 0%, 26 m/s -3 m 0%, 26 m/s +3 m 0%, 18 m/s 15 deg off-line 0%
+  3 table toe -187.5,0.00,20.1: ramp edge minus ground across the toe (left to right): -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -5.5: rise -0.58 m, biggest 0.25 m step 0.04 at +6.3 (ramp), hump 0.00 dip 0.00 | -3.0: rise -0.56 m, biggest 0.25 m step 0.04 at +6.3 (ramp), hump 0.00 dip 0.00 | 0: rise -0.53 m, biggest 0.25 m step 0.04 at +6.8 (ramp), hump 0.00 dip 0.00 | +3.0: rise -0.50 m, biggest 0.25 m step 0.04 at +7.0 (ramp), hump 0.00 dip 0.00 | +5.5: rise -0.47 m, biggest 0.25 m step 0.05 at +7.0 (ramp), hump 0.00 dip 0.00
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 10.2 m/s, on the face 10.2 m/s (climb 0.32 m, 9.9 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.3 m/s, on the face 9.9 m/s (climb 0.27 m, 10.0 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 1%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.1 m/s, on the face 10.0 m/s (climb 0.37 m, 9.7 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 17.9 m/s, on the face 18.2 m/s (climb 0.30 m, 17.8 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 18.0 m/s, on the face 17.9 m/s (climb 0.25 m, 17.9 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.1 m/s, on the face 18.0 m/s (climb 0.34 m, 17.9 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.8 m/s, on the face 26.0 m/s (climb 0.36 m, 25.7 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.1 m/s, on the face 25.7 m/s (climb 0.22 m, 26.0 m/s expected from the climb alone, lowest 25.7): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.2 m/s, on the face 25.8 m/s (climb 0.31 m, 26.1 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 1%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.1 m/s, on the face 17.8 m/s (climb 0.09 m, 18.0 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 1%; vertical faces hit: none -> pass
+  3 table moto summary: 10 m/s centre 0%, 10 m/s -3 m 1%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 0%, 26 m/s centre 0%, 26 m/s -3 m 1%, 26 m/s +3 m 1%, 18 m/s 15 deg off-line 1%
+  4 house toe 451.7,0.00,-604.4: ramp edge minus ground across the toe (left to right): -0.06 -0.06 -0.05 -0.04 -0.04 -0.04 -0.04 -0.05 -0.05 -0.06 -0.06; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -5.5: rise -1.46 m, biggest 0.25 m step 0.03 at +5.3 (ramp), hump 0.01 dip 0.03 | -3.0: rise -1.42 m, biggest 0.25 m step 0.03 at +5.3 (ramp), hump 0.02 dip 0.02 | 0: rise -1.34 m, biggest 0.25 m step 0.02 at +5.3 (ramp), hump 0.03 dip 0.01 | +3.0: rise -1.24 m, biggest 0.25 m step 0.02 at +5.3 (ramp), hump 0.03 dip 0.00 | +5.5: rise -1.16 m, biggest 0.25 m step 0.02 at +5.0 (ramp), hump 0.03 dip 0.00
+    standing on the run-up and entrance: 'CR014 trunk 05265' at -16 m; 'CR014 trunk 05265' at -14 m
+    ramp faces turned toward the way in: 6 triangles; above the ground: +52.1 along, -8.0 right: 0.42 m up; +52.1 along, -8.0 right: 4.24 m up; +52.1 along, +8.0 right: 3.30 m up; +52.1 along, -2.7 right: 2.70 m up; +52.1 along, +2.7 right: 1.11 m up
+    10 m/s centre: 5 m before the toe 10.0 m/s, on the face 10.0 m/s (climb -0.52 m, 10.5 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 5%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.3 m/s, on the face 10.1 m/s (climb -0.45 m, 10.7 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 6%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.2 m/s, on the face 10.1 m/s (climb -0.56 m, 10.7 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 5%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.3 m/s, on the face 18.2 m/s (climb -0.50 m, 18.5 m/s expected from the climb alone, lowest 17.9): loss beyond the climb 2%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 18.0 m/s, on the face 18.2 m/s (climb -0.43 m, 18.3 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.0 m/s, on the face 18.0 m/s (climb -0.56 m, 18.3 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 2%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 26.1 m/s, on the face 25.8 m/s (climb -0.50 m, 26.3 m/s expected from the climb alone, lowest 25.4): loss beyond the climb 2%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.0 m/s, on the face 25.5 m/s (climb -0.44 m, 26.2 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 2%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.0 m/s, on the face 25.9 m/s (climb -0.55 m, 26.2 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 1%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.0 m/s, on the face 17.9 m/s (climb -0.36 m, 18.2 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 2%; vertical faces hit: none -> pass
+  4 house moto summary: 10 m/s centre 5%, 10 m/s -3 m 6%, 10 m/s +3 m 5%, 18 m/s centre 2%, 18 m/s -3 m 0%, 18 m/s +3 m 2%, 26 m/s centre 2%, 26 m/s -3 m 2%, 26 m/s +3 m 1%, 18 m/s 15 deg off-line 2%
+  5 house toe -38.2,0.00,-363.6: ramp edge minus ground across the toe (left to right): -0.05 -0.06 -0.07 -0.08 -0.09 -0.09 -0.09 -0.08 -0.07 -0.06 -0.04; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -5.5: rise +0.18 m, biggest 0.25 m step 0.03 at +4.8 (ramp), hump 0.10 dip 0.00 | -3.0: rise +0.10 m, biggest 0.25 m step 0.03 at +4.8 (ramp), hump 0.09 dip 0.00 | 0: rise +0.02 m, biggest 0.25 m step 0.03 at +4.8 (ramp), hump 0.09 dip 0.00 | +3.0: rise -0.06 m, biggest 0.25 m step 0.04 at +4.8 (ramp), hump 0.09 dip 0.00 | +5.5: rise -0.13 m, biggest 0.25 m step 0.04 at +4.8 (ramp), hump 0.08 dip 0.00
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 6 triangles; above the ground: +50.1 along, -8.0 right: 3.47 m up; +50.1 along, +8.0 right: 4.31 m up; +50.1 along, -2.7 right: 2.41 m up; +50.1 along, +8.0 right: 0.49 m up; +50.1 along, +2.7 right: 1.42 m up
+    10 m/s centre: 5 m before the toe 10.1 m/s, on the face 10.1 m/s (climb -0.02 m, 10.1 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.2 m/s, on the face 10.2 m/s (climb -0.02 m, 10.2 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 9.8 m/s, on the face 10.7 m/s (climb 0.01 m, 9.8 m/s expected from the climb alone, lowest 9.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.2 m/s, on the face 18.1 m/s (climb -0.03 m, 18.2 m/s expected from the climb alone, lowest 17.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 17.9 m/s, on the face 18.1 m/s (climb -0.08 m, 18.0 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 17.8 m/s, on the face 17.7 m/s (climb 0.03 m, 17.8 m/s expected from the climb alone, lowest 17.5): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 26.2 m/s, on the face 25.5 m/s (climb -0.06 m, 26.2 m/s expected from the climb alone, lowest 25.3): loss beyond the climb 3%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 25.5 m/s, on the face 27.1 m/s (climb -0.07 m, 25.5 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.0 m/s, on the face 24.0 m/s (climb -0.02 m, 26.0 m/s expected from the climb alone, lowest 24.0): loss beyond the climb 7%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.2 m/s, on the face 17.8 m/s (climb -0.22 m, 18.4 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 3%; vertical faces hit: none -> pass
+  5 house moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 1%, 26 m/s centre 3%, 26 m/s -3 m 0%, 26 m/s +3 m 7%, 18 m/s 15 deg off-line 3%
+  6 through toe 145.1,0.00,-207.1: ramp edge minus ground across the toe (left to right): -0.04 -0.04 -0.04 -0.05 -0.05 -0.05 -0.04 -0.04 -0.04; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -4.0: rise -0.36 m, biggest 0.25 m step 0.02 at +6.3 (ramp), hump 0.00 dip 0.04 | -2.3: rise -0.37 m, biggest 0.25 m step 0.02 at +6.5 (ramp), hump 0.00 dip 0.04 | 0: rise -0.39 m, biggest 0.25 m step 0.02 at +4.8 (ramp), hump 0.00 dip 0.03 | +2.3: rise -0.41 m, biggest 0.25 m step 0.02 at +6.3 (ramp), hump 0.00 dip 0.03 | +4.0: rise -0.42 m, biggest 0.25 m step 0.02 at +6.8 (ramp), hump 0.00 dip 0.02
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 6 triangles; above the ground: +24.7 along, -5.4 right: 1.83 m up; +24.7 along, +5.4 right: 2.17 m up; +24.7 along, -1.8 right: 1.28 m up; +24.7 along, +5.4 right: 0.17 m up; +24.7 along, +1.8 right: 0.72 m up
+    10 m/s centre: 5 m before the toe 9.9 m/s, on the face 10.3 m/s (climb 0.08 m, 9.8 m/s expected from the climb alone, lowest 9.4): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.0 m/s, on the face 11.1 m/s (climb 0.11 m, 9.9 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.8 m/s, on the face 10.7 m/s (climb 0.08 m, 10.7 m/s expected from the climb alone, lowest 8.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.1 m/s, on the face 17.9 m/s (climb 0.06 m, 18.1 m/s expected from the climb alone, lowest 17.6): loss beyond the climb 1%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 17.9 m/s, on the face 18.1 m/s (climb 0.05 m, 17.9 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.1 m/s, on the face 17.9 m/s (climb 0.04 m, 18.1 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 24.0 m/s, on the face 25.9 m/s (climb 0.07 m, 24.0 m/s expected from the climb alone, lowest 24.0): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 25.8 m/s, on the face 26.2 m/s (climb 0.09 m, 25.8 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.1 m/s, on the face 26.0 m/s (climb 0.01 m, 26.1 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.2 m/s, on the face 17.9 m/s (climb 0.03 m, 18.1 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 1%; vertical faces hit: none -> pass
+  6 through moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 1%, 18 m/s -3 m 0%, 18 m/s +3 m 1%, 26 m/s centre 0%, 26 m/s -3 m 0%, 26 m/s +3 m 0%, 18 m/s 15 deg off-line 1%
+  7 gap toe 40.6,0.00,482.0: ramp edge minus ground across the toe (left to right): -0.06 -0.05 -0.05 -0.04 -0.04 -0.04 -0.04 -0.04 -0.05 -0.06; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -4.5: rise +0.00 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.00 dip 0.00 | -2.5: rise -0.01 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.00 dip 0.00 | 0: rise -0.02 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.00 dip 0.00 | +2.5: rise -0.03 m, biggest 0.25 m step 0.04 at +4.5 (ramp), hump 0.01 dip 0.00 | +4.5: rise -0.04 m, biggest 0.25 m step 0.04 at +4.5 (ramp), hump 0.01 dip 0.00
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 6 triangles; above the ground: +43.4 along, -7.0 right: 3.00 m up; +43.4 along, +7.0 right: 3.02 m up; +43.4 along, -2.3 right: 2.04 m up; +43.4 along, +2.3 right: 1.02 m up
+    10 m/s centre: 5 m before the toe 10.2 m/s, on the face 9.9 m/s (climb 0.32 m, 9.9 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.3 m/s, on the face 9.9 m/s (climb 0.34 m, 10.0 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 9.8 m/s, on the face 10.0 m/s (climb 0.27 m, 9.6 m/s expected from the climb alone, lowest 9.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.1 m/s, on the face 17.0 m/s (climb 0.31 m, 18.0 m/s expected from the climb alone, lowest 17.0): loss beyond the climb 5%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 17.9 m/s, on the face 18.0 m/s (climb 0.27 m, 17.7 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.1 m/s, on the face 17.9 m/s (climb 0.26 m, 18.0 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.8 m/s, on the face 25.7 m/s (climb 0.26 m, 25.7 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.0 m/s, on the face 25.6 m/s (climb 0.30 m, 25.9 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 25.8 m/s, on the face 25.9 m/s (climb 0.21 m, 25.7 m/s expected from the climb alone, lowest 25.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.1 m/s, on the face 18.4 m/s (climb 0.29 m, 17.9 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  7 gap moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 5%, 18 m/s -3 m 0%, 18 m/s +3 m 0%, 26 m/s centre 0%, 26 m/s -3 m 1%, 26 m/s +3 m 0%, 18 m/s 15 deg off-line 0%
+  8 gap toe 221.6,0.00,-436.7: ramp edge minus ground across the toe (left to right): -0.04 -0.06 -0.08 -0.09 -0.09 -0.09 -0.09 -0.08 -0.06 -0.05; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -4.5: rise -0.06 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.01 dip 0.00 | -2.5: rise -0.02 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.01 dip 0.00 | 0: rise +0.02 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.00 dip 0.00 | +2.5: rise +0.07 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.00 dip 0.01 | +4.5: rise +0.11 m, biggest 0.25 m step 0.05 at +4.5 (ramp), hump 0.00 dip 0.02
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 6 triangles; above the ground: +43.4 along, -7.0 right: 0.81 m up; +43.4 along, -7.0 right: 3.87 m up; +43.4 along, +7.0 right: 2.38 m up; +43.4 along, -2.3 right: 2.30 m up; +43.4 along, +2.3 right: 0.78 m up
+    10 m/s centre: 5 m before the toe 10.0 m/s, on the face 10.2 m/s (climb 0.29 m, 9.7 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.2 m/s, on the face 10.0 m/s (climb 0.28 m, 9.9 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.0 m/s, on the face 10.0 m/s (climb 0.39 m, 9.6 m/s expected from the climb alone, lowest 9.5): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 17.9 m/s (climb 0.33 m, 17.8 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 18.1 m/s, on the face 17.5 m/s (climb 0.23 m, 18.0 m/s expected from the climb alone, lowest 17.5): loss beyond the climb 3%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.1 m/s, on the face 17.7 m/s (climb 0.38 m, 17.9 m/s expected from the climb alone, lowest 17.6): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 26.1 m/s, on the face 25.6 m/s (climb 0.36 m, 26.0 m/s expected from the climb alone, lowest 25.2): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.1 m/s, on the face 25.6 m/s (climb 0.23 m, 26.0 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.0 m/s, on the face 25.0 m/s (climb 0.42 m, 25.8 m/s expected from the climb alone, lowest 25.0): loss beyond the climb 3%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.3 m/s, on the face 18.2 m/s (climb 0.19 m, 18.2 m/s expected from the climb alone, lowest 17.5): loss beyond the climb 0%; vertical faces hit: none -> pass
+  8 gap moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 3%, 18 m/s +3 m 1%, 26 m/s centre 1%, 26 m/s -3 m 1%, 26 m/s +3 m 3%, 18 m/s 15 deg off-line 0%
+  9 kicker toe 260.0,0.00,172.7: ramp edge minus ground across the toe (left to right): -0.06 -0.05 -0.04 -0.04 -0.04 -0.04 -0.04 -0.05 -0.05; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -4.0: rise +1.56 m, biggest 0.25 m step 0.06 at +2.8 (ramp), hump 0.00 dip 0.04 | -2.3: rise +1.48 m, biggest 0.25 m step 0.06 at +2.8 (ramp), hump 0.00 dip 0.04 | 0: rise +1.38 m, biggest 0.25 m step 0.06 at +3.0 (ramp), hump 0.00 dip 0.04 | +2.3: rise +1.27 m, biggest 0.25 m step 0.06 at +2.8 (ramp), hump 0.00 dip 0.05 | +4.0: rise +1.18 m, biggest 0.25 m step 0.06 at +2.8 (ramp), hump 0.00 dip 0.05
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 9.9 m/s, on the face 10.1 m/s (climb 1.10 m, 8.8 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.0 m/s, on the face 10.3 m/s (climb 1.09 m, 8.9 m/s expected from the climb alone, lowest 9.3): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.1 m/s, on the face 10.1 m/s (climb 1.02 m, 9.1 m/s expected from the climb alone, lowest 9.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 17.7 m/s, on the face 17.8 m/s (climb 1.05 m, 17.1 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 18.0 m/s, on the face 18.0 m/s (climb 1.09 m, 17.4 m/s expected from the climb alone, lowest 17.3): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 17.2 m/s, on the face 18.4 m/s (climb 1.01 m, 16.7 m/s expected from the climb alone, lowest 17.1): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 26.1 m/s, on the face 25.7 m/s (climb 1.14 m, 25.6 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 25.1 m/s, on the face 24.9 m/s (climb 1.11 m, 24.7 m/s expected from the climb alone, lowest 24.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.7 m/s, on the face 25.1 m/s (climb 1.03 m, 26.3 m/s expected from the climb alone, lowest 25.1): loss beyond the climb 5%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 17.8 m/s, on the face 17.8 m/s (climb 1.00 m, 17.3 m/s expected from the climb alone, lowest 17.3): loss beyond the climb 0%; vertical faces hit: none -> pass
+  9 kicker moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 0%, 26 m/s centre 0%, 26 m/s -3 m 0%, 26 m/s +3 m 5%, 18 m/s 15 deg off-line 0%
+  10 kicker toe -294.0,0.00,135.6: ramp edge minus ground across the toe (left to right): -0.04 -0.04 -0.05 -0.05 -0.05 -0.05 -0.05 -0.05 -0.04; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -4.0: rise +0.08 m, biggest 0.25 m step 0.04 at +3.3 (ramp), hump 0.00 dip 0.00 | -2.3: rise +0.04 m, biggest 0.25 m step 0.04 at +3.5 (ramp), hump 0.00 dip 0.00 | 0: rise +0.00 m, biggest 0.25 m step 0.03 at +2.8 (ramp), hump 0.00 dip 0.00 | +2.3: rise -0.05 m, biggest 0.25 m step 0.03 at +3.3 (ramp), hump 0.00 dip 0.00 | +4.0: rise -0.09 m, biggest 0.25 m step 0.03 at +3.5 (ramp), hump 0.00 dip 0.00
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 10.2 m/s, on the face 10.2 m/s (climb 0.18 m, 10.0 m/s expected from the climb alone, lowest 9.2): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.3 m/s, on the face 10.2 m/s (climb 0.25 m, 10.0 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.7 m/s, on the face 10.4 m/s (climb 0.14 m, 10.6 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 2%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.2 m/s, on the face 17.4 m/s (climb 0.17 m, 18.1 m/s expected from the climb alone, lowest 17.4): loss beyond the climb 4%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 19.6 m/s, on the face 18.1 m/s (climb 0.19 m, 19.5 m/s expected from the climb alone, lowest 17.6): loss beyond the climb 7%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 17.9 m/s, on the face 17.8 m/s (climb 0.16 m, 17.9 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.8 m/s, on the face 25.9 m/s (climb 0.16 m, 25.8 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.0 m/s, on the face 25.8 m/s (climb 0.20 m, 25.9 m/s expected from the climb alone, lowest 25.7): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 25.9 m/s, on the face 25.7 m/s (climb 0.12 m, 25.8 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.4 m/s, on the face 18.9 m/s (climb 0.20 m, 18.3 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  10 kicker moto summary: 10 m/s centre 0%, 10 m/s -3 m 0%, 10 m/s +3 m 2%, 18 m/s centre 4%, 18 m/s -3 m 7%, 18 m/s +3 m 1%, 26 m/s centre 0%, 26 m/s -3 m 1%, 26 m/s +3 m 0%, 18 m/s 15 deg off-line 0%
+  11 kicker toe -231.3,0.00,-176.0: ramp edge minus ground across the toe (left to right): -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -4.0: rise -0.07 m, biggest 0.25 m step 0.05 at +3.5 (ramp), hump 0.00 dip 0.00 | -2.3: rise -0.08 m, biggest 0.25 m step 0.04 at +3.5 (ramp), hump 0.00 dip 0.00 | 0: rise -0.09 m, biggest 0.25 m step 0.03 at +2.8 (ramp), hump 0.00 dip 0.00 | +2.3: rise -0.10 m, biggest 0.25 m step 0.02 at +3.3 (ramp), hump 0.00 dip 0.00 | +4.0: rise -0.11 m, biggest 0.25 m step 0.02 at +3.5 (ramp), hump 0.00 dip 0.00
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 11.3 m/s, on the face 10.0 m/s (climb 0.14 m, 11.1 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 10%; vertical faces hit: none -> FAIL
+    10 m/s -3 m: 5 m before the toe 11.3 m/s, on the face 10.2 m/s (climb 0.29 m, 11.1 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 8%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 9.7 m/s, on the face 10.2 m/s (climb 0.01 m, 9.7 m/s expected from the climb alone, lowest 9.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 17.9 m/s, on the face 17.9 m/s (climb 0.12 m, 17.8 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 17.9 m/s, on the face 18.0 m/s (climb 0.27 m, 17.7 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.0 m/s, on the face 17.9 m/s (climb -0.01 m, 18.0 m/s expected from the climb alone, lowest 17.0): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.3 m/s, on the face 25.1 m/s (climb 0.17 m, 25.2 m/s expected from the climb alone, lowest 24.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 25.9 m/s, on the face 25.4 m/s (climb 0.27 m, 25.8 m/s expected from the climb alone, lowest 25.4): loss beyond the climb 1%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.1 m/s, on the face 25.9 m/s (climb -0.01 m, 26.1 m/s expected from the climb alone, lowest 25.5): loss beyond the climb 1%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.1 m/s, on the face 17.7 m/s (climb 0.41 m, 17.9 m/s expected from the climb alone, lowest 17.6): loss beyond the climb 1%; vertical faces hit: none -> pass
+  11 kicker moto summary: 10 m/s centre 10% FAIL, 10 m/s -3 m 8%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 0%, 26 m/s centre 0%, 26 m/s -3 m 1%, 26 m/s +3 m 1%, 18 m/s 15 deg off-line 1%
+  16 flip toe -963.5,0.00,-548.0: ramp edge minus ground across the toe (left to right): -0.04 -0.05 -0.05 -0.06 -0.06 -0.07 -0.08 -0.50 -1.40; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -4.0: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | -2.3: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | 0: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | +2.3: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | +4.0: rise -0.03 m, biggest 0.25 m step 0.00 at -12.0 (World edge bank and wall), hump 0.00 dip 0.02
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 10.3 m/s, on the face 10.1 m/s (climb 0.00 m, 10.3 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 1%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.3 m/s, on the face 10.1 m/s (climb 0.00 m, 10.3 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 2%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.0 m/s, on the face 10.3 m/s (climb 0.00 m, 10.0 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 10.7 m/s, on the face 15.5 m/s (climb -1.83 m, 12.2 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: 'World edge bank and wall' (normal 0.0,0.1,-1.0, impulse 144, at -18.2 m along from the toe, +14.0 m right, +0.01 m over the ground); 'World edge bank and wall' (normal 0.0,0.1,-1.0, impulse 441, at -18.0 m along from the toe, +14.0 m right, +0.00 m over the ground); 'World edge bank and wall' (normal 0.0,0.1,-1.0, impulse 94, at -17.3 m along from the toe, +14.0 m right, +0.00 m over the ground) -> FAIL
+    18 m/s -3 m: 5 m before the toe 17.9 m/s, on the face 17.9 m/s (climb 0.00 m, 17.9 m/s expected from the climb alone, lowest 17.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.2 m/s, on the face 17.9 m/s (climb -0.37 m, 18.4 m/s expected from the climb alone, lowest 17.9): loss beyond the climb 3%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.8 m/s, on the face 26.1 m/s (climb 0.00 m, 25.8 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 14.9 m/s, on the face 22.4 m/s (climb -0.75 m, 15.4 m/s expected from the climb alone, lowest 0.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 26.2 m/s, on the face 25.8 m/s (climb -0.05 m, 26.2 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 2%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 17.2 m/s, on the face 17.8 m/s (climb 1.26 m, 16.4 m/s expected from the climb alone, lowest 17.2): loss beyond the climb 0%; vertical faces hit: none -> pass
+  16 flip moto summary: 10 m/s centre 1%, 10 m/s -3 m 2%, 10 m/s +3 m 0%, 18 m/s centre 0% FAIL, 18 m/s -3 m 0%, 18 m/s +3 m 3%, 26 m/s centre 0%, 26 m/s -3 m 0%, 26 m/s +3 m 2%, 18 m/s 15 deg off-line 0%
+  17 loop toe -1197.0,0.00,541.0: ramp edge minus ground across the toe (left to right): +0.05 - - - +0.05 +0.05 +0.05 - - - +0.05; highest step 0.05 m
+    run-up, last 15 m to the face point (metres right of the centre line): -6.1: rise +0.00 m, biggest 0.25 m step 0.05 at +0.5 (ramp), hump 0.00 dip 0.00 | -3.3: rise +0.00 m, biggest 0.25 m step 0.05 at +0.8 (ramp), hump 0.00 dip 0.00 | 0: rise +0.05 m, biggest 0.25 m step 0.05 at +0.0 (ramp), hump 0.00 dip 0.05 | +3.3: rise +0.00 m, biggest 0.25 m step 0.05 at +0.8 (ramp), hump 0.00 dip 0.00 | +6.1: rise +0.00 m, biggest 0.25 m step 0.00 at -14.8 (Ground_CR113 west level outer continuation), hump 0.00 dip 0.00
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 6 triangles; above the ground: -1.9 along, +12.9 right: 1.01 m up; -3.4 along, +11.1 right: 0.17 m up; -3.0 along, +11.7 right: 0.24 m up; -4.8 along, +9.1 right: 0.05 m up; -4.8 along, -9.1 right: 0.05 m up; -3.4 along, -11.1 right: 0.17 m up
+    10 m/s centre: 5 m before the toe 10.3 m/s, on the face 9.9 m/s (climb 0.07 m, 10.2 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 3%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.2 m/s, on the face 10.2 m/s (climb 0.07 m, 10.1 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 9.9 m/s, on the face 9.9 m/s (climb 0.07 m, 9.9 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 17.9 m/s, on the face 18.2 m/s (climb 0.05 m, 17.9 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 17.8 m/s, on the face 18.2 m/s (climb 0.04 m, 17.8 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.2 m/s, on the face 17.8 m/s (climb 0.04 m, 18.2 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 2%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.8 m/s, on the face 26.0 m/s (climb 0.03 m, 25.8 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 25.8 m/s, on the face 26.1 m/s (climb 0.03 m, 25.8 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 25.8 m/s, on the face 25.6 m/s (climb 0.03 m, 25.8 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 1%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.1 m/s, on the face 18.0 m/s (climb 0.05 m, 18.1 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  17 loop moto summary: 10 m/s centre 3%, 10 m/s -3 m 0%, 10 m/s +3 m 0%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 2%, 26 m/s centre 0%, 26 m/s -3 m 0%, 26 m/s +3 m 1%, 18 m/s 15 deg off-line 0%
+  18 flip toe 927.5,0.00,563.0: ramp edge minus ground across the toe (left to right): -0.04 -0.18 -0.16 -0.15 -0.14 -0.12 -0.11 -0.09 -0.08 -0.06 -0.05; highest step 0.00 m
+    run-up, last 15 m to the face point (metres right of the centre line): -7.5: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | -4.0: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | 0: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | +4.0: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00 | +7.5: rise +0.00 m, biggest 0.25 m step 0.07 at +2.8 (ramp), hump 0.00 dip 0.00
+    standing on the run-up and entrance: nothing
+    ramp faces turned toward the way in: 2 triangles; above the ground: none
+    10 m/s centre: 5 m before the toe 10.2 m/s, on the face 10.0 m/s (climb 0.00 m, 10.2 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 1%; vertical faces hit: none -> pass
+    10 m/s -3 m: 5 m before the toe 10.3 m/s, on the face 10.1 m/s (climb 0.00 m, 10.3 m/s expected from the climb alone, lowest 9.8): loss beyond the climb 1%; vertical faces hit: none -> pass
+    10 m/s +3 m: 5 m before the toe 10.2 m/s, on the face 10.1 m/s (climb 0.00 m, 10.2 m/s expected from the climb alone, lowest 9.9): loss beyond the climb 1%; vertical faces hit: none -> pass
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 18.0 m/s (climb 0.00 m, 18.0 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s -3 m: 5 m before the toe 17.8 m/s, on the face 18.2 m/s (climb 0.00 m, 17.8 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s +3 m: 5 m before the toe 18.0 m/s, on the face 18.4 m/s (climb 0.00 m, 18.0 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s centre: 5 m before the toe 25.8 m/s, on the face 25.8 m/s (climb 0.00 m, 25.8 m/s expected from the climb alone, lowest 25.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s -3 m: 5 m before the toe 26.0 m/s, on the face 26.1 m/s (climb -0.02 m, 26.0 m/s expected from the climb alone, lowest 25.9): loss beyond the climb 0%; vertical faces hit: none -> pass
+    26 m/s +3 m: 5 m before the toe 25.7 m/s, on the face 25.8 m/s (climb 0.00 m, 25.7 m/s expected from the climb alone, lowest 25.6): loss beyond the climb 0%; vertical faces hit: none -> pass
+    18 m/s 15 deg off-line: 5 m before the toe 18.2 m/s, on the face 17.9 m/s (climb 0.00 m, 18.2 m/s expected from the climb alone, lowest 17.9): loss beyond the climb 2%; vertical faces hit: none -> pass
+  18 flip moto summary: 10 m/s centre 1%, 10 m/s -3 m 1%, 10 m/s +3 m 1%, 18 m/s centre 0%, 18 m/s -3 m 0%, 18 m/s +3 m 0%, 26 m/s centre 0%, 26 m/s -3 m 0%, 26 m/s +3 m 0%, 18 m/s 15 deg off-line 2%

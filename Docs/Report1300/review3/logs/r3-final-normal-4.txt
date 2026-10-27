@@ -1,0 +1,2 @@
+screen=1280x720 kind=closed1300r3 version=1.3.0-review2 park=on
+== normal race on Mountain Loop - Forward (MountainLoop): stunts False, record course mountain-forward-v5-supported; shortcuts in the race 2, of 2: Climbing Ridge Cut (open), Summit Traverse (open); barricades none

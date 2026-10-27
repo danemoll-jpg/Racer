@@ -129,6 +129,10 @@ namespace Racer
                 o.Time = o.Dnf ? 0 : me.ClassifiedTime(race.Clock);
                 if (e.Cup != null) { o.Places = Places(race, order); Last = Campaign.CommitCupRace(o); return Last; }
             }
+            else if (e.IsCompetition && StuntEvent.Current) // 1.3.0-review3: the Park Competition: the place by stunt points among everyone riding
+            {
+                var table = StuntEvent.Current.Standings; o.Field = table.Count; o.Place = table.FindIndex(r => r.player == 1) + 1; o.Score = score; o.Dnf = o.Place <= 0;
+            }
             else if (e.Kind == CampaignEventKind.TimeTrial) { o.Dnf = !me.Progress.Finished || me.Progress.LapTimes.Count == 0; o.Time = o.Dnf ? 0 : me.Progress.LapTimes[0]; }
             else { o.Dnf = score <= 0; o.Score = score; }
             Last = Campaign.Commit(o);

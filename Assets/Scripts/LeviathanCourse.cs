@@ -217,7 +217,7 @@ namespace Racer
         // facing the traffic that would turn in (red face with lettering, plain grey back). Built only in a Leviathan race.
         static Material timber, closedRed, concrete, amber;
         static Material Lit(Color c) { var m = new Material(Shader.Find("Universal Render Pipeline/Lit")) { color = c }; m.SetColor("_BaseColor", c); return m; }
-        static void BuildBlocks(Data data, Transform root)
+        internal static void BuildBlocks(Data data, Transform root) // 1.3.0-review3: also the Mountain Loop Stunt Races' closed shortcuts (StuntShortcuts)
         {
             if (data.blocks == null || data.blocks.Length == 0) return;
             if (!timber) timber = Lit(new Color(.42f, .29f, .17f)); if (!closedRed) closedRed = Unlit(new Color(.55f, .08f, .06f)); if (!signGrey) signGrey = Lit(new Color(.42f, .43f, .44f));

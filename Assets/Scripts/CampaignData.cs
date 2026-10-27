@@ -34,9 +34,12 @@ namespace Racer
         // points, CampaignData.CupPoints each, the total decides); Tries: a Trick event's tries
         public bool Stunt, SplitScore; public int Tries = 3;
         public bool Timed => Kind != CampaignEventKind.Race;
+        // 1.3.0-review3: the Park Competition: the park event with rivals riding it too (StuntEvent, ParkRival); decided by place, as a race
+        public bool IsCompetition => Kind == CampaignEventKind.Park && Rivals.Length > 0;
+        public bool Placed => Kind == CampaignEventKind.Race || IsCompetition;
         public bool Allows(VehicleProfile p) => Classes == null || Classes.Contains(p.Class);
         public string KindLabel => Kind switch { CampaignEventKind.Race => $"{(Stunt ? "Stunt race" : "Race")} · {Laps} lap{(Laps == 1 ? "" : "s")} · {Rivals.Length} rivals ({new[] { "Easy", "Normal", "Hard" }[Difficulty]})" + (SplitScore ? " · split score" : ""), CampaignEventKind.TimeTrial => "Time trial · 1 flying lap", CampaignEventKind.Jump => "Jump · run-up start", CampaignEventKind.Smash => "Smash · as many props as you can",
-            CampaignEventKind.Trick => $"Tricks · best combo in {Tries} tries", CampaignEventKind.Clean => "Land it clean · in a row, no bail", CampaignEventKind.Park => $"Stunt event · {StuntProgress.Minutes} minutes at the stunt park", _ => "Speed trap · standing start" };
+            CampaignEventKind.Trick => $"Tricks · best combo in {Tries} tries", CampaignEventKind.Clean => "Land it clean · in a row, no bail", CampaignEventKind.Park => IsCompetition ? $"Park competition · {TimeLimit / 60:0} minutes at the stunt park · {Rivals.Length} rivals ({new[] { "Easy", "Normal", "Hard" }[Difficulty]})" : $"Stunt event · {StuntProgress.Minutes} minutes at the stunt park", _ => "Speed trap · standing start" };
         public string Conditions => $"{Time} / {Weather}" + (Traffic ? " / traffic" : "");
         public string CourseTitle => RacePlaylists.Titles[Course].Replace(" - ", " — ");
     }
@@ -117,9 +120,13 @@ namespace Racer
             // stunt vehicles, tricks scored; the races by Split score (finish and stunt points, 10 / 7 / 5 / 3 / 2 / 1 each). First-pass targets (Dan to
             // check, balanced through the results log tagged "stunt", as 0.112): the summit tricks from the Homeward Summit Flight's jump points (about
             // 3,000 for a full flight, Report118) plus a trick or two; the park event from the Stunt event's own medals (StuntProgress.Targets).
+            // 1.3.0-review3 (Dan: "It should start with needing to reach a high score on the stunt course then a stunt course competition. Then we can use
+            // some of the tracks"): the chapter opens at the park: Red Clay Session first, then the Park Competition (5 rivals riding the park with you
+            // for 5 minutes, placed by stunt points, top 3 pass), then the races and jumps as before
+            new() { Id = "c5-park-session", Name = "Red Clay Session", Chapter = 5, Kind = CampaignEventKind.Park, Stunt = true, Course = 0, Targets = new[] { 20000f, 50000f, 90000f }, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
+            new() { Id = "c5-park-competition", Name = "Park Competition", Chapter = 5, Kind = CampaignEventKind.Park, Stunt = true, Course = 0, TimeLimit = 300, Rivals = new[] { "stuntbike", "stuntbuggy", "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 0, Entry = StuntEntry, Pay = 2600, Bonus = 1300 },
             new() { Id = "c5-stunt-opener", Name = "Stunt Opener", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 4, Laps = 2, Rivals = new[] { "stuntbuggy", "stuntbike", "stuntbuggy" }, Difficulty = 1, Entry = StuntEntry, Pay = 2600, Bonus = 1300 },
             new() { Id = "c5-summit-tricks", Name = "Summit Tricks", Chapter = 5, Kind = CampaignEventKind.Trick, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 240, Tries = 3, Targets = new[] { 3000f, 6000f, 9500f } /* 0.120 Part B: one trick type / two / three (x1, x2, x3) */, Entry = StuntEntry, Pay = 2200, Bonus = 1100 },
-            new() { Id = "c5-park-session", Name = "Red Clay Session", Chapter = 5, Kind = CampaignEventKind.Park, Stunt = true, Course = 0, Targets = new[] { 20000f, 50000f, 90000f }, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
             new() { Id = "c5-reverse-stunts", Name = "Upside Down Under", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 5, Laps = 2, Rivals = new[] { "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 1, Entry = StuntEntry, Pay = 2800, Bonus = 1400 },
             new() { Id = "c5-land-it-clean", Name = "Land It Clean", Chapter = 5, Kind = CampaignEventKind.Clean, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 300, Targets = new[] { 3f, 4f, 5f }, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
             new() { Id = "c5-leviathan-stunts", Name = "Leviathan Stunts", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 9, Laps = 1, Rivals = new[] { "stuntbuggy", "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 1, Entry = StuntEntry, Pay = 3400, Bonus = 1700 },

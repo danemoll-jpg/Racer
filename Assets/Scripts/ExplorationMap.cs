@@ -27,7 +27,7 @@ namespace Racer
         readonly List<UnityEngine.UI.Text> markers=new(); Texture2D texture; int selected=-1;
         readonly List<UnityEngine.UI.Text> acorns=new();
         // 1.3: the Free Roam world's ramps, smash spots and flip ramps (RoamWorld), each with its number
-        readonly List<(UnityEngine.UI.Text text,Vector3 at)> roamIcons=new();
+        readonly List<(UnityEngine.UI.Text icon,UnityEngine.UI.Text number,Vector3 at)> roamIcons=new();
         // 0.93 Part C: the acorn areas drawn on the map (regions, their names and counts), the places their directions name, the
         // list of areas in the side column (the chosen one highlighted and centred); 0.93 Part D: a fixed north arrow
         WorldMapAreaOverlay areaOverlay;readonly List<(UnityEngine.UI.Text text,AcornAreas.Area area,AcornAreas.Region region)> areaLabels=new();
@@ -178,8 +178,12 @@ namespace Racer
             waypointLabel=Text("Waypoint",r,Vector2.zero,new(25,25),24);waypointLabel.color=Color.yellow;waypointLabel.text="+";
             foreach(var d in destinations){var t=Text(d.id,r,Vector2.zero,new(170,35),16);markers.Add(t);}
             foreach(var item in race.GetComponent<ExplorationCollection>().sites){var t=Text(item.id,r,Vector2.zero,new(16,16),15);t.text="●";t.color=new(1,.72f,.2f);acorns.Add(t);}
-            if(RoamWorld.Current)foreach(var (at,mark,id) in RoamWorld.Current.Icons){var t=Text("Free Roam "+mark+" "+id,r,Vector2.zero,new(44,20),13);t.supportRichText=true;t.alignment=TextAnchor.MiddleLeft;t.rectTransform.pivot=new(.18f,.5f);
-                t.text=(mark==RoamWorld.Mark.Ramp?"<color=#FF9A2E>▲</color>":mark==RoamWorld.Mark.Smash?"<color=#FF4A3A>■</color>":"<color=#D27BFF>▼</color>")+"<size=10>"+id+"</size>";var edge=t.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.9f);edge.effectDistance=new(1,-1);roamIcons.Add((t,at));}
+            // 1.3.0-review3 (Dan: "the ramp #s are too small on my steamdeck"): the icon about twice the 1.3 size, its number bold with a dark outline
+            // beside it (on whichever side is clear, Draw), both on the map's screen-scaled canvas
+            if(RoamWorld.Current)foreach(var (at,mark,id) in RoamWorld.Current.Icons){var t=Text("Free Roam "+mark+" "+id,r,Vector2.zero,new(32,32),26);t.color=mark==RoamWorld.Mark.Ramp?new(1,.6f,.18f):mark==RoamWorld.Mark.Smash?new(1,.29f,.23f):new(.82f,.48f,1);
+                t.text=mark==RoamWorld.Mark.Ramp?"▲":mark==RoamWorld.Mark.Smash?"■":"▼";var edge=t.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.95f);edge.effectDistance=new(1.5f,-1.5f);
+                var n=Text("Free Roam number "+id,r,Vector2.zero,new(44,28),21);n.fontStyle=FontStyle.Bold;n.color=Color.Lerp(t.color,Color.white,.35f);n.text=id;var ne=n.gameObject.AddComponent<UnityEngine.UI.Outline>();ne.effectColor=new(0,0,0,1);ne.effectDistance=new(2,-2);
+                roamIcons.Add((t,n,at));}
             if(roamIcons.Count>0){var key=Text("Free Roam key",r,new(-r.sizeDelta.x*.5f+8+150,-r.sizeDelta.y*.5f+14),new(300,20),13);key.supportRichText=true;key.alignment=TextAnchor.MiddleLeft;key.text="<color=#FF9A2E>▲</color> RAMP   <color=#FF4A3A>■</color> SMASH SPOT   <color=#D27BFF>▼</color> FLIP RAMP";var edge=key.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.9f);edge.effectDistance=new(1,-1);} // in the map's bottom-left corner
             Text("Cursor",r,Vector2.zero,new(25,25),20).text="+";
             northArrow=Text("North",r,Vector2.zero,new(40,52),18);northArrow.text="▲\nN";northArrow.fontStyle=FontStyle.Bold;northArrow.lineSpacing=.8f;
@@ -221,7 +225,13 @@ namespace Racer
             areaList.text=list.ToString();
             if(Waypoint.HasValue)Marker(waypointLabel,Waypoint.Value);else waypointLabel.gameObject.SetActive(false);
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
-            foreach(var (t,at) in roamIcons){Marker(t,at);if(!race.FreeRoam)t.gameObject.SetActive(false);} // 1.3
+            foreach(var (t,_,at) in roamIcons){Marker(t,at);if(!race.FreeRoam)t.gameObject.SetActive(false);} // 1.3
+            // 1.3.0-review3: each number beside its icon, right, left, above or below, the first side clear of every icon, the player arrow and the numbers already placed
+            {var clear=new List<Rect>();foreach(var (t,_,_) in roamIcons)if(t.gameObject.activeSelf)clear.Add(new Rect(t.rectTransform.anchoredPosition-new Vector2(12,12),new(24,24)));
+                if(heading.gameObject.activeSelf)clear.Add(new Rect(heading.rectTransform.anchoredPosition-new Vector2(15,15),new(30,30)));
+                foreach(var (t,n,_) in roamIcons){bool on=t.gameObject.activeSelf;n.gameObject.SetActive(on);if(!on)continue;var at=t.rectTransform.anchoredPosition;float w=n.preferredWidth+2,h=22;
+                    Vector2 best=at+new Vector2(13+w*.5f,0);foreach(var o in new[]{new Vector2(13+w*.5f,0),new Vector2(-13-w*.5f,0),new Vector2(0,24),new Vector2(0,-24)}){var box=new Rect(at+o-new Vector2(w*.5f,h*.5f),new(w,h));if(clear.Any(c=>c.Overlaps(box)))continue;best=at+o;break;}
+                    n.rectTransform.anchoredPosition=best;clear.Add(new Rect(best-new Vector2(w*.5f,h*.5f),new(w,h)));}}
             for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
             string wpt=Waypoint.HasValue?"Waypoint "+DisplayUnits.Distance(Vector3.ProjectOnPlane(Waypoint.Value-race.vehicle.Body.position,Vector3.up).magnitude)+(race.FreeRoam?"":" (Free Roam only)")+"\n\n":"Mouse: click the map to set a waypoint, right-click to clear\n\n";
             status.text=wpt+RouteTitle+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+RouteLegend+"\n\n"+(collection?collection.Header:"")+"\n\n"+(error??errorMessage);

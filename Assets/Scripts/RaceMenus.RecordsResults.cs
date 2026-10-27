@@ -10,7 +10,10 @@ namespace Racer
         {
             string c=category??"";bool reverse=c.Contains("reverse");
             if(c.StartsWith(HighMode.RecordPrefix))return "HIGH · "+TrackTitle(c.Substring(HighMode.RecordPrefix.Length)); // 1.2: HIGH MODE's own boards
-            if(c.StartsWith(StuntRace.RecordPrefix))return "Stunt Race · "+TrackTitle(c.Substring(StuntRace.RecordPrefix.Length)); // 0.119 Part B: their own boards
+            if(c.StartsWith(StuntRace.RecordPrefix)){var rest=c.Substring(StuntRace.RecordPrefix.Length); // 0.119 Part B: their own boards
+                // 1.3.0-review3: the Mountain Loop Stunt Races' boards from before their shortcuts were closed stay saved but are not listed (no track has this title)
+                if(rest.StartsWith("mountain")&&!rest.Contains(StuntShortcuts.RecordSuffix))return "Stunt Race, shortcuts open (before 1.3.0-review3) · "+TrackTitle(rest);
+                return "Stunt Race · "+TrackTitle(rest.Replace(StuntShortcuts.RecordSuffix,""));}
             if(c.StartsWith("backyard"))return "Dan's Backyard Loop - "+(reverse?"Reverse":"Forward");
             if(c.StartsWith("leviathan"))return "Leviathan - "+(reverse?"Reverse":"Forward"); // 0.115
             if(c.StartsWith("mountain"))return "Mountain Loop - "+(reverse?"Reverse":"Forward");

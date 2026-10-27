@@ -1,0 +1,29 @@
+screen=1280x800 kind=comp1300r3 version=1.3.0-review3 park=on
+comp-start: no (more) panels; state Ready, page 'Ready/'
+slot: FRESH RUN; title 'CAMPAIGN   ·   FRESH RUN   ·   $135,455'
+== Dan's copy, FRESH RUN: chapter 5; chapter 5: 1 Red Clay Session (passed), 2 Park Competition, 3 Stunt Opener (passed), 4 Summit Tricks (passed), 5 Upside Down Under (passed), 6 Land It Clean (passed), 7 Leviathan Stunts (passed), 8 Stunt Final (passed)
+  page 'Ready/campaign'
+  event page 'Ready/campaign-event': 
+  B: page 'Ready/campaign'
+  started: event Running, competition c5-park-competition, riders 6, round 300 s
+  0 s: Dan 0 (0 combos); Rusty Vance 0 (0 combos, resets 0); Mia Torres 0 (0 combos, resets 0); Big Ed Kowalski 0 (0 combos, resets 0); June Park 0 (0 combos, resets 0); Hollis Gray 0 (0 combos, resets 0)
+  30 s: Dan 5805 (1 combos); Rusty Vance 5116 (1 combos, resets 0); Hollis Gray 5092 (1 combos, resets 0); Mia Torres 3153 (2 combos, resets 0); Big Ed Kowalski 2997 (1 combos, resets 1); June Park 500 (1 combos, resets 0)
+  60 s: Dan 15788 (3 combos); Big Ed Kowalski 8153 (2 combos, resets 1); June Park 8131 (3 combos, resets 0); Hollis Gray 8089 (2 combos, resets 1); Mia Torres 7873 (3 combos, resets 0); Rusty Vance 6114 (2 combos, resets 0)
+  90 s: Dan 20107 (5 combos); Hollis Gray 14197 (4 combos, resets 1); Big Ed Kowalski 13087 (4 combos, resets 3); June Park 12667 (4 combos, resets 0); Rusty Vance 12222 (4 combos, resets 0); Mia Torres 10786 (4 combos, resets 0)
+  120 s: Dan 23582 (7 combos); Hollis Gray 19333 (5 combos, resets 1); Mia Torres 17116 (6 combos, resets 1); Big Ed Kowalski 16351 (5 combos, resets 5); Rusty Vance 16222 (5 combos, resets 2); June Park 15568 (5 combos, resets 0)
+  150 s: Dan 24925 (9 combos); June Park 22219 (7 combos, resets 0); Mia Torres 21628 (7 combos, resets 1); Big Ed Kowalski 21471 (6 combos, resets 5); Hollis Gray 20341 (6 combos, resets 2); Rusty Vance 17254 (6 combos, resets 3)
+  180 s: Dan 29540 (12 combos); June Park 26771 (8 combos, resets 0); Hollis Gray 25361 (8 combos, resets 5); Mia Torres 24514 (8 combos, resets 2); Rusty Vance 23310 (8 combos, resets 3); Big Ed Kowalski 22481 (7 combos, resets 6)
+  210 s: Dan 32774 (13 combos); June Park 29708 (9 combos, resets 0); Hollis Gray 29357 (9 combos, resets 7); Mia Torres 29286 (9 combos, resets 2); Big Ed Kowalski 28597 (9 combos, resets 7); Rusty Vance 28334 (10 combos, resets 5)
+  240 s: Dan 41428 (15 combos); Mia Torres 39196 (11 combos, resets 2); June Park 37379 (11 combos, resets 0); Big Ed Kowalski 32521 (10 combos, resets 8); Rusty Vance 32358 (11 combos, resets 7); Hollis Gray 30389 (10 combos, resets 8)
+  270 s: Dan 42752 (17 combos); Mia Torres 42106 (12 combos, resets 3); June Park 41803 (12 combos, resets 0); Hollis Gray 34397 (11 combos, resets 10); Big Ed Kowalski 33519 (11 combos, resets 9); Rusty Vance 33390 (12 combos, resets 9)
+  300 s: Dan 51963 (19 combos); Mia Torres 46670 (13 combos, resets 3); June Park 44746 (13 combos, resets 1); Rusty Vance 39426 (14 combos, resets 10); Big Ed Kowalski 38567 (13 combos, resets 12); Hollis Gray 37445 (12 combos, resets 11)
+  the lead: 11s Mia Torres 207 -> 12s June Park 500 -> 19s Big Ed Kowalski 2997 -> 20s Dan 5805 -> 33s Rusty Vance 6114 -> 35s Dan 9036 -> 189s June Park 29708 -> 194s Dan 32774 -> 213s Mia Torres 33606 -> 215s June Park 34484 -> 218s Dan 38254 -> 284s Mia Torres 46670 -> 295s Dan 51963
+  Rusty Vance (stuntbike): 39426 pts, 14 combos, best 5116; flights 56, tricks turned 0; resets 10
+  Mia Torres (stuntbuggy): 49574 pts, 14 combos, best 5590; flights 48, tricks turned 0; resets 3
+  Big Ed Kowalski (stuntbike): 38567 pts, 13 combos, best 5156; flights 49, tricks turned 0; resets 12
+  June Park (stuntbuggy): 48518 pts, 14 combos, best 4776; flights 50, tricks turned 0; resets 1
+  Hollis Gray (stuntbike): 42601 pts, 13 combos, best 5156; flights 51, tricks turned 0; resets 11
+  result: 1st of 6; passed True; pay 2600 + bonus 1300; unlocked []
+  results page 'Results/': 1 | 5,156 | 5,156 | 6,752 | 42,601 | 49,574 | 5 | 4,776 | 48,518 | 1st of 6 / Earned $2,600 / First win bonus: +$1,300 / Passed / Money: $139,355 | 39,426 | 5,116 | 6 | 2 | 38,567 | 5,590 | Place | 55,176 | 3 | 4
+  CONTINUE: page 'Ready/campaign', chapter 5: 1 Red Clay Session (passed), 2 Park Competition (passed), 3 Stunt Opener (passed), 4 Summit Tricks (passed), 5 Upside Down Under (passed), 6 Land It Clean (passed), 7 Leviathan Stunts (passed), 8 Stunt Final (passed)
+== a fresh chapter 5: 1 Red Clay Session, 2 Park Competition (locked), 3 Stunt Opener (locked), 4 Summit Tricks (locked), 5 Upside Down Under (locked), 6 Land It Clean (locked), 7 Leviathan Stunts (locked), 8 Stunt Final (locked); page 'Ready/campaign/modal'

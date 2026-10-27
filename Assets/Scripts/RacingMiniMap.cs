@@ -83,7 +83,7 @@ namespace Racer
             line.color = new(1, .78f, .35f); line.raycastTarget = false; line.rectTransform.sizeDelta = new(236, 22); line.rectTransform.anchoredPosition = new(0, -123);
             var lineEdge = line.gameObject.AddComponent<UnityEngine.UI.Outline>(); lineEdge.effectColor = new(0, 0, 0, .9f); lineEdge.effectDistance = new(1.2f, -1.2f);
             line.enabled = false; map.areaLine = line;
-            map.CacheRoutes(); return map;
+            map.font = font; map.CacheRoutes(); return map;
         }
 
         protected override void Awake()
@@ -109,6 +109,8 @@ namespace Racer
             foreach (var road in FindObjectsByType<RaceRoad>(FindObjectsSortMode.None))
                 if (road.isActiveAndEnabled && road.points != null && road.points.Length > 1) Add(roamSegments, road.points, road.points.Length > 2 && (road.points[0] - road.points[road.points.Length - 1]).sqrMagnitude < 4, road.forestTrail);
         }
+        // 1.3.0-review3: the race's shortcuts read again (a Mountain Loop Stunt Race closes them at its start: StuntShortcuts)
+        public void RecacheRoutes() { if (!race) return; segments.Clear(); CacheRoutes(); SetVerticesDirty(); }
         void CacheRoutes()
         {
             Add(segments, race.road.points, true, false);
@@ -148,6 +150,7 @@ namespace Racer
                 areaLine.enabled = area != null && !area.Done(collection); if (areaLine.enabled) areaLine.text = area.name + "  " + area.Count(collection);
             }
             if (areaLine && !visible) areaLine.enabled = false;
+            if (!visible) Numbers(false);
             if (!visible || Time.unscaledTime < nextUpdate) return;
             nextUpdate = Time.unscaledTime + .05f;
             origin = Vehicle.transform.position;
@@ -156,7 +159,35 @@ namespace Racer
             right = Vector3.Cross(Vector3.up, forward);
             northDir = new Vector2(right.z, forward.z).normalized; if (northDir.sqrMagnitude < .5f) northDir = Vector2.up;
             if (north) north.rectTransform.anchoredPosition = Rim(northDir);
-            SetVerticesDirty();
+            SetVerticesDirty(); Numbers(roam);
+        }
+        // 1.3.0-review3 (Dan: "the ramp #s are too small on my steamdeck"): each Free Roam item's number beside its icon, bold with a dark outline, as tall
+        // as the minimap's N; on the right of the icon, or its left when the right would cover the player arrow
+        readonly List<UnityEngine.UI.Text> itemNumbers = new(); Font font;
+        void Numbers(bool show)
+        {
+            var icons = show && RoamWorld.Current ? RoamWorld.Current.Icons : null; int n = icons != null ? icons.Count : 0;
+            while (itemNumbers.Count < n)
+            {
+                var t = new GameObject("Free Roam item number", typeof(RectTransform)).AddComponent<UnityEngine.UI.Text>(); t.transform.SetParent(transform.parent, false);
+                t.font = font; t.fontSize = 16; t.fontStyle = FontStyle.Bold; t.alignment = TextAnchor.MiddleCenter; t.raycastTarget = false; t.rectTransform.sizeDelta = new(32, 22);
+                var e = t.gameObject.AddComponent<UnityEngine.UI.Outline>(); e.effectColor = new(0, 0, 0, 1); e.effectDistance = new(1.5f, -1.5f); itemNumbers.Add(t);
+            }
+            var bounds = rectTransform.rect;
+            for (int i = 0; i < itemNumbers.Count; i++)
+            {
+                var t = itemNumbers[i]; bool on = i < n;
+                if (on)
+                {
+                    var (at, mark, id) = icons[i]; var p = Project(at); on = bounds.Contains(p);
+                    if (on)
+                    {
+                        float w = t.preferredWidth * .5f + 1; var o = new Vector2(12 + w, 0); if (Mathf.Abs(p.y - PlayerPoint.y) < 20 && Mathf.Abs(p.x + o.x - PlayerPoint.x) < 12 + w) o = -o;
+                        t.text = id; t.color = Color.Lerp(mark == RoamWorld.Mark.Ramp ? RampMark : mark == RoamWorld.Mark.Smash ? SmashMark : FlipMark, Color.white, .35f); t.rectTransform.anchoredPosition = p + o;
+                    }
+                }
+                t.enabled = on;
+            }
         }
         public Vector2 Project(Vector3 p)
         {
@@ -199,8 +230,9 @@ namespace Racer
                 if (RoamWorld.Current) foreach (var (at, mark, _) in RoamWorld.Current.Icons)
                 {
                     var p = Project(at); if (!bounds.Contains(p)) continue; var dark = new Color(.03f, .06f, .08f);
-                    if (mark == RoamWorld.Mark.Smash) { Triangle(vh, p + new Vector2(-6, -6), p + new Vector2(-6, 6), p + new Vector2(6, 6), dark); Triangle(vh, p + new Vector2(-6, -6), p + new Vector2(6, 6), p + new Vector2(6, -6), dark); Triangle(vh, p + new Vector2(-4, -4), p + new Vector2(-4, 4), p + new Vector2(4, 4), SmashMark); Triangle(vh, p + new Vector2(-4, -4), p + new Vector2(4, 4), p + new Vector2(4, -4), SmashMark); }
-                    else { float u = mark == RoamWorld.Mark.Flip ? -1 : 1; Triangle(vh, p + new Vector2(0, 8 * u), p + new Vector2(-8, -6 * u), p + new Vector2(8, -6 * u), dark); Triangle(vh, p + new Vector2(0, 5.5f * u), p + new Vector2(-5, -4 * u), p + new Vector2(5, -4 * u), mark == RoamWorld.Mark.Flip ? FlipMark : RampMark); }
+                    // 1.3.0-review3: half as big again (Steam Deck); the number beside it is a label (Numbers)
+                    if (mark == RoamWorld.Mark.Smash) { Triangle(vh, p + new Vector2(-9, -9), p + new Vector2(-9, 9), p + new Vector2(9, 9), dark); Triangle(vh, p + new Vector2(-9, -9), p + new Vector2(9, 9), p + new Vector2(9, -9), dark); Triangle(vh, p + new Vector2(-6.5f, -6.5f), p + new Vector2(-6.5f, 6.5f), p + new Vector2(6.5f, 6.5f), SmashMark); Triangle(vh, p + new Vector2(-6.5f, -6.5f), p + new Vector2(6.5f, 6.5f), p + new Vector2(6.5f, -6.5f), SmashMark); }
+                    else { float u = mark == RoamWorld.Mark.Flip ? -1 : 1; Triangle(vh, p + new Vector2(0, 12 * u), p + new Vector2(-12, -9 * u), p + new Vector2(12, -9 * u), dark); Triangle(vh, p + new Vector2(0, 8.5f * u), p + new Vector2(-8, -6.2f * u), p + new Vector2(8, -6.2f * u), mark == RoamWorld.Mark.Flip ? FlipMark : RampMark); }
                 }
                 var map = race.Flow.GetComponent<ExplorationMap>();
                 if (map && map.Waypoint.HasValue)

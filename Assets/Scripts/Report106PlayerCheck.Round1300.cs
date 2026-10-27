@@ -41,6 +41,9 @@ namespace Racer
             if (part == "perf") yield return Perf1300();
             if (part == "loops") yield return Loops1300();
             if (part == "fence") yield return Fence1300();
+            if (part == "entrances") yield return Entrances1300r3(); // 1.3.0-review3 (Report106PlayerCheck.Round1300r3.cs)
+            if (part == "jumps3") yield return Jumps1300r3();
+            if (part == "mapshots") yield return MapShots1300r3();
         }
         // the top static surface under a point, anywhere from 600 m down (TopAt only looks 30 m up and 50 m down from the point it is given)
         static float Top1300(Vector3 p) { float best = float.NaN; foreach (var h in Physics.RaycastAll(new Vector3(p.x, 600, p.z), Vector3.down, 1200, ~0, QueryTriggerInteraction.Ignore)) { if (h.collider.attachedRigidbody || h.collider.isTrigger) continue; if (float.IsNaN(best) || h.point.y > best) best = h.point.y; } return float.IsNaN(best) ? p.y : best; }

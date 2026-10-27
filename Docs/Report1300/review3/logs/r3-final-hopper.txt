@@ -1,0 +1,51 @@
+screen=1280x720 kind=world1300 version=1.3.0-review2 park=on
+Free Roam world check part entrances: items 18 (built-in), breakable trees 11757
+  1 table at -54,-202 facing 135: lip 7.5 m at 34 degrees, 13 m wide, 30 m to the landing
+  2 table at -126,314 facing 75: lip 6.5 m at 32 degrees, 12 m wide, 30 m to the landing
+  3 table at -198,2 facing 210: lip 6.0 m at 32 degrees, 12 m wide, 30 m to the landing
+  4 house at 467,-600 facing 75: lip 4.5 m at 32 degrees, 12 m wide, 36 m to the landing
+  5 house at -38,-379 facing 180: lip 4.5 m at 32 degrees, 12 m wide, 34 m to the landing
+  6 through at 126,-202 facing 285: kicker 2.6 m, barn 16 m long (deck 2.0 m), plank walls both ends
+  7 gap at 54,482 facing 90: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  8 gap at 210,-430 facing 300: lip 3.6 m at 30 degrees, 10 m wide, 30 m to the landing
+  9 kicker at 270,170 facing 105: lip 2.4 m at 26 degrees, 9 m wide
+  10 kicker at -294,146 facing 0: lip 2.4 m at 26 degrees, 9 m wide
+  11 kicker at -234,-166 facing 345: lip 2.4 m at 26 degrees, 9 m wide
+  12 smash at -14,38: 28 props (hay bales, crates, boxes, cones)
+  13 smash at 482,126: 28 props (hay bales, crates, boxes, cones)
+  14 smash at 314,-314: 28 props (hay bales, crates, boxes, cones)
+  15 smash at 418,262: 28 props (hay bales, crates, boxes, cones)
+  16 flip at -972,-548 facing 270: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  17 loop at -1208,541 (road coming in heading 270): a 22 m paved turnaround, banked 2.8 m round its rim
+  18 flip at 936,563 facing 90: 4.5 m at 56 degrees, lands you 26 m back facing the other way
+  built 18 items in 457 ms
+  cleared: 191 tree trunks and 529 old vegetation pieces where the 18 items, their run-ups and landings are
+== entrances, vehicle original (centre line at 18 m/s only)
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 18.1 m/s (climb 0.44 m, 17.8 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+  1 table original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 16.9 m/s, on the face 16.1 m/s (climb 0.60 m, 16.5 m/s expected from the climb alone, lowest 15.6): loss beyond the climb 2%; vertical faces hit: none -> pass
+  2 table original summary: 18 m/s centre 2%
+    18 m/s centre: 5 m before the toe 17.7 m/s, on the face 18.2 m/s (climb 0.16 m, 17.7 m/s expected from the climb alone, lowest 17.4): loss beyond the climb 0%; vertical faces hit: none -> pass
+  3 table original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 18.3 m/s, on the face 17.9 m/s (climb -0.64 m, 18.7 m/s expected from the climb alone, lowest 17.3): loss beyond the climb 4%; vertical faces hit: none -> pass
+  4 house original summary: 18 m/s centre 4%
+    18 m/s centre: 5 m before the toe 17.9 m/s, on the face 18.0 m/s (climb -0.11 m, 18.0 m/s expected from the climb alone, lowest 17.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+  5 house original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 18.4 m/s, on the face 18.1 m/s (climb 0.00 m, 18.4 m/s expected from the climb alone, lowest 17.6): loss beyond the climb 2%; vertical faces hit: none -> pass
+  6 through original summary: 18 m/s centre 2%
+    18 m/s centre: 5 m before the toe 18.1 m/s, on the face 17.3 m/s (climb 0.20 m, 18.0 m/s expected from the climb alone, lowest 17.0): loss beyond the climb 4%; vertical faces hit: none -> pass
+  7 gap original summary: 18 m/s centre 4%
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 18.1 m/s (climb 0.23 m, 17.9 m/s expected from the climb alone, lowest 17.0): loss beyond the climb 0%; vertical faces hit: none -> pass
+  8 gap original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 16.7 m/s, on the face 18.5 m/s (climb 0.99 m, 16.1 m/s expected from the climb alone, lowest 16.7): loss beyond the climb 0%; vertical faces hit: none -> pass
+  9 kicker original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 17.9 m/s, on the face 18.0 m/s (climb 0.13 m, 17.8 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  10 kicker original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 17.9 m/s, on the face 18.1 m/s (climb 0.05 m, 17.8 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  11 kicker original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 18.0 m/s (climb 0.00 m, 18.0 m/s expected from the climb alone, lowest 18.0): loss beyond the climb 0%; vertical faces hit: none -> pass
+  16 flip original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 17.9 m/s (climb 0.05 m, 18.0 m/s expected from the climb alone, lowest 17.8): loss beyond the climb 0%; vertical faces hit: none -> pass
+  17 loop original summary: 18 m/s centre 0%
+    18 m/s centre: 5 m before the toe 18.0 m/s, on the face 18.0 m/s (climb 0.00 m, 18.0 m/s expected from the climb alone, lowest 18.0): loss beyond the climb 0%; vertical faces hit: none -> pass
+  18 flip original summary: 18 m/s centre 0%

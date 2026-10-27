@@ -24,7 +24,7 @@ namespace Racer
             ShowCourseOnMap(e.Course); Campaign.Selected = e.Id;
             courseCaption.fontSize = 16;
             // 0.96 Part B: a timed event's medals (targets, pay, best) are drawn in the corner of the map, not written
-            courseCaption.text = e.Kind == CampaignEventKind.Race ? $"{e.Name}  ·  {e.CourseTitle}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  {Campaign.PayText(e)}\n{Campaign.BestText(e)}"
+            courseCaption.text = e.Placed ? $"{e.Name}  ·  {e.CourseTitle}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  {Campaign.PayText(e)}\n{Campaign.BestText(e)}"
                 : $"{e.Name}  ·  {e.CourseTitle}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  first gold +{Campaign.Money(e.Bonus)}";
             ShowMedalOverlay(e); ShowPrize(e.Prize);
         }
@@ -57,9 +57,9 @@ namespace Racer
             courseCaption.text = $"{c.Name}  ·  championship, {c.Rounds.Length} races\n{(progress != null ? $"Next: round {round + 1}, {RacePlaylists.Titles[c.Rounds[round].Course].Replace(" - ", " — ")}" : "Points 10 / 7 / 5 / 3 / 2 / 1 per race")}\nWins {Campaign.Money(c.Pay)} · first win +{Campaign.Money(c.Bonus)}\n{CupBest(c)}";
         }
         static string ShortKind(CampaignEvent e) => e.Kind switch { CampaignEventKind.Race => $"{(e.Stunt ? "Stunt race" : "Race")}, {e.Laps} lap{(e.Laps == 1 ? "" : "s")}", CampaignEventKind.TimeTrial => "Time trial", CampaignEventKind.Jump => "Jump", CampaignEventKind.Smash => "Smash",
-            CampaignEventKind.Trick => "Tricks", CampaignEventKind.Clean => "Land it clean", CampaignEventKind.Park => "Stunt event", _ => "Speed trap" };
+            CampaignEventKind.Trick => "Tricks", CampaignEventKind.Clean => "Land it clean", CampaignEventKind.Park => e.IsCompetition ? "Park competition" : "Stunt event", _ => "Speed trap" };
         // the event row's best: place or medal only (the full best is in the caption beside the map)
-        static string ShortBest(CampaignEvent e) { var r = Campaign.ResultOf(e.Id); if (r == null || r.runs == 0) return "not run yet"; return e.Kind == CampaignEventKind.Race ? (r.bestPlace > 0 ? "best " + Campaign.Ordinal(r.bestPlace) : "best: DNF") : "best"; } // 0.96 Part B: a timed event's best medal is drawn at the end of the row
+        static string ShortBest(CampaignEvent e) { var r = Campaign.ResultOf(e.Id); if (r == null || r.runs == 0) return "not run yet"; return e.Placed ? (r.bestPlace > 0 ? "best " + Campaign.Ordinal(r.bestPlace) : "best: DNF") : "best"; } // 0.96 Part B: a timed event's best medal is drawn at the end of the row
         // The trophy mark: the best final position (★ = won).
         static string CupBest(CampaignCup c) { var r = Campaign.CupResult(c.Id); if (r == null || !r.finished) return "No trophy yet"; return r.won ? "★ TROPHY: won" : "Best: " + Campaign.Ordinal(r.bestPosition) + " overall"; }
         static string CupState(CampaignCup c)
@@ -107,7 +107,7 @@ namespace Racer
                 string mark = result?.passed == true ? "✓ " : "";
                 Row(n, "cev-" + e.Id, $"{i + 1}. {mark}{e.Name}{(e.Course % 2 == 1 ? "  (Reverse)" : "")}\n{ShortKind(e)}  ·  {(available ? ShortBest(e) : "Locked")}", () => { campaignEvent = e.Id; Navigate("campaign-event"); });
                 var b = buttons[n]; b.transform.SetParent(right, false); b.GetComponentInChildren<UnityEngine.UI.Text>(true).fontSize = 18; b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 62;
-                if (e.Kind != CampaignEventKind.Race && available && result != null && result.runs > 0) RowBadge(n, result.bestMedal, 40, 12);
+                if (!e.Placed && available && result != null && result.runs > 0) RowBadge(n, result.bestMedal, 40, 12);
                 if (!available) { var colors = b.colors; colors.normalColor = new(.07f, .11f, .14f); b.colors = colors; }
                 if (!b.GetComponent<CourseRowHover>()) b.gameObject.AddComponent<CourseRowHover>();
                 rightPaneButtons.Add(buttons[n++]);
@@ -190,7 +190,8 @@ namespace Racer
             bool available = Campaign.Available(e) || Campaign.Testing;
             var list = EventVehicles(e); PickVehicle(list);
             var lines = new System.Collections.Generic.List<string> {
-                $"{Campaign.SlotName}  ·  Chapter {e.Chapter}  ·  {e.CourseTitle}", e.KindLabel, "Conditions: " + e.Conditions, "Entry: " + e.Entry, e.Kind == CampaignEventKind.Race ? "Pays: " + Campaign.PayText(e) : "First gold bonus: " + Campaign.Money(e.Bonus) };
+                $"{Campaign.SlotName}  ·  Chapter {e.Chapter}  ·  {e.CourseTitle}", e.KindLabel, "Conditions: " + e.Conditions, "Entry: " + e.Entry, e.Placed ? "Pays: " + Campaign.PayText(e) : "First gold bonus: " + Campaign.Money(e.Bonus) };
+            if (e.IsCompetition) lines.Add("Rivals: " + string.Join(", ", e.Rivals.Select((v, k) => ParkRival.NameFor(k) + " (" + VehicleProfile.Find(v).Name + ")")) + " · everyone rides the park at once, stunt points decide the places"); // 1.3.0-review3
             if (e.Kind == CampaignEventKind.Race && e.Rivals.Length > 0) lines.Add("Rivals: " + CampaignData.CastLine(e.Rivals)); // 0.94 Part A
             if (e.Kind == CampaignEventKind.SpeedTrap) lines.Add($"Standing start {DisplayUnits.Distance(e.RunUp)} before the trap; {e.TimeLimit:0} s to reach it.");
             if (e.Kind == CampaignEventKind.Jump) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump; jump as often as you like in {e.TimeLimit:0} s: your best counts. Reset takes you back to the run-up; Pause > End event keeps your best. Land it on your wheels to score.");
@@ -202,17 +203,17 @@ namespace Racer
             if (e.Kind == CampaignEventKind.Trick) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump: {e.Tries} tries (reset takes you back to the run-up). Each try scores its combo (the jump and its tricks; a bail scores nothing): your best counts.");
             if (e.Kind == CampaignEventKind.Clean) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump: land it on your wheels again and again in {e.TimeLimit:0} s (reset takes you back to the run-up). A bail or crash starts the count again; your best run in a row counts.");
             if (e.Kind == CampaignEventKind.Park) lines.Add($"The Stunt event at {StuntPark.Title}: {StuntProgress.Minutes} minutes to score as many points as you can in the park (combos chained within {ArcadeActivities.ComboGap:0} s).");
-            lines.Add(e.Kind == CampaignEventKind.Race ? (e.SplitScore ? "Pass: top three by total points" : "Pass: finish in the top three") : "Pass: win any medal");
+            lines.Add(e.IsCompetition ? "Pass: finish in the top three by stunt points" : e.Kind == CampaignEventKind.Race ? (e.SplitScore ? "Pass: top three by total points" : "Pass: finish in the top three") : "Pass: win any medal");
             // 0.92 Part D: every chapter final's prize is a vehicle, won by passing it (top three)
             if (e.Prize != null) lines.Add($"Prize: the {VehicleProfile.Find(e.Prize).Name} for passing it (top three)" + (e.Final && e.Chapter < CampaignData.Chapters.Length ? $"; it also opens chapter {e.Chapter + 1}" : ""));
             else if (e.Final && e.Chapter < CampaignData.Chapters.Length) lines.Add($"Top three opens chapter {e.Chapter + 1}");
             if (e.Final) lines.Add("Passing it also opens the " + string.Join(", ", CampaignData.CupsAfter(e.Chapter).Select(c => c.Name)));
-            if (e.Kind == CampaignEventKind.Race) lines.Add(Campaign.BestText(e));
+            if (e.Placed) lines.Add(Campaign.BestText(e));
             if (list.Length > 0) lines.Add("Your " + VehicleProfile.Find(campaignVehicle).Name + ": " + Campaign.UpgradeSummary(campaignVehicle));
             if (!Campaign.Available(e)) lines.Add("LOCKED: " + Campaign.EventLock(e) + (Campaign.Testing ? " (Testing mode: can be run, nothing is saved)" : ""));
             ClearCore(e.Name.ToUpperInvariant(), string.Join("\n", lines));
-            details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 24 * lines.Count + 8 + (e.Kind == CampaignEventKind.Race && e.Rivals.Length > 3 ? 24 : 0);
-            if (e.Kind != CampaignEventKind.Race) { var medals = LaterGroup("Event medals", content, false, 3 * 40 + 8); medals.SetSiblingIndex(1); EventMedalRows(medals, e, 22, 30); } // 0.96 Part B
+            details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 24 * lines.Count + 8 + (e.Placed && e.Rivals.Length > 3 ? 24 : 0);
+            if (!e.Placed) { var medals = LaterGroup("Event medals", content, false, 3 * 40 + 8); medals.SetSiblingIndex(1); EventMedalRows(medals, e, 22, 30); } // 0.96 Part B
             VehicleStepper(0, list, "No owned vehicle fits this event", false, e.Prize);
             Row(1, "start-event", "START EVENT", () => flow.StartCampaignEvent(e, campaignVehicle));
             var startColors = buttons[1].colors; startColors.normalColor = new(.1f, .38f, .35f); buttons[1].colors = startColors; buttons[1].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
@@ -269,14 +270,14 @@ namespace Racer
             if (o == null) lines.Add("Result pending");
             else
             {
-                if (e.Kind == CampaignEventKind.Race || o.Dnf || o.Debug) lines.Add(o.Headline); // 0.96 Part B: a medal result is drawn (below)
+                if (e.Placed || o.Dnf || o.Debug) lines.Add(o.Headline); // 0.96 Part B: a medal result is drawn (below)
                 if (!o.Debug)
                 {
                     lines.Add($"Earned {Campaign.Money(o.Pay)}" + (o.Replay ? "  (replay: half pay)" : ""));
-                    if (o.Bonus > 0) lines.Add($"First {(e.Kind == CampaignEventKind.Race ? "win" : "gold")} bonus: +{Campaign.Money(o.Bonus)}");
+                    if (o.Bonus > 0) lines.Add($"First {(e.Placed ? "win" : "gold")} bonus: +{Campaign.Money(o.Bonus)}");
                     foreach (var u in o.Unlocked) lines.Add("Unlocked: " + u);
                     if (CampaignRun.OpenedCourse != null) lines.Add("Now open in Race: " + CampaignRun.OpenedCourse);
-                    lines.Add(o.Passed ? (e.Final ? "Chapter passed" : "Passed") : e.Kind == CampaignEventKind.Race ? (e.SplitScore ? "Not passed: top three by total points to go on" : "Not passed: finish in the top three to go on") : "Not passed: win any medal to go on");
+                    lines.Add(o.Passed ? (e.Final ? "Chapter passed" : "Passed") : e.IsCompetition ? "Not passed: finish in the top three by stunt points to go on" : e.Kind == CampaignEventKind.Race ? (e.SplitScore ? "Not passed: top three by total points to go on" : "Not passed: finish in the top three to go on") : "Not passed: win any medal to go on");
                     lines.Add(o.Testing ? "Testing mode: nothing was saved or paid." : "Money: " + Campaign.Money(Campaign.Current.money) + (o.Saved ? "" : "   (" + (Campaign.Error ?? "not saved") + ")"));
                 }
             }
@@ -285,7 +286,7 @@ namespace Racer
             ClearCore("CAMPAIGN RESULT", e.Name + "  ·  " + e.CourseTitle);
             var head = Label("Campaign payout", content, 22, 0); laterLayouts.Add(head.gameObject); head.transform.SetSiblingIndex(1);
             head.text = string.Join("\n", lines); head.color = new(.3f, .95f, .81f); head.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 28 * lines.Count + 6;
-            if (o != null && !o.Debug && !o.Dnf && e.Kind != CampaignEventKind.Race)
+            if (o != null && !o.Debug && !o.Dnf && !e.Placed)
             {
                 var won = LaterGroup("Medal won", content, false, 54); won.SetSiblingIndex(1); float v = e.Kind == CampaignEventKind.TimeTrial ? (float)o.Time : o.Score;
                 MedalUi.Row(won, details.font, new[] { o.Medal }, new[] { MedalUi.Value(e.Kind, v) + (o.Medal == 0 ? "     no medal" : o.Passed ? "     COMPLETE" : "") }, 32, 50, 0, o.Medal == 0 ? new Color(.8f, .86f, .9f) : Color.Lerp(MedalUi.Tint(o.Medal), Color.white, .3f), "Medal won");
@@ -296,7 +297,12 @@ namespace Racer
             Row(n++, "campaign-continue", "CONTINUE", flow.QuitRace);
             var colors = buttons[0].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[0].colors = colors;
             Row(n++, "campaign-retry", "Retry event", flow.RetryCampaignEvent);
-            if (e.Kind == CampaignEventKind.Race && flow.Race.stunts) n = StuntStandings(n, false); // 0.119 Part C: the finish and stunt points, and the total
+            if (e.IsCompetition && StuntEvent.Current) // 1.3.0-review3: the Park Competition's places by stunt points
+            {
+                TableRow(n++, "header", new[] { "Place", "Rider", "Points", "Best combo" }, new[] { .1f, .44f, .23f, .23f }, () => { }); int rank = 0;
+                foreach (var r in StuntEvent.Current.Standings) { int place = ++rank; TableRow(n++, "standing-" + place, new[] { place.ToString(), StuntEvent.Current.NameOf(r) + " · " + VehicleProfile.Find(r.vehicle).Name, r.points.ToString("N0"), r.best.ToString("N0") }, new[] { .1f, .44f, .23f, .23f }, () => { }); }
+            }
+            else if (e.Kind == CampaignEventKind.Race && flow.Race.stunts) n = StuntStandings(n, false); // 0.119 Part C: the finish and stunt points, and the total
             else if (e.Kind == CampaignEventKind.Race)
             {
                 TableRow(n++, "header", new[] { "Place", "Driver", "Time", "Status" }, new[] { .1f, .32f, .30f, .28f }, () => { }); int rank = 0;

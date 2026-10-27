@@ -35,7 +35,7 @@ namespace Racer
         static bool HighTrack(int i) => i >= HighFirst;
         string StuntRecordLine(int i)
         {
-            int course = StuntRace.Courses[i - RacePlaylists.Titles.Length]; string key = StuntRace.RecordPrefix + CourseIdOf(course);
+            int course = StuntRace.Courses[i - RacePlaylists.Titles.Length]; string key = StuntRace.RecordPrefix + CourseIdOf(course) + (RacePlaylists.Scenes[course] is "MountainLoop" or "MountainLoopReverse" ? StuntShortcuts.RecordSuffix : ""); // 1.3.0-review3
             var best = key == null ? null : StuntRaceRecords.Best(key);
             return best == null ? "\nBest combo: none yet" : $"\nBest combo: {best.points:N0} pts  ·  {best.name}  ·  {VehicleProfile.Find(best.vehicle).Name}  ·  {RecordDate(best.date)}";
         }

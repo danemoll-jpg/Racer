@@ -146,6 +146,7 @@ namespace Racer
                 catch (Exception e) { Report.Add($"{i.id} {i.kind}: not built ({e.Message})"); Debug.LogException(e); }
             }
             Physics.SyncTransforms(); Shown(race && race.FreeRoam);
+            VehicleSurfaceContacts.AddSurfaces(root.GetComponentsInChildren<MeshCollider>(true)); // 1.3.0-review3: their faces for the vehicles' contacts
             Report.Add($"built {Items.Length} items in {watch.ElapsedMilliseconds} ms");
             Debug.Log("Free Roam world: " + string.Join("; ", Report));
         }
@@ -180,22 +181,55 @@ namespace Racer
         static Vector3 Flat(Vector3 v) { v.y = 0; return v; }
 
         // ---------------------------------------------------------------- shapes
-        static StuntPark.Prof Kicker(float h, float th) { float r = h / (1 - Mathf.Cos(th * Mathf.Deg2Rad)); return new StuntPark.Prof().Arc(r, th); }
+        // ArcStep (checks only, -p1300arc: the curve in finer steps; tried in 1.3.0-review3: more seams caught a motorcycle more often), never set in play.
+        // StripWidth: 1.3.0-review3: a kicker's surface in strips across (each panel flat where the ramp twists to meet the ground); -p1300strip 0 (checks).
+        public static float ArcStep = 3, StripWidth = 1.5f;
+        static StuntPark.Prof Kicker(float h, float th)
+        {
+            float r = h / (1 - Mathf.Cos(th * Mathf.Deg2Rad)); var p = new StuntPark.Prof(); if (ArcStep >= 3) return p.Arc(r, th);
+            int n = Mathf.CeilToInt(th / ArcStep); for (int k = 0; k < n; k++) p.Arc(r, th / n); return p;
+        }
         // a profile (s along dir from origin, y up) extruded across `width`, its base following the ground from the profile's start to its end;
-        // the sides reach down below the ground under each edge, so nothing floats on a slope
-        void Extrude(StuntPark.Prof prof, Vector3 origin, Vector3 dir, float width, Color top, Color side, StuntPark.Mb vis, StuntPark.Mb col, out float baseStart, out float baseEnd)
+        // the sides reach down below the ground under each edge, so nothing floats on a slope.
+        // 1.3.0-review3 (Dan: "jumps 4 and 8 have entrances that stop momentum"): with toeFade > 0 (a kicker's toe) the base was one height across the
+        // whole width, the ground's height under the toe's middle, so where the ground across the toe falls away to one side the toe stood above it: a
+        // step the wheels hit. Now the toe's edge is laid at (just under) the ground across its whole width, and the ramp twists back to the level
+        // base over its first toeFade metres (the kicker's length), so the lip and everything past it are as before. And even a flush toe ended in a
+        // vertical end face whose top edge lay at ground level, which a motorcycle's wheel caught on; so the surface now starts 3 m earlier under the
+        // ground and rises out of it (a buried lead-in), leaving no edge at ground level.
+        void Extrude(StuntPark.Prof prof, Vector3 origin, Vector3 dir, float width, Color top, Color side, StuntPark.Mb vis, StuntPark.Mb col, out float baseStart, out float baseEnd, float toeFade = 0)
         {
             dir.y = 0; dir.Normalize(); var right = Vector3.Cross(Vector3.up, dir); var pts = prof.pts; float s0 = pts[0].x, s1 = pts[^1].x;
             baseStart = Ground(origin.x + dir.x * s0, origin.z + dir.z * s0); baseEnd = Ground(origin.x + dir.x * s1, origin.z + dir.z * s1);
-            float b0 = baseStart, b1 = baseEnd;
-            float Base(float s) => Mathf.Lerp(b0, b1, Mathf.InverseLerp(s0, s1, s));
-            Vector3 Edge(int i, float sign) { var p = pts[i]; return origin + dir * p.x + right * (sign * width * .5f) + Vector3.up * (Base(p.x) + p.y); }
-            Vector3 Foot(Vector3 p) => new(p.x, Mathf.Min(Ground(p.x, p.z, p.y), Base(Vector3.Dot(p - origin, dir))) - .8f, p.z);
+            float b0 = baseStart, b1 = baseEnd, toeL = b0, toeR = b0;
+            if (toeFade > 0)
+            {
+                var toe = origin + dir * s0; Vector3 L = toe - right * (width * .5f), R = toe + right * (width * .5f); float gl = Ground(L.x, L.z, b0), gr = Ground(R.x, R.z, b0), sink = 0;
+                for (int k = 1; k < 16; k++) { var q = Vector3.Lerp(L, R, k / 16f); sink = Mathf.Max(sink, Mathf.Lerp(gl, gr, k / 16f) - Ground(q.x, q.z, b0)); }
+                toeL = gl - sink - .04f; toeR = gr - sink - .04f;
+                // the lead-in: from 3 m before the toe, deep enough to start under the ground everywhere across the width
+                float depth = 0; for (int k = 0; k <= 16; k++) { var q = Vector3.Lerp(L, R, k / 16f) - dir * 3; depth = Mathf.Max(depth, Mathf.Lerp(toeL, toeR, k / 16f) - Ground(q.x, q.z, b0)); }
+                pts.Insert(0, new Vector2(s0 - 3, -Mathf.Max(.15f, depth + .15f)));
+            }
+            float Base(float s, float sign = 0)
+            {
+                float b = Mathf.Lerp(b0, b1, Mathf.InverseLerp(s0, s1, s)); if (toeFade <= 0) return b;
+                float w = 1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(s0, s0 + toeFade, s)); return b + w * (Mathf.Lerp(toeL, toeR, (sign + 1) * .5f) - b0);
+            }
+            Vector3 Edge(int i, float sign) { var p = pts[i]; return origin + dir * p.x + right * (sign * width * .5f) + Vector3.up * (Base(p.x, sign) + p.y); }
+            Vector3 Foot(Vector3 p) { float s = Vector3.Dot(p - origin, dir), sign = Mathf.Clamp(Vector3.Dot(p - origin, right) / (width * .5f), -1, 1); return new(p.x, Mathf.Min(Ground(p.x, p.z, p.y), Base(s, sign)) - .8f, p.z); }
+            // 1.3.0-review3: a kicker's surface in strips across its width (about 1.5 m each), so where it twists to meet the ground each panel stays flat
+            int strips = toeFade > 0 && StripWidth > 0 ? Mathf.Max(1, Mathf.CeilToInt(width / StripWidth)) : 1;
             for (int i = 0; i + 1 < pts.Count; i++)
             {
                 Vector3 l0 = Edge(i, -1), r0 = Edge(i, 1), l1 = Edge(i + 1, -1), r1 = Edge(i + 1, 1);
                 var ds = pts[i + 1] - pts[i]; var outward = dir * -ds.y + Vector3.up * ds.x; if (outward.sqrMagnitude < 1e-8f) continue;
-                vis.Quad(l0, r0, r1, l1, top, outward); col.Quad(l0, r0, r1, l1, top, outward);
+                for (int k = 0; k < strips; k++)
+                {
+                    float a = -1 + 2f * k / strips, b = -1 + 2f * (k + 1) / strips;
+                    Vector3 sl0 = Edge(i, a), sr0 = Edge(i, b), sl1 = Edge(i + 1, a), sr1 = Edge(i + 1, b);
+                    vis.Quad(sl0, sr0, sr1, sl1, top, outward); col.Quad(sl0, sr0, sr1, sl1, top, outward);
+                }
                 vis.Quad(Foot(r0), Foot(r1), r1, r0, side, right); col.Quad(Foot(r0), Foot(r1), r1, r0, side, right);
                 vis.Quad(Foot(l0), Foot(l1), l1, l0, side, -right); col.Quad(Foot(l0), Foot(l1), l1, l0, side, -right);
             }
@@ -217,7 +251,7 @@ namespace Racer
             bool ply = i.kind == "kicker";
             var k = Kicker(i.height, i.angle);
             if (i.kind == "table") k.Flat(i.gap).Landing(LandSlope + 2, 4, 14); else k.Drop();
-            Extrude(k, lip - f * lipS, f, i.width, ply ? Ply : Dirt, ply ? PlyDark : DirtSide, vis, col, out float b0, out _);
+            Extrude(k, lip - f * lipS, f, i.width, ply ? Ply : Dirt, ply ? PlyDark : DirtSide, vis, col, out float b0, out _, lipS);
             Vector3 land = lip + f * (i.kind == "table" ? i.gap + 6 : 14);
             if (i.kind is "gap" or "house")
             {
@@ -234,7 +268,7 @@ namespace Racer
         void BuildThrough(Item i)
         {
             var f = Dir(i); var right = Vector3.Cross(Vector3.up, f); var lip = At(i); var vis = new StuntPark.Mb(); var col = new StuntPark.Mb();
-            var k = Kicker(i.height, i.angle); k.Drop(); Extrude(k, lip - f * Lip(i), f, i.width, Ply, PlyDark, vis, col, out _, out _);
+            var k = Kicker(i.height, i.angle); k.Drop(); Extrude(k, lip - f * Lip(i), f, i.width, Ply, PlyDark, vis, col, out _, out _, Lip(i));
             var front = lip + f * i.gap; float w = i.width + 2;
             var deck = new StuntPark.Prof().Up(BarnDeck); deck.Flat(BarnLength + .5f).Landing(14, 3, 10);
             Extrude(deck, front, f, w - .2f, Ply, PlyDark, vis, col, out float b0, out _);
@@ -304,7 +338,7 @@ namespace Racer
         void BuildFlip(Item i)
         {
             var f = Dir(i); var lip = At(i); var vis = new StuntPark.Mb(); var col = new StuntPark.Mb();
-            var k = Kicker(i.height, i.angle); k.Flat(.8f).Drop(); Extrude(k, lip - f * Lip(i), f, i.width, Ply, Red, vis, col, out float b0, out _);
+            var k = Kicker(i.height, i.angle); k.Flat(.8f).Drop(); Extrude(k, lip - f * Lip(i), f, i.width, Ply, Red, vis, col, out float b0, out _, Lip(i));
             // red and white chevrons on the lead-in so it reads from down the road
             var right = Vector3.Cross(Vector3.up, f); var stripes = new StuntPark.Mb();
             for (int c = 0; c < 5; c++)
