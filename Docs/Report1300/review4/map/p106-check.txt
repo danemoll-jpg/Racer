@@ -1,0 +1,15 @@
+screen=1280x800 kind=map1300r4 version=1.3.0-review3 park=on
+map-start: no (more) panels; state Ready, page 'Ready/'
+  on switching: 'CAMPAIGN UPDATED' 'Prize for winning the Street Cup: the Sundown Roadster Cup / Prize for winning the Woodland Cup: the Drifter Twin Cup / Prize for winning the Backyard Cup: the Ridge Scrambler Cup / Prize for winning the Woodstock Grand Championship: the Needle 600 Champion / Chapter 5: Stunt is open / For the Stunt chapter: the Clay Hopper / Every chapter final and every championship now awards a vehicle.'
+slot: MY CAMPAIGN; title 'CAMPAIGN   ·   MY CAMPAIGN   ·   $124,015'
+c5-park-session: focus 'cev-c5-park-session', page 'Ready/campaign', caption: Red Clay Session  ·  Red Clay Stunt Park | Stunt event · 10 minutes at the stunt park  ·  Day / Clear | Stunt vehicles only  ·  first gold +$1,200
+c5-park-competition: focus 'cev-c5-park-competition', page 'Ready/campaign', caption: Park Competition  ·  Red Clay Stunt Park | Park competition · 5 minutes at the stunt park · 5 rivals (Easy)  ·  Day / Clear | Stunt vehicles only  ·  1st $2,600, then $1,560, $1,040, $650, $390, $260 · first win +$1,300 | Not run yet
+c1-hwy92-trap: focus 'cev-c1-hwy92-trap', page 'Ready/campaign', caption: Hwy 92 Speed Trap  ·  speed trap | Speed trap · standing start  ·  Day / Clear | Any owned vehicle  ·  first gold +$500
+c2-opening-jump: focus 'cev-c2-opening-jump', page 'Ready/campaign', caption: The Opening Jump  ·  jump | Jump · run-up start  ·  Day / Clear | Any owned vehicle  ·  first gold +$650
+c3-fence-smash: focus 'cev-c3-fence-smash', page 'Ready/campaign', caption: Fence Line Smash  ·  smash | Smash · as many props as you can  ·  Day / Clear | Any owned vehicle  ·  first gold +$800
+c4-summit-flight: focus 'cev-c4-summit-flight', page 'Ready/campaign', caption: Summit Homeward Flight  ·  jump | Jump · run-up start  ·  Day / Clear | Any owned vehicle  ·  first gold +$1,000
+c5-summit-tricks: focus 'cev-c5-summit-tricks', page 'Ready/campaign', caption: Summit Tricks  ·  tricks | Tricks · best combo in 3 tries  ·  Day / Clear | Stunt vehicles only  ·  first gold +$1,100
+c5-land-it-clean: focus 'cev-c5-land-it-clean', page 'Ready/campaign', caption: Land It Clean  ·  land it clean | Land it clean · in a row, no bail  ·  Day / Clear | Stunt vehicles only  ·  first gold +$1,200
+c5-stunt-opener: focus 'cev-c5-stunt-opener', page 'Ready/campaign', caption: Stunt Opener  ·  Mountain Loop — Forward | Stunt race · 2 laps · 3 rivals (Normal) · split score  ·  Day / Clear | Stunt vehicles only  ·  1st $2,600, then $1,560, $1,040, $650 · first win +$1,300 | Not run yet
+c1-first-lap: focus 'cev-c1-first-lap', page 'Ready/campaign', caption: First Lap  ·  Street Loop — Forward | Race · 2 laps · 3 rivals (Normal)  ·  Day / Clear | Any owned vehicle  ·  1st $1,200, then $720, $480, $300 · first win +$600 | Best 1st of 4 · 03:50.837
+B: page 'Ready/unlock'

@@ -180,6 +180,7 @@ namespace Racer
                 case "world1300": yield return World1300(); break; // 1.3 (Report106PlayerCheck.Round1300.cs)
                 case "comp1300r3": yield return Comp1300r3(); break; // 1.3.0-review3 Parts D and E (Report106PlayerCheck.Round1300r3b.cs)
                 case "closed1300r3": yield return Closed1300r3(); break;
+                case "map1300r4": yield return Map1300r4(); break; // 1.3.0-review4 (Report106PlayerCheck.Round1300r4.cs)
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

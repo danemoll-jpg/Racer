@@ -21,11 +21,13 @@ namespace Racer
         void ShowCampaignEvent(CampaignEvent e)
         {
             if (e == null || !courseView) return;
-            ShowCourseOnMap(e.Course); Campaign.Selected = e.Id;
+            // 1.3.0-review4: an event at one place (the park, a trap / jump / smash / tricks spot) shows that place and names it, not a course
+            bool spot = ShowEventSpot(e); if (!spot) ShowCourseOnMap(e.Course); Campaign.Selected = e.Id;
+            string where = !spot ? e.CourseTitle : e.Kind == CampaignEventKind.Park ? StuntPark.Title : SpotWord(e);
             courseCaption.fontSize = 16;
             // 0.96 Part B: a timed event's medals (targets, pay, best) are drawn in the corner of the map, not written
-            courseCaption.text = e.Placed ? $"{e.Name}  ·  {e.CourseTitle}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  {Campaign.PayText(e)}\n{Campaign.BestText(e)}"
-                : $"{e.Name}  ·  {e.CourseTitle}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  first gold +{Campaign.Money(e.Bonus)}";
+            courseCaption.text = e.Placed ? $"{e.Name}  ·  {where}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  {Campaign.PayText(e)}\n{Campaign.BestText(e)}"
+                : $"{e.Name}  ·  {where}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  first gold +{Campaign.Money(e.Bonus)}";
             ShowMedalOverlay(e); ShowPrize(e.Prize);
         }
         // 0.92 Part D: a final's prize vehicle in the corner of the map (a silhouette marked PRIZE until it is won).
@@ -56,6 +58,7 @@ namespace Racer
             courseCaption.fontSize = 16;
             courseCaption.text = $"{c.Name}  ·  championship, {c.Rounds.Length} races\n{(progress != null ? $"Next: round {round + 1}, {RacePlaylists.Titles[c.Rounds[round].Course].Replace(" - ", " — ")}" : "Points 10 / 7 / 5 / 3 / 2 / 1 per race")}\nWins {Campaign.Money(c.Pay)} · first win +{Campaign.Money(c.Bonus)}\n{CupBest(c)}";
         }
+        static string SpotWord(CampaignEvent e) => e.Kind switch { CampaignEventKind.SpeedTrap => "speed trap", CampaignEventKind.Jump => "jump", CampaignEventKind.Smash => "smash", CampaignEventKind.Trick => "tricks", CampaignEventKind.Clean => "land it clean", _ => "" };
         static string ShortKind(CampaignEvent e) => e.Kind switch { CampaignEventKind.Race => $"{(e.Stunt ? "Stunt race" : "Race")}, {e.Laps} lap{(e.Laps == 1 ? "" : "s")}", CampaignEventKind.TimeTrial => "Time trial", CampaignEventKind.Jump => "Jump", CampaignEventKind.Smash => "Smash",
             CampaignEventKind.Trick => "Tricks", CampaignEventKind.Clean => "Land it clean", CampaignEventKind.Park => e.IsCompetition ? "Park competition" : "Stunt event", _ => "Speed trap" };
         // the event row's best: place or medal only (the full best is in the caption beside the map)

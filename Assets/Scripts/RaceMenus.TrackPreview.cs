@@ -83,6 +83,60 @@ namespace Racer
             int laps = flow.Race.laps;
             courseCaption.text = locked ? $"{RacePlaylists.Titles[index]}   ·   LOCKED\n{Campaign.CourseHowTo(index).Replace("Campaign: ", "")}\nLap {length / 1000f:0.0} km ({length / 1609.344f:0.0} mi)" : $"{RacePlaylists.Titles[index]}\nLap {length / 1000f:0.0} km ({length / 1609.344f:0.0} mi)   ·   Race Setup: {laps} lap{(laps == 1 ? "" : "s")}\nCyan: main  ·  Gold: shortcuts  ·  Arrows: direction";
         }
+        // 1.3.0-review4: a campaign event held at one place shows that place, not a race route: the park events the stunt park (its outline,
+        // filled), the speed trap / jump / smash / tricks / land-it-clean events their site, with a faint line of the course's road round it and
+        // an arrow along the run-up (RunUp metres of the course's road before the site, where CampaignRun starts the event). false: a race or
+        // time trial (or a site not listed below), drawn as before by ShowCourseOnMap. The events' Course (0 for the park events) is not changed.
+        // The sites as saved in their course scenes (ActivitySite, the event's Course scene; read from the scenes by Tools/Report1300/review4/DumpEventSites.cs).
+        static readonly System.Collections.Generic.Dictionary<string, Vector3> EventSites = new()
+        {
+            ["StreetLoopGreybox/speed-0"] = new(-396.33f, 8.44f, 534.11f),
+            ["LakeWoods/jump-01"] = new(372.46f, 78.09f, 230.92f),
+            ["DansBackyardForward/smash-01"] = new(481.34f, 88.11f, -89.71f),
+            ["MountainLoop/summit-homeward"] = new(980.38f, 177.92f, 147.27f),
+        };
+        bool ShowEventSpot(CampaignEvent e)
+        {
+            if (!courseView || !courseVisual || e.Kind is CampaignEventKind.Race or CampaignEventKind.TimeTrial) return false;
+            var kind = e.Kind switch { CampaignEventKind.Park => WorldMapCourseOverlay.SpotKind.Park, CampaignEventKind.SpeedTrap => WorldMapCourseOverlay.SpotKind.SpeedTrap, CampaignEventKind.Jump => WorldMapCourseOverlay.SpotKind.Jump,
+                CampaignEventKind.Smash => WorldMapCourseOverlay.SpotKind.Smash, CampaignEventKind.Trick => WorldMapCourseOverlay.SpotKind.Trick, _ => WorldMapCourseOverlay.SpotKind.Clean };
+            Vector3 site; Vector3[] area = null, road = null, runUp = null;
+            var bounds = new Bounds();
+            if (kind == WorldMapCourseOverlay.SpotKind.Park)
+            {
+                area = StuntPark.Outline; site = StuntPark.Centre; bounds = new Bounds(site, Vector3.zero); foreach (var p in area) bounds.Encapsulate(p);
+                bounds.Expand(new Vector3(60, 0, 40));
+            }
+            else
+            {
+                var courses = CoursePreviewCatalog.Courses;
+                if (e.Site == null || e.Course < 0 || e.Course >= courses.Length || e.Course >= RacePlaylists.Scenes.Length || !EventSites.TryGetValue(RacePlaylists.Scenes[e.Course] + "/" + e.Site, out site)) return false;
+                var main = courses[e.Course].main; if (main == null || main.Length < 2) return false;
+                // the course line's stations (flat), the site projected onto it, then RunUp metres back from there (the event's start)
+                var at = new float[main.Length + 1]; float best = float.MaxValue, station = 0;
+                for (int i = 0; i < main.Length; i++)
+                {
+                    Vector2 a = new(main[i].x, main[i].z), b = new(main[(i + 1) % main.Length].x, main[(i + 1) % main.Length].z), q = new(site.x, site.z);
+                    float len = Vector2.Distance(a, b); at[i + 1] = at[i] + len;
+                    float t = len > 0 ? Mathf.Clamp01(Vector2.Dot(q - a, b - a) / (len * len)) : 0; float d = (a + (b - a) * t - q).sqrMagnitude;
+                    if (d < best) { best = d; station = at[i] + t * len; }
+                }
+                float total = at[main.Length];
+                Vector3 On(float s) { s = Mathf.Repeat(s, total); int i = System.Array.FindLastIndex(at, x => x <= s); i = Mathf.Clamp(i, 0, main.Length - 1); float len = at[i + 1] - at[i]; return Vector3.Lerp(main[i], main[(i + 1) % main.Length], len > 0 ? (s - at[i]) / len : 0); }
+                Vector3[] Stretch(float from, float to) { int n = Mathf.Max(2, Mathf.CeilToInt((to - from) / 4) + 1); var pts = new Vector3[n]; for (int k = 0; k < n; k++) pts[k] = On(Mathf.Lerp(from, to, k / (n - 1f))); return pts; }
+                float run = Mathf.Max(40, e.RunUp);
+                runUp = Stretch(station - run, station); road = Stretch(station - run - 120, station + 160);
+                bounds = new Bounds(site, Vector3.zero); foreach (var p in runUp) bounds.Encapsulate(p); bounds.Encapsulate(On(station + 60));
+                bounds.Expand(new Vector3(80, 0, 80));
+            }
+            var center = courseVisual.Normalized(bounds.center); var extent = courseVisual.Normalized(bounds.max) - courseVisual.Normalized(bounds.min);
+            // the place fits in the lower part of the map, clear of the targets panel drawn across its top (ShowMedalOverlay)
+            float zoom = Mathf.Clamp(Mathf.Min(.9f / extent.x, .6f / extent.y), 1, 10); center.y += .17f / zoom;
+            courseMap.uvRect = new Rect(center - Vector2.one * .5f / zoom, Vector2.one / zoom);
+            courseOverlay.SetLocked(false); courseOverlay.SetSpot(courseVisual, center, zoom, site, kind, area, road, runUp);
+            shownCourse = -3; // not a course: the next course shown is drawn again
+            return true;
+        }
     }
     // Mouse hover moves the highlight in the Tracks list (so the map follows the pointer as well as the keys).
     public sealed class CourseRowHover : MonoBehaviour, IPointerEnterHandler

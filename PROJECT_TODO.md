@@ -34,7 +34,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Campaign map: the stunt park events show the stunt park, and one-spot events show their spot, not a whole race route — target 1.3.0-review4 (publish) — NOT STARTED
+## CURRENT — Campaign map: the stunt park events show the stunt park, and one-spot events show their spot, not a whole race route — target 1.3.0-review4 (publish) — DONE (results below)
 
 Dan (2026-10-27, 14:29, playing 1.3.0-review3): "I see why I was confused, the stunt course shows up as the street loop race on the map. Can we update this so it just shows the stunt park?"
 
@@ -48,6 +48,15 @@ Cause (from the code): both park events (`c5-park-session` Red Clay Session and 
 
 ### Release
 Version 1.3.0-review4, **publish** as Latest (Dan plays on the Steam Deck), earlier releases kept, hosted check as before. `Play-Racer.cmd` launches it; Dan's settings and saves byte for byte. Close everything started. Short results (about 10 lines) with "For Dan to check".
+
+#### Results 1.3.0-review4 (2026-10-27, Claude Code)
+- Checkpoint `0247ff95`. Evidence [Docs/Report1300/review4/map/](Docs/Report1300/review4/map/) ([all.png](Docs/Report1300/review4/map/all.png), [check](Docs/Report1300/review4/map/p106-check.txt)); check `-p106kind map1300r4 -p106w 1280 -p106h 800` ([Round1300r4.cs](Assets/Scripts/Report106PlayerCheck.Round1300r4.cs)).
+- **1 Park events** ([RaceMenus.TrackPreview.cs](Assets/Scripts/RaceMenus.TrackPreview.cs) `ShowEventSpot`, [WorldMapCourseOverlay.cs](Assets/Scripts/WorldMapCourseOverlay.cs) `SetSpot`): Red Clay Session and Park Competition show the map zoomed to the park, its outline filled in clay orange, a half-pipe icon, caption "<event> · Red Clay Stunt Park"; no route.
+- **3a One-spot events** (speed trap, jump, smash, tricks, land it clean): zoomed to the event's site (as saved in its course scene; read by [DumpEventSites.cs](Tools/Report1300/review4/DumpEventSites.cs)), an icon for the kind (>> trap, ramp jump, burst smash, spin tricks, tick land it clean), a yellow arrow along the run-up from the event's start (RunUp m of the course road, as CampaignRun starts it) to the spot, a faint line of the road around it; caption "<event> · <kind>" (e.g. "Hwy 92 Speed Trap · speed trap"). The place sits below the targets panel.
+- **2** The events' `Course` (0 for the park events) is unchanged and still used as before for loading, records, unlock rules and the event page's heading line; only the map preview (event list and event page, both through `ShowCampaignEvent`) and its caption ignore it. Races and time trials keep the full route.
+- **4 Check** (controller, Dan's save copy, 1280×800): Red Clay Session, Park Competition (reached by D-pad down), Hwy 92 Speed Trap, The Opening Jump, Fence Line Smash, Summit Homeward Flight, Summit Tricks, Land It Clean, and First Lap / Stunt Opener unchanged; B back. All read clearly at the Deck size.
+- **Decisions:** the smash icon sits at the smash site (just off the road, at the fence line), the arrow ends on the road beside it; the park is not drawn in the old map picture, so its outline is filled.
+- **For Dan to check:** the maps on the Deck; the event page's heading line still names the course for the park events ("Street Loop — Forward"; left as the round said, say if it should read the park).
 
 ## Previous delivery — Free Roam ramps: entries that stop you dead (4 and 8), every ramp checked by Code, bigger ramp numbers on the map for the Steam Deck; the Stunt chapter starts at the stunt park (high score, then a park competition); Mountain Loop Stunt Races with the shortcuts closed — target 1.3.0-review3 (publish) — PUBLISHED (game-1030200) — Dan testing (2026-10-27: the park events showed the Street Loop on the map; in 1.3.0-review4)
 
