@@ -1,43 +1,27 @@
 {
-    "freeAfter":  55320027136,
-    "buildsAfter":  8346943528,
-    "freeBefore":  49343950848,
+    "freeAfter":  29531578368,
+    "buildsAfter":  8347112054,
+    "freeBefore":  27249606656,
     "removed":  [
                     {
-                        "bytes":  1848794553,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review2-Windows"
+                        "bytes":  1848845085,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review3-Windows"
                     },
                     {
-                        "bytes":  431709886,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-1030100\\assets\\game.zip"
+                        "bytes":  431729013,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-1030200\\assets\\game.zip"
                     },
                     {
                         "bytes":  0,
                         "path":  "C:\\Users\\danmo\\Racer\\Temp\\Report1300-signature-check"
-                    },
-                    {
-                        "bytes":  1846960124,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300-build.txt"
-                    },
-                    {
-                        "bytes":  1846961148,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300b"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300b-build.txt"
                     }
                 ],
-    "buildsBefore":  14321369323,
-    "buildsRecovered":  5974425795,
+    "buildsBefore":  10627686152,
+    "buildsRecovered":  2280574098,
     "retained":  [
                      "Latest complete root runtime",
-                     "managed 1030100",
-                     "managed 1030000 (1.3.0-review1)",
+                     "managed 1030200",
+                     "managed 1030100 (1.3.0-review2)",
                      "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
                  ]
 }

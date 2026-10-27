@@ -1,4 +1,4 @@
-Succeeded; errors=0; warnings=2; time=00:02:55.4918927; startedUtc=2026-10-26T01:40:13.4775557Z; source=abc95541bb3fe9dd9ea3941d298942fd009b1da5; freeBytesBefore=51188715520; GUID=fd9ae4c87688408b97f5f0f51176b7ea
+Succeeded; errors=0; warnings=2; time=00:03:00.0889155; startedUtc=2026-10-27T05:27:34.9670962Z; source=1605fbcc1aa0264e573e7676c0b409d38bcdbf32; freeBytesBefore=31620431872; GUID=6289cf9e622f48c9a7e37e16503539bd
 Pre-baked collision is disabled on 793 mesh(es) referenced by Mesh Collider components in this build. In future versions of Unity, the build process will no longer automatically pre-bake collision for these meshes; enable pre-baked collision in the Mesh import settings. Use Project Auditor (Window > Analysis > Project Auditor > Game Objects) to find and fix similar issues across the project. Affected meshes:
  - 'Ground_640_0' (triangle collision is disabled)
  - 'StreetLoopGreybox-own-StreetLoopGreybox-CR129-junction-Ground_480_560' (triangle collision is disabled)
