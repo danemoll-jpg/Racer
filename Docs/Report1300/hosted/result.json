@@ -1,13 +1,13 @@
 {
-  "version": "1.3.0-review4",
-  "build": 1030300,
+  "version": "1.3.0-review5",
+  "build": 1030400,
   "catalog": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/latest/download/update-catalog.json",
-  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-1030300/game-manifest.json",
+  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-1030400/game-manifest.json",
   "publicDownload": true,
   "pinnedSignatureVerified": true,
   "allLatestFilesMatch": true,
   "files": 235,
   "startupReady": true,
   "exit": 0,
-  "work": "C:\\Users\\danmo\\Racer\\Temp\\report1300-hosted-1793144550687246900"
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\report1300-hosted-1793160893473168000"
 }
