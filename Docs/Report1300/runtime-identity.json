@@ -1,7 +1,7 @@
 {
-  "version": "1.3.0-review5",
-  "build": 1030400,
-  "sourceCommit": "5c825695d4b95a47ea3ab56c0a65ca239774a28a",
+  "version": "1.3.0-review6",
+  "build": 1030500,
+  "sourceCommit": "29f9768575029e5e5108ccab157684f9208780c3",
   "files": 235,
   "changedRuntimeFiles": [
     "Racer_Data/boot.config",
@@ -11,9 +11,9 @@
     "README.txt",
     "VERSION.txt"
   ],
-  "buildOutput": "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review5-Windows",
+  "buildOutput": "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review6-Windows",
   "latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
-  "versioned": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\1030400\\Racer.exe",
+  "versioned": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\1030500\\Racer.exe",
   "exeSha256": "966fe3f485f19d2ed7db3a3f77c7faf57ed00e6617cfcc0cf09705c8cae7814b",
   "previousExeSha256": "966fe3f485f19d2ed7db3a3f77c7faf57ed00e6617cfcc0cf09705c8cae7814b",
   "inventoryAndZipMatch": true,
