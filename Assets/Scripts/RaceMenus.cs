@@ -141,7 +141,7 @@ namespace Racer
                 swatches.Add(button);
             }
             help = Label("Menu controls", card, 16, 38);
-            help.text = "D-pad / stick / arrows: select     A / Space: confirm\nB / Esc: back     Enter / Start: pause or resume";
+            help.text = MenuHelp;
             banner = Label("Race feedback", canvas.transform, 26, 0);
             banner.alignment = TextAnchor.MiddleCenter; banner.color = new Color(.4f, 1, .85f);
             banner.rectTransform.anchorMin = new Vector2(.04f,.35f); banner.rectTransform.anchorMax = new Vector2(.96f,.6f);
@@ -212,7 +212,7 @@ namespace Racer
             simulateRemaining.gameObject.SetActive(false);waitingShown=false;
             if(shown!=RaceFlow.Stage.Results)showChampionship=false;
             playlistName.gameObject.SetActive(shown==RaceFlow.Stage.Playlists&&editingPlaylistName&&!controllerName);
-            help.text=editingPlaylistName&&!controllerName?"Type / paste / select text    Enter: save    Escape: cancel":"D-pad / stick / arrows: select     A / Space: confirm\nB / Esc: back     Enter / Start: pause or resume";
+            help.text=editingPlaylistName&&!controllerName?"Type / paste / select text    Enter: save    Escape: cancel":MenuHelp;
             if(shown!=RaceFlow.Stage.Settings)musicPage=false;
             preview.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
             previewCamera.enabled=shown==RaceFlow.Stage.Garage;
@@ -344,9 +344,14 @@ namespace Racer
             if(save){var clean=new string((nameDraft??"").Where(c=>!char.IsControl(c)).Take(64).ToArray()).Trim();if(clean.Length==0){flow.Notify("Enter a playlist name",3);Show();return;}var d=flow.Playlists.Definitions[playlistIndex];var old=d.name;d.name=clean;if(!flow.Playlists.Save()){d.name=old;Show();return;}}
             editingPlaylistName=false;nameClosedFrame=Time.frameCount;playlistName.DeactivateInputField();Show();
         }
+        // 1.3.0-review6 Part E: the menu's controls line for the device last used only
+        static string MenuHelp=>MenuInput.Prompt("D-pad / stick: select     A: confirm\nB: back     Start: pause or resume","Arrows: select     Space: confirm\nEsc: back     Enter: pause or resume");
+        bool? menuPadWas;
         void Update()
         {
             if(ReplayHide())return; // 1.1: a replay plays (RaceMenus.Replays.cs)
+            // the other device used: the page is drawn again with its prompts (not while text is typed or a question is up)
+            if(menuPadWas!=MenuInput.Controller){bool first=menuPadWas==null;menuPadWas=MenuInput.Controller;if(!first&&help&&!editingPlaylistName&&page!="keyboard"&&modalConfirm==null){help.text=MenuHelp;if(flow.MenuVisible)Show();}}
             if(DeveloperLocationHud.OwnsInput)return;
             UpdateCore();UpdateSplitJoin();UpdateSplitPick();UpdateReplayKeys();
             if(!editingPlaylistName)return;
@@ -362,7 +367,7 @@ namespace Racer
         string MusicDetails()
         {
             var radio=flow.Radio;
-            return radio.Song+"\n"+radio.Status+"\n"+radio.ScanStatus+"\n"+(radio.Bundled?"Bundled: ":"Custom: ")+radio.Folder+"\n"+(musicCollectionPage?"Add songs here, then Rescan. ZIP setup: RADIO.md beside game.":"Driving: D-pad →/←/↑/↓ or ] / [ / I / M");
+            return radio.Song+"\n"+radio.Status+"\n"+radio.ScanStatus+"\n"+(radio.Bundled?"Bundled: ":"Custom: ")+radio.Folder+"\n"+(musicCollectionPage?"Add songs here, then Rescan. ZIP setup: RADIO.md beside game.":"Driving: "+MenuInput.Prompt("D-pad →/←/↑/↓","] / [ / I / M"));
         }
         void Adjust(System.Action action) { action(); flow.Save.ApplySettings(); flow.Save.SaveSettings(); flow.Click(); Show(); }
         void LateUpdate()

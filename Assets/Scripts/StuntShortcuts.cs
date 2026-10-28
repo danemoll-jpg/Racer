@@ -23,14 +23,21 @@ namespace Racer
         {
             var scene = race.gameObject.scene; Report.Clear();
             foreach (var old in scene.GetRootGameObjects().Where(g => g.name == RootName)) { old.SetActive(false); Object.Destroy(old); }
-            bool closed = Closed(race); race.CloseBranches(closed);
+            // 1.3.0-review6 (Dan, 2026-10-27: "Just the ones on the mountain"): in a Leviathan Stunt Race the shortcuts that leave the course on its
+            // mountain (Leviathan Reverse's Downhill Ridge Cut) are closed the same way; its others (below the mountain) stay open. Its records
+            // keep their course id (the lap's new id, leviathan-reverse-v5, already starts new boards).
+            var shut = Closed(race) ? (race.AllBranches ?? new WoodlandRoute[0]).Where(b => b).ToList() : MountainOnes(race);
+            race.CloseBranches(shut);
             foreach (var b in disabled) if (b) b.enabled = true; disabled.Clear(); // the ones closed by an earlier Stunt Race, open again
-            if (closed) foreach (var b in race.AllBranches ?? new WoodlandRoute[0]) if (b && b.enabled) { b.enabled = false; disabled.Add(b); }
+            foreach (var b in shut) if (b && b.enabled) { b.enabled = false; disabled.Add(b); }
             foreach (var map in Object.FindObjectsByType<RacingMiniMap>(FindObjectsSortMode.None)) map.RecacheRoutes();
-            if (!closed) return;
+            // a closed shortcut's own boards (Leviathan's "<  DOWNHILL RIDGE CUT" / REJOIN ROAD) are not shown
+            if (race.Leviathan) foreach (var t in race.Leviathan.GetComponentsInChildren<Transform>(true).Concat(scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true))))
+                    if (t && t.name.StartsWith("Leviathan shortcut board")) t.gameObject.SetActive(!(race.AllBranches ?? new WoodlandRoute[0]).Any(b => b && shut.Contains(b) && t.name.Contains("(" + b.title + " ")));
+            if (shut.Count == 0) return;
             var root = new GameObject(RootName).transform; SceneManager.MoveGameObjectToScene(root.gameObject, scene);
             var blocks = new List<LeviathanCourse.Block>();
-            foreach (var b in race.AllBranches)
+            foreach (var b in shut)
             {
                 if (!b) continue; float len = b.Length;
                 // the way in at its start (traffic heading along it) and at its end (traffic that would turn in from the far end, heading back along it),
@@ -45,6 +52,13 @@ namespace Racer
             LeviathanCourse.BuildBlocks(new LeviathanCourse.Data { blocks = blocks.ToArray() }, root);
             Physics.SyncTransforms();
             Debug.Log("Stunt Race shortcuts closed: " + string.Join("; ", Report));
+        }
+        // a Leviathan Stunt Race's shortcuts that leave the course on its mountain (none in any other race)
+        public static List<WoodlandRoute> MountainOnes(RaceDirector race)
+        {
+            var lev = race ? race.Leviathan : null;
+            if (!lev || !race.stunts || race.FreeRoam || race.AllBranches == null) return new List<WoodlandRoute>();
+            return race.AllBranches.Where(b => b && lev.Mountain(b.entryRoad)).ToList();
         }
         static float Yaw(Vector3 f) => Mathf.Atan2(f.x, f.z) * Mathf.Rad2Deg;
         // the first station from s (stepping by way) where the barricade across the shortcut, ends included, is 6 m clear of the main road's edge (the

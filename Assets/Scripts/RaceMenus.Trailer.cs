@@ -18,7 +18,7 @@ namespace Racer
             if (mode.LastScreenshot != null) summary += "\nLast screenshot: " + System.IO.Path.GetFileName(mode.LastScreenshot);
             ClearCore("TRAILER / PHOTO MODE", summary);
             int i = 0;
-            Step(i++, "trailer-toggle", "Trailer / Photo Mode:   " + (on ? "On" : "Off") + "   (F8)", d => { mode.Toggle(); Show(); });
+            Step(i++, "trailer-toggle", "Trailer / Photo Mode:   " + (on ? "On" : "Off") + MenuInput.Prompt("", "   (F8)"), d => { mode.Toggle(); Show(); });
             if (on && views)
             {
                 Step(i++, "trailer-camera", "Camera: " + CameraViews.ShotNames[(int)views.TrailerCamera], d => { views.SelectTrailerCamera((CameraViews.Shot)(((int)views.TrailerCamera + d + 9) % 9)); Show(); });

@@ -37,7 +37,7 @@ namespace Racer
         {
             int course = StuntRace.Courses[i - RacePlaylists.Titles.Length]; string key = StuntRace.RecordPrefix + CourseIdOf(course) + (RacePlaylists.Scenes[course] is "MountainLoop" or "MountainLoopReverse" ? StuntShortcuts.RecordSuffix : ""); // 1.3.0-review3
             var best = key == null ? null : StuntRaceRecords.Best(key);
-            return best == null ? "\nBest combo: none yet" : $"\nBest combo: {best.points:N0} pts  ·  {best.name}  ·  {VehicleProfile.Find(best.vehicle).Name}  ·  {RecordDate(best.date)}";
+            return best == null ? "\nBest combo: none yet" : $"\nBest combo: {best.points:N0} pts  ·  {best.name}  ·  {VehicleProfile.Find(best.vehicle).Name}{(best.upgraded ? " UPG" : "")}  ·  {RecordDate(best.date)}";
         }
         // the course id a track races under (its records): the scene's for the Mountain Loops, the course file's for Leviathan
         static string CourseIdOf(int course)

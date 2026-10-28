@@ -9,7 +9,7 @@ namespace Racer
     // 1.1 (ported from Chastain Rush's Round 57 F GameMenus.Replays): race replays in the menus. On the finish screen (the results), WATCH REPLAY
     // (X / V) and SAVE REPLAY (Y / K), Chastain's buttons (nothing else uses them on the results screen), as rows under the first action and as
     // shortcuts. The REPLAYS page (main menu, and the results of a quick race): the kept #1 lap and race of each Top 10 board (watch; replaced only
-    // by a new #1) and the saved replays (watch or delete), each marked when recorded on another build or before its course changed. A replay of
+    // by a new #1), the saved replays (watch or delete) and (1.3.0-review6) the newest 30 races finished (watch, save or delete), newest first, each marked when recorded on another build or before its course changed. A replay of
     // another course loads that course first (RaceFlow.LoadCourseForReplay). While a replay plays, the menu is hidden and its buttons wait.
     public sealed partial class RaceMenus
     {
@@ -84,21 +84,21 @@ namespace Racer
         }
         void RenderReplays()
         {
-            var best = ReplayData.List(true); var saved = ReplayData.List(false);
+            // 1.3.0-review6 Part D: one list, newest first: the #1 lap and race of each Top 10 board, the saved ones and the recent 30
+            var all = ReplayData.List(true).Select(x => (x.path, x.head, tag: x.head.kind == "lap" ? "#1 LAP" : "#1 RACE"))
+                .Concat(ReplayData.List(false).Select(x => (x.path, x.head, tag: "SAVED")))
+                .Concat(ReplayData.List(ReplayData.RecentFolder).Select(x => (x.path, x.head, tag: "RECENT")))
+                .OrderByDescending(x => x.head.date, System.StringComparer.Ordinal).ToList();
             if (renderedKey != PageKey) selections[flow.State] = 0;   // opens on its first row (coming back, on the one left)
-            ClearCore("REPLAYS", "Every race is recorded. The #1 lap and the #1 race of each Top 10 board are kept here, replaced by a new #1.\nSAVE REPLAY on the finish screen keeps any race until you delete it.");
+            ClearCore("REPLAYS", $"Every race you finish is kept: the newest {ReplayData.RecentKept} (RECENT), each Top 10 board's #1 lap and race (#1)\nand the ones you saved (SAVED). SAVE on a recent one keeps it for good.");
             int n = 0;
-            foreach (var (path, d) in best.OrderBy(x => x.head.Title).ThenBy(x => x.head.setup).ThenBy(x => x.head.kind))
+            foreach (var (path, d, tag) in all)
             {
-                if (n >= 40) break; string p = path;
-                ReplayRow(n++, "best-" + n, $"{(d.kind == "lap" ? "#1 LAP" : "#1 RACE")}   ·   {d.Title}   ·   {RaceHud.FormatTime(d.bestTime)}", $"{d.setup}   ·   {d.When}{Stale(d)}", () => WatchReplayFile(p));
+                if (n >= 150) break; string p = path; bool best = tag.StartsWith("#1"); string who = d.split || string.IsNullOrEmpty(d.label) || tag == "SAVED" ? "" : d.label + "   ·   ";
+                ReplayRow(n++, (best ? "best-" : tag == "SAVED" ? "saved-" : "recent-") + n, $"{tag}   ·   {d.Title}" + (d.bestTime > 0 ? "   ·   " + RaceHud.FormatTime(d.bestTime) : ""), $"{who}{d.setup}   ·   {d.When}{Stale(d)}",
+                    best ? () => WatchReplayFile(p) : () => { replayPick = p; Navigate("replay-one"); });
             }
-            if (best.Count == 0) details.text += "\nNo #1 replays yet: set a #1 lap or race on a Top 10 board.";
-            foreach (var (path, d) in saved)
-            {
-                if (n >= 80) break; string p = path;
-                ReplayRow(n++, "saved-" + n, "SAVED   ·   " + d.label, $"{d.setup}{Stale(d)}", () => { replayPick = p; Navigate("replay-one"); });
-            }
+            if (all.Count == 0) details.text += "\nNo replays yet: finish a race.";
             details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 70;
             Row(n, "back", "Back", () => BackPage());
         }
@@ -108,10 +108,21 @@ namespace Racer
             ReplayData d = null; try { d = ReplayData.Read(replayPick, true); } catch (System.Exception) { }
             if (d == null) { ClearCore("REPLAY", "This replay cannot be read."); Row(0, "delete", "DELETE", () => Confirm("DELETE THIS REPLAY?", Path.GetFileName(replayPick), DeletePick, "DELETE")); Row(1, "back", "Back", () => BackPage()); return; }
             long kb = new FileInfo(replayPick).Length / 1024; string stale = d.Staleness; if (renderedKey != PageKey) selections[flow.State] = 0;   // a new page opens on WATCH
-            ClearCore("SAVED REPLAY", $"{d.label}\n{d.setup}   ·   {kb:N0} KB" + (stale != "" ? "\n" + stale : ""));
-            Row(0, "watch", "WATCH", () => WatchReplayFile(replayPick));
-            Row(1, "delete", "DELETE", () => Confirm("DELETE THIS REPLAY?", d.label, DeletePick, "DELETE"));
-            Row(2, "back", "Back", () => BackPage());
+            bool recent = d.kind == "recent"; string name = recent ? d.Title + (d.bestTime > 0 ? "   ·   " + RaceHud.FormatTime(d.bestTime) : "") + "   ·   " + d.When : d.label;
+            ClearCore(recent ? "RECENT REPLAY" : "SAVED REPLAY", $"{name}\n{(recent && !d.split && d.label != "" ? d.label + "   ·   " : "")}{d.setup}   ·   {kb:N0} KB" + (stale != "" ? "\n" + stale : "") + (recent ? $"\nOne of the newest {ReplayData.RecentKept}: SAVE keeps it for good." : ""));
+            int n = 0;
+            Row(n++, "watch", "WATCH", () => WatchReplayFile(replayPick));
+            if (recent) Row(n++, "save", "SAVE", SavePick);
+            Row(n++, "delete", "DELETE", () => Confirm("DELETE THIS REPLAY?", recent ? d.Title + "   ·   " + d.When : d.label, DeletePick, "DELETE"));
+            Row(n, "back", "Back", () => BackPage());
+        }
+        // a recent replay kept for good: written to saved/ (its recent copy goes)
+        void SavePick()
+        {
+            string note;
+            try { var d = ReplayData.Read(replayPick); d.recentAs = replayPick; note = ReplayData.Save(d); if (note == "REPLAY SAVED") replayPick = ReplayData.LastSaved; }
+            catch (System.Exception e) { Debug.LogWarning("[Replay] save failed: " + e.Message); note = "SAVE FAILED"; }
+            flow.Notify(note, 3); Show();
         }
         void DeletePick()
         {

@@ -212,8 +212,8 @@ details.gameObject.SetActive(true);
         // 0.90 Part A: a padlock at the left of a locked row (destroyed with the page's other generated cells).
         void LockRow(UnityEngine.UI.Button b){b.GetComponentInChildren<UnityEngine.UI.Text>(true).rectTransform.offsetMin=new(48,0);tableCells.Add(PadlockMark.Add(b.transform,new(0,.5f),new(14,0),26,new Color(1,.82f,.35f,.92f)).gameObject);}
         // 0.79 Part H: the cameras within reach from the menus: the view (cycles like V / X) and Trailer / Photo Mode with its key
-        const string TrailerLabel="TRAILER / PHOTO MODE   (F8)";
-        string CameraViewLabel=>"Camera view:   "+(CameraViews.Current?.PlayerViewName??"Chase")+"   (V / X)";
+        static string TrailerLabel=>"TRAILER / PHOTO MODE"+MenuInput.Prompt("","   (F8)"); // 1.3.0-review6 Part E: keys only on the keyboard
+        string CameraViewLabel=>"Camera view:   "+(CameraViews.Current?.PlayerViewName??"Chase")+"   ("+MenuInput.Prompt("X","V")+")";
         void CycleCameraView(int d){CameraViews.Current?.NextPlayerView(d);Show();}
         // Every quit-to-desktop control asks first; focus starts on CANCEL and B / Esc cancels (0.70 Part A).
         void ConfirmQuit()=>Confirm("QUIT WOODSTOCK RUSH?","",flow.Quit,"QUIT");

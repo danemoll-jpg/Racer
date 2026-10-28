@@ -1,0 +1,133 @@
+screen=1920x1080 kind=lev1300r6 version=1.3.0-review5 park=on
+== Leviathan - Reverse (leviathan-reverse-v5), normal race, original: line 8365 m, 48 gates; record course leviathan-reverse-v5
+   shortcuts: Hollow Creek Hop (s 3379-3540, bypasses 19) open, Rocky Way Cut (s 3900-4116, bypasses 22/23/24/25) open, Downhill Ridge Cut (s 5786-7336, bypasses 35/36/37/38) open
+   flights: South Face Summit Flight s 5049-5554, Westbound Gully Flight s 6529-7037; the mountain s 4373-7397
+   CP 30 Leviathan Reverse CP 30 at 837.6,127.79,121.4 station 4602, opening 14 m wide, 3 m below / 3 m above
+   CP 31 Leviathan Reverse CP 31 (CR117 CP 1) at 962.2,164.72,136.6 station 4747, opening 14 m wide, 5 m below / 30 m above
+   CP 32 Leviathan Reverse CP 32 at 1011.2,163.62,143.1 station 4808, opening 14 m wide, 3 m below / 3 m above
+   CP 33 Leviathan Reverse CP 33 (CR117 CP 2) at 992.8,153.60,314.8 station 5058, opening 14 m wide, 5 m below / 30 m above
+   CP 34 Leviathan Reverse CP 34 (CR117 CP 3) at 842.3,96.09,-203.7 station 5795, opening 14 m wide, 5 m below / 30 m above
+   CP 35 Leviathan Reverse CP 35 (CR117 CP 4) at 854.2,108.04,-106.0 station 5931, opening 14 m wide, 5 m below / 30 m above
+   CP 36 Leviathan Reverse CP 36 (CR117 CP 5) at 1254.9,111.60,-297.3 station 6540, opening 14 m wide, 5 m below / 30 m above
+   CP 37 Leviathan Reverse CP 37 (after the Westbound Gully Flight landing) at 701.0,100.72,-277.1 station 7110, opening 14 m wide, 5 m below / 30 m above
+   CP 38 Leviathan Reverse CP 38 (CR117 CP 6) at 729.2,83.22,-87.6 station 7330, opening 14 m wide, 5 m below / 30 m above
+   CP 39 Leviathan Reverse CP 39 at 725.8,80.54,-23.5 station 7400, opening 14 m wide, 3 m below / 3 m above
+   CP 40 Leviathan Reverse CP 40 (lake north-east strip) at 679.4,79.98,36.7 station 7481, opening 14 m wide, 5 m below / 30 m above
+   CP 41 Leviathan Reverse CP 41 at 637.4,80.69,75.0 station 7543, opening 12 m wide, 3 m below / 3 m above
+   CP 42 Leviathan Reverse CP 42 at 560.4,83.44,50.4 station 7628, opening 12 m wide, 3 m below / 3 m above
+   CP 43 Leviathan Reverse CP 43 at 513.1,82.31,-10.7 station 7713, opening 10 m wide, 3 m below / 3 m above
+   CP 44 Leviathan Reverse CP 44 at 491.4,83.61,-22.1 station 7744, opening 10 m wide, 3 m below / 3 m above
+   CP 45 Leviathan Reverse CP 45 at 472.5,84.83,-10.9 station 7774, opening 12 m wide, 3 m below / 3 m above
+   CP 46 Leviathan Reverse CP 46 at 449.9,87.12,112.6 station 7903, opening 12 m wide, 3 m below / 30 m above
+   CP 47 Leviathan Reverse CP 47 at 324.6,79.60,268.9 station 8114, opening 12 m wide, 3 m below / 3 m above
+   CP 17 Leviathan Reverse CP 17: opening 12 m wide, 30 m above
+   CP 21 Leviathan Reverse CP 21: opening 12 m wide, 30 m above
+   barricades in this race: 32
+     (Lake shore connection (the stem), off Rocky Way Cut) at 518.5,81.81,-71.6: 22.8 m clear of the line's edge, 12.1 m clear of an open shortcut
+     (Lake shore connection, leaving Leviathan at s 4018) at 487.5,87.87,-47.3: 2.7 m clear of the line's edge
+     (Lake shore connection, joining Leviathan at s 5951 (kept: off Downhill Ridge Cut, 1.3.0-review6)) at 674.8,79.00,-104.8: 47.7 m clear of the line's edge, 14.9 m clear of an open shortcut
+     (Lake shore connection, joining Leviathan at s 6159) at 671.5,78.93,62.2: 7.2 m clear of the line's edge
+     (Forest race route, joining Leviathan at s 4159) at 566.7,82.05,29.9: 8.2 m clear of the line's edge
+     (Forest race route, leaving Leviathan at s 6251) at 564.6,81.78,75.9: 9.4 m clear of the line's edge
+     (Forest race route, joining Leviathan at s 6727) at 347.2,76.85,243.4: 9.0 m clear of the line's edge
+     (Forest race route, leaving Leviathan at s 6741) at 307.5,77.01,266.5: 9.8 m clear of the line's edge
+     (Forest race route, joining Leviathan at s 3792) at 537.6,32.24,-245.3: 12.3 m clear of the line's edge
+     (Forest race route, leaving Leviathan at s 3798) at 566.8,36.90,-218.6: 9.4 m clear of the line's edge
+     (Mountain racing line, leaving Leviathan at s 4735) at 996.4,163.04,108.8: 8.2 m clear of the line's edge
+     (Mountain racing line, joining Leviathan at s 5937 (kept: off Downhill Ridge Cut, 1.3.0-review6)) at 718.0,82.18,-109.1: 12.3 m clear of the line's edge, 1.4 m clear of an open shortcut
+     ( exploration only, leaving Leviathan at s 4419) at 720.6,89.97,64.0: 10.6 m clear of the line's edge
+     ( exploration only, joining Leviathan at s 4377) at 706.4,81.58,30.8: 5.6 m clear of the line's edge
+     ( exploration only, joining Leviathan at s 5963 (kept: off Downhill Ridge Cut, 1.3.0-review6)) at 689.8,78.76,-68.3: 17.2 m clear of the line's edge, 7.9 m clear of an open shortcut
+     (Summit approach and safe return, joining Leviathan at s 4501) at 795.0,106.50,75.0: 3.5 m clear of the line's edge
+     (House 3 valley driveway, leaving Leviathan at s 3912) at 501.7,81.07,-136.2: 8.0 m clear of the line's edge, 14.1 m clear of an open shortcut
+     (Creek Leap, leaving Leviathan at s 3692) at 534.2,24.78,-339.6: 7.9 m clear of the line's edge
+     (Creek Leap, joining Leviathan at s 3222) at 341.0,37.33,-381.8: 4.0 m clear of the line's edge
+     (Fox Gully, leaving Leviathan at s 3030) at 148.8,38.83,-310.3: 2.2 m clear of the line's edge
+     (Fox Gully, joining Leviathan at s 2694) at 12.0,30.95,-478.7: 8.2 m clear of the line's edge
+     (Fox Gully, leaving Leviathan at s 2682) at -19.8,33.95,-509.8: 8.0 m clear of the line's edge
+     (Fox Gully, joining Leviathan at s 2562) at -63.8,29.51,-561.4: 9.9 m clear of the line's edge
+     (Pine Ridge, leaving Leviathan at s 2396) at -250.1,25.63,-567.3: 2.6 m clear of the line's edge
+     (Pine Ridge, joining Leviathan at s 1714) at -607.0,7.66,-252.7: 9.8 m clear of the line's edge
+     (Lake shore connection, joining Leviathan at s 7311 (1.3.0-review6)) at 685.1,78.96,-98.6: 35.8 m clear of the line's edge, 2.2 m clear of an open shortcut
+     (Mountain racing line, joining Leviathan at s 5894 (1.3.0-review6)) at 888.0,108.49,-82.9: 8.5 m clear of the line's edge
+     (Mountain racing line, leaving Leviathan at s 5848 (1.3.0-review6)) at 800.5,94.36,-127.4: 9.7 m clear of the line's edge
+     (Mountain racing line, joining Leviathan at s 7253 (1.3.0-review6)) at 766.2,88.80,-124.0: 13.5 m clear of the line's edge, 25.1 m clear of an open shortcut
+     (Mountain racing line, leaving Leviathan at s 7247 (1.3.0-review6)) at 728.0,83.43,-113.6: 8.0 m clear of the line's edge, 5.3 m clear of an open shortcut
+     ( exploration only, leaving Leviathan at s 5895 (1.3.0-review6)) at 880.2,107.53,-84.9: 8.4 m clear of the line's edge
+     ( technical shortcut, joining Leviathan at s 5916 (1.3.0-review6)) at 865.8,110.23,-83.3: 11.6 m clear of the line's edge
+   scene arrows hidden (55): Main teal trail arrow at (717, -60): ahead of another part of the lap (seen from s 4299); Main teal trail arrow at (749, 66): ahead of another part of the lap (seen from s 7347); Main teal trail arrow at (990, 209): ahead of another part of the lap (seen from s 4635); Main teal trail arrow at (990, 139): ahead of another part of the lap (seen from s 4620); Main teal trail arrow at (722, -143): ahead of another part of the lap (seen from s 5784); Main teal trail arrow at (732, -91): ahead of another part of the lap (seen from s 4335)
+-- normal-original: the road AI to CP 35, then the pad by the HUD (115 barricade panels in the race)
+   199 s: CP 34 passed (next 35)
+   199 s: CP 35 next: the pad drives by the HUD from 842.3,95.25,-201.8
+   199 s: the pad by the HUD at s 5756
+   shot A-where-the-barricade-was-normal: at 823.8,95.96,-189.7, next CP 35; no scene arrow in view
+   stuck at 807.3,95.50,-152.9 (next CP 35, pad): reset; the road AI drives to CP 35
+   221 s: the road AI (a flight) at s 5821
+   shot C-gate-35-normal: Leviathan Reverse CP 35 (CR117 CP 4) 39 m ahead
+   225 s: CP 35 passed (next 36)
+   a gate passed (next CP 36): the pad again
+   225 s: the pad by the HUD at s 5892
+   stuck at 898.2,104.89,-74.6 (next CP 36, pad): reset; the road AI drives to CP 36
+   243 s: the road AI (a flight) at s 5914
+   shot C-gate-36-normal: Leviathan Reverse CP 36 (CR117 CP 5) 40 m ahead
+   269 s: CP 36 passed (next 37)
+   a gate passed (next CP 37): the pad again
+   269 s: the pad by the HUD at s 6501
+   270 s: the road AI (a flight) at s 6514
+   shot C-gate-37-normal: Leviathan Reverse CP 37 (after the Westbound Gully Flight landing) 40 m ahead
+   shot B-gully-landing-looking-ahead-normal: at 724.7,99.84,-298.3, s 7039, next CP 37 32 m on; HUD arrow +53°; no scene arrow in view
+   287 s: the pad by the HUD at s 7047
+   TURN BACK to CP 37 (45 m off the course, going away from CP 37) at 646.3,33.03,-255.8
+   stuck at 638.6,31.22,-252.7 (next CP 37, pad): reset; the road AI drives to CP 37
+   309 s: the road AI (a flight) at s 7069
+   310 s: CP 37 passed (next 38)
+   a gate passed (next CP 38): the pad again
+   310 s: the pad by the HUD at s 7072
+   stuck at 681.7,92.86,-227.2 (next CP 38, pad): reset; the road AI drives to CP 38
+   326 s: the road AI (a flight) at s 7124
+   shot C-gate-38-normal: Leviathan Reverse CP 38 (CR117 CP 6) 40 m ahead
+   336 s: CP 38 passed (next 39)
+   a gate passed (next CP 39): the pad again
+   336 s: the pad by the HUD at s 7291
+   shot B-start-stretch-looking-ahead-normal: at 724.8,79.63,-79.9, next CP 39; HUD arrow +48°; CR122 crossing gold arrow 26 m ahead (-46°), pointing +61° from the course there, 21 m off the line at s 7311; CR122 crossing gold arrow 20 m ahead (-15°), pointing +54° from the course there, 9 m off the line at s 7315
+   shot C-gate-39-normal: Leviathan Reverse CP 39 40 m ahead
+   TURN BACK to CP 39 (43 m off the course, going away from CP 39) at 678.7,77.64,-39.0
+   stuck at 668.4,77.64,-29.8 (next CP 39, pad): reset; the road AI drives to CP 39
+   358 s: the road AI (a flight) at s 7325
+   361 s: CP 39 passed (next 40)
+   a gate passed (next CP 40): the pad again
+   361 s: the pad by the HUD at s 7362
+   TURN BACK to CP 40 (CP 28 already passed) at 727.8,79.32,8.3
+   stuck at 724.4,82.69,49.8 (next CP 40, pad): reset; the road AI drives to CP 40
+   374 s: the road AI (a flight) at s 7401
+   377 s: CP 40 passed (next 41)
+   a gate passed (next CP 41): the pad again
+   377 s: the pad by the HUD at s 7442
+   381 s: CP 41 passed (next 42)
+   stuck at 624.1,79.16,97.6 (next CP 42, pad): reset; the road AI drives to CP 42
+   394 s: the road AI (a flight) at s 7519
+   398 s: CP 42 passed (next 43)
+   a gate passed (next CP 43): the pad again
+   398 s: the pad by the HUD at s 7590
+   stuck at 509.2,78.42,16.2 (next CP 43, pad): reset; the road AI drives to CP 43
+   411 s: the road AI (a flight) at s 7643
+   414 s: CP 43 passed (next 44)
+   a gate passed (next CP 44): the pad again
+   414 s: the pad by the HUD at s 7674
+   stuck at 498.5,81.15,-27.4 (next CP 44, pad): reset; the road AI drives to CP 44
+   426 s: the road AI (a flight) at s 7686
+   428 s: CP 44 passed (next 45)
+   a gate passed (next CP 45): the pad again
+   428 s: the pad by the HUD at s 7705
+   436 s: CP 45 passed (next 46)
+   stuck at 473.4,82.19,-3.7 (next CP 46, pad): reset; the road AI drives to CP 46
+   442 s: the road AI (a flight) at s 7744
+   448 s: CP 46 passed (next 47)
+   a gate passed (next CP 47): the pad again
+   448 s: the pad by the HUD at s 7864
+   stuck at 361.0,73.57,236.0 (next CP 47, pad): reset; the road AI drives to CP 47
+   468 s: the road AI (a flight) at s 7986
+   473 s: CP 47 passed (next 0)
+   a gate passed (next CP 0): the pad again
+   473 s: the pad by the HUD at s 8075
+   end: finished True in 481.5 s, missed gates 1, TURN BACK 3, barricades touched 0

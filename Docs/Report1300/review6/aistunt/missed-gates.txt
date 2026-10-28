@@ -1,0 +1,1 @@
+0 missed gates (traced, -raceTrace), after the gates were widened; the run before widening: CP 11 (player's road AI) and CP 21 (GOLD)

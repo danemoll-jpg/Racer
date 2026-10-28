@@ -185,6 +185,8 @@ namespace Racer
                 case "order1300r5": yield return Order1300r5(); break;
                 case "land1300r5": yield return Land1300r5(); break;
                 case "lev1300r5": yield return Lev1300r5(); break;
+                case "lev1300r6": yield return Lev1300r6(); break; // 1.3.0-review6 (Report106PlayerCheck.Round1300r6.cs)
+                case "menus1300r6": yield return Menus1300r6(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

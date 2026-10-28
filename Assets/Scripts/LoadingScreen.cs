@@ -31,15 +31,17 @@ namespace Racer
         const float Fade = .35f;
         static readonly string[] Tips =
         {
-            "Stuck or upside down? R (Y on a controller) puts you back on the road.",
-            "V (X on a controller) changes the camera view.",
-            "F (LB on a controller) shakes a fist out of the window.",
-            "J (B on a controller) shows or hides the minimap.",
-            "In Free Roam, M (View on a controller) opens the map; F (Y) sets a waypoint to drive to.",
-            "F8 turns on Trailer / Photo Mode for filming and screenshots.",
+            // 1.3.0-review6 Part E: {pad|keys}: the prompt for the device last used only
+            "Stuck or upside down? {Y|R} puts you back on the road.",
+            "{X|V} changes the camera view.",
+            "{LB|F} shakes a fist out of the window.",
+            "{B|J} shows or hides the minimap.",
+            "In Free Roam, {View|M} opens the map; {Y|F} sets a waypoint to drive to.",
+            "Trailer / Photo Mode (pause menu{|, or F8}) is for filming and screenshots.",
             "Race setup has Time of Day and Weather options; Free Roam has its own weather choice.",
         };
         static int tipIndex = -1;
+        static string Tip(int i) => System.Text.RegularExpressions.Regex.Replace(Tips[i], @"\{([^|}]*)\|([^}]*)\}", m => MenuInput.Prompt(m.Groups[1].Value, m.Groups[2].Value));
 
         GameObject canvas; CanvasGroup group; RectTransform fill; Text title, detail, step, tip;
         bool holding; float shown, target, bar, tipAt; bool worldReady, started;
@@ -76,7 +78,7 @@ namespace Racer
             if (!instance) { instance = new GameObject("Loading screen (0.82)").AddComponent<LoadingScreen>(); DontDestroyOnLoad(instance.gameObject); instance.Build(); }
             var s = instance; s.StopAllCoroutines(); s.canvas.SetActive(true); s.group.alpha = 1; s.holding = true; s.worldReady = s.started = false;
             s.shown = Time.realtimeSinceStartup; s.target = 0; s.bar = 0; s.title.text = what; s.detail.text = (detail ?? "").Replace("\n", "   ·   "); s.step.text = "Loading";
-            s.SetCourse(course); tipIndex = (tipIndex + 1 + Random.Range(0, Tips.Length - 1)) % Tips.Length; s.tip.text = Tips[tipIndex]; s.tipAt = Time.realtimeSinceStartup;
+            s.SetCourse(course); tipIndex = (tipIndex + 1 + Random.Range(0, Tips.Length - 1)) % Tips.Length; s.tip.text = Tip(tipIndex); s.tipAt = Time.realtimeSinceStartup;
             Shown++; LastTitle = what; s.StartCoroutine(s.Watch());
         }
 
@@ -108,7 +110,7 @@ namespace Racer
             if (!holding) return;
             bar = Mathf.MoveTowards(bar, target, Time.unscaledDeltaTime * 1.6f);
             fill.anchorMax = new Vector2(Mathf.Clamp01(bar), 1);
-            if (Time.realtimeSinceStartup - tipAt > 5) { tipIndex = (tipIndex + 1) % Tips.Length; tip.text = Tips[tipIndex]; tipAt = Time.realtimeSinceStartup; }
+            if (Time.realtimeSinceStartup - tipAt > 5) { tipIndex = (tipIndex + 1) % Tips.Length; tip.text = Tip(tipIndex); tipAt = Time.realtimeSinceStartup; }
         }
 
         RectTransform map, mapFrame; RawImage mapImage; WorldMapCourseOverlay route;

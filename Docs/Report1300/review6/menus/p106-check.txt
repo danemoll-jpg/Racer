@@ -1,0 +1,33 @@
+screen=1280x800 kind=menus1300r6 version=1.3.0-review5 park=on
+== replays folder C:\Users\danmo\AppData\Local\Temp\report1300\menus1300r6\save-copy\Replays: recent 0, saved 0, #1 0
+-- E: the main menu
+   main-menu, controller (True): REPLAYS
+   main-menu, keyboard (controller False): Esc | REPLAYS
+-- D: Quick Race finished: recorder stopped (the results) at 131.4 s; 1 racers, 3362 racer frames, 0 traffic, 0 traffic frames, 0 events; #1 lap kept street-v14-discovery-drifter-solo-clear.lap.wrreplay (78 KB); #1 race kept street-v14-discovery-drifter-solo-clear-laps1.race.wrreplay (79 KB); recent kept 20261028-020750-815 Street Loop Forward.wrreplay (79 KB); recent now 1
+-- E: the finish screen
+   finish-screen, controller (True): WATCH REPLAY   (X) | SAVE REPLAY   (Y)
+   finish-screen, keyboard (controller False): WATCH REPLAY   (V) | Esc | SAVE REPLAY   (K)
+-- E: the replay viewer open yes
+-- E: REPLAYS from the results (page Results/replays)
+   replays, controller (True): REPLAYS
+   replays, keyboard (controller False): Esc | REPLAYS
+-- F: campaign event First Lap (Race, 2 laps), the original upgraded: Top speed 1 (Upgraded True)
+   in the race: Top speed 1
+   board street-v14-discovery-original-race4-d1-original-pebble-roadster-clear-laps2: 0 race entries before
+   finished: race rank #1, lap rank #1; the board's #1 04:16.291 Dan Street Classic UPG (6d67c098dc644c2f82b1557ddfc5b1b0/race); laps board 2
+   #1 replays kept: race street-v14-discovery-original-race4-d1-original-pebble-roadster-clear-laps2.race.wrreplay 636 KB, lap 313 KB; recorder stopped (the results) at 267.0 s; 4 racers, 26988 racer frames, 0 traffic, 0 traffic frames, 2 events; #1 lap kept street-v14-discovery-original-race4-d1-original-pebble-roadster-clear.lap.wrreplay (321 KB); #1 lap kept street-v14-discovery-original-race4-d1-original-pebble-roadster-clear.lap.wrreplay (312 KB); #1 race kept street-v14-discovery-original-race4-d1-original-pebble-roadster-clear-laps2.race.wrreplay (636 KB); recent kept 20261028-020956-376 Street Loop Forward.wrreplay (636 KB)
+  (row records not shown; page 'Ready/campaign')
+   records page: 
+-- D: split-screen race finished: recorder stopped (the results) at 138.8 s; 3 racers, 10635 racer frames, 0 traffic, 0 traffic frames, 1 events; #1 lap kept street-v14-discovery-original-race4-d1-roadster-clear.lap.wrreplay (247 KB); #1 race kept street-v14-discovery-original-race4-d1-roadster-clear-laps1.race.wrreplay (250 KB); recent kept 20261028-021101-000 Street Loop Forward.wrreplay (250 KB)
+-- D: recent replays now 3: 20261028-020750-815 Street Loop Forward.wrreplay 79 KB, 20261028-020956-376 Street Loop Forward.wrreplay 636 KB, 20261028-021101-000 Street Loop Forward.wrreplay 251 KB
+   recent Street Loop Forward Race · Dan · Drifter Twin · 1 lap · solo · no traffic · 02:11.459 · Oct 28, 2026 2:07 AM
+   recent Street Loop Forward Campaign: First Lap · Dan · Street Classic · 2 laps · 3 rivals, Normal · no traffic · 04:16.291 · Oct 28, 2026 2:08 AM
+   recent Street Loop Forward Split screen · Player One · Player One · Street Classic · 1 lap · 2 rivals, Normal · no traffic · 02:14.327 · Oct 28, 2026 2:10 AM
+-- D: REPLAYS page: 9 rows; the first: #1 RACE   ·   Street Loop Forward   ·   02:14.327 / Player One · Street Classic · 1 lap · 2 rivals, Normal · no traffic   ·   Oct 28, 2026 2:10 AM || #1 LAP   ·   Street Loop Forward   ·   02:11.277 / Player One · Street Classic · 1 lap · 2 rivals, Normal · no traffic   ·   Oct 28, 2026 2:10 AM || RECENT   ·   Street Loop Forward   ·   02:14.327 / Player One · Street Classic · 1 lap · 2 rivals, Normal · no traffic   ·   Oct 28, 2026 2:10 AM || #1 RACE   ·   Street Loop Forward   ·   04:16.291 / Street Classic · 2 laps · 3 rivals, Normal · no traffic   ·   Oct 28, 2026 2:08 AM || #1 LAP   ·   Street Loop Forward   ·   02:05.159 / Street Classic · 2 laps · 3 rivals, Normal · no traffic   ·   Oct 28, 2026 2:08 AM
+   opened delete: page Ready/replay-one, rows WATCH / SAVE / DELETE
+   SAVE: saved 0 -> 1, recent 3 -> 2; page now SAVED REPLAY
+   WATCH a recent one: viewer open, Street Loop Forward, clock 1.0 -> 3.0 s
+-- D: recent filled to 30 (7.6 MB); the oldest 20261028-020750-815 Street Loop Forward.wrreplay
+   the 31st kept: recent 30, the oldest dropped; #1 6 -> 6, saved 1 -> 1
+  (row replays not shown; page 'Ready/replays')
+   REPLAYS page with 37 replays drawn in 0.02 s

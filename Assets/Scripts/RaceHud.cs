@@ -166,7 +166,7 @@ namespace Racer
                     if(race.FreeRoam)
                     {
                         if(race.GetComponent<ExplorationCollection>() is ExplorationCollection collection&&!string.IsNullOrEmpty(collection.Hud))lines.Add(collection.Hud);
-                        if(roamHintLeft>0)lines.Add("Esc or Start: activities, retry, menu");
+                        if(roamHintLeft>0)lines.Add(MenuInput.Prompt("Start","Esc")+": activities, retry, menu");
                     }
                 }
                 if(race.FreeRoam)activities.rectTransform.sizeDelta=new(700,110);activities.text=string.Join("\n",lines);

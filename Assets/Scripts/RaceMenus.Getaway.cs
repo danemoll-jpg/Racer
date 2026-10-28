@@ -21,16 +21,16 @@ namespace Racer
             if (!solo)
             {
                 devices = n;
-                Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? "press A on a controller, or Enter" : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
-                Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2AiRunner ? "the AI runs too   (left / right: a person)" : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓   (left / right: the AI)" : "press A on another controller, or Enter   (left / right: the AI)"),
+                Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? MenuInput.JoinHint(false) : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
+                Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2AiRunner ? "the AI runs too   (left / right: a person)" : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓   (left / right: the AI)" : MenuInput.JoinHint(true) + "   (left / right: the AI)"),
                     d => { if (SplitScreen.P2AiRunner) SplitScreen.P2AiRunner = false; else if (SplitScreen.P2Device == null || d != 0) SplitScreen.P2AiRunner = true; SplitScreen.P2Ai = SplitScreen.P2AiRunner; flow.Click(); Show(); });
                 if (string.IsNullOrEmpty(SplitScreen.P1Name)) SplitScreen.P1Name = PlayerNames.Player;
-                Step(n++, "split-p1-name", "Player 1 name:   " + SplitScreen.NameOf(1) + "   (A: new name)", d => { SplitScreen.P1Name = NextKnownName(SplitScreen.P1Name, d, SplitScreen.P2Pick); flow.Click(); Show(); },
+                Step(n++, "split-p1-name", "Player 1 name:   " + SplitScreen.NameOf(1) + "   (" + MenuInput.Prompt("A", "Space") + ": new name)", d => { SplitScreen.P1Name = NextKnownName(SplitScreen.P1Name, d, SplitScreen.P2Pick); flow.Click(); Show(); },
                     () => OpenNameEntry("", v => { PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P1Name = v; return true; }, null, "PLAYER 1'S NAME"));
                 if (!SplitScreen.P2AiRunner)
                 {
                     if (string.IsNullOrEmpty(SplitScreen.P2Pick) || SplitScreen.P2Pick == SplitScreen.NameOf(1)) SplitScreen.P2Pick = PlayerNames.Known.FirstOrDefault(k => k != SplitScreen.NameOf(1)) ?? "";
-                    Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? "press A to enter it" : SplitScreen.P2Pick + "   (A: new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
+                    Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? MenuInput.Prompt("press A", "press Space") + " to enter it" : SplitScreen.P2Pick + "   (" + MenuInput.Prompt("A", "Space") + ": new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
                         () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
                 }
             }

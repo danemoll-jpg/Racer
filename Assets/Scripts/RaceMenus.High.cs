@@ -121,10 +121,10 @@ namespace Racer
             SplitScreen.P1Vehicle = Fix(mine, SplitScreen.P1Vehicle); SplitScreen.P1Vehicle = Fix(SplitScreen.P1Vehicle, "original"); SplitScreen.P2Vehicle = Fix(SplitScreen.P2Vehicle, "atv");
             int scheme = SchemeOf(SplitScreen.P1Vehicle); if (scheme >= 0 && scheme < VehiclePaint.Count) SplitScreen.P1Color = scheme;
         }
-        string JoinLine(InputDevice d) => d != null ? SplitScreen.DeviceName(d) + "   ✓" : "press A on another controller (or Enter) to join";
+        string JoinLine(InputDevice d) => d != null ? SplitScreen.DeviceName(d) + "   ✓" : MenuInput.JoinHint(true) + " to join";
         void RenderHighTwo()
         {
-            ClearCore("FREE ROAM   ·   2 PLAYERS", "Split screen, both players in HIGH MODE. Player 2: press A on another controller, or Enter on the keyboard.");
+            ClearCore("FREE ROAM   ·   2 PLAYERS", "Split screen, both players in HIGH MODE. Player 2: " + MenuInput.JoinHint(true) + ".");
             Step(0, "split-p1", "Player 1:   " + JoinLine(SplitScreen.P1Device), d => CycleSlot(1, d));
             Step(1, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the AI drives   (A on another controller joins)" : JoinLine(SplitScreen.P2Device)), d => CycleSlot(2, d));
             int n = PlayerHighRows(2);
@@ -147,7 +147,7 @@ namespace Racer
             int n = 0;
             Step(n++, "high-players", "Players:   " + (solo ? "1   (full screen)" : "2   (split screen)"), d => { SplitScreen.Solo = !SplitScreen.Solo; SplitScreen.P2Ai = SplitScreen.Solo; flow.Click(); Show(); });
             int p2 = -1;
-            if (!solo) { p2 = n; Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "press A on another controller (or Enter) to join" : JoinLine(SplitScreen.P2Device)), d => CycleSlot(2, d)); n = PlayerHighRows(n); }
+            if (!solo) { p2 = n; Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? MenuInput.JoinHint(true) + " to join" : JoinLine(SplitScreen.P2Device)), d => CycleSlot(2, d)); n = PlayerHighRows(n); }
             string Wait(string s) => ready ? s : s + "   (waiting for player 2)";
             var games = new (string id, string label)[] { ("high-getaway", "RUN FROM THE COPS   ·   the police chase you"), ("high-cop", solo ? "BE THE COP   ·   catch the runner" : "BE THE COP   ·   one chases, one runs, then swap"),
                 ("high-patrol", "CATCH SPEEDERS   ·   clock them, pull them over"), ("high-stunt", "STUNT EVENT   ·   flips and jumps at " + StuntPark.Title) };

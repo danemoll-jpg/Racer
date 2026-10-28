@@ -82,10 +82,11 @@ namespace Racer
             flash[r] = (race.splitScore ? $"+{points:N0}" : bonus > 0 ? $"+{points:N0}  −{bonus:0.0} s" : $"+{points:N0}  (bonus full)", Time.time + 3);
             // the best combo per course (quick Stunt Races only, the human players)
             bool human = r == race.Racers[0] || (SplitScreen.Race && r == SplitScreen.Race.P2 && !SplitScreen.P2Ai);
-            if (human && CampaignRun.Active == null && race.Flow && !race.Flow.DebugMovementUsed)
+            // 1.3.0-review6 Part F: the campaign's Stunt Races count too (with their upgrades marked)
+            if (human && (CampaignRun.Active == null || CampaignRun.Active.Kind == CampaignEventKind.Race) && race.Flow && !race.Flow.DebugMovementUsed)
             {
-                var car = r.Car; string name = SplitScreen.Active ? SplitScreen.NameOf(r == race.Racers[0] ? 1 : 2) : PlayerNames.Player;
-                StuntRaceRecords.Record(StuntRace.RecordPrefix + race.courseId + (StuntShortcuts.Closed(race) ? StuntShortcuts.RecordSuffix : ""), points, car.GetComponent<VehicleConfiguration>().profileId, name, (links > 1 ? "×" + links + " " : "") + tricks);
+                var car = r.Car; string name = SplitScreen.Active ? SplitScreen.NameOf(r == race.Racers[0] ? 1 : 2) : PlayerNames.Player; string id = car.GetComponent<VehicleConfiguration>().profileId;
+                StuntRaceRecords.Record(StuntRace.RecordPrefix + race.courseId + (StuntShortcuts.Closed(race) ? StuntShortcuts.RecordSuffix : ""), points, id, name, (links > 1 ? "×" + links + " " : "") + tricks, CampaignRun.Active != null && Campaign.Upgraded(id));
             }
         }
         // the end of a racer's race: its open combo counts now (before its time is recorded), then nothing more
@@ -298,7 +299,7 @@ namespace Racer
     public static class StuntRaceRecords
     {
         public const string File = "stunt-races-v1.json";
-        [Serializable] public sealed class Entry { public string course, vehicle, name, date, tricks; public int points; }
+        [Serializable] public sealed class Entry { public string course, vehicle, name, date, tricks; public int points; public bool upgraded; }
         [Serializable] sealed class Data { public List<Entry> best = new(); }
         static Data data = new(); static string path;
         public static string LastNew { get; private set; }
@@ -309,11 +310,11 @@ namespace Racer
             catch (Exception e) { Debug.LogWarning("Stunt race records could not be read: " + e.Message); data = new Data(); }
         }
         public static Entry Best(string course) => data.best.FirstOrDefault(e => e.course == course);
-        public static void Record(string course, int points, string vehicle, string name, string tricks)
+        public static void Record(string course, int points, string vehicle, string name, string tricks, bool upgraded = false)
         {
             var best = Best(course); if (best != null && best.points >= points) return;
             if (best == null) data.best.Add(best = new Entry { course = course });
-            best.points = points; best.vehicle = vehicle; best.name = name; best.tricks = tricks; best.date = DateTime.UtcNow.ToString("o"); LastNew = course;
+            best.points = points; best.vehicle = vehicle; best.name = name; best.tricks = tricks; best.date = DateTime.UtcNow.ToString("o"); best.upgraded = upgraded; LastNew = course;
             try { if (path != null) AtomicSave.Write(path, JsonUtility.ToJson(data, true)); } catch (Exception e) { Debug.LogWarning("Stunt race records could not be saved: " + e.Message); }
         }
     }

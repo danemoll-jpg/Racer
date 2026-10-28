@@ -178,17 +178,41 @@ namespace Racer
         public static string Folder => Path.Combine(Root ?? Application.persistentDataPath, "Replays");
         public static string BestFolder => Path.Combine(Folder, "best");
         public static string SavedFolder => Path.Combine(Folder, "saved");
+        // 1.3.0-review6 Part D (Dan: "I should have had a replay for every single race"): every race that reaches the finish screen, the newest 30
+        // (recent/<date time> <course>.wrreplay; the oldest drops off as a new one comes in; SAVE moves one to saved/, #1 and saved ones never drop off)
+        public static string RecentFolder => Path.Combine(Folder, "recent");
+        public const int RecentKept = 30;
+        public static string KeepRecent(ReplayData d)
+        {
+            var r = d.Window(d.t0, d.t1, "recent"); var me = d.focus >= 0 && d.focus < d.racers.Count ? d.racers[d.focus] : null;
+            r.label = me != null ? me.name : ""; r.bestTime = me != null && me.total > 0 ? me.total : 0;   // the REPLAYS row: who, and their time
+            string path = Path.Combine(RecentFolder, DateTime.Now.ToString("yyyyMMdd-HHmmss-fff") + " " + Safe(r.Title) + Extension);
+            r.Write(path); d.recentAs = path;
+            // the newest 30 (named by date, so no file is opened to choose)
+            var files = Directory.GetFiles(RecentFolder, "*" + Extension).OrderByDescending(f => Path.GetFileName(f), StringComparer.Ordinal).ToList();
+            foreach (var old in files.Skip(RecentKept)) try { File.Delete(old); Debug.Log("[Replay] recent: dropped the oldest " + Path.GetFileName(old)); } catch (Exception e) { Debug.LogWarning("[Replay] " + e.Message); }
+            return path;
+        }
+        [NonSerialized] public string recentAs;   // the recent file this race was kept as (SAVE moves it to saved/)
         public static string Safe(string s) { foreach (var ch in Path.GetInvalidFileNameChars()) s = s.Replace(ch, '_'); return s; }
         public static string BestPath(string board, bool race) => Path.Combine(BestFolder, Safe(board) + (race ? ".race" : ".lap") + Extension);
 
         // the files there, newest first (headers only; a file that cannot be read is skipped)
-        public static List<(string path, ReplayData head)> List(bool best)
+        public static List<(string path, ReplayData head)> List(bool best) => List(best ? BestFolder : SavedFolder);
+        // 1.3.0-review6: any of the three folders; a file's header is read once and kept while the file is unchanged (the page is drawn often)
+        static readonly Dictionary<string, (DateTime when, long size, ReplayData head)> heads = new Dictionary<string, (DateTime, long, ReplayData)>();
+        public static List<(string path, ReplayData head)> List(string dir)
         {
             var list = new List<(string, ReplayData)>();
-            var dir = best ? BestFolder : SavedFolder;
             if (!Directory.Exists(dir)) return list;
             foreach (var f in Directory.GetFiles(dir, "*" + Extension))
-                try { list.Add((f, Read(f, true))); } catch (Exception e) { Debug.LogWarning($"[Replay] {Path.GetFileName(f)}: {e.Message}"); }
+                try
+                {
+                    var info = new FileInfo(f);
+                    if (!heads.TryGetValue(f, out var h) || h.when != info.LastWriteTimeUtc || h.size != info.Length) heads[f] = h = (info.LastWriteTimeUtc, info.Length, Read(f, true));
+                    list.Add((f, h.head));
+                }
+                catch (Exception e) { Debug.LogWarning($"[Replay] {Path.GetFileName(f)}: {e.Message}"); }
             return list.OrderByDescending(x => x.Item2.date).ToList();
         }
         // save any replay (the finish screen's SAVE REPLAY, the viewer's View / K): named by course, direction, date and time
@@ -202,6 +226,8 @@ namespace Racer
                 var s = d.Window(d.t0, d.t1, "saved"); s.label = $"{s.Title} {DateTime.Now:yyyy-MM-dd HH.mm.ss}";
                 string path = Path.Combine(SavedFolder, Safe(s.label) + Extension);
                 s.Write(path); LastSaved = path; d.savedAs = path; Debug.Log($"[Replay] saved {path} ({new FileInfo(path).Length / 1024} KB)");
+                // 1.3.0-review6: kept for good now, so its recent copy goes (one row, not two)
+                if (!string.IsNullOrEmpty(d.recentAs) && File.Exists(d.recentAs)) { File.Delete(d.recentAs); Debug.Log("[Replay] recent copy moved to saved: " + Path.GetFileName(d.recentAs)); }
                 return "REPLAY SAVED";
             }
             catch (Exception ex) { Debug.LogWarning("[Replay] save failed: " + ex.Message); return "SAVE FAILED"; }

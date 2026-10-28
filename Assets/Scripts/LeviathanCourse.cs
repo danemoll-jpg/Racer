@@ -8,7 +8,8 @@ namespace Racer
 {
     // 0.115: Leviathan, Forward and Reverse. The Street Loop joined to the Mountain Loop at J (the Lake shore connection), raced in the Mountain
     // Loop scenes on roads they already have: Forward in MountainLoop.unity (Climbing Ridge Cut as the main road, the Homeward summit flight),
-    // Reverse in MountainLoopReverse.unity (Downhill Ridge Cut, the South Face summit flight). The scenes are not changed: when a Leviathan course
+    // Reverse in MountainLoopReverse.unity (the South Face summit flight; 1.3.0-review6: CR117's own road with the Westbound Gully Flight again,
+    // Downhill Ridge Cut one of its shortcuts, closed in its Stunt Races). The scenes are not changed: when a Leviathan course
     // is loaded, its line, gates, the Street Loop's shortcuts and the summit flight's stations (Resources/Leviathan/*.json, composed by
     // Tools/Report115/py/leviathan.py) replace the scene's own course on its RaceDirector before anything reads it. Loading the scene
     // any other way gives the Mountain Loop exactly as before.
@@ -164,8 +165,20 @@ namespace Racer
                         if (Vector3.Dot(dir, q.f) > .8f) { along = true; if (q.line == 0) alongS = q.s; }
                     }
                     foreach (var m in meets) { var d = at - m; if (Mathf.Abs(d.y) < 6 && new Vector2(d.x, d.z).sqrMagnitude < 60 * 60) { twice = true; break; } }
-                    if (along && !twice) { kept++; continue; }
-                    r.enabled = false; hidden++; ArrowReport.Add($"{r.name} at ({at.x:F0}, {at.z:F0}): {(twice ? "where the course passes twice" : "not along the course")}");
+                    // 1.3.0-review6 Part B (Dan: "you are seeing the blue arrow going back up the mountain before you see the next checkpoint"): an arrow
+                    // for another part of the lap seen straight ahead from this one (the climb's teal arrows from the start stretch, where the way
+                    // back turns off the climb onto the lake strip): hidden, so what you see first is this part's way to its next gate
+                    bool ahead = false; float seenFrom = -1;
+                    if (along && !twice && alongS >= 0)
+                        foreach (var q in main)
+                        {
+                            float ds = Mathf.Abs(q.s - alongS); ds = Mathf.Min(ds, road.Length - ds); if (ds < 300) continue;
+                            var d = at - q.p; var flat = new Vector3(d.x, 0, d.z); float dist = flat.magnitude;
+                            if (dist < 15 || dist > 110 || Mathf.Abs(d.y) > 20 || Vector3.Angle(q.f, flat) > 25) continue;
+                            ahead = true; seenFrom = q.s; break;
+                        }
+                    if (along && !twice && !ahead) { kept++; continue; }
+                    r.enabled = false; hidden++; ArrowReport.Add($"{r.name} at ({at.x:F0}, {at.z:F0}): {(twice ? "where the course passes twice" : ahead ? $"ahead of another part of the lap (seen from s {seenFrom:F0})" : "not along the course")}");
                 }
             Debug.Log($"Leviathan: the scene's route arrows: {kept} kept, {hidden} hidden ({string.Join("; ", ArrowReport)})");
         }
@@ -396,8 +409,8 @@ namespace Racer
             Debug.Log($"{owner}: kicker {k.at}: lip {top - yl:F2} m above its ground at ({lip.x:F1}, {lip.z:F1}), {k.length:F1} m long, {k.width:F1} m wide");
             return go;
         }
-        // 0.117 Part B item 4: Climbing Ridge Cut (Forward) / Downhill Ridge Cut (Reverse) are Leviathan's main road: their scene signs lose
-        // "optional shortcut" / "follow gold" in this race only
+        // 0.117 Part B item 4: Climbing Ridge Cut (Forward) is Leviathan's main road: its scene signs lose "optional shortcut" / "follow gold" in
+        // this race only (Reverse's Downhill Ridge Cut was too until 1.3.0-review6, when it became a shortcut again; its relabels went)
         static void RelabelSigns(Data data, Scene scene)
         {
             if (data.relabel == null || Before117) return;

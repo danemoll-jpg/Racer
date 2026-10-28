@@ -156,6 +156,10 @@ namespace Racer
                 catch (Exception ex) { notes.Add("keeping failed: " + ex.Message); }
             }
             keep.Clear();
+            // 1.3.0-review6 Part D: every race that reaches the finish screen is kept among the recent 30 (not a race that was left)
+            if (why == "the results")
+                try { var path = ReplayData.KeepRecent(d); notes.Add($"recent kept {System.IO.Path.GetFileName(path)} ({new System.IO.FileInfo(path).Length / 1024} KB)"); }
+                catch (Exception ex) { notes.Add("keeping the recent failed: " + ex.Message); }
             Note = $"stopped ({why}) at {d.t1:0.0} s; {d.racers.Count} racers, {d.racers.Sum(r => r.track.frames.Count)} racer frames, {d.traffic.Count} traffic, {d.traffic.Sum(r => r.frames.Count)} traffic frames, {d.events.Count} events" + (notes.Count > 0 ? "; " + string.Join("; ", notes) : "");
             Debug.Log("[Replay] " + Note);
         }

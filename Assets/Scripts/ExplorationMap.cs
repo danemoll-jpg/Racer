@@ -32,6 +32,10 @@ namespace Racer
         // list of areas in the side column (the chosen one highlighted and centred); 0.93 Part D: a fixed north arrow
         WorldMapAreaOverlay areaOverlay;readonly List<(UnityEngine.UI.Text text,AcornAreas.Area area,AcornAreas.Region region)> areaLabels=new();
         readonly List<(UnityEngine.UI.Text text,Vector3 at)> placeLabels=new();UnityEngine.UI.Text areaList,northArrow;int selectedArea=-1;
+        // 1.3.0-review6 Part E: the map's controls for the device last used only
+        UnityEngine.UI.Text controlsLine,mouseLine;
+        static string ControlsLine=>MenuInput.Prompt("Left stick: pan · LT / RT: zoom · A: select · Y: waypoint · LB / RB: destinations · X: route · B: close","WASD: pan · − / = or wheel: zoom · Space: select · F: waypoint · Q / E: destinations · C: route · Esc: close");
+        static string MouseLine=>MenuInput.Prompt("NORTH ↑","NORTH ↑   Mouse: wheel zoom / drag pan / click waypoint or landmark");
         ExplorationCollection Collection=>race?race.GetComponent<ExplorationCollection>():null;
         AcornAreas.Area[] Areas=>AcornAreas.Of(Collection);
         int closedFrame=-1;
@@ -191,10 +195,10 @@ namespace Racer
             areaList=Text("Acorn areas list",panel.transform,new(485,-150),new(240,210),15);areaList.alignment=TextAnchor.UpperLeft;areaList.supportRichText=true;
             status=Text("Map status",panel.transform,new(460,38),new(255,410),18);
             Button("Previous destination",new(460,-188),()=>SelectNext(-1));Button("Next destination",new(460,-232),()=>SelectNext(1));Button("Travel (free roam)",new(460,-276),TravelSelected);
-            Button("Close map / M / B",new(-420,-316),Close);Button("Center on player",new(-150,-316),()=>center=MapNormalized(race.vehicle.Body.position));Button("Clear waypoint",new(120,-316),()=>Waypoint=null);
+            Button("Close map",new(-420,-316),Close);Button("Center on player",new(-150,-316),()=>center=MapNormalized(race.vehicle.Body.position));Button("Clear waypoint",new(120,-316),()=>Waypoint=null);
             Button("Show / hide course",new(460,267),()=>courseOverlay.gameObject.SetActive(!courseOverlay.gameObject.activeSelf));
-            Text("Map controls",panel.transform,new(-100,291),new(1000,25),16).text="NORTH ↑   Mouse: wheel zoom / drag pan / click waypoint or landmark";
-            Text("Controller controls",panel.transform,new(0,-343),new(1200,22),15).text="Stick / WASD: pan · triggers / wheel: zoom · A / Space: waypoint · D-pad: destinations · X: travel · B / Esc: close";
+            mouseLine=Text("Map controls",panel.transform,new(-100,291),new(1000,25),16);mouseLine.text=MouseLine;
+            controlsLine=Text("Controller controls",panel.transform,new(0,-343),new(1200,22),15);controlsLine.text=ControlsLine; // 1.3.0-review6 Part E: the device in use only (ExplorationMap.Controls)
             confirmation=RectUI("Confirm destination",panel.transform,Vector2.zero,new(1280,720)).gameObject;
             confirmation.AddComponent<UnityEngine.UI.Image>().color=new(.02f,.04f,.06f,.97f);
             confirmationText=Text("Named travel question",confirmation.transform,new(0,55),new(850,160),28);

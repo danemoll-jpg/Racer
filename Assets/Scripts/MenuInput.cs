@@ -12,6 +12,10 @@ namespace Racer
     {
         static MenuInput instance;
         public static bool Controller { get; private set; }
+        // 1.3.0-review6 Part E (Dan: "The buttons should only ever be based on the controller I'm using"): a prompt for the device last used only
+        public static string Prompt(string pad, string keys) => Controller ? pad : keys;
+        // how another player joins: by controller only while a controller is in use; on the keyboard, Enter (or a controller)
+        public static string JoinHint(bool another) => Controller ? $"press A on {(another ? "another" : "a")} controller" : $"press Enter, or A on {(another ? "another" : "a")} controller";
         public static Gamepad Pad { get; private set; }
         public static bool Blocked => barrier || DeveloperLocationHud.OwnsInput;
         // A debug dialog blocks the game, but still needs the shared EventSystem.

@@ -1,0 +1,26 @@
+line on CR117 s 1470: point 2885 s 5763.0 (0.09 m); CR117 s 30: point 3017 s 6026.9 (0.46 m)
+replaced: line s 5763.0-6026.9 (263.9 m: the cut) by CR117 s 1470.1-3031.1-29.5 (1590.6 m, 1985 points); lap 7038.8 -> 8365.5 m (+1326.6)
+mountain span [4373.341093951527, 6070.466169149265] -> [4373.3, 7397.1]; narrow [4007.5, 4104.4, 6321.5, 6412.8] -> [4007.5, 4104.4, 7648.1, 7739.4]
+  Leviathan Reverse CP 35 (CR117 CP 4) on the new road at s 5891.9 (5.44 m from the line)
+  Leviathan Reverse CP 36 (CR117 CP 5) on the new road at s 6500.7 (1.60 m from the line)
+  Leviathan Reverse CP 37 (CR117 CP 6) on the new road at s 7290.9 (2.90 m from the line)
+START FINISH s 8326.6 -> 8326.6
+gate after the gully landing: Leviathan Reverse CP 37 (after the Westbound Gully Flight landing) at s 7071.7 (landing ends at s 7036.7), [700.9684386713488, 100.67791204110625, -277.05218435761714]
+  Leviathan Reverse CP 17: 36 m past the Stunt Race's Big kicker 3 (3.0 m): upper height 0.0 -> 30 m
+  Leviathan Reverse CP 21: 83 m past the Stunt Race's Kicker 4 (1.5 m): upper height 0 -> 30 m
+  Leviathan Reverse CP 46: 39 m past the Stunt Race's Big kicker 6 (3.0 m): upper height 0 -> 30 m
+  Leviathan Reverse CP 11: 18 m wide
+  Leviathan Reverse CP 17: 18 m wide
+  Leviathan Reverse CP 21: 18 m wide
+  Leviathan Reverse CP 46: 18 m wide
+gates: 34 Leviathan Reverse CP 34 (CR117 CP 3) s 5756, 35 Leviathan Reverse CP 35 (CR117 CP 4) s 5892, 36 Leviathan Reverse CP 36 (CR117 CP 5) s 6501, 37 Leviathan Reverse CP 37 (after the Westbound Gully Flight landing) s 7072, 38 Leviathan Reverse CP 38 (CR117 CP 6) s 7291, 39 Leviathan Reverse CP 39 s 7361, 40 Leviathan Reverse CP 40 (lake north-east strip) s 7442, 41 Leviathan Reverse CP 41 s 7504, 42 Leviathan Reverse CP 42 s 7590, 43 Leviathan Reverse CP 43 s 7675, 44 Leviathan Reverse CP 44 s 7705, 45 Leviathan Reverse CP 45 s 7735, 46 Leviathan Reverse CP 46 s 7864, 47 Leviathan Reverse CP 47 s 8075
+flight Westbound Gully Flight: CR117 2236.4-2743.8 -> Leviathan 6529.3-7036.7 (0.00 / 0.00 m); 'Downhill Ridge Cut drop' removed
+shortcut Downhill Ridge Cut: entry s 5785.6 (0.07 m) exit s 7336.4 (0.00 m), bypasses [35, 36, 37, 38], AI-validated False
+signs: the 4 chevrons for the cut out; boards at its entry and end; relabels kept: SUMMIT TRAVERSE
+closed ways removed (on or beside the replaced span): CR117 mandatory two-flight racing line, leaving Leviathan at s 5789 (808, -167); CR117 mandatory two-flight racing line, joining Leviathan at s 5899 (716, -151); CR117 mandatory two-flight racing line, leaving Leviathan at s 5899 (744, -123); CR117 mandatory two-flight racing line, joining Leviathan at s 5989 (724, -81)
+closed ways added on the new road: Lake shore connection, joining Leviathan at s 7311 (1.3.0-review6) (685, -99); Mountain racing line, joining Leviathan at s 5894 (1.3.0-review6) (888, -83); Mountain racing line, leaving Leviathan at s 5848 (1.3.0-review6) (800, -127); Mountain racing line, joining Leviathan at s 7253 (1.3.0-review6) (766, -124); Mountain racing line, leaving Leviathan at s 7247 (1.3.0-review6) (728, -114);  exploration only, leaving Leviathan at s 5895 (1.3.0-review6) (880, -85);  technical shortcut, joining Leviathan at s 5916 (1.3.0-review6) (866, -83)
+not closed there: s 7315 Mountain racing line: too short; s 6756 CR117 mandatory two-flight racing line: the ground under the Westbound Gully Flight (the same road); s 6856 CR117 mandatory two-flight racing line: the ground under the Westbound Gully Flight (the same road); s 7246  exploration only: the same way as Mountain racing line, leaving Leviathan at s 7247 (1.3.0-review6); s 7253  exploration only: the same way as Mountain racing line, joining Leviathan at s 7253 (1.3.0-review6); s 5849  exploration only: the same way as Mountain racing line, leaving Leviathan at s 5848 (1.3.0-review6)
+  NOTE: closed way Lake shore connection, leaving Leviathan at s 4018 comes 6.8 m from the line, 61.3 m from a shortcut's line
+  NOTE: closed way Summit approach and safe return, joining Leviathan at s 4501 comes 7.4 m from the line, 1000000000.0 m from a shortcut's line
+  NOTE: closed way Fox Gully, leaving Leviathan at s 3030 comes 6.2 m from the line, 1000000000.0 m from a shortcut's line
+  NOTE: closed way Pine Ridge, leaving Leviathan at s 2396 comes 6.7 m from the line, 720.6 m from a shortcut's line

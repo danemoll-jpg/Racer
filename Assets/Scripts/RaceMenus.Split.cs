@@ -83,8 +83,8 @@ namespace Racer
             var vehicles = SplitScreen.Vehicles; int n = 0;
             string Vehicle(string id) { var p = VehicleProfile.Find(id); return $"{p.Name} ({p.Class})"; }
             string Joins(InputDevice d) => d is Gamepad ? "   (A on another controller joins it)" : "";
-            Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? "press A on a controller, or Enter" : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
-            Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the race AI drives" + Joins(SplitScreen.P1Device) : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓" : "press A on another controller, or Enter on the keyboard"), d => CycleSlot(2, d));
+            Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? MenuInput.JoinHint(false) : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
+            Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the race AI drives" + Joins(SplitScreen.P1Device) : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓" : MenuInput.JoinHint(true)), d => CycleSlot(2, d));
             Toggle(n++, "split-ai", "Player 2: AI driver", SplitScreen.P2Ai, () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
             if (SplitScreen.P2Device != null && !SplitScreen.P2Ai) Row(n++, "split-swap", "Swap the players' devices", () => { (SplitScreen.P1Device, SplitScreen.P2Device) = (SplitScreen.P2Device, SplitScreen.P1Device); flow.Click(); Show(); });
             // 0.94 Parts B and C: what the two players do
@@ -97,12 +97,12 @@ namespace Racer
             // 0.94 Part A: each player's name: ‹ › picks a name used before on this PC, A enters a new one (remembered); the AI
             // driver is "AI". Player 1 starts as the saved player name.
             if (string.IsNullOrEmpty(SplitScreen.P1Name)) SplitScreen.P1Name = PlayerNames.Player;
-            Step(n++, "split-p1-name", "Player 1 name:   " + SplitScreen.NameOf(1) + "   (A: new name)", d => { SplitScreen.P1Name = NextKnownName(SplitScreen.P1Name, d, SplitScreen.P2Ai ? null : SplitScreen.P2Pick); flow.Click(); Show(); },
+            Step(n++, "split-p1-name", "Player 1 name:   " + SplitScreen.NameOf(1) + "   (" + MenuInput.Prompt("A", "Space") + ": new name)", d => { SplitScreen.P1Name = NextKnownName(SplitScreen.P1Name, d, SplitScreen.P2Ai ? null : SplitScreen.P2Pick); flow.Click(); Show(); },
                 () => OpenNameEntry("", v => { PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P1Name = v; return true; }, null, "PLAYER 1'S NAME"));
             if (!SplitScreen.P2Ai)
             {
                 if (string.IsNullOrEmpty(SplitScreen.P2Pick) || SplitScreen.P2Pick == SplitScreen.NameOf(1)) SplitScreen.P2Pick = PlayerNames.Known.FirstOrDefault(k => k != SplitScreen.NameOf(1)) ?? "";
-                Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? "press A to enter it" : SplitScreen.P2Pick + "   (A: new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
+                Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? MenuInput.Prompt("press A", "press Space") + " to enter it" : SplitScreen.P2Pick + "   (" + MenuInput.Prompt("A", "Space") + ": new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
                     () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
             }
             n = PlayerHighRows(n); // 1.2.0-review2: each player's own HIGH MODE

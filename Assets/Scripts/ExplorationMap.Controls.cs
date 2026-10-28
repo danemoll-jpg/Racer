@@ -56,6 +56,7 @@ namespace Racer
             EnsureMapActions();if(!race||!race.Flow||MenuInput.Blocked||ReplayViewer.Active||/* 1.1: View saves a replay there */race.Flow.GetComponent<RaceMenus>()?.ModalOpen==true)return;
             if(mapToggle.WasPressedThisFrame()){MenuInput.ConsumeThroughRelease(mapToggle);if(Opened){if(sheetOpen){if(Confirming)CancelTravel();else CloseMapSheet();}else Close();}else if(race.Flow.State==RaceFlow.Stage.Racing||race.Flow.State==RaceFlow.Stage.Paused)Open();return;}
             if(!Opened)return;
+            if(controlsLine&&controlsLine.text!=ControlsLine){controlsLine.text=ControlsLine;mouseLine.text=MouseLine;} // 1.3.0-review6 Part E
             if(backAction.WasPressedThisFrame()){MenuInput.ConsumeThroughRelease(backAction);if(Confirming)CancelTravel();else if(sheetOpen)CloseMapSheet();else Close();return;}
             if(sheetOpen)
             {

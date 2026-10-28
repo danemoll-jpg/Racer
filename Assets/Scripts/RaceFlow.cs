@@ -670,15 +670,18 @@ namespace Racer
             if(string.IsNullOrEmpty(attempt)||Race.Progress.CompletedLaps<=0)return;
             string profile=Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
             if(Race.Progress.Finished)StuntRaceScore.Current?.Close(Race.Racers[0]); // 0.119 Part B: a Stunt Race's open combo counts (its bonus) before the time is recorded
-            // 0.89: campaign events never write the Top 10 boards or personal bests (they keep their own in the campaign save)
-            bool records=!DebugMovementUsed&&CampaignRun.Active==null&&!SplitScreen.Active; // 0.90: nor split-screen
-            LapRank=records?Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress):0;
+            // 0.89: campaign events never wrote the Top 10 boards or personal bests. 1.3.0-review6 Part F (Dan: "A number one lap/race is a number
+            // one lap/race"): the campaign's races (Stunt Races among them) and time trials do, on the same boards as Quick Race, with the vehicle's
+            // campaign upgrades marked (UPG); the one-spot and park events keep their own campaign bests. Split screen still never (0.90).
+            bool records=!DebugMovementUsed&&!SplitScreen.Active&&(CampaignRun.Active==null||CampaignRun.Active.Kind is CampaignEventKind.Race or CampaignEventKind.TimeTrial);
+            bool upgraded=CampaignRun.Active!=null&&Campaign.Upgraded(profile);
+            LapRank=records?Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress,null,upgraded):0;
             Replays?.Keep(Race.Racers[0],false,LapRank,Race.Category,Race.Progress.LastLap); // 1.1: a new #1 lap keeps its replay
             bool best = records && Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
             if (Race.Progress.Finished)
             {
                 NewRaceRecord = records && Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
-                RaceRank=records?Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock):0;
+                RaceRank=records?Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock,null,upgraded):0;
                 Replays?.Keep(Race.Racers[0],true,RaceRank,Race.Category,Race.Progress.AdjustedTime(Race.Clock)); // 1.1: and a new #1 race
                 if(records)FinishCards.Finish(Boards,Race.Category,attempt,Race.Progress,Race.Clock);
                 input.enabled = respawn.enabled = false;

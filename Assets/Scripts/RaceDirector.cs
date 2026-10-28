@@ -75,6 +75,8 @@ namespace Racer
         // 1.3.0-review3: every shortcut of the course, and a Mountain Loop Stunt Race's closing of them (StuntShortcuts: Branches empty)
         public WoodlandRoute[] AllBranches { get; private set; }
         public void CloseBranches(bool closed) { if (AllBranches != null) Branches = closed ? System.Array.Empty<WoodlandRoute>() : AllBranches; }
+        // 1.3.0-review6: some of them closed (a Leviathan Stunt Race: only the ones on the mountain)
+        public void CloseBranches(System.Collections.Generic.ICollection<WoodlandRoute> closed) { if (AllBranches != null) Branches = System.Array.FindAll(AllBranches, b => !closed.Contains(b)); }
         public float Origin => origin;
         double startedAt, firstFinish = -1; bool winnerCelebrated;
         double debugTimeoutOffset, debugGraceOffset;

@@ -87,7 +87,7 @@ namespace Racer
                 for(int i=0;i<board.Count;i++)
                 {
                     var e=board[i];int laps=RecordView.RaceLaps(e.category);string time=RaceHud.FormatTime(e.seconds)+(flow.Boards.IsNew(e.id)?"  NEW":"");
-                    string vehicle=VehicleProfile.Find(e.vehicle).Name,date=RecordDate(e.date)+(e.legacy?" · legacy":"");
+                    string vehicle=VehicleProfile.Find(e.vehicle).Name+(e.upgraded?" UPG":""),date=RecordDate(e.date)+(e.legacy?" · legacy":"");
                     string who=string.IsNullOrEmpty(e.name)?PlayerNames.Player:e.name;bool own=who==PlayerNames.Player;
                     TableRow(row++,"record-"+e.id,race?new[]{(i+1).ToString(),time,who,laps>0?laps.ToString():"?",vehicle,date}:new[]{(i+1).ToString(),time,who,vehicle,date},widths,
                         ()=>Help((e.legacy?"Legacy record (identity unknown)":who+"'s attempt on this PC")+"\nDate: "+(e.date??"Unknown")+"\n"+RecordBoards.Describe(e.category)+"\nLayout / rules: "+e.category+"\nExact ties retain original insertion order."),own||flow.Boards.IsNew(e.id));

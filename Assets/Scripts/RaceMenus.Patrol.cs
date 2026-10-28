@@ -14,7 +14,7 @@ namespace Racer
         {
             bool solo = SplitScreen.Solo; SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.P2Ai = solo;
             ClearCore("SPEED PATROL", (solo ? "One cop on the full screen." : "Two cops, split-screen: the most points wins.")
-                + " Point the radar at a car to clock it; lights on (RB / H) near a clocked speeder to chase it; stay close to fill the pull-over meter."
+                + " Point the radar at a car to clock it; lights on (" + MenuInput.Prompt("RB", "H") + ") near a clocked speeder to chase it; stay close to fill the pull-over meter."
                 + " Catch: 100 + 10 per mph over. Hitting other traffic −50; stopping a car that was not speeding −25. Traffic is always on." + (SplitScreen.FromRoam ? "  Afterwards you go back to Free Roam." : ""));
             details.fontSize = 17; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 78;
             int n = 0; GameRow(n++);
@@ -23,13 +23,13 @@ namespace Racer
             if (!solo)
             {
                 devices = n;
-                Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? "press A on a controller, or Enter" : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
-                Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓" : "press A on another controller, or Enter"), d => CycleSlot(2, d));
+                Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? MenuInput.JoinHint(false) : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
+                Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓" : MenuInput.JoinHint(true)), d => CycleSlot(2, d));
                 if (string.IsNullOrEmpty(SplitScreen.P1Name)) SplitScreen.P1Name = PlayerNames.Player;
-                Step(n++, "split-p1-name", "Player 1 name:   " + SplitScreen.NameOf(1) + "   (A: new name)", d => { SplitScreen.P1Name = NextKnownName(SplitScreen.P1Name, d, SplitScreen.P2Pick); flow.Click(); Show(); },
+                Step(n++, "split-p1-name", "Player 1 name:   " + SplitScreen.NameOf(1) + "   (" + MenuInput.Prompt("A", "Space") + ": new name)", d => { SplitScreen.P1Name = NextKnownName(SplitScreen.P1Name, d, SplitScreen.P2Pick); flow.Click(); Show(); },
                     () => OpenNameEntry("", v => { PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P1Name = v; return true; }, null, "PLAYER 1'S NAME"));
                 if (string.IsNullOrEmpty(SplitScreen.P2Pick) || SplitScreen.P2Pick == SplitScreen.NameOf(1)) SplitScreen.P2Pick = PlayerNames.Known.FirstOrDefault(k => k != SplitScreen.NameOf(1)) ?? "";
-                Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? "press A to enter it" : SplitScreen.P2Pick + "   (A: new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
+                Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? MenuInput.Prompt("press A", "press Space") + " to enter it" : SplitScreen.P2Pick + "   (" + MenuInput.Prompt("A", "Space") + ": new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
                     () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
             }
             var strip = PreviewStrip("Speed Patrol cars", buttons[n - 1].transform.GetSiblingIndex() + 1, 170);
