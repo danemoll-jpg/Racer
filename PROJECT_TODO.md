@@ -34,7 +34,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan Reverse: the route back over the second big jump (Downhill Ridge Cut a shortcut again, closed in Stunt Races), the arrow after the jump, a checkpoint easy to miss; replays of every race; button prompts only for the controller in use — target 1.3.0-review6 (publish) — NOT STARTED
+## CURRENT — Leviathan Reverse: the route back over the second big jump (Downhill Ridge Cut a shortcut again, closed in Stunt Races), the arrow after the jump, a checkpoint easy to miss; replays of every race; button prompts only for the controller in use; campaign races count on the Top 10 boards — target 1.3.0-review6 (publish) — NOT STARTED
 
 Dan (2026-10-28, 01:01, playing 1.3.0-review5, after reading the review5 result that Leviathan has no shortcut on its mountain): "It's actually not true, the last shortcut is not cut off but the main route is. It still is a bit confusing because after you clear that jump ramp to start going back to the main road, you are seeing the blue arrow going back up the mountain before you see the next checkpoint. Earlier I missed the CP altogether."
 
@@ -72,6 +72,14 @@ Dan (01:17): "I want you to not clutter the screen with keyboard shortcuts when 
 2. Split screen: each player's prompts follow that player's device.
 3. List the screens that showed both and were changed.
 4. **Check:** shots at 1280×800 of the main menu, finish screen, REPLAYS and the replay viewer with a controller, and the same with the keyboard.
+
+### Part F — Campaign races count on the Top 10 boards
+Dan (01:19): "Why would campaign not be counted? A number one lap/race is a number one lap/race." Since 0.89 campaign events never write the Top 10 boards or personal bests (`RaceFlow.LapCompleted`: `records = ... && CampaignRun.Active == null ...`), so a #1 set in the campaign is not a #1 and keeps no #1 replay.
+1. **Campaign race events now count** on the same Top 10 boards and personal bests as Quick Race (same course, direction, race type, laps and board category as today's boards use), with the player's name, and a #1 keeps its #1 replay. Stunt Races in the campaign count on the Stunt Race boards the same way. One-spot and park events keep their own campaign bests (they have no lap/race board), unless a board for them already exists.
+2. Upgraded vehicles: a row set with campaign upgrades shows a small "UPG" tag; it still counts (Dan: "a #1 is a #1").
+3. HIGH MODE keeps its own HIGH boards, as now. Debug movement still never counts. Split screen as it is today (say in one line whether it counts on the boards).
+4. Nothing back-filled from older campaign results; it counts from this build on.
+5. **Check:** a campaign race (test save) that beats the board's #1: it goes on the board as #1 with UPG if upgraded, and its replay is kept as #1.
 
 ### Check
 In the built player: drive the end of Leviathan Reverse **by the pad as a player**, following only what is on screen (arrows, gates, HUD), from two laps before the jump to the finish, in a Normal and a Stunt Race, car and bike: no barricade on the main route, no missed gate, no arrow up the mountain after the landing. Shots from the driver's view: where the barricade was, the landing looking ahead, each moved gate. One AI Stunt Race on Leviathan Reverse (3 rivals): 0 missed gates for everyone, none stuck.
