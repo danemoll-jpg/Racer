@@ -270,7 +270,7 @@ namespace Racer
                         else if (ov.closed && stunt.Riders.Any(o => !o.closed)) centre = $"<size=28>WAITING FOR P{3 - player}</size>\n<size=22>Your final score: {ov.points:N0} pts</size>" + (string.IsNullOrEmpty(said) ? "" : "\n<size=19>" + said + "</size>");
                     }
                 }
-                else if (roam.Car && Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
+                else if (roam.Car && Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: acorns count for the hunt\n(activity records and map discovery are not recorded)</size>";
                 if (centre == "" && respawn && respawn.Pending) centre = "<size=22>Recovering…</size>";
                 if (centre == "" && !string.IsNullOrEmpty(hud)) centre = "<size=19>" + hud + "</size>";
                 h.centre.text = centre; h.centre.fontSize = 30;

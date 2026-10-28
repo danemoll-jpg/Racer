@@ -213,11 +213,12 @@ namespace Racer
             if (cfg && cfg.WipedOut) { Bailed("wiped out"); return; }
             if (any && touch < 0) { touch = 0; car.AiAir = false; }
             if (touch >= 0) touch += dt;
-            if (!grounded || car.transform.up.y < .5f)
+            // 1.3.0-review5 Part C: judged against the ground under the vehicle, as the player's landings (ArcadeActivities.UprightOnGround / LyingOn)
+            if (!ArcadeActivities.UprightOnGround(car))
             {
                 if (!grounded && touch < 0) { air += dt; if (!planned && air >= .12f) Plan(); Steer(); }
                 stable = 0;
-                if (touch >= ArcadeActivities.RecoverWindow) { if (car.transform.up.y < .5f) { Bailed("landed on its " + (car.transform.up.y < ArcadeActivities.RoofUp ? "roof" : "side")); return; } touch = -1; }
+                if (touch >= ArcadeActivities.RecoverWindow) { if (ArcadeActivities.LyingOn(car, out bool roof)) { Bailed("landed on its " + (roof ? "roof" : "side")); return; } touch = -1; }
                 return;
             }
             car.AiAir = false;

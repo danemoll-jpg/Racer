@@ -1,0 +1,36 @@
+screen=1920x1080 kind=land1300r5 version=1.3.0-review4 park=on
+== Mountain Loop - Forward Stunt Race (Mountain Loop - Forward), stuntbuggy: judging on (StuntsOn True)
+  stuntbuggy flat (s 2962, slope 0°, bank 0°), wheels down: LANDED  +297; first-touch tilt from the ground 2°; wheels first, up·ground 1.00, up·world 1.00; wiped out False
+  stuntbuggy downhill (s 5192, slope -27°, bank 0°), wheels down: LANDED  +661; first-touch tilt from the ground 55°; wheels first, up·ground 0.72, up·world 0.93; wiped out False
+  stuntbuggy banked (s 2792, slope 5°, bank 7°), wheels down: LANDED  +204; first-touch tilt from the ground 4°; wheels first, up·ground 1.00, up·world 0.98; wiped out False
+  stuntbuggy flat, turned 65° onto its side / roof just before the touch: SAVED IT!  +221; first-touch tilt from the ground 62°; wheels first, up·ground 0.49, up·world 0.51; wiped out False
+  stuntbuggy flat, turned 90° onto its side / roof just before the touch: SAVED IT!  +314; first-touch tilt from the ground 87°; wheels first, up·ground 0.17, up·world 0.30; wiped out False
+  stuntbuggy flat, turned 115° onto its side / roof just before the touch: SAVED IT!  +256; first-touch tilt from the ground 112°; wheels first, up·ground 0.22, up·world 0.25; wiped out False
+  stuntbuggy flat, turned 130° onto its side / roof just before the touch: SAVED IT!  +330; first-touch tilt from the ground 128°; wheels first, up·ground 0.20, up·world 0.37; wiped out False
+  stuntbuggy flat, turned 180° onto its side / roof just before the touch: BAILED — bail: Landed on the roof; first-touch tilt from the ground 180°; body touched first; wiped out False
+== Mountain Loop - Forward Stunt Race (Mountain Loop - Forward), stuntbike: judging on (StuntsOn True)
+  stuntbike flat (s 2962, slope 0°, bank 0°), wheels down: LANDED  +297; first-touch tilt from the ground 2°; wheels first, up·ground 1.00, up·world 1.00; wiped out False
+  stuntbike downhill (s 5192, slope -27°, bank 0°), wheels down: LANDED  +661; first-touch tilt from the ground 55°; wheels first, up·ground 0.72, up·world 0.93; wiped out False
+  stuntbike banked (s 2792, slope 5°, bank 7°), wheels down: LANDED  +204; first-touch tilt from the ground 4°; wheels first, up·ground 1.00, up·world 0.98; wiped out False
+  stuntbike flat, turned 65° onto its side / roof just before the touch: SAVED IT!  +221; first-touch tilt from the ground 62°; wheels first, up·ground 0.49, up·world 0.51; wiped out False
+  stuntbike flat, turned 90° onto its side / roof just before the touch: SAVED IT!  +314; first-touch tilt from the ground 101°; wheels first, up·ground 0.09, up·world 0.22; wiped out False
+  stuntbike flat, turned 115° onto its side / roof just before the touch: SAVED IT!  +256; first-touch tilt from the ground 126°; wheels first, up·ground 0.22, up·world 0.25; wiped out False
+  stuntbike flat, turned 130° onto its side / roof just before the touch: SAVED IT!  +330; first-touch tilt from the ground 128°; wheels first, up·ground 0.20, up·world 0.37; wiped out False
+  stuntbike flat, turned 180° onto its side / roof just before the touch: BAILED — bail: Landed on the roof; first-touch tilt from the ground 162°; body touched first; wiped out False
+== summary
+  stuntbuggy flat (s 2962, slope 0°, bank 0°), wheels down: LANDED  +297; first-touch tilt from the ground 2°; wheels first, up·ground 1.00, up·world 1.00; wiped out False
+  stuntbuggy downhill (s 5192, slope -27°, bank 0°), wheels down: LANDED  +661; first-touch tilt from the ground 55°; wheels first, up·ground 0.72, up·world 0.93; wiped out False
+  stuntbuggy banked (s 2792, slope 5°, bank 7°), wheels down: LANDED  +204; first-touch tilt from the ground 4°; wheels first, up·ground 1.00, up·world 0.98; wiped out False
+  stuntbuggy flat, turned 65° onto its side / roof just before the touch: SAVED IT!  +221; first-touch tilt from the ground 62°; wheels first, up·ground 0.49, up·world 0.51; wiped out False
+  stuntbuggy flat, turned 90° onto its side / roof just before the touch: SAVED IT!  +314; first-touch tilt from the ground 87°; wheels first, up·ground 0.17, up·world 0.30; wiped out False
+  stuntbuggy flat, turned 115° onto its side / roof just before the touch: SAVED IT!  +256; first-touch tilt from the ground 112°; wheels first, up·ground 0.22, up·world 0.25; wiped out False
+  stuntbuggy flat, turned 130° onto its side / roof just before the touch: SAVED IT!  +330; first-touch tilt from the ground 128°; wheels first, up·ground 0.20, up·world 0.37; wiped out False
+  stuntbuggy flat, turned 180° onto its side / roof just before the touch: BAILED — bail: Landed on the roof; first-touch tilt from the ground 180°; body touched first; wiped out False
+  stuntbike flat (s 2962, slope 0°, bank 0°), wheels down: LANDED  +297; first-touch tilt from the ground 2°; wheels first, up·ground 1.00, up·world 1.00; wiped out False
+  stuntbike downhill (s 5192, slope -27°, bank 0°), wheels down: LANDED  +661; first-touch tilt from the ground 55°; wheels first, up·ground 0.72, up·world 0.93; wiped out False
+  stuntbike banked (s 2792, slope 5°, bank 7°), wheels down: LANDED  +204; first-touch tilt from the ground 4°; wheels first, up·ground 1.00, up·world 0.98; wiped out False
+  stuntbike flat, turned 65° onto its side / roof just before the touch: SAVED IT!  +221; first-touch tilt from the ground 62°; wheels first, up·ground 0.49, up·world 0.51; wiped out False
+  stuntbike flat, turned 90° onto its side / roof just before the touch: SAVED IT!  +314; first-touch tilt from the ground 101°; wheels first, up·ground 0.09, up·world 0.22; wiped out False
+  stuntbike flat, turned 115° onto its side / roof just before the touch: SAVED IT!  +256; first-touch tilt from the ground 126°; wheels first, up·ground 0.22, up·world 0.25; wiped out False
+  stuntbike flat, turned 130° onto its side / roof just before the touch: SAVED IT!  +330; first-touch tilt from the ground 128°; wheels first, up·ground 0.20, up·world 0.37; wiped out False
+  stuntbike flat, turned 180° onto its side / roof just before the touch: BAILED — bail: Landed on the roof; first-touch tilt from the ground 162°; body touched first; wiped out False

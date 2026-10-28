@@ -33,6 +33,7 @@ namespace Racer
         [Range(0, 1)] public float airStability = 0.18f;
         public Vector3 centreOfMass = new(0, -0.35f, 0);
         public int GroundedWheels { get; private set; }
+        public Vector3 GroundNormal { get; private set; } = Vector3.up; // 1.3.0-review5 Part C: the ground under the wheels (2+ down), else world up
         public float SuspensionLift { get; private set; }
         public float AlignmentTorque { get; private set; }
         public float ForwardSpeed => Puppet ? PuppetSpeed : Vector3.Dot(Body.linearVelocity, transform.forward);
@@ -108,7 +109,7 @@ namespace Racer
             float immersed=ShallowWater.Sample(this,out float surface);
             WaterSurface=surface;
             WaterImmersion=immersed<=0?0:Mathf.MoveTowards(WaterImmersion,immersed,dt*2.5f);
-            Vector3 up = grounded ? normal.normalized : Vector3.up;
+            Vector3 up = grounded ? normal.normalized : Vector3.up; GroundNormal = up;
             Vector3 forward = Vector3.ProjectOnPlane(transform.forward, up).normalized;
             Vector3 right = Vector3.Cross(up, forward);
             float speedForward = Vector3.Dot(Body.linearVelocity, forward);

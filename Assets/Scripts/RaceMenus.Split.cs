@@ -77,7 +77,7 @@ namespace Racer
             // 0.95 Part B: Police Chase has its own setup (the Mode row sends it there); back here it is Race / Free Roam
             if (SplitScreen.Mode == SplitScreen.Kind.Police || SplitScreen.Mode == SplitScreen.Kind.Stunt) SplitScreen.Mode = SplitScreen.Kind.FreeRoam; // 1.2 Part A: Free Roam is the first choice
             var mode = SplitScreen.Mode; bool race = mode == SplitScreen.Kind.Race;
-            ClearCore("SPLIT SCREEN", (race ? "Two players, one race on this PC: everything is unlocked and every vehicle is stock." : "Two players in Free Roam: everything is unlocked, vehicles stock; nothing is recorded (acorns, activity records, discovery).") + "\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
+            ClearCore("SPLIT SCREEN", (race ? "Two players, one race on this PC: everything is unlocked and every vehicle is stock." : "Two players in Free Roam: everything is unlocked, vehicles stock; acorns count for the hunt (activity records and discovery are not recorded).") + "\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
             if (SplitScreen.P1Color > VehiclePaint.Count - 1) SplitScreen.P1Color = 2; if (SplitScreen.P2Color > VehiclePaint.Count - 1) SplitScreen.P2Color = 2;
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = race ? 54 : 76; // 1.2: Free Roam's longer line fits at 1280x800 (it is the first choice now)
             var vehicles = SplitScreen.Vehicles; int n = 0;

@@ -192,7 +192,8 @@ namespace Racer
                     // 0.117: off the course (more than 30 m from this pass of it) or past a lake / mountain gate not passed: the arrow points
                     // at the gate itself, and the distance is straight to it
                     bool lost=me.Branch.Route==null&&Vector3.ProjectOnPlane(ahead[0]-me.Car.Body.position,Vector3.up).magnitude>30;
-                    if((lost||race.MountainMissedGate>=0)&&next>0){var g=race.GatePosition(next);to=Vector3.ProjectOnPlane(g-me.Car.Body.position,Vector3.up);waypointText.text=(race.MountainMissedGate>=0?"BACK  CP ":"TO  CP ")+next+"  "+DisplayUnits.Distance(to.magnitude);}
+                    bool back=race.MountainMissedGate>=0||race.GetComponent<LeviathanGuide>() is LeviathanGuide lg&&lg.TurnBackGate>=0; // 1.3.0-review5 Part D
+                    if((lost||back)&&next>0){var g=race.GatePosition(next);to=Vector3.ProjectOnPlane(g-me.Car.Body.position,Vector3.up);waypointText.text=(back?"BACK  CP ":"TO  CP ")+next+"  "+DisplayUnits.Distance(to.magnitude);}
                     waypointArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-Vector3.SignedAngle(fwd.sqrMagnitude>1e-4f?fwd:Vector3.forward,to.sqrMagnitude>1e-4f?to:fwd,Vector3.up));
                 }
             }
@@ -201,8 +202,16 @@ namespace Racer
             {
                 // 0.117 Part D2: Leviathan's lake / mountain gates skipped: big and at once, the arrow at the missed gate (before WRONG WAY)
                 bool missed=race.MountainMissedGate>=0&&race.Flow.State==RaceFlow.Stage.Racing&&!race.Flow.MenuVisible&&!race.Progress.Finished;
-                wrongPanel.SetActive(missed||guidance&&guidance.Visible&&!race.Flow.MenuVisible&&!race.Progress.Finished);
-                if(missed)
+                // 1.3.0-review5 Part D: a wrong turn on Leviathan (onto another pass of the course): TURN BACK, the arrow at the next gate
+                var levGuide=race.Leviathan?race.GetComponent<LeviathanGuide>():null;bool turnBack=!missed&&levGuide&&levGuide.TurnBackGate>0&&race.Flow.State==RaceFlow.Stage.Racing&&!race.Flow.MenuVisible&&!race.Progress.Finished;
+                wrongPanel.SetActive(missed||turnBack||guidance&&guidance.Visible&&!race.Flow.MenuVisible&&!race.Progress.Finished);
+                if(turnBack)
+                {
+                    wrongText.text="<b>WRONG TURN</b>\n<size=23>TURN BACK — CP "+levGuide.TurnBackGate+" is next</size>";
+                    var cam=Camera.main;var forward=Vector3.ProjectOnPlane(cam.transform.forward,Vector3.up).normalized;
+                    wrongArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-Vector3.SignedAngle(forward,Vector3.ProjectOnPlane(race.GatePosition(levGuide.TurnBackGate)-race.vehicle.Body.position,Vector3.up),Vector3.up));
+                }
+                else if(missed)
                 {
                     wrongText.text="<b>MOUNTAIN MISSED</b>\n<size=23>GO BACK — CP "+race.MountainMissedGate+" first</size>";
                     var cam=Camera.main;var forward=Vector3.ProjectOnPlane(cam.transform.forward,Vector3.up).normalized;

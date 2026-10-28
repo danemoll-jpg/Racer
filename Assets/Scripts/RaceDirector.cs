@@ -511,6 +511,9 @@ namespace Racer
                     continue;
                 if (i == 0 && p.LapActive && !r.FinishArmed)
                     continue;
+                // 1.3.0-review5 Part D: on Leviathan, driving on through a gate already passed (not the last one) is a wrong turn onto another
+                // pass of the course (the lake out-and-back's ends): TURN BACK at once, never that gate lit again
+                if (player && Leviathan && p.LapActive && i > 0 && p.NextGate > 0 && i < p.NextGate - 1) GetComponent<LeviathanGuide>()?.Recrossed(r, i);
                 if (p.LapActive && p.NextGate > 0 && (i == 0 || i > p.NextGate))
                 {
                     // 0.115 Leviathan: the lake and mountain gates are not skipped by crossing a later one (turning past J would skip the

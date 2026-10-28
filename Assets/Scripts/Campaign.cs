@@ -52,6 +52,9 @@ namespace Racer
             // already had progress then, so it keeps every event it could play under the old order (see CampaignData.LegacyOrder).
             // The save's version number stays 3, so 0.95 can still read it.
             public int orderVersion; public bool legacyOrder;
+            // 1.3.0-review5 Part B: stuntOrder 1305 = read by a build with Land It Clean and Summit Tricks swapped; stuntOrderKept = it had
+            // a chapter-5 result then, so it keeps every Stunt chapter event it could play (CampaignData.StuntOrderReview4)
+            public int stuntOrder; public bool stuntOrderKept;
         }
         // 0.92 Part D: what loading a save granted (prize vehicles, refunds), shown once on the menu; null when nothing.
         public static string LoadNotice;
@@ -65,7 +68,7 @@ namespace Racer
         public static string Selected;
         static string path; static bool readFailed;
 
-        static State NewState() => new() { owned = CampaignData.Starters.ToList(), courses = new() { RacePlaylists.Scenes[0] }, orderVersion = 96 };
+        static State NewState() => new() { owned = CampaignData.Starters.ToList(), courses = new() { RacePlaylists.Scenes[0] }, orderVersion = 96, stuntOrder = 1305 };
         public static void Load(string root) { Campaign.root = root; Fresh = false; mainCopy = null; LoadFile(File); ReadFreshOwned(); }
         // 0.110 Part E: switch slots (the main campaign is read again from its file when it comes back; nothing is written)
         public static void UseSlot(bool fresh)
@@ -118,6 +121,7 @@ namespace Racer
                 foreach (var c in CampaignData.Cups) if (c.Prize != null && data.cups.Any(x => x.id == c.Id && x.won) && !data.owned.Contains(c.Prize)) { data.owned.Add(c.Prize); notes.Add($"Prize for winning the {c.Name}: the {VehicleProfile.Find(c.Prize).Name}"); }
                 data.version = Version;
                 if (data.orderVersion == 0) { data.legacyOrder = data.results.Count > 0; data.orderVersion = 96; }
+                if (data.stuntOrder == 0) { data.stuntOrderKept = data.results.Any(r => r.id != null && r.id.StartsWith("c5-")); data.stuntOrder = 1305; } // in memory; written with the next save
                 // 0.119 Part C: a chapter added after its opening final was passed (the Stunt chapter after the Summit Final) opens now, with its vehicle
                 while (data.chapter < CampaignData.Chapters.Length && CampaignData.InChapter(data.chapter).Any(e => e.Final && data.results.Any(r => r.id == e.Id && r.passed))) { data.chapter++; notes.Add($"Chapter {data.chapter}: {CampaignData.Chapters[data.chapter - 1].Name} is open"); }
                 if (StuntVehicleFor(data)) notes.Add($"For the Stunt chapter: the {VehicleProfile.StuntBuggy.Name}");
@@ -155,6 +159,7 @@ namespace Racer
             if (i <= 0 || Passed(list[i - 1])) return true;
             // 1.3.0-review3 (the Stunt chapter reordered, a new event added): an event already passed, or one before an event already passed, stays open
             if (Passed(e) || list.Skip(i + 1).Any(Passed)) return true;
+            if (Current.stuntOrderKept) { int at = Array.IndexOf(CampaignData.StuntOrderReview4, e.Id); if (at == 0 || at > 0 && CampaignData.Find(CampaignData.StuntOrderReview4[at - 1]) is CampaignEvent before && Passed(before)) return true; }
             return Current.legacyOrder && LegacyAvailable(e, list, i);
         }
         // 0.96 Part C: open the way it was open before the practice laps (the event before it in the old order is passed); a

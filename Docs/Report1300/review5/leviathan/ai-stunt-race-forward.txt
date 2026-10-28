@@ -1,0 +1,7 @@
+screen=1920x1080 kind=closed1300r3 version=1.3.0-review4 park=on
+== Stunt Race on Leviathan - Forward (MountainLoop): stunts True, record course stunt-leviathan-forward-v4; shortcuts in the race 4, of 4: Creek Leap (open), Existing Southwest Cut (open), Fox Gully (open), Pine Ridge (open); barricades none
+  barricade panels after the restart: 0
+  rival stuntbike: finished, resets 1, on a closed shortcut: Creek Leap
+  rival stuntbuggy: finished, resets 0, on a closed shortcut: never
+  rival stuntbike: finished, resets 1, on a closed shortcut: Creek Leap
+  resets: reset at 704.0,81.47,-106.1, 999 m from the nearest barricade; reset at 682.6,79.60,-104.2, 999 m from the nearest barricade; player finished, missed gates 0

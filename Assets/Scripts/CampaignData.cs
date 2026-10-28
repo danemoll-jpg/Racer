@@ -126,9 +126,9 @@ namespace Racer
             new() { Id = "c5-park-session", Name = "Red Clay Session", Chapter = 5, Kind = CampaignEventKind.Park, Stunt = true, Course = 0, Targets = new[] { 20000f, 50000f, 90000f }, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
             new() { Id = "c5-park-competition", Name = "Park Competition", Chapter = 5, Kind = CampaignEventKind.Park, Stunt = true, Course = 0, TimeLimit = 300, Rivals = new[] { "stuntbike", "stuntbuggy", "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 0, Entry = StuntEntry, Pay = 2600, Bonus = 1300 },
             new() { Id = "c5-stunt-opener", Name = "Stunt Opener", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 4, Laps = 2, Rivals = new[] { "stuntbuggy", "stuntbike", "stuntbuggy" }, Difficulty = 1, Entry = StuntEntry, Pay = 2600, Bonus = 1300 },
-            new() { Id = "c5-summit-tricks", Name = "Summit Tricks", Chapter = 5, Kind = CampaignEventKind.Trick, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 240, Tries = 3, Targets = new[] { 3000f, 6000f, 9500f } /* 0.120 Part B: one trick type / two / three (x1, x2, x3) */, Entry = StuntEntry, Pay = 2200, Bonus = 1100 },
+            new() { Id = "c5-land-it-clean", Name = "Land It Clean", Chapter = 5, Kind = CampaignEventKind.Clean, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 300, Targets = new[] { 3f, 4f, 5f }, Entry = StuntEntry, Pay = 2200, Bonus = 1100 }, // 1.3.0-review5 Part B: Land It Clean 4th, Summit Tricks 6th (the easier first; pay follows the place)
             new() { Id = "c5-reverse-stunts", Name = "Upside Down Under", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 5, Laps = 2, Rivals = new[] { "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 1, Entry = StuntEntry, Pay = 2800, Bonus = 1400 },
-            new() { Id = "c5-land-it-clean", Name = "Land It Clean", Chapter = 5, Kind = CampaignEventKind.Clean, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 300, Targets = new[] { 3f, 4f, 5f }, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
+            new() { Id = "c5-summit-tricks", Name = "Summit Tricks", Chapter = 5, Kind = CampaignEventKind.Trick, Stunt = true, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 240, Tries = 3, Targets = new[] { 3000f, 6000f, 9500f } /* 0.120 Part B: one trick type / two / three (x1, x2, x3) */, Entry = StuntEntry, Pay = 2400, Bonus = 1200 },
             new() { Id = "c5-leviathan-stunts", Name = "Leviathan Stunts", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 9, Laps = 1, Rivals = new[] { "stuntbuggy", "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 1, Entry = StuntEntry, Pay = 3400, Bonus = 1700 },
             new() { Id = "c5-stunt-final", Name = "Stunt Final", Chapter = 5, Kind = CampaignEventKind.Race, Stunt = true, SplitScore = true, Course = 8, Laps = 2, Rivals = new[] { "stuntbike", "stuntbuggy", "stuntbike", "stuntbuggy", "stuntbike" }, Difficulty = 2, Entry = StuntEntry, Pay = 5000, Bonus = 2500, Prize = VehicleProfile.StuntCupId, Final = true },
         };
@@ -144,6 +144,10 @@ namespace Racer
             new[] { "c4-first-ascent", "c4-summit-clock", "c4-downhill", "c4-whiteout", "c4-summit-flight", "c4-summit-final" },
             new[] { "c5-stunt-opener", "c5-summit-tricks", "c5-park-session", "c5-reverse-stunts", "c5-land-it-clean", "c5-leviathan-stunts", "c5-stunt-final" }, // 0.119: as listed
         };
+        // 1.3.0-review5 Part B: the Stunt chapter's order before Land It Clean and Summit Tricks swapped places (1.3.0-review3/4). A save
+        // that already had a chapter-5 result when the swap came in (Campaign.State.stuntOrderKept) keeps every event it could play:
+        // each is also open when the one before it in this order is passed.
+        public static readonly string[] StuntOrderReview4 = { "c5-park-session", "c5-park-competition", "c5-stunt-opener", "c5-summit-tricks", "c5-reverse-stunts", "c5-land-it-clean", "c5-leviathan-stunts", "c5-stunt-final" };
         // Share of Pay by finishing place (every finisher earns something) and by medal (none, bronze, silver, gold).
         public static readonly float[] PlaceShare = { 1f, .6f, .4f, .25f, .15f, .1f };
         public static readonly float[] MedalShare = { 0f, .4f, .65f, 1f };

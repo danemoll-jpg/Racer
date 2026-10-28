@@ -1,0 +1,9 @@
+RACE_PENALTY racer=EMBER source=ordinary-missed-gate gate=17 seconds=5 road=3144.595 branch=none earned=0.000
+RACE_PENALTY racer=BLUE source=ordinary-missed-gate gate=17 seconds=5 road=3144.393 branch=none earned=0.000
+RACE_PENALTY racer=GOLD source=ordinary-missed-gate gate=17 seconds=5 road=3144.556 branch=none earned=0.000
+RACE_PENALTY racer=Dan source=ordinary-missed-gate gate=17 seconds=5 road=3144.245 branch=none earned=0.000
+RACE_PENALTY racer=EMBER source=ordinary-missed-gate gate=21 seconds=5 road=3767.342 branch=none earned=0.000
+RACE_PENALTY racer=BLUE source=ordinary-missed-gate gate=21 seconds=5 road=3767.028 branch=none earned=0.000
+RACE_PENALTY racer=GOLD source=ordinary-missed-gate gate=21 seconds=5 road=3767.218 branch=none earned=0.000
+RACE_PENALTY racer=EMBER source=ordinary-missed-gate gate=43 seconds=5 road=6594.381 branch=none earned=0.000
+RACE_PENALTY racer=BLUE source=ordinary-missed-gate gate=43 seconds=5 road=6594.302 branch=none earned=0.000

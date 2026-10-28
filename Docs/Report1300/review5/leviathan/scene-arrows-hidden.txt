@@ -1,0 +1,71 @@
+Leviathan: the scene's route arrows: 31 kept, 71 hidden (Summit merge gold arrow at (882, -49): not along the course
+Summit merge gold arrow at (879, -100): not along the course
+Optional gold trail arrow at (1000, 105): where the course passes twice
+Optional gold trail arrow at (1017, 87): not along the course
+Optional gold trail arrow at (1033, 67): not along the course
+Main teal trail arrow at (995, 121): where the course passes twice
+Main teal trail arrow at (1010, 141): where the course passes twice
+Optional gold trail arrow at (809, -135): not along the course
+Optional gold trail arrow at (791, -152): not along the course
+Optional gold trail arrow at (769, -157): not along the course
+Main teal trail arrow at (827, -121): not along the course
+Main teal trail arrow at (848, -109): not along the course
+Main teal trail arrow at (871, -101): not along the course
+Main teal trail arrow at (895, -99): not along the course
+Main teal trail arrow at (723, 8): where the course passes twice
+Main teal trail arrow at (967, 133): where the course passes twice
+Main teal trail arrow at (1015, 148): where the course passes twice
+Main teal trail arrow at (808, -159): not along the course
+Main teal trail arrow at (849, -108): not along the course
+Main teal trail arrow at (915, -100): not along the course
+Main teal trail arrow at (984, -99): not along the course
+Main teal trail arrow at (1052, -84): not along the course
+Main teal trail arrow at (1121, -70): not along the course
+Main teal trail arrow at (1188, -83): not along the course
+Main teal trail arrow at (1241, -128): not along the course
+Main teal trail arrow at (1270, -190): not along the course
+Main teal trail arrow at (1280, -259): not along the course
+Main teal trail arrow at (1239, -299): not along the course
+Main teal trail arrow at (1169, -300): not along the course
+Main teal trail arrow at (1099, -300): not along the course
+Main teal trail arrow at (1030, -300): not along the course
+Main teal trail arrow at (894, -300): not along the course
+Main teal trail arrow at (826, -300): not along the course
+Main teal trail arrow at (756, -300): not along the course
+Main teal trail arrow at (699, -272): not along the course
+Main teal trail arrow at (690, -205): not along the course
+Main teal trail arrow at (722, -143): not along the course
+Main teal trail arrow at (732, -91): not along the course
+Summit merge gold arrow at (952, -56): not along the course
+Summit merge gold arrow at (966, -67): not along the course
+Summit merge gold arrow at (889, -99): not along the course
+Summit merge gold arrow at (983, -72): not along the course
+Summit merge gold arrow at (863, -77): not along the course
+CR121 continuous gold arrow at (1043, 50): not along the course
+CR121 continuous gold arrow at (1049, 36): not along the course
+CR121 continuous gold arrow at (1051, 21): not along the course
+CR121 continuous gold arrow at (1051, 6): not along the course
+CR121 continuous gold arrow at (1050, -9): not along the course
+CR121 continuous gold arrow at (1046, -23): not along the course
+CR121 continuous gold arrow at (1040, -37): not along the course
+CR121 continuous gold arrow at (1032, -50): not along the course
+CR121 continuous gold arrow at (1021, -60): not along the course
+CR121 continuous gold arrow at (1007, -66): not along the course
+CR121 continuous gold arrow at (993, -70): not along the course
+CR121 continuous gold arrow at (978, -73): not along the course
+CR121 continuous gold arrow at (963, -75): not along the course
+CR121 continuous gold arrow at (948, -76): not along the course
+CR121 continuous gold arrow at (933, -77): not along the course
+CR121 continuous gold arrow at (918, -79): not along the course
+CR121 continuous gold arrow at (903, -80): not along the course
+CR121 continuous gold arrow at (889, -83): not along the course
+CR121 continuous gold arrow at (874, -87): not along the course
+CR121 continuous gold arrow at (861, -94): not along the course
+CR121 continuous gold arrow at (849, -104): not along the course
+CR121 continuous gold arrow at (839, -114): not along the course
+CR121 continuous gold arrow at (779, -170): not along the course
+CR121 continuous gold arrow at (772, -160): not along the course
+CR121 continuous gold arrow at (763, -150): not along the course
+CR121 continuous gold arrow at (757, -139): not along the course
+CR121 continuous gold arrow at (751, -127): not along the course
+Summit merge gold arrow at (872, -92): not along the course)

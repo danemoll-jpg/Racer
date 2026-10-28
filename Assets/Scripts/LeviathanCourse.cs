@@ -127,10 +127,47 @@ namespace Racer
             var respawn = race.vehicle ? race.vehicle.GetComponent<VehicleRespawn>() : null; if (respawn) respawn.spawnPoint = spawn;
             if (race.vehicle) { race.vehicle.transform.SetPositionAndRotation(spawn.position, spawn.rotation); if (race.vehicle.Body) { race.vehicle.Body.position = spawn.position; race.vehicle.Body.rotation = spawn.rotation; } }
             BuildSigns(data, root); // 0.116 Part A
+            if (data.reverse) HideStrayArrows(race.gameObject.scene, road, branches, root); // 1.3.0-review5 Part D
             race.gameObject.AddComponent<LeviathanGuide>(); // 0.116 Part A: only the next gate shown, the course ahead on the minimap, the next CP on the HUD
             var swap = race.gameObject.AddComponent<LeviathanSwap>(); swap.Data = data; swap.Branches = branches.ToArray(); swap.GateHints = data.gates.Select(g => g.station).ToArray();
             race.road = road; race.gates = gates.ToArray(); race.courseId = data.id; race.courseName = data.title; race.reverseCourse = data.reverse; race.highwayTrafficCount = data.highwayTraffic;
             Debug.Log($"Leviathan: {data.title} in {race.gameObject.scene.name}: line {road.Length:F0} m ({road.points.Length} points), {gates.Count} gates ({gates.Count(g => g.transform.parent != root)} the scene's own), {branches.Count} shortcuts, {data.flights?.Length ?? 0} flight(s)");
+        }
+        // ---------------------------------------------------------------- 1.3.0-review5 Part D: the scene's route arrows
+        // (Dan: "it needs to be easy to understand where to go"): Mountain Loop Reverse's painted teal and gold arrows stayed in Leviathan Reverse
+        // and pointed Mountain Loop's way where Leviathan goes another (up the mountain again from the lake, into its shortcuts). In this race an
+        // arrow is kept only where it lies on Leviathan's line (or one of its shortcuts) and points along it, on a stretch the course drives once;
+        // where the course drives the same road twice (the lake out-and-back and its ends) an arrow is right for one pass and wrong for the
+        // other, so it goes too (the gates and the HUD guide lead there). Race only: the scene is loaded fresh for every other race.
+        public static readonly List<string> ArrowReport = new();
+        static void HideStrayArrows(Scene scene, RaceRoad road, List<WoodlandRoute> branches, Transform root)
+        {
+            ArrowReport.Clear(); int kept = 0, hidden = 0;
+            var samples = new List<(Vector3 p, Vector3 f, float s, int line)>();
+            for (float s = 0; s < road.Length; s += 3) { var p = road.At(s, out var f); samples.Add((p, Vector3.ProjectOnPlane(f, Vector3.up).normalized, s, 0)); }
+            for (int b = 0; b < branches.Count; b++) for (float s = 0; s < branches[b].Length; s += 3) { var p = branches[b].At(s, out var f); samples.Add((p, Vector3.ProjectOnPlane(f, Vector3.up).normalized, s, b + 1)); }
+            // where the course meets another pass of itself (the out-and-back's shared road and its two ends)
+            var meets = new List<Vector3>(); var main = samples.Where(q => q.line == 0).ToList();
+            for (int i = 0; i < main.Count; i += 2) for (int j = i + 1; j < main.Count; j += 2) { float ds = main[j].s - main[i].s; if (ds > 150 && ds < road.Length - 150 && (main[i].p - main[j].p).sqrMagnitude < 15 * 15) { meets.Add(main[i].p); break; } }
+            foreach (var g in scene.GetRootGameObjects())
+                foreach (var r in g.GetComponentsInChildren<MeshRenderer>(true))
+                {
+                    if (!r.enabled || r.transform.IsChildOf(root) || !r.name.EndsWith("arrow", StringComparison.OrdinalIgnoreCase)) continue;
+                    var mf = r.GetComponent<MeshFilter>(); var mesh = mf ? mf.sharedMesh : null; if (!mesh || !mesh.isReadable || mesh.vertexCount < 3) continue;
+                    var v = mesh.vertices; var c = Vector3.zero; foreach (var x in v) c += x; c /= v.Length;
+                    var tip = v.OrderByDescending(x => (x - c).sqrMagnitude).First();
+                    var at = r.transform.TransformPoint(c); var dir = Vector3.ProjectOnPlane(r.transform.TransformPoint(tip) - at, Vector3.up).normalized;
+                    bool along = false, twice = false; float alongS = -1;
+                    foreach (var q in samples)
+                    {
+                        var d = at - q.p; if (Mathf.Abs(d.y) > 4 || new Vector2(d.x, d.z).sqrMagnitude > 7 * 7) continue;
+                        if (Vector3.Dot(dir, q.f) > .8f) { along = true; if (q.line == 0) alongS = q.s; }
+                    }
+                    foreach (var m in meets) { var d = at - m; if (Mathf.Abs(d.y) < 6 && new Vector2(d.x, d.z).sqrMagnitude < 60 * 60) { twice = true; break; } }
+                    if (along && !twice) { kept++; continue; }
+                    r.enabled = false; hidden++; ArrowReport.Add($"{r.name} at ({at.x:F0}, {at.z:F0}): {(twice ? "where the course passes twice" : "not along the course")}");
+                }
+            Debug.Log($"Leviathan: the scene's route arrows: {kept} kept, {hidden} hidden ({string.Join("; ", ArrowReport)})");
         }
         // ---------------------------------------------------------------- 0.116 Part A: turn indicators
         // Boards like a road's: a big arrow before the turn and chevrons on its outside, facing the traffic that turns there. Plain grey
@@ -495,6 +532,34 @@ namespace Racer
     {
         RaceDirector race; Renderer[][] gateRenderers; bool[] shown;
         public static bool Disabled; // checks only (Report106PlayerCheck lev116 -p116before: the 0.115 way, for the before shots); never set in play
+        // 1.3.0-review5 Part D (Dan: "it needs to be easy to understand where to go"; "Why would a CP I already hit light up again"): a wrong
+        // turn is said at once, big (RaceHud: WRONG TURN / TURN BACK, the arrow at the next gate): the player drove on through a gate already
+        // passed (RaceDirector: Recrossed), or is 30 m or more off this pass of the course and getting further from the next gate for 1.5 s.
+        // It goes when the next gate is passed, or the player is back on this pass heading along the course. Only the next gate is ever drawn.
+        public int TurnBackGate { get; private set; } = -1; // the gate to turn back to (-1: none)
+        public string TurnBackWhy { get; private set; } = "";
+        int turnFrom = -1; float awaySeconds, onSeconds, lastGap = -1, heldUntil;
+        public void Recrossed(RacerState r, int gate) { if (r != race.Racers[0]) return; Set(r.Progress.NextGate, "CP " + gate + " already passed"); heldUntil = Time.time + 2; }
+        void Set(int gate, string why) { if (TurnBackGate != gate) Debug.Log($"Leviathan: TURN BACK to CP {gate} ({why})"); TurnBackGate = gate; TurnBackWhy = why; turnFrom = gate; onSeconds = 0; }
+        void FixedUpdate()
+        {
+            if (!race || race.FreeRoam || Disabled || race.Racers.Count == 0) return;
+            var me = race.Racers[0]; var car = me.Car; int next = me.Progress.NextGate;
+            if (!car || !me.Progress.LapActive || me.Progress.Finished || race.Flow == null || race.Flow.State != RaceFlow.Stage.Racing || next <= 0) { TurnBackGate = -1; lastGap = -1; awaySeconds = 0; return; }
+            if (TurnBackGate >= 0 && next != turnFrom) { TurnBackGate = -1; Debug.Log("Leviathan: TURN BACK cleared: CP " + turnFrom + " passed"); }
+            float dt = Time.fixedDeltaTime; var p = car.Body.position;
+            float gap = Vector3.ProjectOnPlane(race.GatePosition(next) - p, Vector3.up).magnitude;
+            var ahead = Ahead(race, me, 12, 6); float off = Vector3.ProjectOnPlane(ahead[0] - p, Vector3.up).magnitude;
+            var along = Vector3.ProjectOnPlane(ahead[ahead.Count - 1] - ahead[0], Vector3.up).normalized;
+            bool free = me.Branch.Route == null && !me.InFlight;
+            awaySeconds = free && off > 30 && lastGap >= 0 && gap > lastGap + .02f ? awaySeconds + dt : 0; lastGap = gap;
+            if (TurnBackGate < 0 && awaySeconds >= 1.5f) Set(next, $"{off:0} m off the course, going away from CP {next}");
+            if (TurnBackGate >= 0 && Time.time > heldUntil)
+            {
+                onSeconds = off < 15 && Vector3.Dot(car.Body.linearVelocity, along) > 2 ? onSeconds + dt : 0;
+                if (onSeconds >= .5f) { TurnBackGate = -1; Debug.Log("Leviathan: TURN BACK cleared: back on the course"); }
+            }
+        }
         void Start() { race = GetComponent<RaceDirector>(); gateRenderers = race.gates.Select(g => g ? g.GetComponentsInChildren<Renderer>(true) : new Renderer[0]).ToArray(); shown = new bool[gateRenderers.Length]; }
         void LateUpdate()
         {

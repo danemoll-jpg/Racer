@@ -7,11 +7,13 @@ namespace Racer
 {
     // 0.95 Part F: an acorn pickup can no longer be missed. A banner at the top centre for about 4 s with its own chime:
     // "ACORN FOUND 23 / 24" and under it the area with its count ("Ridge woodland 5 / 6"); its own canvas scaled from 1080p,
-    // so it is the same size on a 4K screen; a dark backing reads day and night. Not over a menu or in split-screen.
+    // so it is the same size on a 4K screen; a dark backing reads day and night. Not over a menu.
+    // 1.3.0-review5 Part A: in split screen it shows at the top of the half of the player who found it (smaller).
     public sealed class AcornBanner : MonoBehaviour
     {
         public const float Seconds = 4;
-        RaceFlow flow; RectTransform panel; Text title, area; Image back, accent; float until; AudioSource source; AudioClip chime;
+        RaceFlow flow; RectTransform panel; Text title, area; Image back, accent; float until; AudioSource source; AudioClip chime; int player = 1;
+        public int Player => player;
         public static AcornBanner Current { get; private set; }
         public string Shown => panel && panel.gameObject.activeSelf ? title.text + " / " + area.text : "";
         public static AcornBanner Attach(RaceFlow owner)
@@ -41,9 +43,9 @@ namespace Racer
             chime = Synth.Notes("Acorn found", new[] { 1318.5f, 1760f, 2637f }, .11f, .42f);
             panel.gameObject.SetActive(false);
         }
-        public void Show(int found, int total, string areaName, string areaCount)
+        public void Show(int found, int total, string areaName, string areaCount, int who = 1)
         {
-            if (!panel) Build();
+            if (!panel) Build(); player = who;
             title.text = $"ACORN FOUND   {found} / {total}"; area.text = string.IsNullOrEmpty(areaName) ? "" : $"{areaName}   {areaCount}";
             until = Time.unscaledTime + Seconds;
             if (source && chime && flow && flow.Save != null) source.PlayOneShot(chime, flow.Save.Settings.feedback * .5f);
@@ -51,8 +53,11 @@ namespace Racer
         void LateUpdate()
         {
             if (!panel || !flow) return;
-            bool on = Time.unscaledTime < until && !flow.MenuVisible && !SplitScreen.Active && !TrailerMode.Active;
+            bool on = Time.unscaledTime < until && !flow.MenuVisible && !TrailerMode.Active;
             if (panel.gameObject.activeSelf != on) panel.gameObject.SetActive(on); if (!on) return;
+            bool split = SplitScreen.Active && !SplitScreen.OneView, lr = SplitScreen.LeftRight; int i = player - 1;
+            var min = !split ? Vector2.zero : lr ? new Vector2(i * .5f, 0) : new Vector2(0, i == 0 ? .5f : 0); var max = !split ? Vector2.one : lr ? new Vector2(i * .5f + .5f, 1) : new Vector2(1, i == 0 ? 1 : .5f);
+            panel.anchorMin = panel.anchorMax = new Vector2((min.x + max.x) * .5f, max.y); panel.localScale = Vector3.one * (split ? .72f : 1); panel.anchoredPosition = new Vector2(0, split && lr ? -310 : -64); // side by side: under the info panel and the minimap
             float a = Mathf.Clamp01((until - Time.unscaledTime) / .4f);
             back.color = new Color(.02f, .04f, .05f, .86f * a); accent.color = new Color(1, .72f, .2f, a);
             title.color = new Color(1, .84f, .35f, a); area.color = new Color(.93f, .96f, .9f, a);

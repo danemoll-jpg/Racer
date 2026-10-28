@@ -1,0 +1,10 @@
+screen=1920x1080 kind=acorns1300r5 version=1.3.0-review4 park=on
+Free Roam (FreeRoamWorld): acorns 24/27, HIGH False, split False
+  acorn stunt-loop (Stunt park: the top of the loop): -1.4 m under the top surface there: Stunt park loop at 21.4, Stunt park floor at 11.1
+  every other acorn sits 0.5-2.2 m over the ground (a vehicle's centre passes within 2.8 m)
+  not found in this save copy: woodland-01, woodland-08, woodland-09
+  one-player-normal: through woodland-01 (Dan's fence): found 24 -> 25, in the save file True, banner 'ACORN FOUND   25 / 27 / Neighborhood woodland   7 / 8' (player 1)
+  HIGH MODE on: True
+  one-player-high: through woodland-08 (Cairn hollow): found 25 -> 26, in the save file True, banner 'ACORN FOUND   26 / 27 / Neighborhood woodland   8 / 8' (player 1)
+  split screen Free Roam: active True, player 2's vehicle PLAYER 2, acorns 26/27
+  split-player-2: through woodland-09 (Behind the pines): found 26 -> 27, in the save file True, banner 'ACORN FOUND   27 / 27 / Western gullies   4 / 4' (player 2)

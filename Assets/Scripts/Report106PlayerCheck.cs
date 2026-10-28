@@ -181,6 +181,10 @@ namespace Racer
                 case "comp1300r3": yield return Comp1300r3(); break; // 1.3.0-review3 Parts D and E (Report106PlayerCheck.Round1300r3b.cs)
                 case "closed1300r3": yield return Closed1300r3(); break;
                 case "map1300r4": yield return Map1300r4(); break; // 1.3.0-review4 (Report106PlayerCheck.Round1300r4.cs)
+                case "acorns1300r5": yield return Acorns1300r5(); break; // 1.3.0-review5 (Report106PlayerCheck.Round1300r5.cs)
+                case "order1300r5": yield return Order1300r5(); break;
+                case "land1300r5": yield return Land1300r5(); break;
+                case "lev1300r5": yield return Lev1300r5(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

@@ -57,6 +57,8 @@ namespace Racer
         ActivitySite jumpSite;string rejected;
         // 0.91 Part C: the first reason this flight cannot score (null = none so far)
         void Reject(string why){invalid=true;rejected??=why;}
+        float jTouch=-1,jTilt=-1,jTouching=-100; // 1.3.0-review5 Part C: the jump's recovery window (time since its first real touch), that touch's tilt from the ground
+        public bool LastJumpSaved{get;private set;}
         float contactImpact,minimumContactUp=1;
         bool oppositeAttempt;
         static bool Summit(ActivitySite site)=>site&&(site.id=="summit-homeward"||site.id=="summit-southface");
@@ -143,12 +145,25 @@ namespace Racer
             if(grounded&&!flying){bool summitRunup=Sites.Any(s=>Summit(s)&&Vector3.Distance(p,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward)>2);warm=car.transform.up.y>(summitRunup?.65f:.8f)?warm+dt:0;}
             if(!grounded&&!flying&&warm>=.5f&&Vector3.ProjectOnPlane(car.Body.linearVelocity,Vector3.up).magnitude>4)
             {
-                flying=true;invalid=touchedDown=false;rejected=null;takeoff=previous;air=stable=0;impactSpeed=contactImpact=0;minimumContactUp=1;
+                flying=true;invalid=touchedDown=false;rejected=null;takeoff=previous;air=stable=0;impactSpeed=contactImpact=0;minimumContactUp=1;jTouch=jTilt=-1;
                 jumpSite=SiteAt(takeoff);
             }
             if(flying)
             {
                 if(configuration.WipedOut)Reject("Wiped out on landing");
+                // 1.3.0-review5 Part C: the recovery window from the first real touch (a graze that bounces back into the air does not start it);
+                // its tilt from the ground touched; still lying on a side or the roof as it ends is the miss, said as such
+                if(Touching){if(jTouch<0){jTouch=0;jTilt=Vector3.Angle(car.transform.up,GroundAt(car));}jTouching=Time.time;}else if(jTouch>=0&&Time.time-jTouching>.25f)jTouch=jTilt=-1;
+                if(jTouch>=0)jTouch+=dt;
+                if(jTouch>=RecoverWindow&&!UprightOnGround(car)&&LyingOn(car,out bool roof))
+                {
+                    Reject(roof?"Landed upside down":"Landed on your side");
+                    if(jumpSite){AttemptActive=false;Miss(jumpSite,rejected);Message($"{jumpSite.title} / NOT SCORED: {rejected}",5);}
+                    ResetFlight();warm=0;
+                }
+            }
+            if(flying)
+            {
                 // 0.91 Part C: a hop off the ramp's lip (under 0.25 s in the air) that takes off again before settling is not
                 // the jump: the real flight starts here (0.90 measured the hop, and the jump after it was never scored).
                 if(!grounded&&touchedDown&&air<.25f){takeoff=previous;air=0;touchedDown=false;impactSpeed=0;var site=SiteAt(takeoff);if(site)jumpSite=site;}
@@ -163,7 +178,8 @@ namespace Racer
                     // never scored). The two summit flights also need sustained level support (below).
                     if(car.WaterImmersion>.05f)Reject("Landed in the water");
                     if(configuration.WipedOut)Reject("Wiped out on landing");
-                    if(car.transform.up.y<.65f)Reject(car.transform.up.y<0?"Landed upside down":"Landed on your side");
+                    // 1.3.0-review5 Part C: upright judged against the ground under the wheels; not yet upright is not yet landed (no reject)
+                    if(Vector3.Dot(car.transform.up,car.GroundNormal)<.65f&&car.GroundedWheels<car.suspensionPoints.Length)stable=0;
                     if(stable>=(Summit(jumpSite)?.75f:.3f))
                     {
                         float distance=Vector3.ProjectOnPlane(landing-takeoff,Vector3.up).magnitude;
@@ -176,7 +192,8 @@ namespace Racer
                         if(!invalid&&!tooShort&&!tooLong)
                         {
                             LastDistance=distance;LastAirtime=air;if(!StuntsOn)Message($"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4); // 0.106: in Free Roam the stunt line says it
-                            if(jumpSite){AttemptActive=false;Award(jumpSite,distance,"m");}
+                            if(jumpSite){AttemptActive=false;Award(jumpSite,distance,"m");if(jTilt>=60&&Feedback!=null&&Time.time<feedbackUntil)Feedback="SAVED IT!  "+Feedback;} // 1.3.0-review5 Part C
+                            LastJumpSaved=jTilt>=60;
                         }
                         else if(jumpSite&&!hop){AttemptActive=false;Miss(jumpSite,rejected??(tooShort?"Too short to count":"Left the course"));Message($"{jumpSite.title} / NOT SCORED: {rejected??(tooShort?"Too short to count":"Left the course")}",5);}
                         // a real flight beside the jump being attempted, but not from its ramp
@@ -226,5 +243,6 @@ namespace Racer
         bool StuntLines=>race&&race.stunts&&!race.FreeRoam;
         void OnDestroy(){BreakableProp.BrokenByVehicle-=Smash;if(car&&car.TryGetComponent<VehicleRespawn>(out var respawn))respawn.Respawned-=Recovered;}
     }
-    public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){if(!activities||activities.PlayerObject!=gameObject)return;foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)),contact.point);}}
+    public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){if(!activities||activities.PlayerObject!=gameObject)return;foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)),contact.point);}
+        void OnCollisionStay(Collision c){if(!activities||activities.PlayerObject!=gameObject||c.contactCount==0)return;var contact=c.GetContact(0);activities.StayContact(contact.normal);}} // 1.3.0-review5 Part C: lying on a side keeps touching
 }

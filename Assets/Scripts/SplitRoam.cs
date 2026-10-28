@@ -7,7 +7,7 @@ namespace Racer
     // vehicle is made here (beside player 1, with player 2's vehicle and colour), driven by player 2's device, or cruising the
     // roads with the traffic driver when player 2 is the AI. Each player has their own reset (nearest safe point), their own
     // jump and speed-trap results (shown in their half), the direction and distance to the other player, and both are on
-    // each minimap. Nothing is recorded: no acorns, activity records or discovery (ExplorationCollection, ExplorationMap and
+    // each minimap. Nothing is recorded but acorns (1.3.0-review5): no activity records or discovery (ExplorationCollection, ExplorationMap and
     // ArcadeActivities check SplitScreen.Active). The world map's travel brings both players (BringBeside).
     // Police Chase (Part C) runs on this too (PoliceChase).
     public sealed class SplitRoam : MonoBehaviour
