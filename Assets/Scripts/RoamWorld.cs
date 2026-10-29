@@ -157,7 +157,7 @@ namespace Racer
         // under the old tile's edge further along.
         // Each is covered by a ground patch (the neighbouring tile's ground, solid), its heights taken across from the ground on either side.
         // Not under the items' root: solid in every mode played in this scene, not only while the Free Roam items are shown.
-        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (794, 804, 515, 552), (794, 804, 571, 620) }; // the whole seam either side of the paved road (z 552..571 is the road itself)
+        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (794, 804, 515.2f, 553.2f), (794, 804, 569.8f, 619.8f) }; // the whole seam either side of the paved road (z 552..571 is the road itself)
         public static readonly List<string> SeamReport = new(); // checks
         void FillSeams(Scene scene)
         {
