@@ -1,0 +1,25 @@
+Forward: line on CR117 s 5: point 498 s 983.0 (0.91 m); CR117 s 1412: point 659 s 1304.8 (0.48 m)
+  on CR117 there: s 5.9 (0.14 m off), s 1411.5 (0.00 m off)
+Forward: replaced line s 983.0-1304.8 (321.8 m: Climbing Ridge Cut) by CR117 s 5.9-1411.5 (1405.6 m, 1903 points); lap 6942.9 -> 8026.8 m (+1083.8)
+Forward: mountain [845.4542830302512, 2536.5033918880713] -> [845.5, 3620.4]; narrow [614.4, 711.8, 2837.5, 2931.7] -> [614.4, 711.8, 3921.3, 4015.5]; bypass [5276.506214778253, 5551.504017512628] -> [6360.4, 6635.4]
+  CR117 CP 2 on the new road at s 1181.9 (1.60 m from the line)
+Forward gates: 6 Leviathan CP 6 (lake south shore) s 852, 7 Leviathan CP 7 s 955, 8 Leviathan CP 8 (CR117 CP 2) s 1182, 9 Leviathan CP 9 (after the Eastbound Gully Flight landing) s 1754, 10 Leviathan CP 10 (CR117 CP 3) s 2424, 11 Leviathan CP 11 (CR117 CP 4) s 2555, 12 Leviathan CP 12 s 2624
+Forward flight Eastbound Gully Flight: CR117 194.5-742.0 -> Leviathan 1171.7-1719.1 (0.00 / 0.00 m); Homeward moved by +1083.8
+Forward shortcut Climbing Ridge Cut: entry s 994.9 (0.26 m) exit s 2383.7 (1.61 m), bypasses [8, 9], AI-validated True; others: Creek Leap s 4261-4861 bypasses [23, 24, 25, 26, 27], Existing Southwest Cut s 5965-6116 bypasses [36], Fox Gully s 4941-5511 bypasses [28, 29, 30, 31], Pine Ridge s 5581-6361 bypasses [33, 34, 35, 36, 37]
+Forward signs: the 5 chevrons onto the cut and back onto CR117 out; '<  CLIMBING RIDGE CUT' board at its entry, REJOIN ROAD at its end; relabels kept: SUMMIT TRAVERSE
+Forward closed ways removed (across the new road):  exploration only, joining Leviathan at s 1293 (999, -68); CR117 mandatory two-flight racing line, leaving Leviathan at s 995 (749, -140); CR117 mandatory two-flight racing line, joining Leviathan at s 1299 (1008, -75)
+Forward closed ways added on the new road:  exploration only, joining Leviathan at s 2370 (1.3.0-review7) (994, -70)
+Forward not closed there: s 997  exploration only: the same way as  exploration only, leaving Leviathan at s 1001 (kept: off Climbing Ridge Cut, 1.3.0-review7); s 1437 CR117 mandatory two-flight racing line: the ground under the Eastbound Gully Flight (the same road); s 1537 CR117 mandatory two-flight racing line: the ground under the Eastbound Gully Flight (the same road); s 963 CR117 mandatory two-flight racing line: closed from its other end; s 997 Mountain racing line: the same way as  exploration only, leaving Leviathan at s 1001 (kept: off Climbing Ridge Cut, 1.3.0-review7); s 2370 Mountain racing line: the same way as  exploration only, joining Leviathan at s 2370 (1.3.0-review7)
+  NOTE: closed way  exploration only, leaving Leviathan at s 1479 comes 7.6 m from the line, 1000000000.0 m from a shortcut's line
+  NOTE: closed way  exploration only, leaving Leviathan at s 2520 comes 4.5 m from the line, 1000000000.0 m from a shortcut's line
+  NOTE: closed way Lake shore connection, leaving Leviathan at s 2925 comes 6.9 m from the line, 266.3 m from a shortcut's line
+  NOTE: closed way CR117 mandatory two-flight racing line, leaving Leviathan at s 2526 / CR117 mandatory two-flight racing line (both ways) comes 5.9 m from the line, 1000000000.0 m from a shortcut's line
+wrote Assets/Resources/Leviathan/LeviathanForward.json
+Reverse: new gate at s 7318 (end of the descent: the bend after CR117 CP 6): [715.9, 80.5, -65.2] facing 7, 18 m wide, 30 m tall; before Leviathan Reverse CP 39
+Reverse: new gate at s 7405 (J1: round the left turn onto the lake strip): [704.5, 79.7, 10.0] facing 321, 18 m wide, 30 m tall; before Leviathan Reverse CP 40 (lake north-east strip)
+Reverse shortcut Hollow Creek Hop: bypasses [19] -> [19]
+Reverse shortcut Rocky Way Cut: bypasses [22, 23, 24, 25] -> [22, 23, 24, 25]
+Reverse shortcut Downhill Ridge Cut: bypasses [35, 36, 37, 38] -> [35, 36, 37, 38, 39]
+Reverse gates now: 36 Leviathan Reverse CP 36 (CR117 CP 5) s 6501, 37 Leviathan Reverse CP 37 (after the Westbound Gully Flight landing) s 7072, 38 Leviathan Reverse CP 38 (CR117 CP 6) s 7291, 39 Leviathan Reverse CP 39 (end of the descent: the bend after CR117 CP 6) s 7318, 40 Leviathan Reverse CP 40 s 7361, 41 Leviathan Reverse CP 41 (J1: round the left turn onto the lake strip) s 7405, 42 Leviathan Reverse CP 42 (lake north-east strip) s 7442, 43 Leviathan Reverse CP 43 s 7504, 44 Leviathan Reverse CP 44 s 7590, 45 Leviathan Reverse CP 45 s 7675, 46 Leviathan Reverse CP 46 s 7705, 47 Leviathan Reverse CP 47 s 7735, 48 Leviathan Reverse CP 48 s 7864, 49 Leviathan Reverse CP 49 s 8075
+Reverse rail at J1: centre (728.8, 2.0), 11.2 m long, facing traffic heading 21; nearest the climb pass's line 5.3 m, the lap end's 5.7 m
+wrote Assets/Resources/Leviathan/LeviathanReverse.json

@@ -66,7 +66,7 @@ namespace Racer
             var eye = car.Body.position + Vector3.up * 1.6f; var fwd = Flat(car.transform.forward).normalized; var seen = new List<string>();
             foreach (var r in FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None))
             {
-                if (!r.enabled || !r.gameObject.activeInHierarchy || !r.name.EndsWith("arrow", System.StringComparison.OrdinalIgnoreCase) || r.name.StartsWith("Leviathan")) continue;
+                if (!r.enabled || !r.gameObject.activeInHierarchy || !LeviathanCourse.IsRouteArrow(r) || r.name.StartsWith("Leviathan")) continue;
                 var at = r.bounds.center; var to = at - eye; if (to.magnitude > 160 || Vector3.Angle(fwd, Flat(to)) > 50) continue;
                 if (Physics.Linecast(eye, at + Vector3.up * .3f, out var hit, ~0, QueryTriggerInteraction.Ignore) && hit.distance < to.magnitude - 3 && !hit.collider.attachedRigidbody) continue;
                 var mf = r.GetComponent<MeshFilter>(); var dir = Vector3.zero;

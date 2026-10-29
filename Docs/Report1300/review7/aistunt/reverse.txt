@@ -1,0 +1,6 @@
+screen=1280x800 kind=ai1300r7 version=1.3.0-review7 park=on
+== AI Stunt Race on Leviathan - Reverse (leviathan-reverse-v5): 4 racers, 50 gates; shortcuts open: Hollow Creek Hop, Rocky Way Cut; closed: Downhill Ridge Cut
+  player (road AI) stuntbuggy: finished, missed gates 0, resets 0, stuck 8 s+ never, closed shortcut taken never, within 1.5 m of a barricade/rail never
+  rival stuntbike: finished, missed gates 0, resets 1, stuck 8 s+ never, closed shortcut taken never, within 1.5 m of a barricade/rail never
+  rival stuntbuggy: finished, missed gates 0, resets 0, stuck 8 s+ never, closed shortcut taken never, within 1.5 m of a barricade/rail never
+  rival stuntbike: finished, missed gates 0, resets 0, stuck 8 s+ never, closed shortcut taken never, within 1.5 m of a barricade/rail never

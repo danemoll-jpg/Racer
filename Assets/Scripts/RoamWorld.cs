@@ -145,10 +145,39 @@ namespace Racer
                 }
                 catch (Exception e) { Report.Add($"{i.id} {i.kind}: not built ({e.Message})"); Debug.LogException(e); }
             }
+            FillSeams(scene);
             Physics.SyncTransforms(); Shown(race && race.FreeRoam);
             VehicleSurfaceContacts.AddSurfaces(root.GetComponentsInChildren<MeshCollider>(true)); // 1.3.0-review3: their faces for the vehicles' contacts
             Report.Add($"built {Items.Length} items in {watch.ElapsedMilliseconds} ms");
             Debug.Log("Free Roam world: " + string.Join("; ", Report));
+        }
+        // 1.3.0-review7 Part C (Dan: "On 92, why are these two bottomless pits? This is all the way past S Cherokee Lane before the edge of the map"):
+        // where the 1.3 world's Hwy 92 east continuation (its shoulders and edge aprons, from x 801) meets the old ground tile that ends at x 800, a
+        // strip beside each shoulder was never filled and the old world-edge apron drops away under it: a pit about 4 m wide on each side of the road.
+        // Each is covered by a ground patch (the neighbouring tile's ground, solid), its heights taken across from the ground on either side.
+        // Not under the items' root: solid in every mode played in this scene, not only while the Free Roam items are shown.
+        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (793, 807, 541, 555), (793, 807, 568, 582) };
+        public static readonly List<string> SeamReport = new(); // checks
+        void FillSeams(Scene scene)
+        {
+            SeamReport.Clear();
+            var tile = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<MeshRenderer>(true)).FirstOrDefault(r => r.name == "Ground_720_640");
+            var holder = new GameObject("Free Roam ground seams filled (1.3.0-review7)"); SceneManager.MoveGameObjectToScene(holder, scene);
+            foreach (var (x0, x1, z0, z1) in Seams)
+            {
+                int nx = Mathf.RoundToInt(x1 - x0), nz = Mathf.RoundToInt(z1 - z0); var v = new List<Vector3>(); var t = new List<int>(); float lo = float.MaxValue, hi = float.MinValue;
+                for (int j = 0; j <= nz; j++)
+                {
+                    float z = z0 + j, yw = Ground(x0, z), ye = Ground(x1, z); lo = Mathf.Min(lo, Mathf.Min(yw, ye)); hi = Mathf.Max(hi, Mathf.Max(yw, ye));
+                    for (int i = 0; i <= nx; i++) v.Add(new Vector3(x0 + i, Mathf.Lerp(yw, ye, (float)i / nx) + .02f, z));
+                }
+                for (int j = 0; j < nz; j++) for (int i = 0; i < nx; i++) { int a = j * (nx + 1) + i, b = a + 1, c = a + nx + 1, d = c + 1; t.AddRange(new[] { a, c, b, b, c, d }); }
+                var mesh = new Mesh { name = $"Hwy 92 seam fill x {x0:F0}-{x1:F0} z {z0:F0}-{z1:F0}" }; mesh.SetVertices(v); mesh.SetTriangles(t, 0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
+                var g = new GameObject("Ground_" + mesh.name); g.transform.SetParent(holder.transform, false);
+                g.AddComponent<MeshFilter>().sharedMesh = mesh; var r = g.AddComponent<MeshRenderer>(); if (tile) r.sharedMaterial = tile.sharedMaterial; g.AddComponent<MeshCollider>().sharedMesh = mesh;
+                SeamReport.Add($"{mesh.name}: ground {lo:F1}..{hi:F1} m");
+            }
+            Debug.Log("Free Roam world: Hwy 92 seams filled: " + string.Join("; ", SeamReport));
         }
         bool shown = true;
         void Shown(bool on) { if (root && shown != on) { shown = on; root.gameObject.SetActive(on); } }

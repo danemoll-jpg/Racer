@@ -1,13 +1,13 @@
 ﻿"""Stage only the freshly built signed inventory, keeping the named launcher intact."""
 import pathlib,json,base64,hashlib,shutil,zipfile,subprocess
-root=pathlib.Path(__file__).resolve().parents[2];out=root/'Docs/Report1300';draft=root/'Builds/LauncherRelease-1030500/assets'
-runtime=root/'Builds/Racer-1.3.0-review6-Windows';latest=root/'Builds/Latest';versioned=latest/'versions/1030500'
+root=pathlib.Path(__file__).resolve().parents[2];out=root/'Docs/Report1300';draft=root/'Builds/LauncherRelease-1030600/assets'
+runtime=root/'Builds/Racer-1.3.0-review7-Windows';latest=root/'Builds/Latest';versioned=latest/'versions/1030600'
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 manifest=json.loads(subprocess.check_output([str(root/'Builds/Launcher/LauncherChecks.exe'),str(root/'Temp/Report1300-signature-check'),str(root/'Temp/Report1300-signature-saves'),'verify',str(draft/'game-manifest.json')],text=True))
-assert manifest['build']==1030500
+assert manifest['build']==1030600
 commit=(root/'Temp/Report1300-source-commit.txt').read_text().strip()
 assert commit in (runtime/'VERSION.txt').read_text() and commit in manifest['notes']
-prior=json.loads((latest/'state.json').read_text())['game'];assert prior['manifest']['build']==1030400
+prior=json.loads((latest/'state.json').read_text())['game'];assert prior['manifest']['build']==1030500
 old={i['path']:i for i in prior['manifest']['files']};changed=[]
 with zipfile.ZipFile(draft/'game.zip') as archive:
     assert set(archive.namelist())=={i['path'] for i in manifest['files']}
@@ -34,7 +34,7 @@ for destination in [versioned,latest]:
 for target in obsolete:target.unlink()
 assert digest(latest/'WoodstockRushLauncher.exe')==launcherHash
 assert digest(latest/'Racer.exe')!=launcherHash,'Root Racer.exe must be the Unity game, not launcher alias'
-result=dict(version=manifest['version'],build=1030500,sourceCommit=commit,files=len(manifest['files']),changedRuntimeFiles=changed,buildOutput=str(runtime),latest=str(latest/'Racer.exe'),versioned=str(versioned/'Racer.exe'),exeSha256=digest(latest/'Racer.exe'),previousExeSha256=old['Racer.exe']['sha256'],inventoryAndZipMatch=True,namedLauncherPreserved=True)
+result=dict(version=manifest['version'],build=1030600,sourceCommit=commit,files=len(manifest['files']),changedRuntimeFiles=changed,buildOutput=str(runtime),latest=str(latest/'Racer.exe'),versioned=str(versioned/'Racer.exe'),exeSha256=digest(latest/'Racer.exe'),previousExeSha256=old['Racer.exe']['sha256'],inventoryAndZipMatch=True,namedLauncherPreserved=True)
 result['removedObsoletePriorGameFiles']=[p.relative_to(latest).as_posix() for p in obsolete]
 (out/'runtime-identity.json').write_text(json.dumps(result,indent=2));print(json.dumps(result))
 

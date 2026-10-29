@@ -24,7 +24,7 @@ namespace Racer
             var scene = race.gameObject.scene; Report.Clear();
             foreach (var old in scene.GetRootGameObjects().Where(g => g.name == RootName)) { old.SetActive(false); Object.Destroy(old); }
             // 1.3.0-review6 (Dan, 2026-10-27: "Just the ones on the mountain"): in a Leviathan Stunt Race the shortcuts that leave the course on its
-            // mountain (Leviathan Reverse's Downhill Ridge Cut) are closed the same way; its others (below the mountain) stay open. Its records
+            // mountain (Leviathan Reverse's Downhill Ridge Cut; 1.3.0-review7: Forward's Climbing Ridge Cut) are closed the same way; its others stay open. Its records
             // keep their course id (the lap's new id, leviathan-reverse-v5, already starts new boards).
             var shut = Closed(race) ? (race.AllBranches ?? new WoodlandRoute[0]).Where(b => b).ToList() : MountainOnes(race);
             race.CloseBranches(shut);

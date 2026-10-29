@@ -9,7 +9,8 @@ namespace Racer
     // 0.115: Leviathan, Forward and Reverse. The Street Loop joined to the Mountain Loop at J (the Lake shore connection), raced in the Mountain
     // Loop scenes on roads they already have: Forward in MountainLoop.unity (Climbing Ridge Cut as the main road, the Homeward summit flight),
     // Reverse in MountainLoopReverse.unity (the South Face summit flight; 1.3.0-review6: CR117's own road with the Westbound Gully Flight again,
-    // Downhill Ridge Cut one of its shortcuts, closed in its Stunt Races). The scenes are not changed: when a Leviathan course
+    // Downhill Ridge Cut one of its shortcuts, closed in its Stunt Races; 1.3.0-review7: Forward the same, CR117's road with the Eastbound
+    // Gully Flight, Climbing Ridge Cut a shortcut closed in its Stunt Races). The scenes are not changed: when a Leviathan course
     // is loaded, its line, gates, the Street Loop's shortcuts and the summit flight's stations (Resources/Leviathan/*.json, composed by
     // Tools/Report115/py/leviathan.py) replace the scene's own course on its RaceDirector before anything reads it. Loading the scene
     // any other way gives the Mountain Loop exactly as before.
@@ -128,7 +129,7 @@ namespace Racer
             var respawn = race.vehicle ? race.vehicle.GetComponent<VehicleRespawn>() : null; if (respawn) respawn.spawnPoint = spawn;
             if (race.vehicle) { race.vehicle.transform.SetPositionAndRotation(spawn.position, spawn.rotation); if (race.vehicle.Body) { race.vehicle.Body.position = spawn.position; race.vehicle.Body.rotation = spawn.rotation; } }
             BuildSigns(data, root); // 0.116 Part A
-            if (data.reverse) HideStrayArrows(race.gameObject.scene, road, branches, root); // 1.3.0-review5 Part D
+            HideStrayArrows(race.gameObject.scene, road, branches, root); // 1.3.0-review5 Part D (Reverse); 1.3.0-review7 Part B: Forward too
             race.gameObject.AddComponent<LeviathanGuide>(); // 0.116 Part A: only the next gate shown, the course ahead on the minimap, the next CP on the HUD
             var swap = race.gameObject.AddComponent<LeviathanSwap>(); swap.Data = data; swap.Branches = branches.ToArray(); swap.GateHints = data.gates.Select(g => g.station).ToArray();
             race.road = road; race.gates = gates.ToArray(); race.courseId = data.id; race.courseName = data.title; race.reverseCourse = data.reverse; race.highwayTrafficCount = data.highwayTraffic;
@@ -140,10 +141,18 @@ namespace Racer
         // arrow is kept only where it lies on Leviathan's line (or one of its shortcuts) and points along it, on a stretch the course drives once;
         // where the course drives the same road twice (the lake out-and-back and its ends) an arrow is right for one pass and wrong for the
         // other, so it goes too (the gates and the HUD guide lead there). Race only: the scene is loaded fresh for every other race.
-        public static readonly List<string> ArrowReport = new();
+        public static readonly List<string> ArrowReport = new(); public static int TealHidden; // checks
+        // a Mountain Loop route arrow: named "... arrow", or (1.3.0-review7: the teal arrows painted on the start stretch and at J1 are named
+        // otherwise) a flat mesh 1.5-9 m long painted with the route's teal or gold
+        public static bool IsRouteArrow(Renderer r)
+        {
+            if (r.name.EndsWith("arrow", StringComparison.OrdinalIgnoreCase)) return true;
+            var m = r.sharedMaterial; if (!m || (m.name.IndexOf("main teal", StringComparison.OrdinalIgnoreCase) < 0 && m.name.IndexOf("alternate gold", StringComparison.OrdinalIgnoreCase) < 0)) return false;
+            var b = r.bounds; float flat = Mathf.Max(b.size.x, b.size.z); return b.size.y < 1.2f && flat > 1.5f && flat < 9f;
+        }
         static void HideStrayArrows(Scene scene, RaceRoad road, List<WoodlandRoute> branches, Transform root)
         {
-            ArrowReport.Clear(); int kept = 0, hidden = 0;
+            ArrowReport.Clear(); TealHidden = 0; int kept = 0, hidden = 0;
             var samples = new List<(Vector3 p, Vector3 f, float s, int line)>();
             for (float s = 0; s < road.Length; s += 3) { var p = road.At(s, out var f); samples.Add((p, Vector3.ProjectOnPlane(f, Vector3.up).normalized, s, 0)); }
             for (int b = 0; b < branches.Count; b++) for (float s = 0; s < branches[b].Length; s += 3) { var p = branches[b].At(s, out var f); samples.Add((p, Vector3.ProjectOnPlane(f, Vector3.up).normalized, s, b + 1)); }
@@ -153,7 +162,7 @@ namespace Racer
             foreach (var g in scene.GetRootGameObjects())
                 foreach (var r in g.GetComponentsInChildren<MeshRenderer>(true))
                 {
-                    if (!r.enabled || r.transform.IsChildOf(root) || !r.name.EndsWith("arrow", StringComparison.OrdinalIgnoreCase)) continue;
+                    if (!r.enabled || r.transform.IsChildOf(root) || !IsRouteArrow(r)) continue;
                     var mf = r.GetComponent<MeshFilter>(); var mesh = mf ? mf.sharedMesh : null; if (!mesh || !mesh.isReadable || mesh.vertexCount < 3) continue;
                     var v = mesh.vertices; var c = Vector3.zero; foreach (var x in v) c += x; c /= v.Length;
                     var tip = v.OrderByDescending(x => (x - c).sqrMagnitude).First();
@@ -177,10 +186,32 @@ namespace Racer
                             if (dist < 15 || dist > 110 || Mathf.Abs(d.y) > 20 || Vector3.Angle(q.f, flat) > 25) continue;
                             ahead = true; seenFrom = q.s; break;
                         }
-                    if (along && !twice && !ahead) { kept++; continue; }
-                    r.enabled = false; hidden++; ArrowReport.Add($"{r.name} at ({at.x:F0}, {at.z:F0}): {(twice ? "where the course passes twice" : ahead ? $"ahead of another part of the lap (seen from s {seenFrom:F0})" : "not along the course")}");
+                    // 1.3.0-review7 Part A2 (Dan, off the mountain on Reverse: "you see the arrows but not yet the gate"): Mountain Loop's painted teal
+                    // route arrows stay only where they point along Leviathan's way there and on: hidden too when Leviathan turns off within 80 m
+                    // past one (Mountain Loop goes on straight: the start stretch into the climb at J1), or another part of the lap sees it ahead
+                    // (160 m, 35 degrees: the climb's arrows from the lap end). Leviathan's own gates, chevrons and the HUD lead there.
+                    bool teal = r.name.IndexOf("teal", StringComparison.OrdinalIgnoreCase) >= 0 || (r.sharedMaterial && r.sharedMaterial.name.IndexOf("teal", StringComparison.OrdinalIgnoreCase) >= 0), turns = false;
+                    if (teal && along && !twice && !ahead && alongS >= 0)
+                    {
+                        for (float k = 20; k <= 80 && !turns; k += 10) { road.At(alongS + k, out var fk); if (Vector3.Angle(dir, Vector3.ProjectOnPlane(fk, Vector3.up)) > 30) turns = true; }
+                        if (!turns)
+                            foreach (var q in main)
+                            {
+                                float ds = Mathf.Abs(q.s - alongS); ds = Mathf.Min(ds, road.Length - ds); if (ds < 300) continue;
+                                var d = at - q.p; var flat = new Vector3(d.x, 0, d.z); float dist = flat.magnitude;
+                                if (dist < 15 || dist > 160 || Mathf.Abs(d.y) > 25 || Vector3.Angle(q.f, flat) > 35) continue;
+                                ahead = true; seenFrom = q.s; break;
+                            }
+                    }
+                    // 1.3.0-review7 Part A2: a shortcut's own arrow standing beside the route (within 25 m of it, not pointing along it): Reverse's
+                    // "CR122 crossing" gold arrows where Downhill Ridge Cut comes back in, seen from the end of the descent pointing off the road
+                    bool beside = false;
+                    if (along && alongS < 0) foreach (var q in main) { var d = at - q.p; if (Mathf.Abs(d.y) < 6 && new Vector2(d.x, d.z).sqrMagnitude < 25 * 25 && Vector3.Dot(dir, q.f) < .8f) { beside = true; break; } }
+                    if (along && !twice && !ahead && !turns && !beside) { kept++; continue; }
+                    if (teal) TealHidden++;
+                    r.enabled = false; hidden++; ArrowReport.Add($"{r.name} at ({at.x:F0}, {at.z:F0}): {(twice ? "where the course passes twice" : ahead ? $"ahead of another part of the lap (seen from s {seenFrom:F0})" : turns ? "Leviathan turns off within 80 m past it" : beside ? "a shortcut's arrow beside the route, not along it" : "not along the course")}");
                 }
-            Debug.Log($"Leviathan: the scene's route arrows: {kept} kept, {hidden} hidden ({string.Join("; ", ArrowReport)})");
+            Debug.Log($"Leviathan: the scene's route arrows: {kept} kept, {hidden} hidden ({TealHidden} teal) ({string.Join("; ", ArrowReport)})");
         }
         // ---------------------------------------------------------------- 0.116 Part A: turn indicators
         // Boards like a road's: a big arrow before the turn and chevrons on its outside, facing the traffic that turns there. Plain grey
@@ -265,7 +296,9 @@ namespace Racer
         // A barricade like the Mountain Loop's own (Climbing Ridge Cut's "Road closed barrier 4"): timber posts and two rails, solid, in panels
         // of up to 3 m each seated on its own ground (a panel over a bank or a hole is left out), and a one-sided ROAD CLOSED sign in the middle
         // facing the traffic that would turn in (red face with lettering, plain grey back). Built only in a Leviathan race.
-        static Material timber, closedRed, concrete, amber;
+        // 1.3.0-review7 Part A3a: "rail": the same timber panels with no ROAD CLOSED sign (the course's chevron boards stand on it), slippery like
+        // HIGH MODE's bumpers, so a glancing hit slides you along it onto the route instead of stopping you (Reverse's J1: the climb straight on)
+        static Material timber, closedRed, concrete, amber; static PhysicsMaterial slide;
         static Material Lit(Color c) { var m = new Material(Shader.Find("Universal Render Pipeline/Lit")) { color = c }; m.SetColor("_BaseColor", c); return m; }
         internal static void BuildBlocks(Data data, Transform root) // 1.3.0-review3: also the Mountain Loop Stunt Races' closed shortcuts (StuntShortcuts)
         {
@@ -287,11 +320,12 @@ namespace Racer
                     Box(panel, "Post", new Vector3(-w * .5f + .15f, .45f, 0), new Vector3(.25f, 1.6f, .25f), timber); Box(panel, "Post", new Vector3(w * .5f - .15f, .45f, 0), new Vector3(.25f, 1.6f, .25f), timber);
                     Box(panel, "Rail low", new Vector3(0, .5f, 0), new Vector3(w, .2f, .1f), timber); Box(panel, "Rail high", new Vector3(0, 1.0f, 0), new Vector3(w, .2f, .1f), timber);
                     var hit = new GameObject("Barricade collision"); hit.transform.SetParent(panel, false); hit.transform.localPosition = new Vector3(0, .6f, 0);
-                    hit.AddComponent<BoxCollider>().size = new Vector3(w, 2.0f, .35f); panels++;
+                    var box = hit.AddComponent<BoxCollider>(); box.size = new Vector3(w, 2.0f, .35f); panels++;
+                    if (b.kind == "rail") box.sharedMaterial = slide ? slide : slide = new PhysicsMaterial("Leviathan rail") { bounciness = .2f, bounceCombine = PhysicsMaterialCombine.Maximum, dynamicFriction = .05f, staticFriction = .05f, frictionCombine = PhysicsMaterialCombine.Minimum };
                 }
                 // the sign: one-sided, its face (-z) toward the traffic, in front of the middle panel; closed from both ends: one each way, side by side
                 float apart = b.both ? Mathf.Min(1.4f, b.half * .5f) : 0;
-                foreach (int way in b.both ? new[] { 1, -1 } : new[] { 1 })
+                foreach (int way in b.kind == "rail" ? new int[0] : b.both ? new[] { 1, -1 } : new[] { 1 })
                 {
                     var sign = new GameObject("Road closed sign").transform; sign.SetParent(block, false); sign.localPosition = new Vector3(-apart * way, 0, -.35f * way); sign.localRotation = Quaternion.Euler(0, way > 0 ? 0 : 180, 0); sign.gameObject.AddComponent<PhysicalSign>();
                     Box(sign, "Sign post", new Vector3(-.8f, 1.1f, .05f), new Vector3(.1f, 2.2f, .1f), timber); Box(sign, "Sign post", new Vector3(.8f, 1.1f, .05f), new Vector3(.1f, 2.2f, .1f), timber);

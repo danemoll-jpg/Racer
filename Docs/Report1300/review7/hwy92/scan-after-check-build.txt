@@ -1,0 +1,28 @@
+screen=1280x800 kind=holes1300r7 version=1.3.0-review7 park=on
+roads in Free Roam: House 3 valley driveway (340 m), Summit approach and safe return (1270 m), Mountain return trails / exploration only (1113 m), CR113 highway through route (2216 m), Kyle descending driveway (69 m), Reverse navigation only - no pavement (1257 m), Forward navigation only - no road mesh (1256 m), Phase 3 - Race Systems (4674 m), Lake shore connection (799 m)
+== Hwy 92 band x -1260..1000, z 460..660: 452000 metres, 85768 with no ground at all; 31 hole(s)/pit(s)
+   C-hole-1--992-568: 64626 m² (64626 with no ground), x -1257..-800, z 463..657, ground round it 0.0; renderers: World edge hills 40_120, Paint CR113 white; colliders: World edge bank and wall
+   C-hole-2-933-559: 16234 m² (16234 with no ground), x 836..997, z 463..657, ground round it 43.5; renderers: Ground_CR113 east level outer continuation, Ground_CR113 outer double yellow, Ground_CR113 outer lane dash, Ground_CR113 east outer supported shoulders, World edge hills 200_120, Free Roam flip ramp 18, Paint CR113 white; colliders: Flip ramp launch, Ground_Free Roam flip ramp 18 surface, World edge bank and wall, Ground_CR113 east outer supported shoulders, Ground_CR113 east level outer continuation
+   C-hole-3-273-605: 14 m² (0 with no ground), x 270..275, z 601..609, ground round it 15.8; renderers: Ground_480_640, Muted brick (kept), Hwy 92 asphalt 5, Charcoal roof, Hwy 92 solid 5, Muted brick, Charcoal roof (kept); colliders: Mattress Outlet, Shipping, Ground_480_640
+   C-hole-4-206-607: 11 m² (0 with no ground), x 203..208, z 604..609, ground round it 16.1; renderers: Ground_480_640, Hwy 92 solid 4, Hwy 92 asphalt 5, Hwy 92 solid 5, Lettering - Pizza; colliders: Pizza, Ground_480_640, Yoga
+   C-hole-5--783-483: 10 m² (0 with no ground), x -786..-781, z 481..485, ground round it 12.5; renderers: Ground_0_560, Additional woodland canopy, Lettering - Animal Clinic, Hwy 92 solid 0; colliders: Ground_0_560, Animal Clinic
+   C-hole-6--176-620: 8 m² (0 with no ground), x -177..-174, z 619..622, ground round it 17.0; renderers: Hwy 92 asphalt 3, Hwy 92 solid 3, Ground_240_640, Hwy 92 flat 3; colliders: Ground_240_640, Community Church
+   C-hole-7--777-484: 7 m² (0 with no ground), x -778..-775, z 482..485, ground round it 12.5; renderers: Ground_0_560, Additional woodland canopy, Lettering - Animal Clinic, Hwy 92 solid 0; colliders: Ground_0_560, Animal Clinic
+   C-hole-8--305-650: 7 m² (0 with no ground), x -307..-304, z 648..651, ground round it 22.2; renderers: Hwy 92 asphalt 2, Ground_240_640, Hwy 92 solid 2; colliders: Ground_240_640, Office Park
+   C-hole-9--301-625: 6 m² (0 with no ground), x -304..-297, z 624..626, ground round it 22.2; renderers: Lettering - Office Park, Hwy 92 asphalt 2, Ground_240_640, Hwy 92 solid 2, Hwy 92 flat 2; colliders: house, Ground_240_640, Office Park
+   C-hole-10--21-568: 6 m² (0 with no ground), x -24..-17, z 566..569, ground round it 15.2; renderers: Lettering - Donuts, Warm plaster (kept), Ivory trim, Slate blue siding, Hwy 92 asphalt 3, Market teal (kept), Hwy 92 solid 4, Hwy 92 solid 3; colliders: Stunt park ground (banks and drive), Realty, Ground_320_640, Donuts
+   C-hole-11--310-643: 4 m² (0 with no ground), x -311..-308, z 642..644, ground round it 22.2; renderers: Hwy 92 asphalt 2, Ground_240_640, Hwy 92 solid 2, Hwy 92 flat 2, Lettering - Office Park; colliders: Ground_240_640, Office Park
+   C-hole-12--772-486: 3 m² (0 with no ground), x -773..-770, z 485..486, ground round it 12.5; renderers: Ground_0_560, Additional woodland canopy, Lettering - Animal Clinic, Hwy 92 solid 0; colliders: Ground_0_560, Animal Clinic
+   C-hole-13--502-583: 3 m² (0 with no ground), x -502..-501, z 581..584, ground round it 13.7; renderers: Ground_80_640, Warm plaster (kept), Ivory trim, Slate blue siding, Hwy 92 solid 1, Warm plaster, Sage siding (kept), Muted brick (kept); colliders: Solid, Ground_80_640, Ridgeline Bank
+   C-hole-14-233-621: 3 m² (0 with no ground), x 232..234, z 620..622, ground round it 16.1; renderers: Ground_480_640, Hwy 92 asphalt 5, Hwy 92 solid 5; colliders: Shipping, Pizza, Ground_480_640
+   C-hole-15-738-517: 3 m² (0 with no ground), x 737..738, z 515..518, ground round it 48.0; renderers: Hwy 92 asphalt 7, Hwy 92 solid 7, Complete authored trees, Hwy 92 flat 7, Additional woodland canopy, Paint CR113 white, Ground_720_560, Hwy 92 street 7; colliders: Donut Den, Ground_720_560
+   C-hole-16--478-655: 2 m² (0 with no ground), x -479..-477, z 654..655, ground round it 15.8; renderers: Ground_80_640, Hwy 92 solid 1, Ground_160_640, Hwy 92 asphalt 1, Hwy 92 flat 1; colliders: Ground_80_640, Ground_160_640, Fitness Center
+seams filled: Hwy 92 seam fill x 793-807 z 541-555: ground 41.6..45.5 m; Hwy 92 seam fill x 793-807 z 568-582: ground 39.9..43.7 m
+   FELL on the south shoulder at 707.0,0.17,549.5
+   south shoulder z 549.5, eastbound: reached x 714, up to 51 mph, lowest 0.2 m, fell True, resets 0
+   FELL on the south shoulder at 872.5,0.10,549.5
+   south shoulder z 549.5, westbound: reached x 868, up to 50 mph, lowest 0.1 m, fell True, resets 0
+   FELL on the north shoulder at 708.8,-0.12,573.5
+   north shoulder z 573.5, eastbound: reached x 711, up to 50 mph, lowest -0.1 m, fell True, resets 0
+   FELL on the north shoulder at 872.5,0.10,573.5
+   north shoulder z 573.5, westbound: reached x 869, up to 50 mph, lowest 0.1 m, fell True, resets 0

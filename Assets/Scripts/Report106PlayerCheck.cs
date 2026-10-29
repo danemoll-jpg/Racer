@@ -186,6 +186,9 @@ namespace Racer
                 case "land1300r5": yield return Land1300r5(); break;
                 case "lev1300r5": yield return Lev1300r5(); break;
                 case "lev1300r6": yield return Lev1300r6(); break; // 1.3.0-review6 (Report106PlayerCheck.Round1300r6.cs)
+                case "lev1300r7": yield return Lev1300r7(); break; // 1.3.0-review7 (Report106PlayerCheck.Round1300r7.cs)
+                case "ai1300r7": yield return Ai1300r7(); break;
+                case "holes1300r7": yield return Holes1300r7(); break;
                 case "menus1300r6": yield return Menus1300r6(); break;
                 default: Note("unknown kind " + kind); break;
             }
