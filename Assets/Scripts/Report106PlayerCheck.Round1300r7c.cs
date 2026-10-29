@@ -57,7 +57,7 @@ namespace Racer
             }
             Note("seams filled: " + string.Join("; ", RoamWorld.SeamReport));
             if (Arg("-p1300drive", "0") == "1") { car.Body.isKinematic = false; yield return Shoulders1300r7(); car.Body.isKinematic = true; }
-            foreach (var q in new[] { new Vector3(799, 0, 548), new Vector3(799, 0, 575), new Vector3(738, 0, 517) }) { var c = q; c.y = Ground1300r7(c + Vector3.left * 6); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}", c + new Vector3(-14, 6, q.z < 561 ? 12 : -12), c, 55, 1280, 800); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}-top", c + Vector3.up * 60, c, 60, 800, 800, true, 14); }
+            foreach (var q in new[] { new Vector3(799, 0, 548), new Vector3(799, 0, 575), new Vector3(800, 0, 530), new Vector3(800, 0, 600), new Vector3(738, 0, 517) }) { var c = q; c.y = Ground1300r7(c + Vector3.left * 6); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}", c + new Vector3(-14, 6, q.z < 561 ? 12 : -12), c, 55, 1280, 800); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}-top", c + Vector3.up * 60, c, 60, 800, 800, true, 14); }
             // the flip ramp at Hwy 92's east end (item 18), whatever was found: the view Dan had (down the shoulder toward it)
             var f = new Vector3(936, 0, 563); f.y = Ground1300r7(f + Vector3.left * 30);
             yield return Free("C-flip-18-from-the-road", f + new Vector3(-45, 4, -10), f, 55, 1280, 800);

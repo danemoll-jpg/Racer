@@ -153,10 +153,11 @@ namespace Racer
         }
         // 1.3.0-review7 Part C (Dan: "On 92, why are these two bottomless pits? This is all the way past S Cherokee Lane before the edge of the map"):
         // where the 1.3 world's Hwy 92 east continuation (its shoulders and edge aprons, from x 801) meets the old ground tile that ends at x 800, a
-        // strip beside each shoulder was never filled and the old world-edge apron drops away under it: a pit about 4 m wide on each side of the road.
+        // strip along the seam was never filled and the old world-edge apron drops away under it: a pit about 4 m wide beside each shoulder, and a narrow dark gap
+        // under the old tile's edge further along.
         // Each is covered by a ground patch (the neighbouring tile's ground, solid), its heights taken across from the ground on either side.
         // Not under the items' root: solid in every mode played in this scene, not only while the Free Roam items are shown.
-        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (795, 803, 541, 555), (795, 803, 568, 582) };
+        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (797, 803, 515, 552), (797, 803, 571, 620) }; // the whole seam either side of the paved road (z 552..571 is the road itself)
         public static readonly List<string> SeamReport = new(); // checks
         void FillSeams(Scene scene)
         {
