@@ -157,7 +157,7 @@ namespace Racer
         // under the old tile's edge further along.
         // Each is covered by a ground patch (the neighbouring tile's ground, solid), its heights taken across from the ground on either side.
         // Not under the items' root: solid in every mode played in this scene, not only while the Free Roam items are shown.
-        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (797, 803, 515, 552), (797, 803, 571, 620) }; // the whole seam either side of the paved road (z 552..571 is the road itself)
+        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (794, 804, 515, 552), (794, 804, 571, 620) }; // the whole seam either side of the paved road (z 552..571 is the road itself)
         public static readonly List<string> SeamReport = new(); // checks
         void FillSeams(Scene scene)
         {
@@ -167,10 +167,13 @@ namespace Racer
             foreach (var (x0, x1, z0, z1) in Seams)
             {
                 int nx = Mathf.RoundToInt(x1 - x0), nz = Mathf.RoundToInt(z1 - z0); var v = new List<Vector3>(); var t = new List<int>(); float lo = float.MaxValue, hi = float.MinValue;
-                var col = new List<Color>();
+                var col = new List<Color>(); float lastW = Ground(x0, (z0 + z1) * .5f);
                 for (int j = 0; j <= nz; j++)
                 {
-                    float z = z0 + j, yw = Ground(x0, z), ye = Ground(x1, z); lo = Mathf.Min(lo, Mathf.Min(yw, ye)); hi = Mathf.Max(hi, Mathf.Max(yw, ye));
+                    // each side's ground (outside the seam); a side with none takes the other's; neither: the row before's
+                    float z = z0 + j, yw = Ground(x0, z, float.NaN), ye = Ground(x1, z, float.NaN);
+                    if (yw < 1) yw = ye; if (ye < 1) ye = yw; if (yw < 1) { yw = ye = lastW; } lastW = yw;
+                    lo = Mathf.Min(lo, Mathf.Min(yw, ye)); hi = Mathf.Max(hi, Mathf.Max(yw, ye));
                     // the ground's own colour either side (the ground shader is coloured by its vertices), blended across
                     Color cw = GroundColour(x0, z, tile), ce = GroundColour(x1, z, tile);
                     for (int i = 0; i <= nx; i++) { v.Add(new Vector3(x0 + i, Mathf.Lerp(yw, ye, (float)i / nx) + .02f, z)); col.Add(Color.Lerp(cw, ce, (float)i / nx)); }
