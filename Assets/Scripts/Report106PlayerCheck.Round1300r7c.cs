@@ -57,7 +57,7 @@ namespace Racer
             }
             Note("seams filled: " + string.Join("; ", RoamWorld.SeamReport));
             if (Arg("-p1300drive", "0") == "1") { car.Body.isKinematic = false; yield return Shoulders1300r7(); car.Body.isKinematic = true; }
-            foreach (var q in new[] { new Vector3(799, 0, 548), new Vector3(799, 0, 575), new Vector3(738, 0, 517) }) { var c = q; c.y = Ground1300r7(c + Vector3.left * 6); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}", c + new Vector3(-18, 8, q.z < 561 ? -14 : 14), c, 55, 1280, 800); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}-top", c + Vector3.up * 60, c, 60, 800, 800, true, 14); }
+            foreach (var q in new[] { new Vector3(799, 0, 548), new Vector3(799, 0, 575), new Vector3(738, 0, 517) }) { var c = q; c.y = Ground1300r7(c + Vector3.left * 6); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}", c + new Vector3(-14, 6, q.z < 561 ? 12 : -12), c, 55, 1280, 800); yield return Free($"C-spot-{q.x:F0}-{q.z:F0}-top", c + Vector3.up * 60, c, 60, 800, 800, true, 14); }
             // the flip ramp at Hwy 92's east end (item 18), whatever was found: the view Dan had (down the shoulder toward it)
             var f = new Vector3(936, 0, 563); f.y = Ground1300r7(f + Vector3.left * 30);
             yield return Free("C-flip-18-from-the-road", f + new Vector3(-45, 4, -10), f, 55, 1280, 800);
@@ -70,21 +70,26 @@ namespace Racer
         {
             var car = race.vehicle; Pilot(car, race.Racers[0]); car.GetComponent<RoadDriver>().enabled = false; car.enabled = true; BindPad();
             foreach (var c in FindObjectsByType<Canvas>(FindObjectsSortMode.None)) c.enabled = true;
-            foreach (var (z, name) in new[] { (549.5f, "south"), (573.5f, "north") })
-                foreach (int way in new[] { 1, -1 })
+            var road = FindObjectsByType<RaceRoad>(FindObjectsSortMode.None).FirstOrDefault(r => r.name.Contains("CR113 highway")); if (!road) { Note("   no Hwy 92 line found"); yield break; }
+            road.Initialize(); Note($"   driving from {V(car.Body.position)} along {road.name} ({road.Length:F0} m)");
+            // the pad along Hwy 92's own line, on a shoulder (2.5 m past the paved edge): east on the right-hand (south) one to x 860, back west on the north one to x 700
+            foreach (var (east, name) in new[] { (true, "south"), (false, "north") })
+            {
+                float t0 = Time.time, maxSpeed = 0, minOver = float.MaxValue; bool fell = false, shot = false; int resets0 = race.Racers[0].Recoveries; float x0 = car.Body.position.x;
+                while (Time.time - t0 < 90 && (east ? car.Body.position.x < 860 : car.Body.position.x > 700))
                 {
-                    var start = new Vector3(way > 0 ? 700 : 880, 0, z); start.y = Ground1300r7(start) + .5f; // Put seats it from there Put(car, start, way > 0 ? 90 : 270, 22); FindAnyObjectByType<ChaseCamera>()?.Snap(); yield return new WaitForSeconds(.3f);
-                    float t0 = Time.time, minY = float.MaxValue, maxSpeed = 0; bool fell = false, shot = false; int resets0 = race.Racers[0].Recoveries;
-                    while (Time.time - t0 < 12 && (way > 0 ? car.Body.position.x < 870 : car.Body.position.x > 710))
-                    {
-                        var p = car.Body.position; Drive(car, new Vector3(p.x + way * 40, p.y, z), 30); yield return new WaitForSeconds(.1f);
-                        float gy = Ground1300r7(p); float over = p.y - (float.IsNaN(gy) ? -999 : gy); minY = Mathf.Min(minY, p.y); maxSpeed = Mathf.Max(maxSpeed, car.Body.linearVelocity.magnitude);
-                        if (p.y < 30 || float.IsNaN(gy)) { fell = true; Note($"   FELL on the {name} shoulder at {V(p)}"); break; }
-                        if (!shot && Mathf.Abs(p.x - (way > 0 ? 785 : 815)) < 4) { shot = true; float ts = Time.timeScale; Time.timeScale = 0; yield return Snap($"C-after-{name}-shoulder-{(way > 0 ? "east" : "west")}bound"); Time.timeScale = ts; }
-                    }
-                    Release();
-                    Note($"   {name} shoulder z {z}, {(way > 0 ? "eastbound" : "westbound")}: reached x {car.Body.position.x:F0}, up to {maxSpeed * 2.237f:0} mph, lowest {minY:F1} m, fell {fell}, resets {race.Racers[0].Recoveries - resets0}");
+                    var p = car.Body.position; float s = road.Project(p, out _); road.At(s, out var f0); int dir = (f0.x > 0) == east ? 1 : -1;
+                    float s2 = s + dir * 30; var q = road.At(s2, out var f); var right = Vector3.Cross(Vector3.up, f * dir).normalized; float side = east ? 1 : 1; // the right-hand shoulder of the way driven
+                    q += right * side * (road.HalfWidth(s2) + 2.5f); bool near = Mathf.Abs(p.x - 800) < 120;
+                    Drive(car, q, near ? 30 : 34); yield return new WaitForSeconds(.1f); if (!car.enabled) car.enabled = true;
+                    var line = road.At(s, out _); minOver = near ? Mathf.Min(minOver, p.y - line.y) : minOver; maxSpeed = Mathf.Max(maxSpeed, near ? car.Body.linearVelocity.magnitude : 0);
+                    if (p.y < line.y - 4) { fell = true; Note($"   FELL beside Hwy 92 at {V(p)} (road {line.y:F1} m)"); break; }
+                    if (!shot && Mathf.Abs(p.x - (east ? 785 : 815)) < 5) { shot = true; float ts = Time.timeScale; Time.timeScale = 0; yield return Snap($"C-after-{name}-shoulder-{(east ? "east" : "west")}bound"); Note($"   at the filled spot ({name} shoulder) {V(p)}, {car.Body.linearVelocity.magnitude * 2.237f:0} mph, {Mathf.Abs(road.ProjectNear(p, s, 30, out float lat) - s) * 0 + Mathf.Abs(lat):0.0} m from the line"); Time.timeScale = ts; }
                 }
+                Release();
+                Note($"   {name} shoulder, {(east ? "eastbound" : "westbound")} from x {x0:F0}: reached x {car.Body.position.x:F0}, up to {maxSpeed * 2.237f:0} mph within 120 m of the spots, lowest {minOver:F1} m over the road line there, fell {fell}, resets {race.Racers[0].Recoveries - resets0}");
+                yield return new WaitForSeconds(1);
+            }
         }
         static float Ground1300r7(Vector3 p) { Hole1300r7(p.x, p.z, out float y); return y; }
     }

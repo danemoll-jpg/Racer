@@ -156,7 +156,7 @@ namespace Racer
         // strip beside each shoulder was never filled and the old world-edge apron drops away under it: a pit about 4 m wide on each side of the road.
         // Each is covered by a ground patch (the neighbouring tile's ground, solid), its heights taken across from the ground on either side.
         // Not under the items' root: solid in every mode played in this scene, not only while the Free Roam items are shown.
-        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (793, 807, 541, 555), (793, 807, 568, 582) };
+        static readonly (float x0, float x1, float z0, float z1)[] Seams = { (795, 803, 541, 555), (795, 803, 568, 582) };
         public static readonly List<string> SeamReport = new(); // checks
         void FillSeams(Scene scene)
         {
@@ -166,18 +166,36 @@ namespace Racer
             foreach (var (x0, x1, z0, z1) in Seams)
             {
                 int nx = Mathf.RoundToInt(x1 - x0), nz = Mathf.RoundToInt(z1 - z0); var v = new List<Vector3>(); var t = new List<int>(); float lo = float.MaxValue, hi = float.MinValue;
+                var col = new List<Color>();
                 for (int j = 0; j <= nz; j++)
                 {
                     float z = z0 + j, yw = Ground(x0, z), ye = Ground(x1, z); lo = Mathf.Min(lo, Mathf.Min(yw, ye)); hi = Mathf.Max(hi, Mathf.Max(yw, ye));
-                    for (int i = 0; i <= nx; i++) v.Add(new Vector3(x0 + i, Mathf.Lerp(yw, ye, (float)i / nx) + .02f, z));
+                    // the ground's own colour either side (the ground shader is coloured by its vertices), blended across
+                    Color cw = GroundColour(x0, z, tile), ce = GroundColour(x1, z, tile);
+                    for (int i = 0; i <= nx; i++) { v.Add(new Vector3(x0 + i, Mathf.Lerp(yw, ye, (float)i / nx) + .02f, z)); col.Add(Color.Lerp(cw, ce, (float)i / nx)); }
                 }
                 for (int j = 0; j < nz; j++) for (int i = 0; i < nx; i++) { int a = j * (nx + 1) + i, b = a + 1, c = a + nx + 1, d = c + 1; t.AddRange(new[] { a, c, b, b, c, d }); }
-                var mesh = new Mesh { name = $"Hwy 92 seam fill x {x0:F0}-{x1:F0} z {z0:F0}-{z1:F0}" }; mesh.SetVertices(v); mesh.SetTriangles(t, 0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
+                var mesh = new Mesh { name = $"Hwy 92 seam fill x {x0:F0}-{x1:F0} z {z0:F0}-{z1:F0}" }; mesh.SetVertices(v); mesh.SetColors(col); mesh.SetTriangles(t, 0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
                 var g = new GameObject("Ground_" + mesh.name); g.transform.SetParent(holder.transform, false);
                 g.AddComponent<MeshFilter>().sharedMesh = mesh; var r = g.AddComponent<MeshRenderer>(); if (tile) r.sharedMaterial = tile.sharedMaterial; g.AddComponent<MeshCollider>().sharedMesh = mesh;
                 SeamReport.Add($"{mesh.name}: ground {lo:F1}..{hi:F1} m");
             }
             Debug.Log("Free Roam world: Hwy 92 seams filled: " + string.Join("; ", SeamReport));
+        }
+        // the vertex colour of the ground surface under a point (the top hit's triangle, when its mesh is readable and coloured); else the tile's mean
+        Color GroundColour(float x, float z, MeshRenderer tile)
+        {
+            foreach (var h in Physics.RaycastAll(new Vector3(x, 600, z), Vector3.down, 1200, ~0, QueryTriggerInteraction.Ignore).OrderBy(h => h.distance))
+            {
+                var c = h.collider as MeshCollider; if (!c || c.isTrigger || c.attachedRigidbody || h.normal.y < .45f || c.name.StartsWith("World edge") || (root && c.transform.IsChildOf(root))) continue;
+                var mf = c.GetComponent<MeshFilter>(); var m = mf && mf.sharedMesh && mf.sharedMesh.isReadable ? mf.sharedMesh : c.sharedMesh && c.sharedMesh.isReadable ? c.sharedMesh : null;
+                if (m == null || h.triangleIndex < 0) break;
+                var cs = m.colors; var tr = m.triangles; if (cs.Length == 0 || h.triangleIndex * 3 + 2 >= tr.Length) break;
+                var b = h.barycentricCoordinate; return cs[tr[h.triangleIndex * 3]] * b.x + cs[tr[h.triangleIndex * 3 + 1]] * b.y + cs[tr[h.triangleIndex * 3 + 2]] * b.z;
+            }
+            var tm = tile ? tile.GetComponent<MeshFilter>()?.sharedMesh : null;
+            if (tm && tm.isReadable && tm.colors.Length > 0) { var sum = Color.clear; foreach (var k in tm.colors) sum += k; return sum / tm.colors.Length; }
+            return new Color(.45f, .55f, .35f);
         }
         bool shown = true;
         void Shown(bool on) { if (root && shown != on) { shown = on; root.gameObject.SetActive(on); } }
