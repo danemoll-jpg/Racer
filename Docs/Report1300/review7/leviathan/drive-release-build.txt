@@ -80,24 +80,24 @@ screen=1280x800 kind=lev1300r7 version=1.3.0-review7 park=on
    barricades and rails in this race: 33, on the route: 0
 -- R-normal: the road AI until CP 38 is next, then the pad as a player to CP 44
    turns on the stretch (s): 7220, 7285, 7350, 7440, 7610
-   251 s: CP 38 next: the pad from 700.8,99.93,-276.5 (s 7072)
+   251 s: CP 38 next: the pad from 701.0,99.90,-275.9 (s 7072)
    (pad control: road AI False, input True, device Report106Pad, car driving False: the pad's)
    shot R-normal-turn-s7220 at 708.4,88.58,-162.8 s 7193: 25 m before the turn at s 7220; next CP 38 91 m away: IN VIEW (3/3 points); chevrons in view: none; ROAD CLOSED in view: (Mountain racing line, joining Leviathan at s 7253 (1.3.0-review6)), (Mountain racing line, leaving Leviathan at s 5848 (1.3.0-review6)); HUD arrow +12°; no scene arrow in view
-   shot R-normal-turn-s7285 at 747.7,86.19,-113.9 s 7257: 25 m before the turn at s 7285; next CP 38 42 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: none; HUD arrow -28°; no scene arrow in view
+   shot R-normal-turn-s7285 at 747.7,86.19,-114.0 s 7257: 25 m before the turn at s 7285; next CP 38 42 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: none; HUD arrow -28°; no scene arrow in view
    274 s: CP 38 passed (next 39) at 729.5,80.96,-87.0, 13 mph
-   shot R-normal-1-dans-photo-1-spot at 727.5,80.54,-84.8 s 7294: Dan's photo 1 spot (the end of the descent past CR117 CP 6); next CP 39 35 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: ( exploration only, joining Leviathan at s 5963 (kept: off Downhill Ridge Cut, 1.3.0-review6)); HUD arrow +41°; no scene arrow in view
-   277 s: CP 39 passed (next 40) at 716.5,79.69,-65.0, 23 mph
+   shot R-normal-1-dans-photo-1-spot at 727.6,80.55,-84.9 s 7294: Dan's photo 1 spot (the end of the descent past CR117 CP 6); next CP 39 35 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: ( exploration only, joining Leviathan at s 5963 (kept: off Downhill Ridge Cut, 1.3.0-review6)); HUD arrow +41°; no scene arrow in view
+   277 s: CP 39 passed (next 40) at 716.5,79.69,-65.0, 22 mph
    shot R-normal-turn-s7350 at 717.4,79.69,-60.9 s 7322: 25 m before the turn at s 7350; next CP 40 51 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: ( exploration only, joining Leviathan at s 4377); HUD arrow -14°; no scene arrow in view
-   282 s: CP 40 passed (next 41) at 726.2,79.69,-23.3, 16 mph
-   into the J1 rail on purpose at 16 mph from 726.2,79.69,-23.3
-   reached the rail at 46 mph, 725.5,79.69,-3.8
+   282 s: CP 40 passed (next 41) at 726.2,79.69,-23.2, 16 mph
+   into the J1 rail on purpose at 16 mph from 726.2,79.69,-23.2
+   reached the rail at 46 mph, 725.5,79.69,-4.2
    after the rail: at 723.0,79.69,2.0, 0 mph, 3.9 m from the line at s 7386 (on the road: True), upright 1.00, resets so far 0; went left onto the route
    BARRICADE within 2.5 m: (J1: the climb straight on from CP 39, closed this way (the climb is driven earlier in the lap; its own way past the rail stays open) (1.3.0-review7)) at 723.0,79.69,2.0, 0 mph
    stalled at 723.0,79.68,2.0 (next CP 41): backs up, then on at 0.75 of the speed; pad throttle 1.0 steer -1.0, kinematic False, grounded wheels 4, state Racing, time scale 1, car enabled True
-   294 s: CP 41 passed (next 42) at 704.5,78.82,10.7, 35 mph
-   shot R-normal-turn-s7440 at 699.5,78.90,16.3 s 7413: 25 m before the turn at s 7440; next CP 42 43 m away: IN VIEW (3/3 points); chevrons in view: none; ROAD CLOSED in view: (Lake shore connection, joining Leviathan at s 6159), ( exploration only, joining Leviathan at s 4377); HUD arrow -9°; no scene arrow in view
-   296 s: CP 42 passed (next 43) at 679.7,79.99,37.6, 48 mph
-   300 s: CP 43 passed (next 44) at 636.9,79.84,76.0, 46 mph
+   294 s: CP 41 passed (next 42) at 704.4,78.82,10.8, 35 mph
+   shot R-normal-turn-s7440 at 699.5,78.90,16.3 s 7413: 25 m before the turn at s 7440; next CP 42 43 m away: IN VIEW (3/3 points); chevrons in view: none; ROAD CLOSED in view: ( exploration only, joining Leviathan at s 4377), (Lake shore connection, joining Leviathan at s 6159); HUD arrow -9°; no scene arrow in view
+   296 s: CP 42 passed (next 43) at 679.6,79.98,37.7, 48 mph
+   300 s: CP 43 passed (next 44) at 637.0,79.84,76.1, 46 mph
    end of the stretch: next CP 44, missed gates 0, stalls 1, resets 0, barricades touched 1
 == Leviathan - Reverse (leviathan-reverse-v5), normal race: line 8365 m, 50 gates; record course leviathan-reverse-v5; camera FarChase (Dan's save's view)
    shortcuts: Hollow Creek Hop (s 3379-3540, bypasses 19) open, Rocky Way Cut (s 3900-4116, bypasses 22/23/24/25) open, Downhill Ridge Cut (s 5786-7336, bypasses 35/36/37/38/39) open
@@ -105,17 +105,89 @@ screen=1280x800 kind=lev1300r7 version=1.3.0-review7 park=on
    scene arrows hidden: 122 (72 of them Mountain Loop's teal ones)
 -- R-stunt: the road AI until CP 38 is next, then the pad as a player to CP 44
    turns on the stretch (s): 7220, 7285, 7350, 7440, 7610
-   250 s: CP 38 next: the pad from 700.6,99.88,-275.8 (s 7072)
+   250 s: CP 38 next: the pad from 700.9,99.90,-275.9 (s 7072)
    (pad control: road AI False, input True, device Report106Pad, car driving False: the pad's)
    shot R-stunt-turn-s7220 at 708.4,88.58,-162.8 s 7193: 25 m before the turn at s 7220; next CP 38 91 m away: IN VIEW (3/3 points); chevrons in view: none; ROAD CLOSED in view: (Mountain racing line, joining Leviathan at s 7253 (1.3.0-review6)), (Mountain racing line, leaving Leviathan at s 5848 (1.3.0-review6)); HUD arrow +12°; no scene arrow in view
-   shot R-stunt-turn-s7285 at 747.7,86.18,-113.8 s 7258: 25 m before the turn at s 7285; next CP 38 42 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: none; HUD arrow -27°; no scene arrow in view
-   273 s: CP 38 passed (next 39) at 729.5,80.96,-87.1, 13 mph
+   shot R-stunt-turn-s7285 at 747.7,86.18,-113.9 s 7258: 25 m before the turn at s 7285; next CP 38 42 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: none; HUD arrow -27°; no scene arrow in view
+   273 s: CP 38 passed (next 39) at 729.5,80.96,-87.0, 13 mph
    shot R-stunt-1-dans-photo-1-spot at 727.6,80.55,-84.9 s 7294: Dan's photo 1 spot (the end of the descent past CR117 CP 6); next CP 39 35 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: ( exploration only, joining Leviathan at s 5963 (kept: off Downhill Ridge Cut, 1.3.0-review6)); HUD arrow +41°; no scene arrow in view
-   276 s: CP 39 passed (next 40) at 716.5,79.69,-64.9, 22 mph
-   shot R-stunt-turn-s7350 at 717.4,79.69,-60.8 s 7323: 25 m before the turn at s 7350; next CP 40 51 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: ( exploration only, joining Leviathan at s 4377); HUD arrow -15°; no scene arrow in view
+   276 s: CP 39 passed (next 40) at 716.5,79.69,-65.0, 22 mph
+   shot R-stunt-turn-s7350 at 717.4,79.69,-60.9 s 7322: 25 m before the turn at s 7350; next CP 40 51 m away: IN VIEW (3/3 points); chevrons in view: chevron board left (J1: left onto the lake strip (on the rail)); ROAD CLOSED in view: ( exploration only, joining Leviathan at s 4377); HUD arrow -14°; no scene arrow in view
    281 s: CP 40 passed (next 41) at 726.2,79.69,-23.3, 16 mph
    285 s: CP 41 passed (next 42) at 704.5,78.78,10.9, 38 mph
-   shot R-stunt-turn-s7440 at 699.4,78.91,16.4 s 7413: 25 m before the turn at s 7440; next CP 42 43 m away: IN VIEW (3/3 points); chevrons in view: none; ROAD CLOSED in view: (Lake shore connection, joining Leviathan at s 6159), ( exploration only, joining Leviathan at s 4377); HUD arrow -8°; no scene arrow in view
-   287 s: CP 42 passed (next 43) at 679.5,79.88,37.7, 48 mph
-   291 s: CP 43 passed (next 44) at 636.9,79.84,75.9, 46 mph
+   shot R-stunt-turn-s7440 at 699.4,78.91,16.5 s 7413: 25 m before the turn at s 7440; next CP 42 43 m away: IN VIEW (3/3 points); chevrons in view: none; ROAD CLOSED in view: ( exploration only, joining Leviathan at s 4377), (Lake shore connection, joining Leviathan at s 6159); HUD arrow -8°; no scene arrow in view
+   287 s: CP 42 passed (next 43) at 679.5,79.89,37.8, 49 mph
+   291 s: CP 43 passed (next 44) at 637.0,79.84,76.1, 45 mph
    end of the stretch: next CP 44, missed gates 0, stalls 0, resets 0, barricades touched 0
+== Leviathan - Forward (leviathan-forward-v5), normal race: line 8027 m, 46 gates; record course leviathan-forward-v5; camera FarChase (Dan's save's view)
+   shortcuts: Climbing Ridge Cut (s 995-2384, bypasses 8/9) open, Creek Leap (s 4261-4861, bypasses 23/24/25/26/27) open, Existing Southwest Cut (s 5965-6116, bypasses 36) open, Fox Gully (s 4941-5511, bypasses 28/29/30/31) open, Pine Ridge (s 5581-6361, bypasses 33/34/35/36/37) open
+   flights: Eastbound Gully Flight s 1172-1719, Homeward Summit Flight s 2888-3468; mountain s 846-3620
+   scene arrows hidden: 70 (56 of them Mountain Loop's teal ones)
+     Main teal / before Climbing Ridge Cut fork at (725, -111): where the course passes twice
+     Main teal / main at Climbing Ridge Cut fork at (749, -142): ahead of another part of the lap (seen from s 3630)
+     Main teal / Climbing Ridge Cut rejoin at (1036, -43): Leviathan turns off within 80 m past it
+     Main teal / before Summit Traverse fork at (1024, 78): Leviathan turns off within 80 m past it
+     Main teal / Summit Traverse rejoin at (688, -3): Leviathan turns off within 80 m past it
+     Main teal / turn at (741, -118): where the course passes twice
+     Main teal / turn at (786, -255): Leviathan turns off within 80 m past it
+     Main teal / turn at (1075, -108): Leviathan turns off within 80 m past it
+     Main teal / turn at (1005, -127): Leviathan turns off within 80 m past it
+     Main teal / turn at (984, -118): Leviathan turns off within 80 m past it
+     Main teal / turn at (1011, 98): Leviathan turns off within 80 m past it
+     Main teal / turn at (1266, 219): Leviathan turns off within 80 m past it
+     Main teal / turn at (709, 69): Leviathan turns off within 80 m past it
+     Main teal / turn at (693, 51): Leviathan turns off within 80 m past it
+     Main teal / turn at (684, 28): Leviathan turns off within 80 m past it
+     Main teal / turn at (729, -12): Leviathan turns off within 80 m past it
+     Main teal / turn at (742, -31): not along the course
+     Main teal / turn at (724, -47): where the course passes twice
+     Main teal / reassurance at (1386, -202): Leviathan turns off within 80 m past it
+     Main teal / reassurance at (1169, -54): Leviathan turns off within 80 m past it
+     Main teal / reassurance at (1045, 46): Leviathan turns off within 80 m past it
+     Main teal / reassurance at (1215, 183): Leviathan turns off within 80 m past it
+     Main teal / reassurance at (1051, 167): ahead of another part of the lap (seen from s 2577)
+     Main teal / reassurance at (717, -85): where the course passes twice
+     Main teal arrow after bend at (1360, -260): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (748, -128): ahead of another part of the lap (seen from s 3615)
+     Main teal trail arrow at (750, -152): ahead of another part of the lap (seen from s 3642)
+     Main teal trail arrow at (754, -177): ahead of another part of the lap (seen from s 3615)
+     Main teal trail arrow at (762, -200): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (997, 117): not along the course
+     Main teal trail arrow at (1021, 125): ahead of another part of the lap (seen from s 3039)
+     Main teal trail arrow at (1044, 131): ahead of another part of the lap (seen from s 3015)
+     Main teal trail arrow at (1069, 133): ahead of another part of the lap (seen from s 2991)
+     Main teal trail arrow at (730, -114): where the course passes twice
+     Main teal trail arrow at (753, -171): ahead of another part of the lap (seen from s 3609)
+     Main teal trail arrow at (777, -235): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1315, -275): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1369, -246): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1386, -180): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1166, -54): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1103, -80): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1049, -122): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (984, -118): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1021, -61): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1051, 0): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (1034, 65): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (994, 116): not along the course
+     Main teal trail arrow at (1061, 132): ahead of another part of the lap (seen from s 3000)
+     Main teal trail arrow at (1155, 197): ahead of another part of the lap (seen from s 2589)
+     Main teal trail arrow at (1087, 178): ahead of another part of the lap (seen from s 2586)
+     Main teal trail arrow at (1020, 159): ahead of another part of the lap (seen from s 2508)
+     Main teal trail arrow at (776, 89): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (713, 72): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (683, 13): Leviathan turns off within 80 m past it
+     Main teal trail arrow at (737, -18): not along the course
+     Main teal trail arrow at (718, -77): where the course passes twice
+     ( exploration only, leaving Leviathan at s 1001 (kept: off Climbing Ridge Cut, 1.3.0-review7)) at 769.5,89.29,-124.6: 15.3 m clear of the line's edge
+     ( exploration only, leaving Leviathan at s 1479) at 1000.0,160.62,105.3: 3.0 m clear of the line's edge
+     ( exploration only, leaving Leviathan at s 2520) at 718.0,78.96,-33.1: 0.4 m clear of the line's edge
+     (Lake shore connection, leaving Leviathan at s 2925) at 487.5,87.87,-47.3: 2.7 m clear of the line's edge
+     (CR117 mandatory two-flight racing line, leaving Leviathan at s 2526 / CR117 mandatory two-flight racing line (both ways)) at 739.7,79.34,-20.8: 1.7 m clear of the line's edge
+     ( exploration only, joining Leviathan at s 2370 (1.3.0-review7)) at 993.7,134.81,-69.9: 4.0 m clear of the line's edge
+   barricades and rails in this race: 22, on the route: 0
+-- F-normal: the road AI until CP 8 is next, then the pad as a player to CP 10
+   turns on the stretch (s): 917, 982, 1122, 1682, 2267
+   41 s: CP 8 next: the pad from 711.8,82.60,-105.4 (s 956)
+   (pad control: road AI False, input True, device Report106Pad, car driving False: the pad's)
+   shot F-normal-turn-s982 at 711.8,82.60,-105.4 s 956: 25 m before the turn at s 982; next CP 8 213 m away: IN VIEW (3/3 points); chevrons in view: none; ROAD CLOSED in view: Road closed barrier 4, (CR117 mandatory two-flight racing line, leaving Leviathan at s 2588 / CR117 mandatory two-flight racing line (both ways) / CR117 mandatory two-flight racing line (both ways)), (CR117 mandatory two-flight racing line, leaving Leviathan at s 2588 / CR117 mandatory two-flight racing line (both ways) / CR117 mandatory two-flight racing line (both ways)), ( exploration only, leaving Leviathan at s 1001 (kept: off Climbing Ridge Cut, 1.3.0-review7)); HUD arrow +15°; no scene arrow in view
