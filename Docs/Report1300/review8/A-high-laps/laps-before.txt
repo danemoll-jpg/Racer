@@ -1,0 +1,72 @@
+screen=1280x800 kind=lap1300r8 version=1.3.0-review8 park=on
+== A. Mountain Loop - Forward (mountain-forward-v5-supported) HIGH MODE, one lap by the pad steering into the edges [before]: line 2760 m, 87 bumper pieces
+    0 s: at 740.8,79.93,-18.4 s 2650 (96 % of the lap), 0 m/s, next CP 0, off the line 2.3 m
+    30 s: at 1233.8,141.34,-50.7 s 1060 (38 % of the lap), 0 m/s, next CP 0, off the line 4.4 m
+    60 s: at 1057.0,142.47,-118.2 s 1258 (46 % of the lap), 25 m/s, next CP 0, off the line 1.2 m
+    90 s: at 999.1,133.98,-122.2 s 1318 (48 % of the lap), 0 m/s, next CP 0, off the line 4.4 m
+    120 s: at 1116.7,152.61,137.8 s 1715 (62 % of the lap), 26 m/s, next CP 0, off the line 0.8 m
+    151 s: at 748.7,86.80,-115.9 s 17 (1 % of the lap), 10 m/s, next CP 2, off the line 4.7 m
+    off the course at 782.5,91.47,-105.0 (s 18, 39 m off the line): the game's reset
+    181 s: at 778.3,90.24,-100.7 s 18 (1 % of the lap), 11 m/s, next CP 3, off the line 37.1 m
+    off the course at 777.6,89.91,-101.0 (s 18, 36 m off the line): the game's reset
+    off the course at 822.2,104.02,-80.4 (s 18, 87 m off the line): the game's reset
+    211 s: at 932.8,127.99,-41.6 s 2659 (96 % of the lap), 18 m/s, next CP 3, off the line 197.3 m
+    off the course at 952.5,131.53,-42.9 (s 2659, 217 m off the line): the game's reset
+    241 s: at 1007.7,139.28,-52.5 s 1403 (51 % of the lap), 0 m/s, next CP 3, off the line 15.7 m
+    off the course at 992.5,137.18,-49.1 (s 1395, 29 m off the line): the game's reset
+    271 s: at 1020.5,139.43,-66.0 s 1403 (51 % of the lap), 0 m/s, next CP 3, off the line 3.0 m
+    301 s: at 684.3,86.89,27.5 s 2562 (93 % of the lap), 15 m/s, next CP 0, off the line 1.0 m
+    332 s: at 1338.6,126.26,-102.9 s 941 (34 % of the lap), 27 m/s, next CP 0, off the line 1.0 m
+    362 s: at 1015.7,161.78,101.2 s 1590 (58 % of the lap), 13 m/s, next CP 0, off the line 5.0 m
+    392 s: at 747.4,87.34,-124.4 s 22 (1 % of the lap), 17 m/s, next CP 2, off the line 0.7 m
+    422 s: at 1010.0,135.82,-126.3 s 1306 (47 % of the lap), 9 m/s, next CP 0, off the line 1.2 m
+    452 s: at 683.2,86.04,18.3 s 2571 (93 % of the lap), 10 m/s, next CP 0, off the line 0.7 m
+    482 s: at 1350.1,123.08,-117.6 s 922 (33 % of the lap), 25 m/s, next CP 0, off the line 1.4 m
+    512 s: at 1219.3,142.39,-58.0 s 1073 (39 % of the lap), 0 m/s, next CP 0, off the line 4.4 m
+    542 s: at 1234.6,141.22,-55.1 s 1058 (38 % of the lap), 2 m/s, next CP 0, off the line 0.7 m
+    572 s: at 1252.1,139.69,-57.7 s 1041 (38 % of the lap), 5 m/s, next CP 0, off the line 0.7 m
+    602 s: at 1274.3,137.28,-66.2 s 1017 (37 % of the lap), 0 m/s, next CP 0, off the line 3.0 m
+    632 s: at 1292.2,134.84,-73.5 s 997 (36 % of the lap), 0 m/s, next CP 0, off the line 3.0 m
+    662 s: at 1309.3,131.90,-83.6 s 976 (35 % of the lap), 0 m/s, next CP 0, off the line 3.0 m
+    692 s: at 1010.9,137.84,-71.4 s 1392 (50 % of the lap), 25 m/s, next CP 0, off the line 0.7 m
+    722 s: at 731.0,80.74,-7.7 s 2637 (96 % of the lap), 9 m/s, next CP 0, off the line 4.4 m
+    753 s: at 1180.2,144.96,-52.1 s 1113 (40 % of the lap), 26 m/s, next CP 0, off the line 1.1 m
+    783 s: at 1156.2,152.61,152.9 s 1758 (64 % of the lap), 26 m/s, next CP 0, off the line 1.3 m
+    813 s: at 1367.7,100.84,-245.5 s 776 (28 % of the lap), 23 m/s, next CP 0, off the line 1.5 m
+    843 s: at 1046.2,146.63,-17.3 s 1459 (53 % of the lap), 24 m/s, next CP 0, off the line 1.8 m
+    873 s: at 735.9,79.59,-36.5 s 2670 (97 % of the lap), 16 m/s, next CP 0, off the line 0.8 m
+  900 s, lap done False, 54 pushes; stalls against a bumper 61 at 1233.8,141.33,-50.7; 1228.9,141.72,-50.1; 1222.9,142.18,-49.6; 1191.2,144.31,-49.8; 980.9,132.20,-113.7; 979.7,132.10,-116.2; 979.8,132.06,-119.0; 980.4,132.06,-121.3; 999.0,133.96,-122.2; 1054.4,149.99,16.4; 754.9,87.83,-119.3; 760.7,88.31,-116.3; 763.5,88.54,-114.9; 783.1,91.90,-98.0; 780.1,90.68,-99.7; 785.5,92.43,-103.4; 1017.5,140.17,-56.1; 1017.9,140.33,-56.3; 1014.5,139.92,-55.0; 1011.0,139.61,-53.7; 1007.6,139.27,-52.4; 1004.4,138.98,-51.2; 1000.6,138.54,-49.8; 997.4,138.00,-48.7; 994.4,137.35,-47.6; 1020.2,139.37,-66.3; 1206.2,143.34,-55.9; 1209.7,143.09,-56.0; 1213.1,142.85,-57.4; 1216.4,142.63,-57.8; 1219.5,142.38,-58.0; 1222.6,142.16,-58.3; 1226.1,141.87,-58.6; 1229.2,141.63,-58.9; 1232.6,141.35,-59.3; 1235.5,141.11,-59.6; 1238.4,140.86,-60.0; 1241.6,140.59,-60.4; 1244.6,140.32,-60.9; 1247.9,140.01,-61.4; 1250.9,139.73,-62.0; 1253.5,139.54,-61.1; 1256.9,139.17,-61.7; 1260.4,138.85,-62.5; 1264.9,138.35,-63.5; 1268.0,138.03,-64.4; 1271.2,137.66,-65.3; 1274.3,137.28,-66.2; 1277.4,136.91,-67.2; 1280.6,136.51,-68.3; 1283.6,136.10,-69.5; 1286.4,135.68,-70.7; 1289.3,135.26,-72.1; 1292.3,134.81,-73.5; 1295.2,134.36,-75.0; 1298.0,133.90,-76.6; 1300.9,133.39,-78.3; 1303.8,132.88,-80.1; 1306.7,132.39,-81.9; 1309.5,131.84,-83.8; 1321.5,130.22,-85.2; glances 0, pinned and turned 0, head on 0; resets 0 (the check's own 5); carried past a big flight 14
+== A. Leviathan - Reverse (leviathan-reverse-v5) HIGH MODE, one lap by the pad steering into the edges [before]: line 8365 m, 227 bumper pieces
+    0 s: at 316.8,23.27,481.1 s 8295 (99 % of the lap), 0 m/s, next CP 0, off the line 2.3 m
+    30 s: at -306.3,9.60,529.9 s 634 (8 % of the lap), 26 m/s, next CP 4, off the line 1.2 m
+    60 s: at -634.8,9.57,178.3 s 1291 (15 % of the lap), 1 m/s, next CP 7, off the line 3.8 m
+    90 s: at -620.8,7.01,-454.2 s 1924 (23 % of the lap), 26 m/s, next CP 10, off the line 1.2 m
+    120 s: at -27.8,31.20,-569.0 s 2608 (31 % of the lap), 20 m/s, next CP 13, off the line 1.4 m
+    150 s: at 413.6,38.33,-440.5 s 3329 (40 % of the lap), 26 m/s, next CP 18, off the line 0.8 m
+    180 s: at 539.2,47.88,-201.7 s 3831 (46 % of the lap), 19 m/s, next CP 22, off the line 4.4 m
+    210 s: at 716.6,79.61,3.9 s 4357 (52 % of the lap), 15 m/s, next CP 28, off the line 1.1 m
+    240 s: at 1040.9,157.92,186.2 s 4822 (58 % of the lap), 17 m/s, next CP 33, off the line 1.1 m
+    271 s: at 812.1,96.78,-146.1 s 5829 (70 % of the lap), 15 m/s, next CP 0, off the line 0.9 m
+    301 s: at 1233.1,128.67,-117.8 s 6295 (75 % of the lap), 17 m/s, next CP 0, off the line 0.9 m
+    331 s: at 727.6,80.31,-83.3 s 7296 (87 % of the lap), 16 m/s, next CP 0, off the line 1.9 m
+    361 s: at 473.3,87.14,-29.2 s 7723 (92 % of the lap), 6 m/s, next CP 0, off the line 7.2 m
+    391 s: at 470.6,88.46,-43.0 s 7723 (92 % of the lap), 0 m/s, next CP 0, off the line 21.2 m
+    off the course at 476.7,88.79,-50.6 (s 7721, 28 m off the line): the game's reset
+    421 s: at 474.3,80.63,6.5 s 7753 (93 % of the lap), 12 m/s, next CP 0, off the line 1.0 m
+    451 s: at 236.7,9.68,559.8 s 88 (1 % of the lap), 26 m/s, next CP 2, off the line 1.1 m
+    481 s: at -520.6,8.61,536.2 s 848 (10 % of the lap), 26 m/s, next CP 5, off the line 3.2 m
+    511 s: at -626.8,15.59,-103.4 s 1573 (19 % of the lap), 23 m/s, next CP 8, off the line 7.8 m
+    541 s: at -339.2,10.76,-565.9 s 2292 (27 % of the lap), 26 m/s, next CP 11, off the line 1.4 m
+    571 s: at 103.2,40.38,-286.3 s 2966 (35 % of the lap), 25 m/s, next CP 16, off the line 1.1 m
+    602 s: at 543.0,27.03,-381.9 s 3642 (44 % of the lap), 25 m/s, next CP 21, off the line 1.1 m
+    632 s: at 567.1,83.80,53.6 s 4168 (50 % of the lap), 23 m/s, next CP 26, off the line 2.0 m
+    662 s: at 818.3,119.63,80.6 s 4517 (54 % of the lap), 12 m/s, next CP 30, off the line 2.5 m
+    692 s: at 1035.5,152.69,317.9 s 4971 (59 % of the lap), 16 m/s, next CP 33, off the line 0.8 m
+    722 s: at 934.6,124.97,-101.7 s 5977 (71 % of the lap), 15 m/s, next CP 0, off the line 0.9 m
+    752 s: at 1279.3,111.15,-250.6 s 6439 (77 % of the lap), 15 m/s, next CP 0, off the line 0.7 m
+    782 s: at 726.0,79.69,-17.5 s 7368 (88 % of the lap), 15 m/s, next CP 0, off the line 0.8 m
+    812 s: at 490.8,82.92,-22.7 s 7706 (92 % of the lap), 8 m/s, next CP 0, off the line 0.9 m
+    842 s: at 469.9,88.21,-39.3 s 7723 (92 % of the lap), 0 m/s, next CP 0, off the line 17.7 m
+    off the course at 476.5,88.76,-49.8 (s 7721, 28 m off the line): the game's reset
+    878 s: at 477.1,81.51,1.6 s 7748 (93 % of the lap), 0 m/s, next CP 0, off the line 3.9 m
+  900 s, lap done False, 93 pushes; stalls against a bumper 30 at -634.9,9.57,178.2; 536.7,31.53,-477.7; 469.4,87.19,-29.9; 469.2,87.42,-31.5; 469.2,87.65,-33.6; 469.4,87.89,-35.8; 469.7,88.10,-38.1; 470.0,88.29,-40.4; 470.5,88.46,-43.0; 471.2,88.59,-45.7; 471.8,88.68,-48.2; 472.9,88.80,-52.2; 477.1,81.42,2.1; 531.3,83.28,-5.0; 652.6,78.86,46.2; 740.7,83.31,-94.3; 550.7,81.52,45.9; 507.3,80.26,-13.9; 469.8,86.95,-28.1; 469.4,87.19,-29.9; 469.2,87.41,-31.4; 469.2,87.64,-33.3; 469.4,87.89,-35.9; 469.8,88.20,-39.2; 470.3,88.38,-41.7; 470.8,88.52,-44.1; 471.4,88.63,-46.7; 472.1,88.71,-49.2; 472.8,88.79,-51.7; 477.1,81.41,2.1; glances 0, pinned and turned 0, head on 0; resets 0 (the check's own 2); carried past a big flight 4

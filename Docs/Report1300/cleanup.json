@@ -1,43 +1,75 @@
 {
-    "freeAfter":  132961173504,
-    "buildsAfter":  8348038836,
-    "freeBefore":  126984212480,
+    "freeAfter":  230631202816,
+    "buildsAfter":  8348277361,
+    "freeBefore":  217263239168,
     "removed":  [
                     {
-                        "bytes":  1849103577,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review7-Windows"
+                        "bytes":  1849144954,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review8-Windows"
                     },
                     {
-                        "bytes":  431814203,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-1030600\\assets\\game.zip"
+                        "bytes":  431831865,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-1030700\\assets\\game.zip"
                     },
                     {
                         "bytes":  0,
                         "path":  "C:\\Users\\danmo\\Racer\\Temp\\Report1300-signature-check"
                     },
                     {
-                        "bytes":  1847263916,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r7"
+                        "bytes":  1847305012,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8"
                     },
                     {
                         "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r7-build.txt"
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8-build.txt"
                     },
                     {
-                        "bytes":  1847265964,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r7b"
+                        "bytes":  1847305524,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8b"
                     },
                     {
                         "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r7b-build.txt"
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8b-build.txt"
+                    },
+                    {
+                        "bytes":  1847306548,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8c"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8c-build.txt"
+                    },
+                    {
+                        "bytes":  1847307572,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8d"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8d-build.txt"
+                    },
+                    {
+                        "bytes":  1847308084,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8e"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8e-build.txt"
+                    },
+                    {
+                        "bytes":  1847309108,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8f"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8f-build.txt"
                     }
                 ],
-    "buildsBefore":  14323486580,
-    "buildsRecovered":  5975447744,
+    "buildsBefore":  21713096280,
+    "buildsRecovered":  13364818919,
     "retained":  [
                      "Latest complete root runtime",
-                     "managed 1030600",
-                     "managed 1030500 (1.3.0-review6)",
+                     "managed 1030700",
+                     "managed 1030600 (1.3.0-review7)",
                      "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
                  ]
 }

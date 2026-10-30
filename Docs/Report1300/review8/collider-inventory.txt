@@ -1,0 +1,534 @@
+=== DansBackyardForward
+   30 BoxCollider | Abandoned cabin wall | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Abandoned cabin wall at (215, 73, 83) size (1.0, 1.4, 0.3) layer 0 mat -
+    2 BoxCollider | Cabin end wall below roof | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Cabin end wall below roof at (216, 73, 80) size (1.1, 0.6, 5.8) layer 0 mat -
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Forward logging gate | parent Reverse optional forest shortcuts [some inactive] e.g. Reverse optional forest shortcuts/Forward logging gate at (382, 82, 86) size (0.0, 0.0, 0.0) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+    1 BoxCollider | Solid closed grate (0.102) | parent Forward closed drainage grate [some inactive] e.g. Reverse optional forest shortcuts/Forward closed drainage grate/Solid closed grate (0.102) at (167, 66, 73) size (0.0, 0.0, 0.0) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.2, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 83, -114) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 157, 162) size (0.2, 2.6, 0.2) layer 0 mat -
+   17 BoxCollider | Visible steel grate | parent Forward closed drainage grate [some inactive] e.g. Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate at (169, 66, 69) size (0.0, 0.0, 0.0) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+    1 MeshCollider | Ground_Worn logging crest | parent Reverse optional forest shortcuts e.g. Reverse optional forest shortcuts/Ground_Worn logging crest at (335, 80, 104) size (112.5, 8.4, 47.6) layer 0 mat -
+    1 MeshCollider | Landing - Treehouse platforms and narrow bridges | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Landing - Treehouse platforms and narrow bridges at (193, 55, -64) size (31.4, 12.7, 59.2) layer 0 mat -
+    1 MeshCollider | Long storm culvert walls and ceiling | parent Reverse optional forest shortcuts e.g. Reverse optional forest shortcuts/Long storm culvert walls and ceiling at (141, 50, 3) size (55.5, 38.8, 148.1) layer 0 mat -
+=== DansBackyardReverse
+   30 BoxCollider | Abandoned cabin wall | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Abandoned cabin wall at (215, 73, 83) size (1.0, 1.4, 0.3) layer 0 mat -
+    2 BoxCollider | Cabin end wall below roof | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Cabin end wall below roof at (216, 73, 80) size (1.3, 1.4, 5.9) layer 0 mat -
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Forward logging gate | parent Reverse optional forest shortcuts [some inactive] e.g. Reverse optional forest shortcuts/Forward logging gate at (382, 82, 86) size (0.0, 0.0, 0.0) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    9 BoxCollider | Grounded timber barricade beam | parent Reverse timber closure A# e.g. Reverse-only divergence closures/Reverse timber closure A1/Grounded timber barricade beam at (217, 60, -23) size (5.1, 0.6, 4.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.2, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 83, -114) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 157, 162) size (0.2, 2.6, 0.2) layer 0 mat -
+   17 BoxCollider | Visible steel grate | parent Forward closed drainage grate [some inactive] e.g. Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate at (169, 67, 69) size (0.0, 0.0, 0.0) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+    1 MeshCollider | Landing - Treehouse platforms and narrow bridges | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Landing - Treehouse platforms and narrow bridges at (193, 55, -64) size (31.4, 12.7, 59.2) layer 0 mat -
+    1 MeshCollider | Long storm culvert walls and ceiling | parent Reverse optional forest shortcuts e.g. Reverse optional forest shortcuts/Long storm culvert walls and ceiling at (141, 50, 4) size (55.0, 38.6, 146.3) layer 0 mat -
+=== ForestLoopReverse
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.1, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 83, -114) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 157, 162) size (0.2, 2.6, 0.2) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Echo Cave enclosed rock | parent CR# Forest Loop e.g. CR056 Forest Loop/Echo Cave enclosed rock at (53, 42, 87) size (216.4, 39.6, 370.0) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+=== FreeRoamWorld
+   30 BoxCollider | Abandoned cabin wall | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Abandoned cabin wall at (215, 73, 83) size (1.0, 1.4, 0.3) layer 0 mat -
+    2 BoxCollider | Cabin end wall below roof | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Cabin end wall below roof at (216, 73, 80) size (1.1, 0.6, 5.8) layer 0 mat -
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Forward logging gate | parent Reverse optional forest shortcuts [some inactive] e.g. Reverse optional forest shortcuts/Forward logging gate at (382, 82, 86) size (0.0, 0.0, 0.0) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    9 BoxCollider | Grounded timber barricade beam | parent Reverse timber closure A# e.g. Reverse-only divergence closures/Reverse timber closure A1/Grounded timber barricade beam at (217, 60, -23) size (5.1, 0.6, 4.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.2, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 83, -114) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 79, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 157, 162) size (0.2, 2.6, 0.2) layer 0 mat -
+   17 BoxCollider | Visible steel grate | parent Forward closed drainage grate [some inactive] e.g. Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate at (169, 67, 69) size (0.0, 0.0, 0.0) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 0 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 0 at (813, 35, -768) size (46.0, 42.2, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 1 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 1 at (818, 34, -753) size (36.0, 43.2, 66.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 10 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 10 at (818, 30, 517) size (36.0, 72.3, 74.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 11 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 11 at (818, 28, 605) size (36.0, 68.4, 70.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 12 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 12 at (818, 33, 680) size (36.0, 46.5, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 13 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 13 at (818, 31, 760) size (36.0, 42.8, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 14 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 14 at (818, 31, 843) size (36.0, 43.7, 86.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 15 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 15 at (813, 30, 868) size (46.0, 42.0, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 16 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 16 at (920, 79, -288) size (80.0, 42.2, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 17 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 17 at (920, 88, 348) size (80.0, 46.2, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 18 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 18 at (1000, 79, -288) size (80.0, 42.1, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 19 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 19 at (1000, 90, 348) size (80.0, 43.5, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 2 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 2 at (818, 31, -680) size (36.0, 46.6, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 20 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 20 at (1080, 79, -288) size (80.0, 42.2, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 21 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 21 at (1080, 86, 348) size (80.0, 47.0, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 22 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 22 at (1178, 79, -288) size (116.0, 42.1, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 23 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 23 at (1218, 79, -273) size (36.0, 42.1, 66.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 24 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 24 at (1218, 79, -200) size (36.0, 42.7, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 25 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 25 at (1218, 81, -120) size (36.0, 44.3, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 26 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 26 at (1218, 84, -40) size (36.0, 46.1, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 27 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 27 at (1218, 88, 40) size (36.0, 45.2, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 28 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 28 at (1218, 89, 120) size (36.0, 43.4, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 29 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 29 at (1218, 121, 200) size (36.0, 106.8, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 3 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 3 at (818, 30, -600) size (36.0, 44.9, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 30 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 30 at (1218, 87, 280) size (36.0, 54.5, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 31 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 31 at (1218, 81, 343) size (36.0, 42.3, 46.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 32 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 32 at (1178, 82, 348) size (116.0, 45.6, 36.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 4 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 4 at (818, 34, -520) size (36.0, 47.0, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 5 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 5 at (818, 36, -440) size (36.0, 44.2, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 6 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 6 at (818, 35, -360) size (36.0, 43.4, 80.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 7 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 7 at (840, 57, -295) size (80.0, 85.7, 50.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 8 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 8 at (840, 70, 365) size (80.0, 74.7, 70.0) layer 0 mat -
+    1 MeshCollider | Ground_Edge apron 9 | parent #.# World edge seal e.g. 0.95 World edge seal/Ground_Edge apron 9 at (818, 49, 440) size (36.0, 50.3, 80.0) layer 0 mat -
+    1 MeshCollider | Landing - Treehouse platforms and narrow bridges | parent Backyard optional forest shortcuts e.g. Backyard optional forest shortcuts/Landing - Treehouse platforms and narrow bridges at (193, 55, -64) size (31.4, 12.7, 59.2) layer 0 mat -
+    1 MeshCollider | Long storm culvert walls and ceiling | parent Reverse optional forest shortcuts e.g. Reverse optional forest shortcuts/Long storm culvert walls and ceiling at (141, 50, 4) size (55.0, 38.6, 146.3) layer 0 mat -
+=== LakeWoods
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.1, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 83, -114) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 157, 162) size (0.2, 2.6, 0.2) layer 0 mat -
+   25 BoxCollider | Tree trunk | parent Summit Climb edge tree trunks e.g. CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk at (539, 52, -200) size (1.0, 8.2, 1.0) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Echo Cave enclosed rock | parent CR# Forest Loop e.g. CR056 Forest Loop/Echo Cave enclosed rock at (53, 38, 86) size (213.3, 32.1, 368.4) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 0 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 0 at (149, 48, 266) size (1.9, 1.0, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 1 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 1 at (147, 47, 263) size (2.4, 1.0, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 10 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 10 at (122, 45, 226) size (1.7, 1.4, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 11 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 11 at (129, 45, 221) size (1.8, 1.1, 2.5) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 12 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 12 at (127, 44, 218) size (2.8, 1.2, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 13 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 13 at (115, 44, 217) size (1.6, 0.9, 1.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 14 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 14 at (111, 43, 209) size (2.4, 0.9, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 15 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 15 at (108, 43, 205) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 16 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 16 at (103, 42, 195) size (2.2, 1.4, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 17 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 17 at (110, 42, 190) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 18 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 18 at (101, 42, 192) size (2.4, 1.2, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 19 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 19 at (107, 42, 183) size (2.6, 1.2, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 2 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 2 at (150, 47, 252) size (1.9, 0.9, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 20 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 20 at (99, 42, 187) size (1.7, 0.9, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 21 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 21 at (104, 41, 177) size (2.9, 1.0, 2.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 22 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 22 at (93, 41, 176) size (1.8, 0.9, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 23 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 23 at (102, 41, 175) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 24 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 24 at (58, 36, 95) size (2.1, 1.2, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 25 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 25 at (66, 35, 91) size (1.5, 0.9, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 26 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 26 at (63, 35, 86) size (2.0, 1.1, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 27 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 27 at (52, 35, 85) size (1.9, 1.3, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 28 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 28 at (57, 35, 76) size (2.0, 1.2, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 29 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 29 at (48, 34, 79) size (2.3, 0.9, 2.4) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 3 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 3 at (147, 47, 248) size (2.4, 1.0, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 30 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 30 at (55, 34, 72) size (2.3, 1.3, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 31 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 31 at (-5, 23, -24) size (2.0, 1.0, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 32 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 32 at (-15, 23, -23) size (1.8, 1.2, 1.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 33 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 33 at (-11, 23, -33) size (1.9, 1.2, 2.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 34 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 34 at (-19, 23, -29) size (3.1, 1.3, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 35 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 35 at (-21, 23, -49) size (2.1, 1.3, 2.1) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 36 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 36 at (-31, 23, -49) size (2.1, 1.3, 2.6) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 37 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 37 at (-34, 23, -54) size (2.2, 1.2, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 38 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 38 at (-40, 24, -64) size (1.8, 1.4, 1.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 39 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 39 at (-41, 24, -67) size (2.3, 1.2, 2.6) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 4 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 4 at (138, 46, 252) size (2.3, 0.9, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 40 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 40 at (-43, 24, -70) size (2.1, 0.9, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 41 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 41 at (-38, 24, -80) size (2.0, 1.1, 2.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 42 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 42 at (-46, 24, -76) size (2.9, 1.2, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 43 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 43 at (-41, 24, -86) size (2.3, 0.9, 2.5) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 44 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 44 at (-42, 24, -90) size (1.5, 1.1, 2.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 5 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 5 at (141, 46, 239) size (2.0, 1.0, 2.4) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 6 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 6 at (138, 46, 235) size (1.8, 1.4, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 7 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 7 at (126, 45, 233) size (1.8, 0.9, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 8 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 8 at (131, 45, 225) size (1.7, 1.0, 1.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 9 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 9 at (124, 45, 230) size (2.3, 0.9, 2.3) layer 0 mat -
+    1 MeshCollider | Wall-side fallen slab | parent Echo Cave partial rockfall e.g. CR056 Forest Loop/Echo Cave partial rockfall/Wall-side fallen slab at (86, 40, 135) size (5.8, 3.9, 7.9) layer 0 mat -
+=== MountainLoop
+    1 BoxCollider | Barrier collision | parent Road closed barrier # e.g. Closed roads (race only)/Road closed barrier 4/Barrier collision at (789, 93, -127) size (1.4, 1.4, 14.4) layer 0 mat -
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.7, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.1, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 82, -114) size (0.2, 4.1, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 156, 162) size (0.2, 2.5, 0.2) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Echo Cave enclosed rock | parent CR# Forest Loop e.g. CR056 Forest Loop/Echo Cave enclosed rock at (53, 38, 86) size (213.3, 32.1, 368.4) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+    1 MeshCollider | Ground_CR110 main supported trail | parent CR# mountain race geometry [some inactive] e.g. CR110 mountain race geometry/Ground_CR110 main supported trail at (0, 0, 0) size (0.0, 0.0, 0.0) layer 0 mat -
+    1 MeshCollider | Ground_Report067 edge shoulders | parent - e.g. Ground_Report067 edge shoulders at (1037, 104, -33) size (720.2, 113.7, 498.3) layer 0 mat -
+    1 MeshCollider | Ground_Report068 barrier Homeward Summit Flight bend | parent - e.g. Ground_Report068 barrier Homeward Summit Flight bend at (709, 94, 73) size (57.1, 13.1, 51.4) layer 0 mat -
+    1 MeshCollider | Ground_Report069 barrier Climbing Ridge Cut rejoin (BUG-008) | parent - e.g. Ground_Report069 barrier Climbing Ridge Cut rejoin (BUG-008) at (1031, 126, -63) size (31.3, 36.7, 36.7) layer 0 mat -
+    1 MeshCollider | Ground_Report071 patch BUG-004 main s 12 trail edge | parent - e.g. Ground_Report071 patch BUG-004 main s 12 trail edge at (735, 83, -132) size (14.0, 8.6, 21.0) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoop natural edge 0 | parent - e.g. Ground_ReportCleanup MountainLoop natural edge 0 at (1003, 159, 114) size (5.9, 3.1, 5.3) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoop natural edge 1 | parent - e.g. Ground_ReportCleanup MountainLoop natural edge 1 at (997, 159, 110) size (6.5, 3.1, 5.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 0 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 0 at (149, 48, 266) size (1.9, 1.0, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 1 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 1 at (147, 47, 263) size (2.4, 1.0, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 10 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 10 at (122, 45, 226) size (1.7, 1.4, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 11 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 11 at (129, 45, 221) size (1.8, 1.1, 2.5) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 12 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 12 at (127, 44, 218) size (2.8, 1.2, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 13 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 13 at (115, 44, 217) size (1.6, 0.9, 1.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 14 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 14 at (111, 43, 209) size (2.4, 0.9, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 15 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 15 at (108, 43, 205) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 16 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 16 at (103, 42, 195) size (2.2, 1.4, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 17 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 17 at (110, 42, 190) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 18 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 18 at (101, 42, 192) size (2.4, 1.2, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 19 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 19 at (107, 42, 183) size (2.6, 1.2, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 2 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 2 at (150, 47, 252) size (1.9, 0.9, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 20 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 20 at (99, 42, 187) size (1.7, 0.9, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 21 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 21 at (104, 41, 177) size (2.9, 1.0, 2.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 22 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 22 at (93, 41, 176) size (1.8, 0.9, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 23 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 23 at (102, 41, 175) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 24 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 24 at (58, 36, 95) size (2.1, 1.2, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 25 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 25 at (66, 35, 91) size (1.5, 0.9, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 26 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 26 at (63, 35, 86) size (2.0, 1.1, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 27 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 27 at (52, 35, 85) size (1.9, 1.3, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 28 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 28 at (57, 35, 76) size (2.0, 1.2, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 29 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 29 at (48, 34, 79) size (2.3, 0.9, 2.4) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 3 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 3 at (147, 47, 248) size (2.4, 1.0, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 30 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 30 at (55, 34, 72) size (2.3, 1.3, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 31 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 31 at (-5, 23, -24) size (2.0, 1.0, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 32 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 32 at (-15, 23, -23) size (1.8, 1.2, 1.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 33 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 33 at (-11, 23, -33) size (1.9, 1.2, 2.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 34 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 34 at (-19, 23, -29) size (3.1, 1.3, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 35 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 35 at (-21, 23, -49) size (2.1, 1.3, 2.1) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 36 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 36 at (-31, 23, -49) size (2.1, 1.3, 2.6) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 37 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 37 at (-34, 23, -54) size (2.2, 1.2, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 38 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 38 at (-40, 24, -64) size (1.8, 1.4, 1.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 39 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 39 at (-41, 24, -67) size (2.3, 1.2, 2.6) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 4 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 4 at (138, 46, 252) size (2.3, 0.9, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 40 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 40 at (-43, 24, -70) size (2.1, 0.9, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 41 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 41 at (-38, 24, -80) size (2.0, 1.1, 2.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 42 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 42 at (-46, 24, -76) size (2.9, 1.2, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 43 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 43 at (-41, 24, -86) size (2.3, 0.9, 2.5) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 44 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 44 at (-42, 24, -90) size (1.5, 1.1, 2.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 5 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 5 at (141, 46, 239) size (2.0, 1.0, 2.4) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 6 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 6 at (138, 46, 235) size (1.8, 1.4, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 7 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 7 at (126, 45, 233) size (1.8, 0.9, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 8 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 8 at (131, 45, 225) size (1.7, 1.0, 1.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 9 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 9 at (124, 45, 230) size (2.3, 0.9, 2.3) layer 0 mat -
+    1 MeshCollider | Wall-side fallen slab | parent Echo Cave partial rockfall e.g. CR056 Forest Loop/Echo Cave partial rockfall/Wall-side fallen slab at (86, 40, 135) size (5.8, 3.9, 7.9) layer 0 mat -
+=== MountainLoopReverse
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 103, -118) size (0.2, 3.9, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 155, 59) size (0.2, 2.9, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.1, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (713, 83, -109) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 158, 162) size (0.2, 4.6, 0.2) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Echo Cave enclosed rock | parent CR# Forest Loop e.g. CR056 Forest Loop/Echo Cave enclosed rock at (53, 38, 86) size (213.3, 32.1, 368.4) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+    1 MeshCollider | Ground_CR110 main supported trail | parent CR# mountain race geometry [some inactive] e.g. CR110 mountain race geometry/Ground_CR110 main supported trail at (0, 0, 0) size (0.0, 0.0, 0.0) layer 0 mat -
+    1 MeshCollider | Ground_Report067 edge shoulders | parent - e.g. Ground_Report067 edge shoulders at (889, 93, 62) size (431.8, 145.2, 550.8) layer 0 mat -
+    1 MeshCollider | Ground_Report068 barrier Downhill Ridge Cut jumps | parent - e.g. Ground_Report068 barrier Downhill Ridge Cut jumps at (695, 72, -109) size (40.4, 32.8, 83.6) layer 0 mat -
+    1 MeshCollider | Ground_Report068 barrier South Face Summit Flight bend | parent - e.g. Ground_Report068 barrier South Face Summit Flight bend at (971, 82, -243) size (59.1, 21.5, 59.9) layer 0 mat -
+    1 MeshCollider | Ground_Report070 barrier summit crest outcrop (0.70 BUG-005/006) | parent - e.g. Ground_Report070 barrier summit crest outcrop (0.70 BUG-005/006) at (1025, 160, 119) size (40.3, 29.9, 61.4) layer 0 mat -
+    1 MeshCollider | Ground_Report080 BUG-009 edge seam cover | parent - e.g. Ground_Report080 BUG-009 edge seam cover at (807, 96, -189) size (25.3, 1.3, 16.4) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 0 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 0 at (1010, 160, 110) size (5.3, 2.9, 7.1) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 1 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 1 at (1006, 164, 84) size (5.8, 2.9, 7.8) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 2 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 2 at (1022, 158, 98) size (5.9, 2.9, 8.0) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 3 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 3 at (1032, 156, 85) size (5.5, 2.9, 7.5) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 4 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 4 at (1047, 141, -45) size (5.2, 3.5, 6.7) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 5 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 5 at (1042, 139, -53) size (5.0, 3.5, 6.4) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 6 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 6 at (1036, 138, -60) size (5.4, 3.5, 6.9) layer 0 mat -
+    1 MeshCollider | Ground_ReportCleanup MountainLoopReverse natural edge 7 | parent - e.g. Ground_ReportCleanup MountainLoopReverse natural edge 7 at (1029, 141, -66) size (5.9, 3.5, 7.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 0 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 0 at (149, 48, 266) size (1.9, 1.0, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 1 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 1 at (147, 47, 263) size (2.4, 1.0, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 10 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 10 at (122, 45, 226) size (1.7, 1.4, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 11 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 11 at (129, 45, 221) size (1.8, 1.1, 2.5) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 12 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 12 at (127, 44, 218) size (2.8, 1.2, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 13 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 13 at (115, 44, 217) size (1.6, 0.9, 1.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 14 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 14 at (111, 43, 209) size (2.4, 0.9, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 15 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 15 at (108, 43, 205) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 16 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 16 at (103, 42, 195) size (2.2, 1.4, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 17 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 17 at (110, 42, 190) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 18 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 18 at (101, 42, 192) size (2.4, 1.2, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 19 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 19 at (107, 42, 183) size (2.6, 1.2, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 2 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 2 at (150, 47, 252) size (1.9, 0.9, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 20 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 20 at (99, 42, 187) size (1.7, 0.9, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 21 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 21 at (104, 41, 177) size (2.9, 1.0, 2.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 22 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 22 at (93, 41, 176) size (1.8, 0.9, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 23 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 23 at (102, 41, 175) size (2.3, 1.3, 2.3) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 24 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 24 at (58, 36, 95) size (2.1, 1.2, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 25 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 25 at (66, 35, 91) size (1.5, 0.9, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 26 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 26 at (63, 35, 86) size (2.0, 1.1, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 27 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 27 at (52, 35, 85) size (1.9, 1.3, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 28 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 28 at (57, 35, 76) size (2.0, 1.2, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 29 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 29 at (48, 34, 79) size (2.3, 0.9, 2.4) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 3 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 3 at (147, 47, 248) size (2.4, 1.0, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 30 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 30 at (55, 34, 72) size (2.3, 1.3, 2.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 31 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 31 at (-5, 23, -24) size (2.0, 1.0, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 32 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 32 at (-15, 23, -23) size (1.8, 1.2, 1.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 33 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 33 at (-11, 23, -33) size (1.9, 1.2, 2.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 34 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 34 at (-19, 23, -29) size (3.1, 1.3, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 35 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 35 at (-21, 23, -49) size (2.1, 1.3, 2.1) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 36 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 36 at (-31, 23, -49) size (2.1, 1.3, 2.6) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 37 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 37 at (-34, 23, -54) size (2.2, 1.2, 2.2) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 38 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 38 at (-40, 24, -64) size (1.8, 1.4, 1.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 39 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 39 at (-41, 24, -67) size (2.3, 1.2, 2.6) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 4 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 4 at (138, 46, 252) size (2.3, 0.9, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 40 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 40 at (-43, 24, -70) size (2.1, 0.9, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 41 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 41 at (-38, 24, -80) size (2.0, 1.1, 2.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 42 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 42 at (-46, 24, -76) size (2.9, 1.2, 3.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 43 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 43 at (-41, 24, -86) size (2.3, 0.9, 2.5) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 44 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 44 at (-42, 24, -90) size (1.5, 1.1, 2.7) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 5 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 5 at (141, 46, 239) size (2.0, 1.0, 2.4) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 6 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 6 at (138, 46, 235) size (1.8, 1.4, 1.8) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 7 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 7 at (126, 45, 233) size (1.8, 0.9, 2.0) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 8 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 8 at (131, 45, 225) size (1.7, 1.0, 1.9) layer 0 mat -
+    1 MeshCollider | Grounded cave edge boulder 9 | parent CR# Forest Loop e.g. CR056 Forest Loop/Grounded cave edge boulder 9 at (124, 45, 230) size (2.3, 0.9, 2.3) layer 0 mat -
+    8 MeshCollider | Summit natural edge boulder | parent - e.g. Summit natural edge boulder at (1020, 163, 70) size (2.7, 1.4, 2.2) layer 0 mat -
+    1 MeshCollider | Wall-side fallen slab | parent Echo Cave partial rockfall e.g. CR056 Forest Loop/Echo Cave partial rockfall/Wall-side fallen slab at (86, 40, 135) size (5.8, 3.9, 7.9) layer 0 mat -
+=== PrototypeTrack
+    9 BoxCollider | Edge marker | parent Greybox Test Area e.g. Greybox Test Area/Edge marker at (-108, 0, -85) size (1.0, 0.6, 2.0) layer 0 mat -
+    1 BoxCollider | Slalom block 1 | parent Greybox Test Area e.g. Greybox Test Area/Slalom block 1 at (-65, 1, -55) size (3.0, 1.0, 3.0) layer 0 mat -
+    1 BoxCollider | Slalom block 2 | parent Greybox Test Area e.g. Greybox Test Area/Slalom block 2 at (-51, 1, -35) size (3.0, 1.0, 3.0) layer 0 mat -
+    1 BoxCollider | Slalom block 3 | parent Greybox Test Area e.g. Greybox Test Area/Slalom block 3 at (-65, 1, -15) size (3.0, 1.0, 3.0) layer 0 mat -
+    1 BoxCollider | Slalom block 4 | parent Greybox Test Area e.g. Greybox Test Area/Slalom block 4 at (-51, 1, 5) size (3.0, 1.0, 3.0) layer 0 mat -
+    1 BoxCollider | Slalom block 5 | parent Greybox Test Area e.g. Greybox Test Area/Slalom block 5 at (-65, 1, 25) size (3.0, 1.0, 3.0) layer 0 mat -
+=== StreetLoopGreybox
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.2, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 83, -114) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 157, 162) size (0.2, 2.6, 0.2) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -
+=== StreetLoopReverse
+    5 BoxCollider | Deck post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post at (521, 80, -38) size (0.2, 2.8, 0.2) layer 0 mat -
+    3 BoxCollider | Deck railing | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing at (520, 82, -34) size (1.3, 1.0, 5.7) layer 0 mat -
+    1 BoxCollider | Garage walls | parent Separate downhill garage kennel e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls at (398, 81, 21) size (17.3, 3.6, 10.5) layer 0 mat -
+    4 BoxCollider | Opening side wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall at (63, 31, -438) size (2.6, 12.0, 2.3) layer 0 mat -
+    4 BoxCollider | Pool edge | parent House # pool and lake e.g. House 3 pool and lake/Pool edge at (407, 33, -197) size (0.6, 0.2, 17.2) layer 0 mat -
+    1 BoxCollider | Pool house walls | parent Smaller pool house left of garage e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls at (397, 81, 0) size (5.1, 2.7, 5.1) layer 0 mat -
+    4 BoxCollider | Porch post | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post at (505, 82, -36) size (0.2, 2.0, 0.2) layer 0 mat -
+    1 BoxCollider | Rear deck handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail at (406, 85, -13) size (0.7, 0.2, 19.5) layer 0 mat -
+    2 BoxCollider | Side handrail | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail at (408, 85, -3) size (5.2, 0.2, 0.3) layer 0 mat -
+   16 BoxCollider | Stepped shopfront parapet | parent Phase # architecture [SIGN] e.g. Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Stepped shopfront parapet at (-539, 13, 519) size (22.8, 1.3, 1.9) layer 0 mat -
+    2 BoxCollider | Supported exterior wall | parent Fox Gully drive-through house (former # -#) e.g. Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall at (50, 31, -456) size (29.8, 12.0, 34.4) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent Fern Creek Leap
+# - # mph [SIGN] e.g. CR081 mountain exploration/Fern Creek Leap
+35 - 55 mph/Trail sign post at (847, 104, -118) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent High Ridge Drop
+# - # mph [SIGN] e.g. CR081 mountain exploration/High Ridge Drop
+35 - 55 mph/Trail sign post at (1048, 156, 59) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent LAKE SHORE
+BOTH TRAILS RETURN HOME [SIGN] e.g. CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME/Trail sign post at (542, 84, -93) size (0.2, 3.2, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent MOUNTAIN TRAILS
+Creek ascent / Ridge return [SIGN] e.g. CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return/Trail sign post at (708, 83, -114) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent RIDGE RETURN
+Lake / Neighborhood [SIGN] e.g. CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood/Trail sign post at (681, 80, -55) size (0.2, 2.6, 0.2) layer 0 mat -
+    1 BoxCollider | Trail sign post | parent SUMMIT
+Both trails return to lake [SIGN] e.g. CR081 mountain exploration/SUMMIT
+Both trails return to lake/Trail sign post at (922, 157, 162) size (0.2, 2.6, 0.2) layer 0 mat -
+   45 BoxCollider | Wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Original house 2/Phase 6 architecture/Wall collision at (440, 91, -82) size (10.4, 4.8, 13.3) layer 0 mat -
+    5 BoxCollider | White porch post | parent Reference architecture e.g. Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post at (423, 85, -4) size (0.2, 3.0, 0.2) layer 0 mat -
+    1 BoxCollider | Wing wall collision | parent Phase # architecture e.g. Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision at (505, 81, -32) size (2.9, 5.6, 5.7) layer 0 mat -
+    1 MeshCollider | Ground_Black asphalt driveway and terminal parking | parent Other gate black asphalt driveway - stops at parking e.g. Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking at (430, 83, -32) size (77.1, 7.4, 13.3) layer 0 mat -

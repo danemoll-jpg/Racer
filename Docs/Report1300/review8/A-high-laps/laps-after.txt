@@ -1,0 +1,89 @@
+screen=1280x800 kind=lap1300r8 version=1.3.0-review8 park=on
+== A. Mountain Loop - Forward (mountain-forward-v5-supported) HIGH MODE, one lap by the pad steering into the edges [after]: line 2760 m, 69 bumper pieces
+    0 s: at 740.8,79.98,-18.4 s 2650 (96 % of the lap), 0 m/s, next CP 0, off the line 2.3 m
+    30 s: at 1275.6,137.16,-65.9 s 1016 (37 % of the lap), 13 m/s, next CP 0, off the line 2.4 m
+    60 s: at 1013.8,161.77,101.2 s 1590 (58 % of the lap), 14 m/s, next CP 0, off the line 3.1 m
+    90 s: at 732.0,85.14,-120.6 s 4 (0 % of the lap), 14 m/s, next CP 2, off the line 5.1 m
+    120 s: at 1128.4,146.93,-64.1 s 1167 (42 % of the lap), 24 m/s, next CP 0, off the line 2.0 m
+    150 s: at 1050.9,148.96,6.5 s 1483 (54 % of the lap), 23 m/s, next CP 0, off the line 0.8 m
+    181 s: at 719.1,80.37,-70.1 s 2710 (98 % of the lap), 19 m/s, next CP 1, off the line 0.8 m
+    211 s: at 1087.4,145.36,-94.9 s 1219 (44 % of the lap), 23 m/s, next CP 0, off the line 0.9 m
+    241 s: at 1255.9,152.66,209.5 s 1873 (68 % of the lap), 30 m/s, next CP 0, off the line 1.2 m
+    271 s: at 1371.8,117.07,-143.0 s 888 (32 % of the lap), 25 m/s, next CP 0, off the line 0.8 m
+    301 s: at 1024.2,159.80,77.5 s 1562 (57 % of the lap), 3 m/s, next CP 0, off the line 0.9 m
+    331 s: at 722.7,82.91,-107.1 s 2749 (100 % of the lap), 16 m/s, next CP 2, off the line 1.4 m
+    361 s: at 1047.6,141.40,-121.9 s 1268 (46 % of the lap), 25 m/s, next CP 0, off the line 0.9 m
+    391 s: at 689.6,88.78,44.6 s 2544 (92 % of the lap), 22 m/s, next CP 0, off the line 0.8 m
+    421 s: at 1340.5,125.83,-104.6 s 938 (34 % of the lap), 26 m/s, next CP 0, off the line 1.1 m
+    451 s: at 1016.7,161.93,93.4 s 1580 (57 % of the lap), 11 m/s, next CP 0, off the line 3.8 m
+    481 s: at 734.3,84.99,-115.3 s 4 (0 % of the lap), 12 m/s, next CP 2, off the line 1.0 m
+    511 s: at 1025.8,138.33,-124.3 s 1290 (47 % of the lap), 23 m/s, next CP 0, off the line 2.3 m
+    541 s: at 685.2,87.27,31.0 s 2558 (93 % of the lap), 18 m/s, next CP 0, off the line 1.3 m
+    571 s: at 1316.3,131.11,-82.8 s 971 (35 % of the lap), 24 m/s, next CP 0, off the line 1.9 m
+    601 s: at 1023.7,156.50,124.5 s 1621 (59 % of the lap), 22 m/s, next CP 0, off the line 1.7 m
+    631 s: at 754.1,93.16,-177.4 s 76 (3 % of the lap), 26 m/s, next CP 2, off the line 0.7 m
+    662 s: at 985.1,132.40,-110.0 s 1345 (49 % of the lap), 19 m/s, next CP 0, off the line 0.7 m
+    692 s: at 714.7,81.67,-9.2 s 2622 (95 % of the lap), 9 m/s, next CP 0, off the line 1.1 m
+    722 s: at 1216.9,142.61,-52.6 s 1076 (39 % of the lap), 26 m/s, next CP 0, off the line 1.1 m
+    752 s: at 1115.8,152.61,137.9 s 1714 (62 % of the lap), 25 m/s, next CP 0, off the line 0.7 m
+    782 s: at 784.0,108.29,-252.8 s 159 (6 % of the lap), 14 m/s, next CP 2, off the line 0.8 m
+    812 s: at 1032.8,143.18,-43.1 s 1429 (52 % of the lap), 22 m/s, next CP 0, off the line 3.2 m
+    842 s: at 740.0,79.67,-31.0 s 2663 (96 % of the lap), 18 m/s, next CP 0, off the line 1.6 m
+    872 s: at 1142.2,146.64,-57.6 s 1151 (42 % of the lap), 23 m/s, next CP 0, off the line 0.7 m
+  900 s, lap done False, 72 pushes; stalls against a bumper 0; glances 114, pinned and turned 2, head on 2; resets 0 (the check's own 0); carried past a big flight 23
+    36.74 HIGH Bumper 5 at (1383.2, -193.6): 29 deg, 22.1 -> 20.4 m/s
+    37.66 HIGH Bumper 32 at (1388.1, -174.3): 33 deg, 24.4 -> 22.0 m/s
+    38.54 HIGH Bumper 33 at (1382.9, -154.8): 8 deg, 24.9 -> 24.7 m/s
+    38.92 HIGH Bumper 33 at (1378.5, -146.2): 4 deg, 26.2 -> 26.1 m/s
+    39.26 HIGH Bumper 33 at (1373.6, -138.5): 3 deg, 27.4 -> 27.4 m/s
+    39.70 HIGH Bumper 33 at (1366.2, -128.8): 1 deg, 26.8 -> 26.8 m/s
+    40.84 HIGH Bumper 6 at (1347.1, -116.6): 46 deg, 20.5 -> 16.7 m/s
+    41.78 HIGH Bumper 34 at (1342.9, -104.4): 59 deg, 16.6 -> 11.8 m/s
+    43.76 HIGH Bumper 34 at (1322.6, -86.3): 44 deg, 19.1 -> 15.9 m/s
+    45.34 HIGH Bumper 34 at (1303.7, -73.3): 43 deg, 18.8 -> 15.7 m/s
+    45.96 HIGH Bumper 34 at (1296.7, -68.9): 19 deg, 15.2 -> 14.7 m/s
+    47.08 HIGH Bumper 8 at (1278.6, -67.4): 49 deg, 19.8 -> 15.7 m/s
+== A. Leviathan - Reverse (leviathan-reverse-v5) HIGH MODE, one lap by the pad steering into the edges [after]: line 8365 m, 173 bumper pieces
+    0 s: at 316.8,23.27,481.1 s 8295 (99 % of the lap), 0 m/s, next CP 0, off the line 2.3 m
+    30 s: at -254.9,9.63,529.1 s 582 (7 % of the lap), 26 m/s, next CP 4, off the line 1.0 m
+    60 s: at -630.6,9.54,169.0 s 1300 (16 % of the lap), 24 m/s, next CP 7, off the line 0.7 m
+    90 s: at -609.9,6.80,-550.1 s 2020 (24 % of the lap), 18 m/s, next CP 10, off the line 1.8 m
+    120 s: at -3.1,32.64,-436.0 s 2747 (33 % of the lap), 24 m/s, next CP 14, off the line 1.1 m
+    150 s: at 442.6,31.79,-489.1 s 3386 (40 % of the lap), 22 m/s, next CP 19, off the line 3.7 m
+    181 s: at 543.0,61.37,-172.4 s 3860 (46 % of the lap), 19 m/s, next CP 22, off the line 10.0 m
+    211 s: at 682.9,79.68,27.5 s 4313 (52 % of the lap), 18 m/s, next CP 28, off the line 1.2 m
+    241 s: at 1000.0,163.87,131.1 s 4753 (57 % of the lap), 17 m/s, next CP 32, off the line 1.9 m
+    271 s: at 833.5,95.77,-198.2 s 5766 (69 % of the lap), 17 m/s, next CP 0, off the line 0.8 m
+    301 s: at 1186.4,137.21,-76.9 s 6233 (75 % of the lap), 16 m/s, next CP 0, off the line 4.4 m
+    331 s: at 746.4,86.15,-119.7 s 7251 (87 % of the lap), 16 m/s, next CP 0, off the line 0.5 m
+    361 s: at 464.9,84.21,-11.8 s 7734 (92 % of the lap), 17 m/s, next CP 0, off the line 7.6 m
+    391 s: at 248.9,9.37,560.8 s 76 (1 % of the lap), 25 m/s, next CP 2, off the line 0.7 m
+    421 s: at -508.7,8.54,533.3 s 836 (10 % of the lap), 25 m/s, next CP 5, off the line 5.3 m
+    451 s: at -627.0,17.95,-93.6 s 1563 (19 % of the lap), 24 m/s, next CP 8, off the line 10.1 m
+    481 s: at -347.1,9.72,-562.3 s 2284 (27 % of the lap), 26 m/s, next CP 11, off the line 1.4 m
+    511 s: at 81.0,43.70,-287.8 s 2943 (35 % of the lap), 10 m/s, next CP 15, off the line 4.1 m
+    541 s: at 543.0,29.36,-401.7 s 3622 (43 % of the lap), 26 m/s, next CP 21, off the line 0.7 m
+    571 s: at 639.8,79.80,71.5 s 4246 (51 % of the lap), 21 m/s, next CP 27, off the line 0.6 m
+    601 s: at 969.7,165.66,132.4 s 4716 (56 % of the lap), 11 m/s, next CP 32, off the line 0.8 m
+    632 s: at 865.5,93.86,-218.5 s 5728 (68 % of the lap), 16 m/s, next CP 0, off the line 1.1 m
+    662 s: at 1142.5,139.84,-68.8 s 6189 (74 % of the lap), 16 m/s, next CP 0, off the line 0.8 m
+    692 s: at 720.8,87.60,-142.9 s 7216 (86 % of the lap), 16 m/s, next CP 0, off the line 0.8 m
+    722 s: at 481.1,85.15,-21.9 s 7716 (92 % of the lap), 11 m/s, next CP 0, off the line 1.3 m
+    752 s: at 287.6,8.65,561.2 s 37 (0 % of the lap), 26 m/s, next CP 1, off the line 0.7 m
+    782 s: at -471.6,8.65,535.4 s 799 (10 % of the lap), 25 m/s, next CP 5, off the line 1.5 m
+    812 s: at -628.1,13.62,-62.9 s 1532 (18 % of the lap), 23 m/s, next CP 8, off the line 5.8 m
+    842 s: at -383.4,7.23,-559.8 s 2247 (27 % of the lap), 26 m/s, next CP 11, off the line 0.7 m
+    872 s: at 99.2,41.02,-285.6 s 2962 (35 % of the lap), 26 m/s, next CP 16, off the line 1.0 m
+  900 s, lap done False, 74 pushes; stalls against a bumper 0; glances 102, pinned and turned 0, head on 1; resets 0 (the check's own 0); carried past a big flight 4
+    1213.52 HIGH Bumper 82 at (315.3, 514.3): 24 deg, 25.4 -> 24.1 m/s
+    1217.70 HIGH Bumper 83 at (313.7, 565.8): 28 deg, 4.7 -> 4.4 m/s
+    1239.22 HIGH Bumper 6 at (-205.6, 521.2): 27 deg, 25.2 -> 23.6 m/s
+    1258.28 HIGH Bumper 96 at (-616.6, 490.8): 33 deg, 24.8 -> 22.3 m/s
+    1260.28 HIGH Bumper 97 at (-630.0, 445.1): 27 deg, 26.3 -> 24.5 m/s
+    1264.72 HIGH Bumper 13 at (-628.4, 332.9): 6 deg, 26.0 -> 25.9 m/s
+    1301.60 HIGH Bumper 106 at (-604.9, -553.5): 19 deg, 19.5 -> 18.9 m/s
+    1308.20 HIGH Bumper 108 at (-444.5, -557.9): 26 deg, 25.2 -> 23.7 m/s
+    1313.92 HIGH Bumper 24 at (-302.0, -566.4): 35 deg, 25.9 -> 23.1 m/s
+    1320.04 HIGH Bumper 111 at (-151.7, -586.4): 28 deg, 23.9 -> 22.3 m/s
+    1327.26 HIGH Bumper 28 at (-14.1, -537.2): 7 deg, 22.4 -> 22.3 m/s
+    1332.96 HIGH Bumper 115 at (5.9, -397.9): 23 deg, 25.9 -> 24.6 m/s
