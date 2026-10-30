@@ -88,6 +88,7 @@ namespace Racer
         {
             if (!On || c.contactCount == 0) return;
             var n = c.GetContact(0).normal; if (Mathf.Abs(n.y) > .6f) return; // the ground, a landing, a ramp: not a hit
+            if (!WallGlance.Off && GuideWalls.Is(c.collider)) return; // 1.3.0-review8: a bumper or a barrier: WallGlance turns it along the wall instead
             hit = true; hitNormal = n;
         }
         void OnDisable() { if (car) car.Forgiving = false; }

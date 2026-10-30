@@ -208,6 +208,7 @@ namespace Racer
         public void EnterFreeRoamAfterTitle(){if(Hints.WelcomeDue){EnterMenuAfterTitle();menus.OpenWelcome();return;}Radio=LocalRadio.Attach(this);roamHint=!InRoamWorld;StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
         void Update()
         {
+            if (Race) { WallGlance.Ensure(Race.vehicle, 1); if (SplitScreen.Race) WallGlance.Ensure(SplitScreen.Race.P2Car, 2); } // 1.3.0-review8: the players glance off barriers, in every mode
             if (Save == null || !Started || LoadingScreen.Holding || State==Stage.Title || menus?.OwnsTextInput==true || DeveloperLocationHud.OwnsInput) return;
             if (ReplayViewer.Active) return; // 1.1: the replay has the buttons (B / Esc / Start leave it)
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;

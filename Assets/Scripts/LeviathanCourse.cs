@@ -311,18 +311,18 @@ namespace Racer
                 if (b.kind == "noentry") { NoEntry(b, holder); built++; continue; }
                 if (!Ground(at, b.pos[2], out float y0)) { Debug.LogWarning($"Leviathan: no ground under the block at {at} ({b.at})"); continue; }
                 var block = new GameObject($"Leviathan road closed ({b.at})").transform; block.SetParent(holder, false); block.SetPositionAndRotation(new Vector3(at.x, y0, at.z), rot);
-                int n = Mathf.Max(1, Mathf.CeilToInt(2 * b.half / 3f)); float w = 2 * b.half / n;
+                int n = Mathf.Max(1, Mathf.CeilToInt(2 * b.half / 3f)); float w = 2 * b.half / n; var run = new List<Vector3>();
                 for (int k = 0; k < n; k++)
                 {
                     float c = -b.half + w * (k + .5f); var p = at + right * c;
-                    if (!Ground(p, y0, out float py) || Mathf.Abs(py - y0) > 2.5f) continue;
+                    if (!Ground(p, y0, out float py) || Mathf.Abs(py - y0) > 2.5f) { Run(block, run, w, rot, b.kind == "rail"); continue; }
+                    run.Add(new Vector3(p.x, py, p.z));
                     var panel = new GameObject("Barricade panel").transform; panel.SetParent(block, false); panel.position = new Vector3(p.x, py, p.z); panel.rotation = rot;
                     Box(panel, "Post", new Vector3(-w * .5f + .15f, .45f, 0), new Vector3(.25f, 1.6f, .25f), timber); Box(panel, "Post", new Vector3(w * .5f - .15f, .45f, 0), new Vector3(.25f, 1.6f, .25f), timber);
                     Box(panel, "Rail low", new Vector3(0, .5f, 0), new Vector3(w, .2f, .1f), timber); Box(panel, "Rail high", new Vector3(0, 1.0f, 0), new Vector3(w, .2f, .1f), timber);
-                    var hit = new GameObject("Barricade collision"); hit.transform.SetParent(panel, false); hit.transform.localPosition = new Vector3(0, .6f, 0);
-                    var box = hit.AddComponent<BoxCollider>(); box.size = new Vector3(w, 2.0f, .35f); panels++;
-                    if (b.kind == "rail") box.sharedMaterial = slide ? slide : slide = new PhysicsMaterial("Leviathan rail") { bounciness = .2f, bounceCombine = PhysicsMaterialCombine.Maximum, dynamicFriction = .05f, staticFriction = .05f, frictionCombine = PhysicsMaterialCombine.Minimum };
+                    panels++;
                 }
+                Run(block, run, w, rot, b.kind == "rail");
                 // the sign: one-sided, its face (-z) toward the traffic, in front of the middle panel; closed from both ends: one each way, side by side
                 float apart = b.both ? Mathf.Min(1.4f, b.half * .5f) : 0;
                 foreach (int way in b.kind == "rail" ? new int[0] : b.both ? new[] { 1, -1 } : new[] { 1 })
@@ -335,6 +335,21 @@ namespace Racer
                 built++; Debug.Log($"Leviathan: road closed at {block.position} facing {b.yaw:F0}: {block.GetComponentsInChildren<BoxCollider>().Length} panels{(b.both ? ", signs both ways" : "")} ({b.at})");
             }
             Debug.Log($"Leviathan: {built} closed way(s) built ({panels} barricade panels)");
+        }
+        // 1.3.0-review8 (Chastain Rush Round 85): the panels were a collider each, standing at their own ground heights, so a vehicle sliding along the
+        // barricade met each panel's corner. Now one box for each unbroken run of panels: one flat face along the row (from 0.6 m under the lowest
+        // panel's ground to 1.6 m over the highest; the panels were 0.6 m to 1.6 m tall in all, -0.4 to 1.6), so WallGlance turns a glancing vehicle along it.
+        public const string BarrierRunName = "Barricade run collision";
+        static void Run(Transform block, List<Vector3> run, float w, Quaternion rot, bool rail)
+        {
+            if (run.Count == 0) return;
+            Vector3 a = run[0], b = run[run.Count - 1]; float lo = float.MaxValue, hi = float.MinValue;
+            foreach (var q in run) { lo = Mathf.Min(lo, q.y - .4f); hi = Mathf.Max(hi, q.y + 1.6f); }
+            var go = new GameObject(BarrierRunName); go.transform.SetParent(block, false); var mid = (a + b) * .5f;
+            go.transform.SetPositionAndRotation(new Vector3(mid.x, (lo + hi) * .5f, mid.z), rot);
+            var box = go.AddComponent<BoxCollider>(); box.size = new Vector3(new Vector2(b.x - a.x, b.z - a.z).magnitude + w, hi - lo, .35f);
+            if (rail) box.sharedMaterial = slide ? slide : slide = new PhysicsMaterial("Leviathan rail") { bounciness = 0f, bounceCombine = PhysicsMaterialCombine.Minimum, dynamicFriction = 0f, staticFriction = 0f, frictionCombine = PhysicsMaterialCombine.Minimum };
+            run.Clear();
         }
         // Street Loop Reverse's block at Pine Ridge's end, as it is there: its concrete exit lip (the same mesh) and its NO ENTRY board
         static void NoEntry(Block b, Transform holder)

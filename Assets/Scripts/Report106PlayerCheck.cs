@@ -190,6 +190,9 @@ namespace Racer
                 case "ai1300r7": yield return Ai1300r7(); break;
                 case "holes1300r7": yield return Holes1300r7(); break;
                 case "menus1300r6": yield return Menus1300r6(); break;
+                case "jumps1300r8": yield return Jumps1300r8(); break; // 1.3.0-review8 (Report106PlayerCheck.Round1300r8.cs)
+                case "lap1300r8": yield return Lap1300r8(); break;
+                case "wall1300r8": yield return Wall1300r8(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();
