@@ -1,0 +1,13 @@
+screen=1280x800 kind=notes1300r9 version=1.3.0-review9 park=on
+Free Roam (FreeRoamWorld), screen 1280x800; jump site 'Pool-house jump', speed trap 'S Cherokee hill speed trap'
+  one player: activity line 'Pool-house jump / 126 ft' (RaceHud, unchanged)
+  split screen Free Roam: active True, player 2 'PLAYER 2', hud yes
+  stacked (start note + jump, P2): P1 top 'Split-screen Free Roam: acorns count for the hunt | (activity records and map discovery are not recorded)' centre '';  P2 top 'Pool-house jump / 126 ft | Split-screen Free Roam: acorns count for the hunt | (activity records and map discovery are not recorded)' centre ''
+  top-bottom: jump P1, speed trap P2: P1 top 'Pool-house jump / 126 ft' centre '';  P2 top 'S Cherokee hill speed trap / 71 mph' centre ''
+  top-bottom: speed trap P1, combo P2: P1 top 'S Cherokee hill speed trap / 71 mph' centre '';  P2 top 'BACKFLIP + ROLL  x2 / 2,340 pts | COMBO x2 · 3,120' centre ''
+  top-bottom: combo P1, jump P2: P1 top 'BACKFLIP + ROLL  x2 / 2,340 pts | COMBO x2 · 3,120' centre '';  P2 top 'Pool-house jump / 126 ft' centre ''
+  top-bottom: acorn banner + jump P1: P1 top 'Pool-house jump / 126 ft' centre '';  P2 top '' centre ''
+  side-by-side: jump P1, speed trap P2: P1 top 'Pool-house jump / 126 ft' centre '';  P2 top 'S Cherokee hill speed trap / 71 mph' centre ''
+  side-by-side: speed trap P1, combo P2: P1 top 'S Cherokee hill speed trap / 71 mph' centre '';  P2 top 'BACKFLIP + ROLL  x2 / 2,340 pts | COMBO x2 · 3,120' centre ''
+  side-by-side: combo P1, jump P2: P1 top 'BACKFLIP + ROLL  x2 / 2,340 pts | COMBO x2 · 3,120' centre '';  P2 top 'Pool-house jump / 126 ft' centre ''
+  side-by-side: acorn banner + jump P1: P1 top 'Pool-house jump / 126 ft' centre '';  P2 top '' centre ''

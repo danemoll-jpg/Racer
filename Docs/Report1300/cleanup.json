@@ -1,75 +1,27 @@
 {
-    "freeAfter":  230631202816,
-    "buildsAfter":  8348277361,
-    "freeBefore":  217263239168,
+    "freeAfter":  171840942080,
+    "buildsAfter":  8348391566,
+    "freeBefore":  169559232512,
     "removed":  [
                     {
-                        "bytes":  1849144954,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review8-Windows"
+                        "bytes":  1849154841,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-1.3.0-review9-Windows"
                     },
                     {
-                        "bytes":  431831865,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-1030700\\assets\\game.zip"
+                        "bytes":  431834538,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-1030800\\assets\\game.zip"
                     },
                     {
                         "bytes":  0,
                         "path":  "C:\\Users\\danmo\\Racer\\Temp\\Report1300-signature-check"
-                    },
-                    {
-                        "bytes":  1847305012,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8-build.txt"
-                    },
-                    {
-                        "bytes":  1847305524,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8b"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8b-build.txt"
-                    },
-                    {
-                        "bytes":  1847306548,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8c"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8c-build.txt"
-                    },
-                    {
-                        "bytes":  1847307572,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8d"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8d-build.txt"
-                    },
-                    {
-                        "bytes":  1847308084,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8e"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8e-build.txt"
-                    },
-                    {
-                        "bytes":  1847309108,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8f"
-                    },
-                    {
-                        "bytes":  42,
-                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check1300r8f-build.txt"
                     }
                 ],
-    "buildsBefore":  21713096280,
-    "buildsRecovered":  13364818919,
+    "buildsBefore":  10629380945,
+    "buildsRecovered":  2280989379,
     "retained":  [
                      "Latest complete root runtime",
-                     "managed 1030700",
-                     "managed 1030600 (1.3.0-review7)",
+                     "managed 1030800",
+                     "managed 1030700 (1.3.0-review8)",
                      "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
                  ]
 }
