@@ -14,6 +14,8 @@ namespace Racer
         {
             public RectTransform root, captionRoot; public Text info, speed, centre, tag, gaps, grid, caption, heat, alert, radio; public RacingMiniMap map; public GameObject infoPanel, speedPanel, gapsPanel, gridPanel;
             public GameObject goalPanel; public Image goalBadge; public Text goal; // 0.108 Part B: the Stunt event's next medal
+            // 1.3.0-review9: the player's notes (jumps, speed traps, smashes, stunt lines, chase results) at the top of the half, newest on top
+            public Text note; public Image noteBack; public readonly System.Collections.Generic.Dictionary<string, (string text, string first, float since)> notes = new();
         }
         RaceFlow flow; SplitRace split; Font font; readonly Half[] halves = new Half[2]; GameObject divider; RectTransform canvas;
         float goUntil; RaceFlow.Stage lastStage;
@@ -72,6 +74,10 @@ namespace Racer
             h.goal.horizontalOverflow = HorizontalWrapMode.Overflow; h.goalPanel.SetActive(false);
             h.captionRoot = new GameObject("Player " + (player + 1) + " winner caption", typeof(RectTransform)).GetComponent<RectTransform>(); h.captionRoot.SetParent(canvas, false);
             h.caption = Label(h.captionRoot, 30, TextAnchor.UpperCenter, new Color(.4f, 1, .85f)); h.caption.rectTransform.anchorMin = new Vector2(.1f, .7f); h.caption.rectTransform.anchorMax = new Vector2(.9f, .95f); h.caption.rectTransform.offsetMin = h.caption.rectTransform.offsetMax = Vector2.zero;
+            h.noteBack = new GameObject("Notes backing", typeof(RectTransform), typeof(Image)).GetComponent<Image>(); h.noteBack.transform.SetParent(h.root, false);
+            h.noteBack.color = new Color(.025f, .055f, .07f, .62f); h.noteBack.raycastTarget = false; var nb = h.noteBack.rectTransform; nb.anchorMin = nb.anchorMax = nb.pivot = new Vector2(.5f, 1);
+            h.note = Label(h.root, 19, TextAnchor.UpperCenter, new Color(.4f, 1, .85f)); var nr = h.note.rectTransform; nr.anchorMin = nr.anchorMax = nr.pivot = new Vector2(.5f, 1);
+            h.note.horizontalOverflow = HorizontalWrapMode.Wrap; h.note.verticalOverflow = VerticalWrapMode.Overflow; h.noteBack.gameObject.SetActive(false); h.note.gameObject.SetActive(false);
             h.map = RacingMiniMap.Create(h.root, flow.Race, font); h.map.Split = true;
             var panel = (RectTransform)h.map.transform.parent.parent; panel.localScale = Vector3.one * .78f;
             return h;
@@ -104,7 +110,7 @@ namespace Racer
             if (SplitRoam.Current) { Roam(driving); return; }
             for (int i = 0; i < 2; i++)
             {
-                var h = halves[i]; var state = i == 0 ? race.Racers[0] : split.P2; var car = i == 0 ? race.vehicle : split.P2Car; h.goalPanel.SetActive(false);
+                var h = halves[i]; var state = i == 0 ? race.Racers[0] : split.P2; var car = i == 0 ? race.vehicle : split.P2Car; h.goalPanel.SetActive(false); ShowNotes(h, null, 0);
                 h.root.gameObject.SetActive(driving && state != null && car && !split.ShotActive(i + 1)); // 0.92 Part F: not over the winner shot
                 h.captionRoot.gameObject.SetActive(driving && split.ShotActive(i + 1)); if (h.captionRoot.gameObject.activeSelf) h.caption.text = "WINNER\n" + state.Name;
                 if (!h.root.gameObject.activeSelf) continue;
@@ -147,8 +153,8 @@ namespace Racer
                 var h = halves[i]; int player = i + 1; var car = i == 0 ? race.vehicle : split.P2Car; var other = i == 0 ? split.P2Car : race.vehicle;
                 bool one = SplitScreen.OneView; if (one && i == 1) car = null; if (SplitScreen.Watching != 0 && SplitScreen.Watching != player) car = null; var runner = getaway != null ? getaway.RunnerOf(player) : null; if (getaway != null && (runner == null || !runner.human)) car = null; // 0.95 Part B: one view (the AI has no half)
                 h.root.gameObject.SetActive(driving && car); h.captionRoot.gameObject.SetActive(false); h.gridPanel.SetActive(false); h.gapsPanel.SetActive(false);
-                if (!car || !driving) continue;
-                h.map.Focus = car;
+                if (!car || !driving) { h.notes.Clear(); continue; }
+                h.map.Focus = car; var notes = new System.Collections.Generic.List<(string key, string text)>(); float heatBottom = 0;
                 var cam = i == 0 ? Camera.main : split.Camera2;
                 h.tag.text = one ? "" : (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player) + (race.HighFor(player) ? "   ·   HIGH" : "");
                 var lines = new System.Collections.Generic.List<string>();
@@ -208,6 +214,7 @@ namespace Racer
                         {
                             h.radio.fontSize = Mathf.RoundToInt(26 * k); Wide(h.radio, y0 - (getaway.AlertShown ? 104 : 62) * k, 38 * k); h.radio.text = "<color=#7FB2FF>RADIO</color>  " + getaway.Radio; Fit(h.radio, avail);
                         }
+                        heatBottom = -y0 + (getaway.Radio != "" ? (getaway.AlertShown ? 104 : 62) * k + 38 * k : getaway.AlertShown ? 104 * k : 64 * k); // 1.3.0-review9: the notes go under the heat block
                     }
                 }
                 // 0.107 Part E: the Stunt event's line (five-figure points) no longer wraps, so "FINISH THE TRICK!" below it is not cut off
@@ -227,29 +234,30 @@ namespace Racer
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
                 string centre = "";
                 var respawn = car.GetComponent<VehicleRespawn>();
+                void Note(string key, string top, string mid) { if (one) centre = mid; else notes.Add((key, top)); } // one player on the whole screen: today's centre
                 if (getaway != null && runner != null)
                 {
                     if (getaway.State == GetawayChase.Phase.Starting) centre = getaway.Clock <= 0 ? "<size=26>YOU ARE THE RUNNER</size>\nget away!" : getaway.Clock < 1.5f ? "GO!" : "";
-                    else if (runner.caught) centre = "<color=#FF5A4A>CAUGHT!</color>\n<size=22>" + RaceHud.FormatTime(runner.freeSeconds) + "</size>";
-                    else if (runner.escaped) centre = "<color=#7FFFB0>" + (runner.limit ? "TIME UP: ESCAPED" : "ESCAPED!") + "</color>\n<size=22>" + RaceHud.FormatTime(runner.freeSeconds) + "</size>";
-                    else if (getaway.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
+                    else if (runner.caught) Note("result", "<size=28><color=#FF5A4A>CAUGHT!</color></size>\n" + RaceHud.FormatTime(runner.freeSeconds), "<color=#FF5A4A>CAUGHT!</color>\n<size=22>" + RaceHud.FormatTime(runner.freeSeconds) + "</size>");
+                    else if (runner.escaped) Note("result", "<size=28><color=#7FFFB0>" + (runner.limit ? "TIME UP: ESCAPED" : "ESCAPED!") + "</color></size>\n" + RaceHud.FormatTime(runner.freeSeconds), "<color=#7FFFB0>" + (runner.limit ? "TIME UP: ESCAPED" : "ESCAPED!") + "</color>\n<size=22>" + RaceHud.FormatTime(runner.freeSeconds) + "</size>");
+                    else if (getaway.Holds(car)) Note("reset", "<color=#FFFFFF>Reset: held for 2 s</color>", "<size=22>Reset: held for 2 s</size>");
                 }
                 else if (police)
                 {
                     bool cop = police.Cop == player; float t = police.Clock;
                     if (police.State == PoliceChase.Phase.Starting) centre = police.Clock <= 0 ? (cop ? "<size=26>YOU ARE THE COP</size>\nwait for the runner" : "<size=26>YOU ARE THE RUNNER</size>\nget away!") : cop ? $"GO IN {Mathf.CeilToInt(PoliceChase.CopDelay - t)}" : (t < 1.5f ? "GO!" : "");
                     else if (police.State == PoliceChase.Phase.Running && cop && t < PoliceChase.CopDelay + 1.5f) centre = "GO!";
-                    else if (police.State == PoliceChase.Phase.Caught) centre = "<color=#FF5A4A>CAUGHT!</color>\n<size=22>" + RaceHud.FormatTime(police.Clock) + "</size>";
-                    else if (police.State == PoliceChase.Phase.Away) centre = "<color=#7FFFB0>GOT AWAY!</color>\n<size=22>" + RaceHud.FormatTime(police.Clock) + "</size>";
-                    else if (!cop && police.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
-                    else if (cop && police.State == PoliceChase.Phase.Running && Time.unscaledTime - roam.StartedAt < 12) centre = "<size=20>" + (SplitScreen.DeviceOf(player) is UnityEngine.InputSystem.Keyboard ? "H" : "RB") + ": siren on / off</size>";
+                    else if (police.State == PoliceChase.Phase.Caught) Note("result", "<size=28><color=#FF5A4A>CAUGHT!</color></size>\n" + RaceHud.FormatTime(police.Clock), "<color=#FF5A4A>CAUGHT!</color>\n<size=22>" + RaceHud.FormatTime(police.Clock) + "</size>");
+                    else if (police.State == PoliceChase.Phase.Away) Note("result", "<size=28><color=#7FFFB0>GOT AWAY!</color></size>\n" + RaceHud.FormatTime(police.Clock), "<color=#7FFFB0>GOT AWAY!</color>\n<size=22>" + RaceHud.FormatTime(police.Clock) + "</size>");
+                    else if (!cop && police.Holds(car)) Note("reset", "<color=#FFFFFF>Reset: held for 2 s</color>", "<size=22>Reset: held for 2 s</size>");
+                    else if (cop && police.State == PoliceChase.Phase.Running && Time.unscaledTime - roam.StartedAt < 12) { string key = SplitScreen.DeviceOf(player) is UnityEngine.InputSystem.Keyboard ? "H" : "RB"; Note("hint", "<color=#FFFFFF>" + key + ": siren on / off</color>", "<size=20>" + key + ": siren on / off</size>"); }
                 }
                 else if (patrol)
                 {
                     var cop = patrol.CopOf(player);
                     if (patrol.State == SpeedPatrol.Phase.Starting) centre = "<size=26>SPEED PATROL</size>\n<size=20>point the radar at a car to clock it · " + (SplitScreen.DeviceOf(player) is UnityEngine.InputSystem.Keyboard ? "H" : "RB") + ": lights</size>";
-                    else if (cop != null && Time.unscaledTime < cop.lineUntil) centre = "<size=24>" + cop.line + "</size>";
-                    else if (cop != null && patrol.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
+                    else if (cop != null && Time.unscaledTime < cop.lineUntil) Note("patrol", "<size=22>" + cop.line + "</size>", "<size=24>" + cop.line + "</size>");
+                    else if (cop != null && patrol.Holds(car)) Note("reset", "<color=#FFFFFF>Reset: held for 2 s</color>", "<size=22>Reset: held for 2 s</size>");
                 }
                 else if (stunt)
                 {
@@ -270,11 +278,43 @@ namespace Racer
                         else if (ov.closed && stunt.Riders.Any(o => !o.closed)) centre = $"<size=28>WAITING FOR P{3 - player}</size>\n<size=22>Your final score: {ov.points:N0} pts</size>" + (string.IsNullOrEmpty(said) ? "" : "\n<size=19>" + said + "</size>");
                     }
                 }
-                else if (roam.Car && Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: acorns count for the hunt\n(activity records and map discovery are not recorded)</size>";
+                else if (roam.Car && Time.unscaledTime - roam.StartedAt < 7) Note("intro", "<color=#FFFFFF>Split-screen Free Roam: acorns count for the hunt\n(activity records and map discovery are not recorded)</color>", "<size=20>Split-screen Free Roam: acorns count for the hunt\n(activity records and map discovery are not recorded)</size>");
                 if (centre == "" && respawn && respawn.Pending) centre = "<size=22>Recovering…</size>";
-                if (centre == "" && !string.IsNullOrEmpty(hud)) centre = "<size=19>" + hud + "</size>";
+                if (!string.IsNullOrEmpty(hud)) { if (!one) notes.Add(("activity", hud)); else if (centre == "") centre = "<size=19>" + hud + "</size>"; } // 1.3.0-review9: jumps, speed traps, smashes, stunt lines: at the top, not the middle
                 h.centre.text = centre; h.centre.fontSize = 30;
+                ShowNotes(h, notes, heatBottom);
             }
+        }
+        // 1.3.0-review9 (Dan: "put them at the top of the screens instead of in the middle"): this half's notes, newest on top, centered at the
+        // top of the half between the info panel and the minimap (under both when the half is too narrow: side by side), under an acorn banner
+        // or the Getaway heat block when one is up. The centre keeps the countdown, GO, wrong way and recovering.
+        public static string Plain(string s) => System.Text.RegularExpressions.Regex.Replace(s ?? "", "<[^>]+>", "");
+        public string NoteText(int player) { var h = halves[player - 1]; return h != null && h.note && h.note.gameObject.activeInHierarchy ? Plain(h.note.text) : ""; }
+        public string CentreText(int player) { var h = halves[player - 1]; return h != null && h.centre && h.centre.gameObject.activeInHierarchy ? Plain(h.centre.text) : ""; }
+        void ShowNotes(Half h, System.Collections.Generic.List<(string key, string text)> now, float heatBottom)
+        {
+            float t = Time.unscaledTime; var seen = new System.Collections.Generic.HashSet<string>();
+            if (now != null) foreach (var (key, text) in now)
+                {
+                    if (string.IsNullOrEmpty(text)) continue; seen.Add(key);
+                    string first = System.Text.RegularExpressions.Regex.Replace(Plain(text.Split('\n')[0]), "[0-9.,:]", ""); // a running clock or count is the same note
+                    h.notes[key] = h.notes.TryGetValue(key, out var old) && old.first == first ? (text, first, old.since) : (text, first, t);
+                }
+            foreach (var key in h.notes.Keys.Where(k => !seen.Contains(k)).ToList()) h.notes.Remove(key);
+            bool on = h.notes.Count > 0; h.note.gameObject.SetActive(on); h.noteBack.gameObject.SetActive(on); if (!on) return;
+            h.note.text = string.Join("\n", h.notes.Values.OrderByDescending(n => n.since).Select(n => n.text));
+            var mp = (RectTransform)h.map.transform.parent.parent; float w = h.root.rect.width, scale = mp.localScale.x; bool mapTop = mp.anchorMax.y > .5f;
+            var info = (RectTransform)h.infoPanel.transform; float left = 14 + info.sizeDelta.x, below = 14 + info.sizeDelta.y;
+            if (h.goalPanel.activeSelf) { var gp = (RectTransform)h.goalPanel.transform; left = Mathf.Max(left, 14 + gp.sizeDelta.x); below = -gp.anchoredPosition.y + gp.sizeDelta.y; }
+            float right = mapTop ? 18 + 236 * scale : 0; if (mapTop) below = Mathf.Max(below, 18 + 220 * scale);
+            float side = Mathf.Max(left, right) + 10, width = w - 2 * side, top = 12;
+            if (width < 400) { width = w - 28; top = below + 8; } // a narrow half (side by side): under the info panel and the minimap
+            if (heatBottom > 0) top = Mathf.Max(top, heatBottom + 6);
+            var banner = AcornBanner.Current; // the acorn banner (its own 1080-high canvas; this one is 720 high) sits at the top of the finder's half
+            if (banner && banner.Shown != "" && (banner.Player == (h == halves[0] ? 1 : 2) || SplitScreen.OneView)) top = Mathf.Max(top, ((SplitScreen.LeftRight && !SplitScreen.OneView ? 310 : 64) + 124 * .72f) * 720f / 1080f + 6);
+            var r = h.note.rectTransform; r.sizeDelta = new Vector2(width - 16, 10); r.anchoredPosition = new Vector2(0, -top - 5);
+            float tw = Mathf.Min(width - 16, h.note.preferredWidth), th = h.note.preferredHeight; r.sizeDelta = new Vector2(width - 16, th);
+            var b = h.noteBack.rectTransform; b.anchoredPosition = new Vector2(0, -top); b.sizeDelta = new Vector2(tw + 24, th + 10);
         }
         public void Teardown()
         {

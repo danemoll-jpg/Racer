@@ -193,6 +193,7 @@ namespace Racer
                 case "jumps1300r8": yield return Jumps1300r8(); break; // 1.3.0-review8 (Report106PlayerCheck.Round1300r8.cs)
                 case "lap1300r8": yield return Lap1300r8(); break;
                 case "wall1300r8": yield return Wall1300r8(); break;
+                case "notes1300r9": yield return Notes1300r9(); break; // 1.3.0-review9 (Report106PlayerCheck.Round1300r9.cs)
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();
